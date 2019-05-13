@@ -10,9 +10,21 @@ using System.Data.SqlClient;
 
 namespace YACM
 {
+	/// <summary>
+	/// Yet Another Cycling Manager (YACM)
+	/// Databases Final Project
+	/// Paulo Vasconcelos	<paulobvasconcelos@ua.pt>
+	/// Pedro Teixeira	<pedro.teix@ua.pt>
+	/// 09-May-2019
+	/// </summary>
 	public partial class Form1 : Form
 	{
+		private readonly string sqlServer = "THINKPAD - 13\\SQLEXPRESS";
+
+
+		private DatabaseHandler db;
 		private SqlConnection cn;
+
 		private int currentContact;
 		private bool adding;
 
@@ -23,26 +35,9 @@ namespace YACM
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			cn = getSGBDConnection();
-			verifySGBDConnection();
-			LoadContacts();
-		}
-
-
-		private SqlConnection getSGBDConnection() 
-		{
-			return new SqlConnection("data source=THINKPAD-13\\SQLEXPRESS;integrated security=true;initial catalog=Northwind");
-		}
-
-		private bool verifySGBDConnection() 
-		{
-			if (cn == null)
-				cn = getSGBDConnection();
-
-			if (cn.State != ConnectionState.Open)
-				cn.Open();
-
-			return cn.State == ConnectionState.Open;
+			db = new DatabaseHandler(sqlServer);
+			cn = db.Connection();
+			LoadUsers();
 		}
 
 
@@ -58,13 +53,12 @@ namespace YACM
 		private void loadCustomersToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
-			LoadContacts();
+			LoadUsers();
 		}
 
-		private void LoadContacts() 
+		private void LoadUsers() 
 		{
-			if (!verifySGBDConnection())
-				return;
+			cn = db.Connection();
 
 			SqlCommand cmd = new SqlCommand("SELECT * FROM Customers", cn);
 			SqlDataReader reader = cmd.ExecuteReader();
@@ -94,8 +88,7 @@ namespace YACM
 
 		private void SubmitContact(Contact C)
 		{
-			if (!verifySGBDConnection())
-				return;
+			
 			SqlCommand cmd = new SqlCommand();
 
 			cmd.CommandText = "INSERT Customers (CustomerID, CompanyName, ContactName, Address, " + "City, Region, PostalCode, Country) " + "VALUES (@CustomerID, @CompanyName, @ContactName, @Address, " + "@City, @Region, @PostalCode, @Country) ";
@@ -129,8 +122,7 @@ namespace YACM
 		{
 			int rows = 0;
 
-			if (!verifySGBDConnection())
-				return;
+			
 			SqlCommand cmd = new SqlCommand();
 
 			cmd.CommandText = "UPDATE Customers " + "SET CompanyName = @CompanyName, " + "    ContactName = @ContactName, " + "    Address = @Address, " + "    City = @City, " + "    Region = @Region, " + "    PostalCode = @PostalCode, " + "    Country = @Country " + "WHERE CustomerID = @CustomerID";
@@ -167,8 +159,7 @@ namespace YACM
 
 		private void RemoveContact(string ContactID)
 		{
-			if (!verifySGBDConnection())
-				return;
+			
 			SqlCommand cmd = new SqlCommand();
 
 			cmd.CommandText = "DELETE Customers WHERE CustomerID=@contactID ";
