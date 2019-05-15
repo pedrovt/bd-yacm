@@ -1,0 +1,145 @@
+/*
+	Table List
+[User]
+Manager
+Sponsor
+Participant
+[Event]
+Stage
+Prize
+Document
+TextFile
+OtherFile
+Team
+Equipment
+
+SponsorshipEvent
+SponsorshipTeam
+StageParticipation
+ParticipantOnTeam
+ParticipantEnrollment
+ParticipantDropOut
+*/
+
+
+
+/*
+ * INSERT
+ */
+
+// --- MANAGER ---
+DECLARE @userEmail varchar(50)
+DECLARE @userName varchar(50)
+DECLARE @userPassword varchar(50)
+DECLARE @userID int
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+SELECT @userID = id FROM User
+WHERE email = @userEmail;
+
+INSERT INTO YACM.[Manager]
+VALUES (@userID);
+
+GO
+
+
+// --- SPONSOR ---
+DECLARE @userEmail varchar(50)
+DECLARE @userName varchar(50)
+DECLARE @userPassword varchar(50)
+DECLARE @userID int
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+SELECT @userID = id FROM User
+WHERE email = @userEmail;
+
+INSERT INTO YACM.[Sponsor]
+VALUES (@userID);
+
+GO
+
+
+// --- PARTICIPANT ---
+DECLARE @userEmail varchar(50)
+DECLARE @userName varchar(50)
+DECLARE @userPassword varchar(50)
+DECLARE @userID int
+
+INSERT INTO YACM.[User] (email,name,password)
+VALUES (email, name, password);
+
+SELECT @userID = id FROM User
+WHERE email = @userEmail;
+
+INSERT INTO YACM.[Participant]
+VALUES (@userID);
+
+GO
+
+
+// --- EVENT ---
+DECLARE @eventName varchar(50)
+DECLARE @eventBeginningDate date
+DECLARE @eventEndDate date
+DECLARE @eventVisibility bit
+DECLARE @eventManagerID int
+
+INSERT INTO YACM.[Event] (name,beginningDate,endDate,visibility,managerID)
+VALUES (@eventName,@eventBeginningDate,@eventEndDate,@eventVisibility,@eventManagerID)
+
+GO
+
+
+// --- STAGE ---
+DECLARE @eventName varchar(50)
+DECLARE @eventBeginningDate date
+DECLARE @eventEndDate date
+DECLARE @eventVisibility bit
+DECLARE @eventManagerID int
+
+INSERT INTO YACM.[Event] (name,beginningDate,endDate,visibility,managerID)
+VALUES (@eventName,@eventBeginningDate,@eventEndDate,@eventVisibility,@eventManagerID)
+
+GO
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
+
+INSERT INTO YACM.[User] (email, name, password)
+VALUES (email, name, password);
