@@ -20,20 +20,32 @@ namespace YACM
 			this.sqlServer = sqlServer;
 			cn = GetSGBDConnection();
 			VerifySGBDConnection();
+			cn.Close();
 		}
 
 		#endregion
 
-		#region Getters
-		public SqlConnection Connection() {
+		#region Methods
+		public SqlConnection getDBConnection() {
+			Debug.Assert(cn.State == ConnectionState.Closed, "Database connection must be closed to be opened");
+			cn.Open();
+			return cn;
+		}
+
+		public void closeDBConnection() {
+			Debug.Assert(cn.State == ConnectionState.Open, "Database connection must be opened to be closed");
+			cn.Close();
+		}
+
+		#endregion
+
+		#region Private Methods
+		private SqlConnection Connection() {
 			if (!VerifySGBDConnection())
 				//throw Exception;
 				return null;
 			return cn;
 		}
-
-		#endregion
-		#region Private Methods
 		private SqlConnection GetSGBDConnection() {
 			Debug.Assert(sqlServer != null);
 			return new SqlConnection("data source="+sqlServer+";integrated security=true;initial catalog=YACM");
