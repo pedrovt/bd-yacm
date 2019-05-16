@@ -19,18 +19,28 @@ namespace YACM
 	/// </summary>
 	public partial class Main : Form
 	{
+
+		#region Instance Fields
+		private int eventsCount;
+		private int eventIndex;
+		#endregion
+
+		#region CTOR and Load
 		public Main(String user) {
 			InitializeComponent();
 
+			eventsCount = -1;
+			eventIndex = -1;
 			labelTitle.Text = "Welcome back, " + user;
 		}
 
 		private void Main_Load(object sender, EventArgs e) {
-			//Program.db.getDBConnection().Open();
-
 			ReadEvents();
 		}
 
+		#endregion
+
+		#region CRUD methods
 		private void ReadEvents() {
 			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Event", Program.db.getDBConnection());
 			SqlDataReader reader = cmd.ExecuteReader();
@@ -46,12 +56,14 @@ namespace YACM
 			}
 
 			// Loading the data
-			listView1.Items.Clear();		// clear previous items, if needed
+			listView1.Items.Clear();        // clear previous items, if needed
+			eventsCount = 0;
 			while (reader.Read()) {
 				ListViewItem item = listView1.Items.Add(reader[0].ToString());
 				for (int i = 1; i < numFields; i++) {
 					item.SubItems.Add(reader[i].ToString().TrimEnd());
 				}
+				
 			}
 
 			// Adjusting the columns width
@@ -61,9 +73,9 @@ namespace YACM
 
 			Program.db.closeDBConnection();
 		}
+		#endregion
 
-		int eventIndex = -1;
-
+		#region Event Handlers
 		private void ListView1_SelectedIndexChanged(object sender, EventArgs e) {
 			
 			if (listView1.SelectedItems != null) {
@@ -75,14 +87,14 @@ namespace YACM
 
 		private void EditEventToolStripMenuItem_Click(object sender, EventArgs e) {
 			if (eventIndex >= 0) {
-				DialogEvents dialog = new DialogEvents(eventIndex, false);
+				DialogEvents dialog = new DialogEvents(eventIndex, false, eventsCount);
 				dialog.Show();
 				ReadEvents();
 			}
 		}
 
 		private void AddEventToolStripMenuItem_Click(object sender, EventArgs e) {
-			DialogEvents dialog = new DialogEvents(eventIndex, true);
+			DialogEvents dialog = new DialogEvents(eventIndex, true, eventsCount);
 			dialog.Show();
 			ReadEvents();
 		}
@@ -90,5 +102,7 @@ namespace YACM
 		private void UpdateToolStripMenuItem_Click(object sender, EventArgs e) {
 			ReadEvents();
 		}
+
+		#endregion
 	}
 }

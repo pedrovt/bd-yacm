@@ -36,22 +36,22 @@
 			this.Label3 = new System.Windows.Forms.Label();
 			this.Label2 = new System.Windows.Forms.Label();
 			this.Label1 = new System.Windows.Forms.Label();
-			this.txtID = new System.Windows.Forms.TextBox();
 			this.txtBudget = new System.Windows.Forms.TextBox();
 			this.txtManager = new System.Windows.Forms.TextBox();
 			this.txtBeginDate = new System.Windows.Forms.DateTimePicker();
+			this.txtVisibility = new System.Windows.Forms.CheckBox();
 			this.txtEndDate = new System.Windows.Forms.DateTimePicker();
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.panelButtons = new System.Windows.Forms.Panel();
+			this.bttnDelete = new System.Windows.Forms.Button();
 			this.bttnOK = new System.Windows.Forms.Button();
 			this.bttnEdit = new System.Windows.Forms.Button();
 			this.bttnCancel = new System.Windows.Forms.Button();
-			this.bttnAdd = new System.Windows.Forms.Button();
-			this.bttnDelete = new System.Windows.Forms.Button();
-			this.txtVisibility = new System.Windows.Forms.CheckBox();
+			this.txtID = new System.Windows.Forms.NumericUpDown();
 			this.tableLayoutPanel.SuspendLayout();
 			this.panelInfo.SuspendLayout();
 			this.panelButtons.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel
@@ -176,22 +176,12 @@
 			// 
 			this.Label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.Label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.Label1.Location = new System.Drawing.Point(247, 22);
+			this.Label1.Location = new System.Drawing.Point(279, 22);
 			this.Label1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
 			this.Label1.Name = "Label1";
 			this.Label1.Size = new System.Drawing.Size(72, 16);
 			this.Label1.TabIndex = 195;
 			this.Label1.Text = "&Name";
-			// 
-			// txtID
-			// 
-			this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.txtID.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtID.Location = new System.Drawing.Point(171, 44);
-			this.txtID.Name = "txtID";
-			this.txtID.ReadOnly = true;
-			this.txtID.Size = new System.Drawing.Size(69, 22);
-			this.txtID.TabIndex = 209;
 			// 
 			// txtBudget
 			// 
@@ -222,6 +212,16 @@
 			this.txtBeginDate.Size = new System.Drawing.Size(161, 20);
 			this.txtBeginDate.TabIndex = 212;
 			// 
+			// txtVisibility
+			// 
+			this.txtVisibility.AutoSize = true;
+			this.txtVisibility.Location = new System.Drawing.Point(354, 139);
+			this.txtVisibility.Name = "txtVisibility";
+			this.txtVisibility.Size = new System.Drawing.Size(55, 17);
+			this.txtVisibility.TabIndex = 216;
+			this.txtVisibility.Text = "Public";
+			this.txtVisibility.UseVisualStyleBackColor = true;
+			// 
 			// txtEndDate
 			// 
 			this.txtEndDate.Location = new System.Drawing.Point(354, 92);
@@ -233,10 +233,10 @@
 			// 
 			this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtName.Location = new System.Drawing.Point(247, 44);
+			this.txtName.Location = new System.Drawing.Point(281, 44);
 			this.txtName.Name = "txtName";
 			this.txtName.ReadOnly = true;
-			this.txtName.Size = new System.Drawing.Size(268, 22);
+			this.txtName.Size = new System.Drawing.Size(234, 22);
 			this.txtName.TabIndex = 196;
 			// 
 			// panelButtons
@@ -245,12 +245,21 @@
 			this.panelButtons.Controls.Add(this.bttnOK);
 			this.panelButtons.Controls.Add(this.bttnEdit);
 			this.panelButtons.Controls.Add(this.bttnCancel);
-			this.panelButtons.Controls.Add(this.bttnAdd);
 			this.panelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelButtons.Location = new System.Drawing.Point(3, 295);
 			this.panelButtons.Name = "panelButtons";
 			this.panelButtons.Size = new System.Drawing.Size(684, 44);
 			this.panelButtons.TabIndex = 1;
+			// 
+			// bttnDelete
+			// 
+			this.bttnDelete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.bttnDelete.Location = new System.Drawing.Point(354, 7);
+			this.bttnDelete.Name = "bttnDelete";
+			this.bttnDelete.Size = new System.Drawing.Size(96, 32);
+			this.bttnDelete.TabIndex = 212;
+			this.bttnDelete.Text = "Delete";
+			this.bttnDelete.Click += new System.EventHandler(this.BttnDelete_Click);
 			// 
 			// bttnOK
 			// 
@@ -284,34 +293,12 @@
 			this.bttnCancel.Visible = false;
 			this.bttnCancel.Click += new System.EventHandler(this.BttnCancel_Click);
 			// 
-			// bttnAdd
+			// txtID
 			// 
-			this.bttnAdd.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.bttnAdd.Location = new System.Drawing.Point(145, 7);
-			this.bttnAdd.Name = "bttnAdd";
-			this.bttnAdd.Size = new System.Drawing.Size(96, 32);
-			this.bttnAdd.TabIndex = 208;
-			this.bttnAdd.Text = "Add";
-			// 
-			// bttnDelete
-			// 
-			this.bttnDelete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.bttnDelete.Location = new System.Drawing.Point(354, 7);
-			this.bttnDelete.Name = "bttnDelete";
-			this.bttnDelete.Size = new System.Drawing.Size(96, 32);
-			this.bttnDelete.TabIndex = 212;
-			this.bttnDelete.Text = "Delete";
-			this.bttnDelete.Click += new System.EventHandler(this.BttnDelete_Click);
-			// 
-			// txtVisibility
-			// 
-			this.txtVisibility.AutoSize = true;
-			this.txtVisibility.Location = new System.Drawing.Point(354, 139);
-			this.txtVisibility.Name = "txtVisibility";
-			this.txtVisibility.Size = new System.Drawing.Size(55, 17);
-			this.txtVisibility.TabIndex = 216;
-			this.txtVisibility.Text = "Public";
-			this.txtVisibility.UseVisualStyleBackColor = true;
+			this.txtID.Location = new System.Drawing.Point(172, 44);
+			this.txtID.Name = "txtID";
+			this.txtID.Size = new System.Drawing.Size(101, 20);
+			this.txtID.TabIndex = 217;
 			// 
 			// DialogEvents
 			// 
@@ -330,6 +317,7 @@
 			this.panelInfo.ResumeLayout(false);
 			this.panelInfo.PerformLayout();
 			this.panelButtons.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -340,7 +328,6 @@
 		private System.Windows.Forms.Label labelTitle;
 		private System.Windows.Forms.Panel panelInfo;
 		internal System.Windows.Forms.Label label8;
-		internal System.Windows.Forms.TextBox txtID;
 		internal System.Windows.Forms.Label Label11;
 		internal System.Windows.Forms.Label Label5;
 		internal System.Windows.Forms.Label Label3;
@@ -352,12 +339,12 @@
 		internal System.Windows.Forms.Button bttnOK;
 		internal System.Windows.Forms.Button bttnEdit;
 		internal System.Windows.Forms.Button bttnCancel;
-		internal System.Windows.Forms.Button bttnAdd;
 		private System.Windows.Forms.Button bttnDelete;
 		private System.Windows.Forms.DateTimePicker txtBeginDate;
 		private System.Windows.Forms.DateTimePicker txtEndDate;
 		internal System.Windows.Forms.Label label4;
 		internal System.Windows.Forms.TextBox txtManager;
 		private System.Windows.Forms.CheckBox txtVisibility;
+		private System.Windows.Forms.NumericUpDown txtID;
 	}
 }

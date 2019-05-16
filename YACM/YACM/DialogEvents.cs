@@ -25,7 +25,9 @@ namespace YACM
 		#region Instance Fields
 		private Event E;
 		private readonly int eventIndex;
+		private readonly int eventsCount;
 		private bool toUpdate;
+		private bool canCommit;
 		#endregion
 
 		#region CTOR
@@ -34,11 +36,13 @@ namespace YACM
 		/// </summary>
 		/// <param name="eventIndex"></param>
 		/// <param name="createMode"> true if Dialog is create from a Add Button</param>
-		public DialogEvents(int eventIndex, bool createMode) {
+		public DialogEvents(int eventIndex, bool createMode, int eventsCount) {
 			InitializeComponent();
 
+			this.E = new Event();
 			this.eventIndex = eventIndex;
 			this.toUpdate = false;
+			this.eventsCount = eventsCount;
 
 			if (createMode) {
 				// Add an Event
@@ -60,7 +64,7 @@ namespace YACM
 
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "INSERT YACM.Event (number, name, beginningDate, endDate, visiblity, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
+			cmd.CommandText = "INSERT YACM.Event (number, name, beginningDate, endDate, visibility, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
 			cmd.Parameters.Clear();
 
 			cmd.Parameters.AddWithValue("@number", this.E.Number);
@@ -76,7 +80,7 @@ namespace YACM
 				cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				throw new Exception("Failed to update in database. \n Error message: \n" + ex.Message);
+				MessageBox.Show("Failed to update in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				Program.db.closeDBConnection();
@@ -94,7 +98,6 @@ namespace YACM
 			SqlDataReader reader = cmd.ExecuteReader();
 
 			while (reader.Read()) {
-				E = new Event();
 				E.Number = Convert.ToInt32(reader["number"].ToString());
 				E.Name = reader["name"].ToString();
 				E.BeginningDate = Convert.ToDateTime(reader["beginningDate"].ToString());
@@ -141,7 +144,7 @@ namespace YACM
 				rows = cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				throw new Exception("Failed to update event in database. \n Error message: \n" + ex.Message);
+				MessageBox.Show("Failed to update event in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				if (rows == 1)
@@ -166,7 +169,7 @@ namespace YACM
 				cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				throw new Exception("Failed to delete event in database. \n Error Message: \n" + ex.Message);
+				MessageBox.Show("Failed to delete event in database. \n Error Message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				Program.db.closeDBConnection();
@@ -178,9 +181,15 @@ namespace YACM
 		private void BttnOK_Click(object sender, EventArgs e) {
 			if (toUpdate) {
 				SaveEvent();
-				UpdateEvent(E);
+				if (canCommit) UpdateEvent(E);
 			}
-			this.Dispose();
+			else {
+				SaveEvent();
+				if (canCommit) CreateEvent(E);
+			}
+			if (canCommit) {		//Return to main
+				this.Dispose();
+			}
 		}
 
 		private void BttnEdit_Click(object sender, EventArgs e) {
@@ -212,12 +221,18 @@ namespace YACM
 		}
 
 		public void SaveEvent() {
-			E.Number = Convert.ToInt32(txtID.Text);
-			E.EndDate = txtEndDate.Value;
-			E.Visibility = txtVisibility.Checked;
-			E.BeginningDate = txtBeginDate.Value;
-			E.Name = txtName.Text;
-			E.ManagerID = Convert.ToInt32(txtManager.Text);
+			try {
+				E.Number = Convert.ToInt32(txtID.Value);
+				E.EndDate = txtEndDate.Value;
+				E.Visibility = txtVisibility.Checked;
+				E.BeginningDate = txtBeginDate.Value;
+				E.Name = txtName.Text;
+				E.ManagerID = Convert.ToInt32(txtManager.Text);
+				canCommit = true;
+			} catch (Exception) {
+				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				canCommit = false;
+			}
 		}
 
 
@@ -234,6 +249,7 @@ namespace YACM
 		public void UnlockControls() {
 			txtEndDate.Enabled = true;
 			txtID.ReadOnly = false;
+			txtID.Minimum = eventsCount;
 			txtBudget.ReadOnly = false;
 			txtVisibility.Enabled = false;
 			txtBeginDate.Enabled = true;
@@ -244,38 +260,30 @@ namespace YACM
 		private void UpdateButtons(bool create) {
 			bttnCancel.Enabled = true;
 			bttnCancel.Visible = true;
+			bttnOK.Enabled = true;
+			bttnOK.Visible = true;
 
 			if (create) {
-				bttnAdd.Enabled = true;
-				bttnAdd.Visible = true;
-
-
-				bttnOK.Enabled = false;
 				bttnEdit.Enabled = false;
-				bttnDelete.Enabled = false;
-
-				bttnOK.Visible = false;
 				bttnEdit.Visible = false;
+
+				bttnDelete.Enabled = false;
 				bttnDelete.Visible = false;
 			}
 			else {
-				bttnAdd.Enabled = false;
-				bttnAdd.Visible = false;
-
-
-				bttnOK.Enabled = true;
 				bttnEdit.Enabled = true;
-				bttnDelete.Enabled = true;
-
-				bttnOK.Visible = true;
 				bttnEdit.Visible = true;
+
+				bttnDelete.Enabled = true;
 				bttnDelete.Visible = true;
 			}
 		}
 
 		public void ClearFields() {
+			
 			txtEndDate.Text = "";
-			txtID.Text = "";
+			txtID.Value = eventsCount;
+			txtID.Minimum = eventsCount;
 			txtBudget.Text = "";
 			txtVisibility.Text = "";
 			txtBeginDate.Text = "";
