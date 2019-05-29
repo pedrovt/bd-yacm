@@ -122,6 +122,7 @@
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(1056, 518);
+			this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
 			this.tabControl1.TabIndex = 0;
 			// 
 			// tabPageManager
@@ -165,7 +166,7 @@
 			this.tabPageParticipant.Location = new System.Drawing.Point(4, 4);
 			this.tabPageParticipant.Name = "tabPageParticipant";
 			this.tabPageParticipant.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageParticipant.Size = new System.Drawing.Size(1048, 492);
+			this.tabPageParticipant.Size = new System.Drawing.Size(1049, 492);
 			this.tabPageParticipant.TabIndex = 1;
 			this.tabPageParticipant.Text = "Events I\'m Participating";
 			this.tabPageParticipant.UseVisualStyleBackColor = true;
@@ -174,7 +175,7 @@
 			// 
 			this.tabPageSponsor.Location = new System.Drawing.Point(4, 4);
 			this.tabPageSponsor.Name = "tabPageSponsor";
-			this.tabPageSponsor.Size = new System.Drawing.Size(1048, 492);
+			this.tabPageSponsor.Size = new System.Drawing.Size(1049, 492);
 			this.tabPageSponsor.TabIndex = 2;
 			this.tabPageSponsor.Text = "Events I\'m Sponsoring";
 			this.tabPageSponsor.UseVisualStyleBackColor = true;
@@ -206,13 +207,12 @@
 			// 
 			// labelTitle
 			// 
-			this.labelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.labelTitle.AutoSize = true;
+			this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelTitle.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelTitle.Location = new System.Drawing.Point(3, 0);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(1056, 39);
+			this.labelTitle.Size = new System.Drawing.Size(1056, 56);
 			this.labelTitle.TabIndex = 4;
 			this.labelTitle.Text = "Welcome back, User";
 			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

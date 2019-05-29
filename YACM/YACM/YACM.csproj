@@ -53,7 +53,7 @@
     <StartupObject>YACM.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>yacm.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\yacm.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>BB5FD1BE6A3F9AAE6975D3531F4F578FD7D192C9</ManifestCertificateThumbprint>
@@ -83,17 +83,17 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="DatabaseHandler.cs" />
-    <None Include="Form1.cs">
+    <None Include="Resources\LegacyCode.cs">
       <SubType>Form</SubType>
     </None>
-    <None Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <None Include="Resources\LegacyCode.Designer.cs">
+      <DependentUpon>LegacyCode.cs</DependentUpon>
     </None>
-    <Compile Include="DialogEvents.cs">
+    <Compile Include="Dialogs\Events.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DialogEvents.Designer.cs">
-      <DependentUpon>DialogEvents.cs</DependentUpon>
+    <Compile Include="Dialogs\Events.Designer.cs">
+      <DependentUpon>Events.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -109,11 +109,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DialogEvents.resx">
-      <DependentUpon>DialogEvents.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\Events.resx">
+      <DependentUpon>Events.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Resources\LegacyCode.resx">
+      <DependentUpon>LegacyCode.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -141,13 +141,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="YACM_TemporaryKey.pfx" />
+    <None Include="Resources\YACM_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_refresh.png" />
     <None Include="Resources\ic_edit.png" />
     <None Include="Resources\ic_add.png" />
-    <Content Include="yacm.ico" />
+    <Content Include="Resources\yacm.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -156,9 +156,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TablesForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
