@@ -81,19 +81,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Event.cs" />
-    <Compile Include="DatabaseHandler.cs" />
+    <Compile Include="DBLayer\Events.cs" />
+    <Compile Include="Entities\Event.cs" />
+    <Compile Include="DBLayer\DatabaseHandler.cs" />
     <None Include="Resources\LegacyCode.cs">
       <SubType>Form</SubType>
     </None>
     <None Include="Resources\LegacyCode.Designer.cs">
       <DependentUpon>LegacyCode.cs</DependentUpon>
     </None>
-    <Compile Include="Dialogs\Events.cs">
+    <Compile Include="Dialogs\DialogEvents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\Events.Designer.cs">
-      <DependentUpon>Events.cs</DependentUpon>
+    <Compile Include="Dialogs\DialogEvents.Designer.cs">
+      <DependentUpon>DialogEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -109,8 +110,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dialogs\Events.resx">
-      <DependentUpon>Events.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\DialogEvents.resx">
+      <DependentUpon>DialogEvents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\LegacyCode.resx">
       <DependentUpon>LegacyCode.cs</DependentUpon>

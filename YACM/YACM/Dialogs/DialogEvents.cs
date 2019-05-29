@@ -61,52 +61,11 @@ namespace YACM
 
 		#region Create, Read, Update, Delete methods
 		private void CreateEvent(Event E) {
-
-			SqlCommand cmd = new SqlCommand();
-
-			cmd.CommandText = "INSERT YACM.Event (number, name, beginningDate, endDate, visibility, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
-			cmd.Parameters.Clear();
-
-			cmd.Parameters.AddWithValue("@number", this.E.Number);
-			cmd.Parameters.AddWithValue("@name", this.E.Name);
-			cmd.Parameters.AddWithValue("@beginningDate", this.E.BeginningDate);
-			cmd.Parameters.AddWithValue("@endDate", this.E.EndDate);
-			cmd.Parameters.AddWithValue("@visibility", this.E.Visibility);
-			cmd.Parameters.AddWithValue("@managerID", this.E.ManagerID);
-
-			cmd.Connection = Program.db.getDBConnection();
-
-			try {
-				cmd.ExecuteNonQuery();
-			}
-			catch (Exception ex) {
-				MessageBox.Show("Failed to update in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			finally {
-				Program.db.closeDBConnection();
-			}
+			DBLayer.Events.Create(E);
 		}
 
 		private void ReadEvent(int eventNumber) {
-			Debug.Assert(eventNumber > -1, "Event Index Invalid. Can't Load Event");
-
-			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Event WHERE number = @eventIndex", Program.db.getDBConnection());
-
-			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@eventIndex", eventNumber);
-
-			SqlDataReader reader = cmd.ExecuteReader();
-
-			while (reader.Read()) {
-				E.Number = Convert.ToInt32(reader["number"].ToString());
-				E.Name = reader["name"].ToString();
-				E.BeginningDate = Convert.ToDateTime(reader["beginningDate"].ToString());
-				E.EndDate = Convert.ToDateTime(reader["endDate"].ToString());
-				E.Visibility = Convert.ToBoolean(reader["visibility"].ToString());
-				E.ManagerID = Convert.ToInt32(reader["managerID"].ToString());
-			}
-
-			Program.db.closeDBConnection();
+			E = DBLayer.Events.Read(eventNumber);
 
 			if (E == null) {
 				MessageBox.Show("Event with number " + eventNumber + " not found!");
@@ -123,58 +82,13 @@ namespace YACM
 		}
 
 		private void UpdateEvent(Event E) {
-			int rows = 0;
-
-
-			SqlCommand cmd = new SqlCommand();
-
-			cmd.CommandText = "UPDATE YACM.Event " + "SET number = @number, " + "    name = @name, " + "    beginningDate = @beginningDate, " + "    endDate = @endDate, " + "    visibility = @visibility, " + "    managerID = @managerID " + "WHERE number = @number";
-			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@number", E.Number);
-			cmd.Parameters.AddWithValue("@name", E.Name);
-			cmd.Parameters.AddWithValue("@beginningDate", E.BeginningDate);
-			cmd.Parameters.AddWithValue("@endDate", E.EndDate);
-			cmd.Parameters.AddWithValue("@visibility", E.Visibility);
-			cmd.Parameters.AddWithValue("@managerID", E.ManagerID);
-
-			cmd.Connection = Program.db.getDBConnection();
-
-
-			try {
-				rows = cmd.ExecuteNonQuery();
-			}
-			catch (Exception ex) {
-				MessageBox.Show("Failed to update event in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			finally {
-				if (rows == 1)
-					MessageBox.Show("Updated sucessfully");
-				else
-					MessageBox.Show("Update not sucesfull");
-
-			Program.db.closeDBConnection();
-			}
+			DBLayer.Events.Update(E);
 		}
 
 		private void DeleteEvent(Event E) {
-
-			SqlCommand cmd = new SqlCommand();
-
-			cmd.CommandText = "DELETE YACM.Event WHERE number=@number ";
-			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@number", E.Number);
-			cmd.Connection = Program.db.getDBConnection();
-
-			try {
-				cmd.ExecuteNonQuery();
-			}
-			catch (Exception ex) {
-				MessageBox.Show("Failed to delete event in database. \n Error Message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			finally {
-				Program.db.closeDBConnection();
-			}
+			DBLayer.Events.Delete(E);
 		}
+
 		#endregion
 
 		#region Event Handlers

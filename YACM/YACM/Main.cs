@@ -42,7 +42,7 @@ namespace YACM
 
 		#region CRUD methods
 		private void ReadEvents() {
-			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Event", Program.db.getDBConnection());
+			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Event", Program.db.Open());
 			SqlDataReader reader = cmd.ExecuteReader();
 
 			// Creating the columns in the List View
@@ -71,7 +71,7 @@ namespace YACM
 				listView1.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
 			}
 
-			Program.db.closeDBConnection();
+			Program.db.Close();
 		}
 		#endregion
 

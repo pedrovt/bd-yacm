@@ -10,7 +10,7 @@ namespace YACM
 	{
 
 		#region Static Fields
-		private static readonly string sqlServer = "THINKPAD-13\\SQLEXPRESS";
+		private static readonly string SQL_SERVER_INSTANCE = "THINKPAD-13\\SQLEXPRESS";
 		internal  static DatabaseHandler db; 
 		#endregion
 
@@ -21,7 +21,7 @@ namespace YACM
 		static void Main()
 		{
 			// Connect to Database
-			db = new DatabaseHandler(sqlServer);
+			db = new DatabaseHandler(SQL_SERVER_INSTANCE);
 			
 			// Run Application
 			Application.EnableVisualStyles();
