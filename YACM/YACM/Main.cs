@@ -104,5 +104,13 @@ namespace YACM
 		}
 
 		#endregion
+
+		private void ToolStripMenuItem22_Click(object sender, EventArgs e) {
+			Login login = new Login();
+			this.Hide();
+			login.ShowDialog();
+			this.Close();
+			this.Dispose();
+		}
 	}
 }

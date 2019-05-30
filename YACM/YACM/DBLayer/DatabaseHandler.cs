@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace YACM
 {
@@ -19,15 +20,14 @@ namespace YACM
 	{
 		#region Instance Fields
 		private SqlConnection cn { get; set; }
-		private readonly String SQL_SERVER_INSTANCE; 
+		private readonly String SQL_SERVER_INSTANCE_CHOICE; 
 		#endregion
 
 		#region CTOR
-		public DatabaseHandler(String SQL_SERVER_INSTANCE) {
-			this.SQL_SERVER_INSTANCE = SQL_SERVER_INSTANCE;
+		public DatabaseHandler(String SQL_SERVER_INSTANCE_CHOICE) {
+			this.SQL_SERVER_INSTANCE_CHOICE = SQL_SERVER_INSTANCE_CHOICE;
 			cn = GetSQLServerConnection();
 			VerifySQLServerConnection();
-			cn.Close();
 		}
 
 		#endregion
@@ -48,7 +48,7 @@ namespace YACM
 
 		#region Auxiliar Methods
 		private SqlConnection GetSQLServerConnection() {
-			Debug.Assert(SQL_SERVER_INSTANCE != null);
+			Debug.Assert(SQL_SERVER_INSTANCE_CHOICE != null);
 
 			// IF NEEDED CHANGE HERE
 			SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder() {
@@ -58,7 +58,7 @@ namespace YACM
 				Password = "MY PASSWORD"
 			};
 
-			switch (SQL_SERVER_INSTANCE) {
+			switch (SQL_SERVER_INSTANCE_CHOICE) {
 				case "Class Server":
 					builder = new SqlConnectionStringBuilder() {
 						DataSource = "tcp:mednat.ieeta.pt\\SQLSERVER,8101",
@@ -77,7 +77,7 @@ namespace YACM
 					
 				case "Paulo's Server":
 					builder = new SqlConnectionStringBuilder() {
-						DataSource = "THINKPAD-13\\SQLEXPRESS",			#TODO change
+						DataSource = "THINKPAD-13\\SQLEXPRESS",			//TODO change
 						InitialCatalog = "YACM",
 						IntegratedSecurity = true
 					};
@@ -91,14 +91,21 @@ namespace YACM
 			return new SqlConnection(builder.ConnectionString);
 		}
 
-		private bool VerifySQLServerConnection() {
+		private void VerifySQLServerConnection() {
 			if (cn == null)
 				cn = GetSQLServerConnection();
 
-			if (cn.State != ConnectionState.Open)
-				cn.Open();
-
-			return cn.State == ConnectionState.Open;
+			if (cn.State != ConnectionState.Open) {
+				try {
+					cn.Open();
+					cn.Close();
+				}
+				catch (Exception e) {
+					MessageBox.Show("Error connecting to Database: " + e, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Console.WriteLine("Error connecting to Database: " + e);
+					Application.Exit();		//Critical error
+				}
+			}
 		}
 
 		#endregion

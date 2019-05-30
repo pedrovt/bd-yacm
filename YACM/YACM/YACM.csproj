@@ -82,8 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBLayer\Events.cs" />
+    <Compile Include="DBLayer\Login.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="DBLayer\DatabaseHandler.cs" />
+    <None Include="app.config" />
     <None Include="Resources\LegacyCode.cs">
       <SubType>Form</SubType>
     </None>
@@ -148,6 +150,7 @@
     <None Include="Resources\ic_refresh.png" />
     <None Include="Resources\ic_edit.png" />
     <None Include="Resources\ic_add.png" />
+    <None Include="Resources\ic_exit_to_app.png" />
     <Content Include="Resources\yacm.ico" />
   </ItemGroup>
   <ItemGroup>

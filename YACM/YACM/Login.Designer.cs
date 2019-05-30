@@ -27,22 +27,26 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.email = new System.Windows.Forms.TextBox();
+			this.password = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.loginButton = new System.Windows.Forms.Button();
 			this.signupButton = new System.Windows.Forms.Button();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.userType = new System.Windows.Forms.ComboBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.instance = new System.Windows.Forms.ComboBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.name = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -56,25 +60,14 @@
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 4;
+			this.tableLayoutPanel1.RowCount = 5;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 191F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 314F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 522);
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 677);
 			this.tableLayoutPanel1.TabIndex = 0;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(124, 3);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(186, 179);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox1.TabIndex = 2;
-			this.pictureBox1.TabStop = false;
 			// 
 			// label1
 			// 
@@ -93,45 +86,57 @@
 			// 
 			this.tableLayoutPanel2.ColumnCount = 1;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 3);
-			this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label6, 0, 6);
 			this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
 			this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
-			this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 5);
+			this.tableLayoutPanel2.Controls.Add(this.label5, 0, 8);
+			this.tableLayoutPanel2.Controls.Add(this.email, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.password, 0, 3);
+			this.tableLayoutPanel2.Controls.Add(this.name, 0, 7);
+			this.tableLayoutPanel2.Controls.Add(this.userType, 0, 5);
+			this.tableLayoutPanel2.Controls.Add(this.instance, 0, 9);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 260);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 272);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 6;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(428, 185);
+			this.tableLayoutPanel2.RowCount = 10;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(428, 308);
 			this.tableLayoutPanel2.TabIndex = 4;
 			// 
-			// textBox2
+			// email
 			// 
-			this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox2.Location = new System.Drawing.Point(3, 93);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.PasswordChar = '*';
-			this.textBox2.Size = new System.Drawing.Size(422, 20);
-			this.textBox2.TabIndex = 4;
+			this.email.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.email.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+			this.email.Location = new System.Drawing.Point(3, 33);
+			this.email.Name = "email";
+			this.email.Size = new System.Drawing.Size(422, 20);
+			this.email.TabIndex = 2;
 			// 
-			// textBox1
+			// password
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(3, 33);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(422, 20);
-			this.textBox1.TabIndex = 2;
+			this.password.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+			this.password.Location = new System.Drawing.Point(3, 93);
+			this.password.Name = "password";
+			this.password.PasswordChar = '*';
+			this.password.Size = new System.Drawing.Size(422, 20);
+			this.password.TabIndex = 4;
 			// 
 			// label3
 			// 
@@ -172,7 +177,7 @@
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(422, 30);
 			this.label4.TabIndex = 5;
-			this.label4.Text = "SQL Server Instance";
+			this.label4.Text = "User Type (Sign up only)";
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// tableLayoutPanel3
@@ -183,7 +188,7 @@
 			this.tableLayoutPanel3.Controls.Add(this.loginButton, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.signupButton, 1, 0);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 451);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 586);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 1;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -194,6 +199,7 @@
 			// 
 			this.loginButton.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.loginButton.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.loginButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.loginButton.Location = new System.Drawing.Point(3, 3);
 			this.loginButton.Name = "loginButton";
 			this.loginButton.Size = new System.Drawing.Size(208, 62);
@@ -214,27 +220,93 @@
 			this.signupButton.UseVisualStyleBackColor = true;
 			this.signupButton.Click += new System.EventHandler(this.SignupButton_Click);
 			// 
-			// comboBox1
+			// label5
 			// 
-			this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(3, 240);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(422, 30);
+			this.label5.TabIndex = 6;
+			this.label5.Text = "SQL Server Instance";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// userType
+			// 
+			this.userType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.userType.FormattingEnabled = true;
+			this.userType.Items.AddRange(new object[] {
+            "Manager",
+            "Participant",
+            "Sponsor"});
+			this.userType.Location = new System.Drawing.Point(3, 153);
+			this.userType.Name = "userType";
+			this.userType.Size = new System.Drawing.Size(422, 21);
+			this.userType.TabIndex = 7;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(124, 3);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(186, 179);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 2;
+			this.pictureBox1.TabStop = false;
+			// 
+			// instance
+			// 
+			this.instance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.instance.FormattingEnabled = true;
+			this.instance.Items.AddRange(new object[] {
             "Class Server",
             "Pedro\'s Server",
             "Paulo\'s Server",
             "Other"});
-			this.comboBox1.Location = new System.Drawing.Point(3, 153);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(422, 21);
-			this.comboBox1.TabIndex = 6;
+			this.instance.Location = new System.Drawing.Point(3, 273);
+			this.instance.Name = "instance";
+			this.instance.Size = new System.Drawing.Size(422, 21);
+			this.instance.TabIndex = 6;
+			// 
+			// label6
+			// 
+			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(3, 180);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(422, 30);
+			this.label6.TabIndex = 9;
+			this.label6.Text = "Name (Sign up only)";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// name
+			// 
+			this.name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.name.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.name.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+			this.name.Location = new System.Drawing.Point(3, 213);
+			this.name.Name = "name";
+			this.name.Size = new System.Drawing.Size(422, 20);
+			this.name.TabIndex = 10;
 			// 
 			// Login
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(434, 522);
+			this.ClientSize = new System.Drawing.Size(434, 677);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -243,12 +315,13 @@
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "YACM | Login";
+			this.Enter += new System.EventHandler(this.LoginButton_Click);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -261,12 +334,16 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox email;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.Button loginButton;
 		private System.Windows.Forms.Button signupButton;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox password;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ComboBox userType;
+		private System.Windows.Forms.ComboBox instance;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox name;
 	}
 }
