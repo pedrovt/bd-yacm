@@ -77,7 +77,7 @@ namespace YACM
 					
 				case "Paulo's Server":
 					builder = new SqlConnectionStringBuilder() {
-						DataSource = "THINKPAD-13\\SQLEXPRESS",			//TODO change
+						DataSource = "DESKTOP-GQQU4N5",			
 						InitialCatalog = "YACM",
 						IntegratedSecurity = true
 					};
