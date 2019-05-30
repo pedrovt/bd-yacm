@@ -60,8 +60,8 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
+			SaveEvent();
 			if (canCommit) {
-				SaveEvent();
 
 				if (toUpdate) DBLayer.Events.Update(E);
 				else DBLayer.Events.Create(E);
