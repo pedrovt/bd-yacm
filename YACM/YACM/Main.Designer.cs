@@ -123,10 +123,10 @@
 			this.tabControl1.Controls.Add(this.tabPageParticipant);
 			this.tabControl1.Controls.Add(this.tabPageSponsor);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(3, 58);
+			this.tabControl1.Location = new System.Drawing.Point(3, 71);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1056, 498);
+			this.tabControl1.Size = new System.Drawing.Size(1439, 625);
 			this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
 			this.tabControl1.TabIndex = 0;
 			// 
@@ -137,7 +137,7 @@
 			this.tabPageManager.Location = new System.Drawing.Point(4, 4);
 			this.tabPageManager.Name = "tabPageManager";
 			this.tabPageManager.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageManager.Size = new System.Drawing.Size(1048, 472);
+			this.tabPageManager.Size = new System.Drawing.Size(1431, 599);
 			this.tabPageManager.TabIndex = 0;
 			this.tabPageManager.Text = "Events I\'m Managing";
 			this.tabPageManager.UseVisualStyleBackColor = true;
@@ -155,8 +155,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.eventManagement);
-			this.splitContainer1.Size = new System.Drawing.Size(1042, 442);
-			this.splitContainer1.SplitterDistance = 516;
+			this.splitContainer1.Size = new System.Drawing.Size(1425, 569);
+			this.splitContainer1.SplitterDistance = 705;
 			this.splitContainer1.TabIndex = 5;
 			// 
 			// eventsList
@@ -164,7 +164,7 @@
 			this.eventsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.eventsList.Location = new System.Drawing.Point(0, 0);
 			this.eventsList.Name = "eventsList";
-			this.eventsList.Size = new System.Drawing.Size(516, 442);
+			this.eventsList.Size = new System.Drawing.Size(705, 569);
 			this.eventsList.TabIndex = 1;
 			this.eventsList.UseCompatibleStateImageBehavior = false;
 			this.eventsList.View = System.Windows.Forms.View.Details;
@@ -185,7 +185,7 @@
 			this.eventManagement.Multiline = true;
 			this.eventManagement.Name = "eventManagement";
 			this.eventManagement.SelectedIndex = 0;
-			this.eventManagement.Size = new System.Drawing.Size(522, 442);
+			this.eventManagement.Size = new System.Drawing.Size(716, 569);
 			this.eventManagement.TabIndex = 4;
 			this.eventManagement.SelectedIndexChanged += new System.EventHandler(this.EventManagement_SelectedIndexChanged);
 			// 
@@ -195,7 +195,7 @@
 			this.About.Location = new System.Drawing.Point(4, 22);
 			this.About.Name = "About";
 			this.About.Padding = new System.Windows.Forms.Padding(3);
-			this.About.Size = new System.Drawing.Size(514, 416);
+			this.About.Size = new System.Drawing.Size(708, 543);
 			this.About.TabIndex = 8;
 			this.About.Text = "About";
 			this.About.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@
 			this.Equipment.Location = new System.Drawing.Point(4, 22);
 			this.Equipment.Name = "Equipment";
 			this.Equipment.Padding = new System.Windows.Forms.Padding(3);
-			this.Equipment.Size = new System.Drawing.Size(514, 416);
+			this.Equipment.Size = new System.Drawing.Size(708, 543);
 			this.Equipment.TabIndex = 1;
 			this.Equipment.Text = "Equipment";
 			this.Equipment.UseVisualStyleBackColor = true;
@@ -228,7 +228,7 @@
 			this.equipmentList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.equipmentList.Location = new System.Drawing.Point(3, 27);
 			this.equipmentList.Name = "equipmentList";
-			this.equipmentList.Size = new System.Drawing.Size(508, 386);
+			this.equipmentList.Size = new System.Drawing.Size(702, 513);
 			this.equipmentList.TabIndex = 4;
 			this.equipmentList.UseCompatibleStateImageBehavior = false;
 			this.equipmentList.View = System.Windows.Forms.View.Details;
@@ -241,7 +241,8 @@
             this.toolStripMenuItem3});
 			this.menuStrip2.Location = new System.Drawing.Point(3, 3);
 			this.menuStrip2.Name = "menuStrip2";
-			this.menuStrip2.Size = new System.Drawing.Size(508, 24);
+			this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			this.menuStrip2.Size = new System.Drawing.Size(702, 24);
 			this.menuStrip2.TabIndex = 5;
 			this.menuStrip2.Text = "menuStrip2";
 			// 
@@ -272,7 +273,7 @@
 			this.Participants.Controls.Add(this.menuStrip3);
 			this.Participants.Location = new System.Drawing.Point(4, 22);
 			this.Participants.Name = "Participants";
-			this.Participants.Size = new System.Drawing.Size(514, 416);
+			this.Participants.Size = new System.Drawing.Size(708, 543);
 			this.Participants.TabIndex = 2;
 			this.Participants.Text = "Participants";
 			this.Participants.UseVisualStyleBackColor = true;
@@ -282,7 +283,7 @@
 			this.participantsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.participantsList.Location = new System.Drawing.Point(0, 24);
 			this.participantsList.Name = "participantsList";
-			this.participantsList.Size = new System.Drawing.Size(514, 392);
+			this.participantsList.Size = new System.Drawing.Size(708, 519);
 			this.participantsList.TabIndex = 6;
 			this.participantsList.UseCompatibleStateImageBehavior = false;
 			this.participantsList.View = System.Windows.Forms.View.Details;
@@ -295,7 +296,7 @@
             this.toolStripMenuItem6});
 			this.menuStrip3.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip3.Name = "menuStrip3";
-			this.menuStrip3.Size = new System.Drawing.Size(514, 24);
+			this.menuStrip3.Size = new System.Drawing.Size(708, 24);
 			this.menuStrip3.TabIndex = 7;
 			this.menuStrip3.Text = "menuStrip3";
 			// 
@@ -305,6 +306,7 @@
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
 			this.toolStripMenuItem4.Size = new System.Drawing.Size(57, 20);
 			this.toolStripMenuItem4.Text = "Add";
+			this.toolStripMenuItem4.Click += new System.EventHandler(this.ToolStripMenuItem4_Click);
 			// 
 			// toolStripMenuItem5
 			// 
@@ -312,6 +314,7 @@
 			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
 			this.toolStripMenuItem5.Size = new System.Drawing.Size(55, 20);
 			this.toolStripMenuItem5.Text = "Edit";
+			this.toolStripMenuItem5.Click += new System.EventHandler(this.ToolStripMenuItem5_Click);
 			// 
 			// toolStripMenuItem6
 			// 
@@ -319,6 +322,7 @@
 			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
 			this.toolStripMenuItem6.Size = new System.Drawing.Size(73, 20);
 			this.toolStripMenuItem6.Text = "Update";
+			this.toolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
 			// 
 			// Prizes
 			// 
@@ -326,7 +330,7 @@
 			this.Prizes.Controls.Add(this.menuStrip4);
 			this.Prizes.Location = new System.Drawing.Point(4, 22);
 			this.Prizes.Name = "Prizes";
-			this.Prizes.Size = new System.Drawing.Size(514, 416);
+			this.Prizes.Size = new System.Drawing.Size(708, 543);
 			this.Prizes.TabIndex = 3;
 			this.Prizes.Text = "Prize";
 			this.Prizes.UseVisualStyleBackColor = true;
@@ -336,7 +340,7 @@
 			this.prizesLIst.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.prizesLIst.Location = new System.Drawing.Point(0, 24);
 			this.prizesLIst.Name = "prizesLIst";
-			this.prizesLIst.Size = new System.Drawing.Size(514, 392);
+			this.prizesLIst.Size = new System.Drawing.Size(708, 519);
 			this.prizesLIst.TabIndex = 6;
 			this.prizesLIst.UseCompatibleStateImageBehavior = false;
 			this.prizesLIst.View = System.Windows.Forms.View.Details;
@@ -349,7 +353,7 @@
             this.toolStripMenuItem9});
 			this.menuStrip4.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip4.Name = "menuStrip4";
-			this.menuStrip4.Size = new System.Drawing.Size(514, 24);
+			this.menuStrip4.Size = new System.Drawing.Size(708, 24);
 			this.menuStrip4.TabIndex = 7;
 			this.menuStrip4.Text = "menuStrip4";
 			// 
@@ -380,7 +384,7 @@
 			this.Sponsors.Controls.Add(this.menuStrip5);
 			this.Sponsors.Location = new System.Drawing.Point(4, 22);
 			this.Sponsors.Name = "Sponsors";
-			this.Sponsors.Size = new System.Drawing.Size(514, 416);
+			this.Sponsors.Size = new System.Drawing.Size(708, 543);
 			this.Sponsors.TabIndex = 4;
 			this.Sponsors.Text = "Sponsors";
 			this.Sponsors.UseVisualStyleBackColor = true;
@@ -390,7 +394,7 @@
 			this.sponsorsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.sponsorsList.Location = new System.Drawing.Point(0, 24);
 			this.sponsorsList.Name = "sponsorsList";
-			this.sponsorsList.Size = new System.Drawing.Size(514, 392);
+			this.sponsorsList.Size = new System.Drawing.Size(708, 519);
 			this.sponsorsList.TabIndex = 6;
 			this.sponsorsList.UseCompatibleStateImageBehavior = false;
 			this.sponsorsList.View = System.Windows.Forms.View.Details;
@@ -403,7 +407,7 @@
             this.toolStripMenuItem12});
 			this.menuStrip5.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip5.Name = "menuStrip5";
-			this.menuStrip5.Size = new System.Drawing.Size(514, 24);
+			this.menuStrip5.Size = new System.Drawing.Size(708, 24);
 			this.menuStrip5.TabIndex = 7;
 			this.menuStrip5.Text = "menuStrip5";
 			// 
@@ -434,7 +438,7 @@
 			this.Stages.Controls.Add(this.menuStrip6);
 			this.Stages.Location = new System.Drawing.Point(4, 22);
 			this.Stages.Name = "Stages";
-			this.Stages.Size = new System.Drawing.Size(514, 416);
+			this.Stages.Size = new System.Drawing.Size(708, 543);
 			this.Stages.TabIndex = 5;
 			this.Stages.Text = "Stages";
 			this.Stages.UseVisualStyleBackColor = true;
@@ -444,7 +448,7 @@
 			this.stagesList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.stagesList.Location = new System.Drawing.Point(0, 24);
 			this.stagesList.Name = "stagesList";
-			this.stagesList.Size = new System.Drawing.Size(514, 392);
+			this.stagesList.Size = new System.Drawing.Size(708, 519);
 			this.stagesList.TabIndex = 6;
 			this.stagesList.UseCompatibleStateImageBehavior = false;
 			this.stagesList.View = System.Windows.Forms.View.Details;
@@ -457,7 +461,7 @@
             this.toolStripMenuItem15});
 			this.menuStrip6.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip6.Name = "menuStrip6";
-			this.menuStrip6.Size = new System.Drawing.Size(514, 24);
+			this.menuStrip6.Size = new System.Drawing.Size(708, 24);
 			this.menuStrip6.TabIndex = 7;
 			this.menuStrip6.Text = "menuStrip6";
 			// 
@@ -488,7 +492,7 @@
 			this.Teams.Controls.Add(this.menuStrip7);
 			this.Teams.Location = new System.Drawing.Point(4, 22);
 			this.Teams.Name = "Teams";
-			this.Teams.Size = new System.Drawing.Size(514, 416);
+			this.Teams.Size = new System.Drawing.Size(708, 543);
 			this.Teams.TabIndex = 6;
 			this.Teams.Text = "Teams";
 			this.Teams.UseVisualStyleBackColor = true;
@@ -498,7 +502,7 @@
 			this.teamsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.teamsList.Location = new System.Drawing.Point(0, 24);
 			this.teamsList.Name = "teamsList";
-			this.teamsList.Size = new System.Drawing.Size(514, 392);
+			this.teamsList.Size = new System.Drawing.Size(708, 519);
 			this.teamsList.TabIndex = 6;
 			this.teamsList.UseCompatibleStateImageBehavior = false;
 			this.teamsList.View = System.Windows.Forms.View.Details;
@@ -511,7 +515,7 @@
             this.toolStripMenuItem18});
 			this.menuStrip7.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip7.Name = "menuStrip7";
-			this.menuStrip7.Size = new System.Drawing.Size(514, 24);
+			this.menuStrip7.Size = new System.Drawing.Size(708, 24);
 			this.menuStrip7.TabIndex = 7;
 			this.menuStrip7.Text = "menuStrip7";
 			// 
@@ -542,7 +546,7 @@
 			this.Documents.Controls.Add(this.menuStrip8);
 			this.Documents.Location = new System.Drawing.Point(4, 22);
 			this.Documents.Name = "Documents";
-			this.Documents.Size = new System.Drawing.Size(514, 416);
+			this.Documents.Size = new System.Drawing.Size(708, 543);
 			this.Documents.TabIndex = 7;
 			this.Documents.Text = "Documents";
 			this.Documents.UseVisualStyleBackColor = true;
@@ -552,7 +556,7 @@
 			this.documentsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.documentsList.Location = new System.Drawing.Point(0, 24);
 			this.documentsList.Name = "documentsList";
-			this.documentsList.Size = new System.Drawing.Size(514, 392);
+			this.documentsList.Size = new System.Drawing.Size(708, 519);
 			this.documentsList.TabIndex = 6;
 			this.documentsList.UseCompatibleStateImageBehavior = false;
 			this.documentsList.View = System.Windows.Forms.View.Details;
@@ -565,7 +569,7 @@
             this.toolStripMenuItem21});
 			this.menuStrip8.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip8.Name = "menuStrip8";
-			this.menuStrip8.Size = new System.Drawing.Size(514, 24);
+			this.menuStrip8.Size = new System.Drawing.Size(708, 24);
 			this.menuStrip8.TabIndex = 7;
 			this.menuStrip8.Text = "menuStrip8";
 			// 
@@ -600,7 +604,8 @@
             this.logout});
 			this.eventsActions.Location = new System.Drawing.Point(3, 3);
 			this.eventsActions.Name = "eventsActions";
-			this.eventsActions.Size = new System.Drawing.Size(1042, 24);
+			this.eventsActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+			this.eventsActions.Size = new System.Drawing.Size(1425, 24);
 			this.eventsActions.TabIndex = 3;
 			this.eventsActions.Text = "menuStrip1";
 			// 
@@ -643,7 +648,7 @@
 			this.tabPageParticipant.Location = new System.Drawing.Point(4, 4);
 			this.tabPageParticipant.Name = "tabPageParticipant";
 			this.tabPageParticipant.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageParticipant.Size = new System.Drawing.Size(1048, 472);
+			this.tabPageParticipant.Size = new System.Drawing.Size(1431, 599);
 			this.tabPageParticipant.TabIndex = 1;
 			this.tabPageParticipant.Text = "Events I\'m Participating";
 			this.tabPageParticipant.UseVisualStyleBackColor = true;
@@ -652,7 +657,7 @@
 			// 
 			this.tabPageSponsor.Location = new System.Drawing.Point(4, 4);
 			this.tabPageSponsor.Name = "tabPageSponsor";
-			this.tabPageSponsor.Size = new System.Drawing.Size(1048, 472);
+			this.tabPageSponsor.Size = new System.Drawing.Size(1431, 599);
 			this.tabPageSponsor.TabIndex = 2;
 			this.tabPageSponsor.Text = "Events I\'m Sponsoring";
 			this.tabPageSponsor.UseVisualStyleBackColor = true;
@@ -662,9 +667,9 @@
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.debugInfo,
             this.copyrightInfo});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 580);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 720);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(1062, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(1445, 22);
 			this.statusStrip1.TabIndex = 1;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -677,7 +682,7 @@
 			// copyrightInfo
 			// 
 			this.copyrightInfo.Name = "copyrightInfo";
-			this.copyrightInfo.Size = new System.Drawing.Size(1008, 17);
+			this.copyrightInfo.Size = new System.Drawing.Size(1391, 17);
 			this.copyrightInfo.Spring = true;
 			this.copyrightInfo.Text = "© Paulo, Pedro 2019";
 			this.copyrightInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -689,7 +694,7 @@
 			this.labelTitle.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelTitle.Location = new System.Drawing.Point(3, 0);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(1056, 55);
+			this.labelTitle.Size = new System.Drawing.Size(1439, 68);
 			this.labelTitle.TabIndex = 4;
 			this.labelTitle.Text = "Welcome back, User";
 			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -708,7 +713,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.827586F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.17242F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1062, 580);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1445, 720);
 			this.tableLayoutPanel1.TabIndex = 5;
 			// 
 			// notifyIcon1
@@ -725,15 +730,14 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(1062, 602);
+			this.ClientSize = new System.Drawing.Size(1445, 742);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.statusStrip1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.eventsActions;
 			this.Name = "Main";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Main";
+			this.Text = "YACM | Main";
 			this.Load += new System.EventHandler(this.Main_Load);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPageManager.ResumeLayout(false);

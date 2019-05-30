@@ -45,7 +45,7 @@ namespace YACM
 
 		#endregion
 
-		#region Event Handlers
+		#region Events List Event Handlers
 		private void EventsList_SelectedIndexChanged(object sender, EventArgs e) {
 			
 			if (eventsList.SelectedItems != null) {
@@ -63,6 +63,7 @@ namespace YACM
 
 			// Read Event Details
 			eventManagement.Show();
+			EventManagement_SelectedIndexChanged(sender, e);		// Update
 			LoadAbout();
 		}
 
@@ -105,7 +106,7 @@ namespace YACM
 		}
 		#endregion
 
-		#region Toolstrip Event Handlers
+		#region Events List Toolstrip Event Handlers
 
 		private void AddEvent_Click(object sender, EventArgs e) {
 			DialogEvents dialog = new DialogEvents();
@@ -117,6 +118,7 @@ namespace YACM
 
 		private void RefreshEvents_Click(object sender, EventArgs e) {
 			ReadEventsList();
+			eventManagement.Hide();
 		}
 
 		private void EditEvent_Click(object sender, EventArgs e) {
@@ -162,6 +164,15 @@ namespace YACM
 
 		private void LoadParticipants() {
 			//MessageBox.Show("Participants");
+
+			participantsList.Hide();
+
+			Utils.ReadToListView("SELECT id, email, name, password FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=" + E.Number, participantsList);   //TODO FIXME SQL INJECTION ASAP (create a SP?)
+
+			// Not supposed to show passwords!
+			Utils.HideColumn(3, participantsList);
+
+			participantsList.Show();
 		}
 
 		private void LoadEquipment() {
@@ -175,6 +186,22 @@ namespace YACM
 			 
 		}
 
+
+		#endregion
+
+		#region Events Management :: Participants 
+		private void ToolStripMenuItem4_Click(object sender, EventArgs e) {
+
+		}
+
+		private void ToolStripMenuItem5_Click(object sender, EventArgs e) {
+
+		}
+
+		private void ToolStripMenuItem6_Click(object sender, EventArgs e) {
+
+		}
+		
 		#endregion
 	}
 }

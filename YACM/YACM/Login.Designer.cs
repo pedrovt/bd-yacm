@@ -27,26 +27,26 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.email = new System.Windows.Forms.TextBox();
-			this.password = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.email = new System.Windows.Forms.TextBox();
+			this.password = new System.Windows.Forms.TextBox();
+			this.name = new System.Windows.Forms.TextBox();
+			this.userType = new System.Windows.Forms.ComboBox();
+			this.instance = new System.Windows.Forms.ComboBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.loginButton = new System.Windows.Forms.Button();
 			this.signupButton = new System.Windows.Forms.Button();
-			this.label5 = new System.Windows.Forms.Label();
-			this.userType = new System.Windows.Forms.ComboBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.instance = new System.Windows.Forms.ComboBox();
-			this.label6 = new System.Windows.Forms.Label();
-			this.name = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -68,6 +68,18 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 677);
 			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(124, 3);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(186, 179);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 2;
+			this.pictureBox1.TabStop = false;
 			// 
 			// label1
 			// 
@@ -114,29 +126,19 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(428, 308);
 			this.tableLayoutPanel2.TabIndex = 4;
 			// 
-			// email
+			// label6
 			// 
-			this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.email.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-			this.email.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-			this.email.Location = new System.Drawing.Point(3, 33);
-			this.email.Name = "email";
-			this.email.Size = new System.Drawing.Size(422, 20);
-			this.email.TabIndex = 2;
-			// 
-			// password
-			// 
-			this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.password.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-			this.password.Location = new System.Drawing.Point(3, 93);
-			this.password.Name = "password";
-			this.password.PasswordChar = '*';
-			this.password.Size = new System.Drawing.Size(422, 20);
-			this.password.TabIndex = 4;
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(3, 180);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(422, 30);
+			this.label6.TabIndex = 9;
+			this.label6.Text = "Name (Sign up only)";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label3
 			// 
@@ -180,6 +182,85 @@
 			this.label4.Text = "User Type (Sign up only)";
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// label5
+			// 
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(3, 240);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(422, 30);
+			this.label5.TabIndex = 6;
+			this.label5.Text = "SQL Server Instance";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// email
+			// 
+			this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.email.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.email.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+			this.email.Location = new System.Drawing.Point(3, 33);
+			this.email.Name = "email";
+			this.email.Size = new System.Drawing.Size(422, 20);
+			this.email.TabIndex = 2;
+			// 
+			// password
+			// 
+			this.password.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.password.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+			this.password.Location = new System.Drawing.Point(3, 93);
+			this.password.Name = "password";
+			this.password.PasswordChar = '*';
+			this.password.Size = new System.Drawing.Size(422, 20);
+			this.password.TabIndex = 4;
+			// 
+			// name
+			// 
+			this.name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.name.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.name.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+			this.name.Location = new System.Drawing.Point(3, 213);
+			this.name.Name = "name";
+			this.name.Size = new System.Drawing.Size(422, 20);
+			this.name.TabIndex = 10;
+			// 
+			// userType
+			// 
+			this.userType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.userType.FormattingEnabled = true;
+			this.userType.Items.AddRange(new object[] {
+            "Manager",
+            "Participant",
+            "Sponsor"});
+			this.userType.Location = new System.Drawing.Point(3, 153);
+			this.userType.Name = "userType";
+			this.userType.Size = new System.Drawing.Size(422, 21);
+			this.userType.TabIndex = 7;
+			// 
+			// instance
+			// 
+			this.instance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.instance.FormattingEnabled = true;
+			this.instance.Items.AddRange(new object[] {
+            "Class Server",
+            "Pedro\'s Server",
+            "Paulo\'s Server",
+            "Other"});
+			this.instance.Location = new System.Drawing.Point(3, 273);
+			this.instance.Name = "instance";
+			this.instance.Size = new System.Drawing.Size(422, 21);
+			this.instance.TabIndex = 6;
+			// 
 			// tableLayoutPanel3
 			// 
 			this.tableLayoutPanel3.ColumnCount = 2;
@@ -220,87 +301,6 @@
 			this.signupButton.UseVisualStyleBackColor = true;
 			this.signupButton.Click += new System.EventHandler(this.SignupButton_Click);
 			// 
-			// label5
-			// 
-			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(3, 240);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(422, 30);
-			this.label5.TabIndex = 6;
-			this.label5.Text = "SQL Server Instance";
-			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// userType
-			// 
-			this.userType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.userType.FormattingEnabled = true;
-			this.userType.Items.AddRange(new object[] {
-            "Manager",
-            "Participant",
-            "Sponsor"});
-			this.userType.Location = new System.Drawing.Point(3, 153);
-			this.userType.Name = "userType";
-			this.userType.Size = new System.Drawing.Size(422, 21);
-			this.userType.TabIndex = 7;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(124, 3);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(186, 179);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox1.TabIndex = 2;
-			this.pictureBox1.TabStop = false;
-			// 
-			// instance
-			// 
-			this.instance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.instance.FormattingEnabled = true;
-			this.instance.Items.AddRange(new object[] {
-            "Class Server",
-            "Pedro\'s Server",
-            "Paulo\'s Server",
-            "Other"});
-			this.instance.Location = new System.Drawing.Point(3, 273);
-			this.instance.Name = "instance";
-			this.instance.Size = new System.Drawing.Size(422, 21);
-			this.instance.TabIndex = 6;
-			// 
-			// label6
-			// 
-			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(3, 180);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(422, 30);
-			this.label6.TabIndex = 9;
-			this.label6.Text = "Name (Sign up only)";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// name
-			// 
-			this.name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.name.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-			this.name.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-			this.name.Location = new System.Drawing.Point(3, 213);
-			this.name.Name = "name";
-			this.name.Size = new System.Drawing.Size(422, 20);
-			this.name.TabIndex = 10;
-			// 
 			// Login
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,10 +318,10 @@
 			this.Enter += new System.EventHandler(this.LoginButton_Click);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}

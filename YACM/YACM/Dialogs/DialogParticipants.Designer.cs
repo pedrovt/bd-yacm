@@ -1,6 +1,6 @@
 ﻿namespace YACM
 {
-	partial class DialogEvents
+	partial class DialogParticipants
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -25,25 +25,20 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogEvents));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogParticipants));
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.labelTitle = new System.Windows.Forms.Label();
 			this.panelInfo = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.Label11 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
 			this.Label1 = new System.Windows.Forms.Label();
-			this.Label5 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.Label3 = new System.Windows.Forms.Label();
 			this.Label2 = new System.Windows.Forms.Label();
-			this.txtManager = new System.Windows.Forms.TextBox();
-			this.txtID = new System.Windows.Forms.NumericUpDown();
-			this.txtVisibility = new System.Windows.Forms.CheckBox();
 			this.txtName = new System.Windows.Forms.TextBox();
-			this.txtBeginDate = new System.Windows.Forms.DateTimePicker();
-			this.txtEndDate = new System.Windows.Forms.DateTimePicker();
-			this.txtBudget = new System.Windows.Forms.TextBox();
+			this.txtID = new System.Windows.Forms.NumericUpDown();
+			this.txtEmail = new System.Windows.Forms.TextBox();
+			this.txtPassword = new System.Windows.Forms.TextBox();
 			this.panelButtons = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.bttnEdit = new System.Windows.Forms.Button();
@@ -84,7 +79,7 @@
 			this.labelTitle.Name = "labelTitle";
 			this.labelTitle.Size = new System.Drawing.Size(679, 49);
 			this.labelTitle.TabIndex = 212;
-			this.labelTitle.Text = "Event Entry";
+			this.labelTitle.Text = "Participant Entry";
 			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// panelInfo
@@ -102,24 +97,17 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.61933F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.38067F));
 			this.tableLayoutPanel2.Controls.Add(this.Label11, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 5);
 			this.tableLayoutPanel2.Controls.Add(this.Label1, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.Label5, 0, 6);
 			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 3);
 			this.tableLayoutPanel2.Controls.Add(this.Label3, 0, 4);
 			this.tableLayoutPanel2.Controls.Add(this.Label2, 0, 2);
-			this.tableLayoutPanel2.Controls.Add(this.txtManager, 1, 5);
 			this.tableLayoutPanel2.Controls.Add(this.txtID, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.txtVisibility, 1, 4);
-			this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.txtBeginDate, 1, 2);
-			this.tableLayoutPanel2.Controls.Add(this.txtEndDate, 1, 3);
-			this.tableLayoutPanel2.Controls.Add(this.txtBudget, 1, 6);
+			this.tableLayoutPanel2.Controls.Add(this.txtEmail, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.txtPassword, 1, 3);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 7;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowCount = 5;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -139,17 +127,6 @@
 			this.Label11.TabIndex = 208;
 			this.Label11.Text = "ID";
 			// 
-			// label4
-			// 
-			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.label4.Location = new System.Drawing.Point(3, 132);
-			this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(128, 22);
-			this.label4.TabIndex = 214;
-			this.label4.Text = "Manager";
-			// 
 			// Label1
 			// 
 			this.Label1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -159,18 +136,7 @@
 			this.Label1.Name = "Label1";
 			this.Label1.Size = new System.Drawing.Size(128, 24);
 			this.Label1.TabIndex = 195;
-			this.Label1.Text = "&Name";
-			// 
-			// Label5
-			// 
-			this.Label5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.Label5.Location = new System.Drawing.Point(3, 158);
-			this.Label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.Label5.Name = "Label5";
-			this.Label5.Size = new System.Drawing.Size(128, 84);
-			this.Label5.TabIndex = 201;
-			this.Label5.Text = "Budget";
+			this.Label1.Text = "Email";
 			// 
 			// label8
 			// 
@@ -181,7 +147,7 @@
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(128, 22);
 			this.label8.TabIndex = 210;
-			this.label8.Text = "&End Date";
+			this.label8.Text = "Password";
 			// 
 			// Label3
 			// 
@@ -190,9 +156,8 @@
 			this.Label3.Location = new System.Drawing.Point(3, 109);
 			this.Label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
 			this.Label3.Name = "Label3";
-			this.Label3.Size = new System.Drawing.Size(128, 19);
+			this.Label3.Size = new System.Drawing.Size(128, 133);
 			this.Label3.TabIndex = 199;
-			this.Label3.Text = "&Visibility";
 			// 
 			// Label2
 			// 
@@ -203,17 +168,17 @@
 			this.Label2.Name = "Label2";
 			this.Label2.Size = new System.Drawing.Size(128, 22);
 			this.Label2.TabIndex = 197;
-			this.Label2.Text = "&Begin Date";
+			this.Label2.Text = "Name";
 			// 
-			// txtManager
+			// txtName
 			// 
-			this.txtManager.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtManager.Location = new System.Drawing.Point(137, 130);
-			this.txtManager.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtManager.Name = "txtManager";
-			this.txtManager.ReadOnly = true;
-			this.txtManager.Size = new System.Drawing.Size(370, 22);
-			this.txtManager.TabIndex = 215;
+			this.txtName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtName.Location = new System.Drawing.Point(137, 55);
+			this.txtName.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+			this.txtName.Name = "txtName";
+			this.txtName.ReadOnly = true;
+			this.txtName.Size = new System.Drawing.Size(370, 22);
+			this.txtName.TabIndex = 215;
 			// 
 			// txtID
 			// 
@@ -222,48 +187,25 @@
 			this.txtID.Size = new System.Drawing.Size(161, 20);
 			this.txtID.TabIndex = 217;
 			// 
-			// txtVisibility
+			// txtEmail
 			// 
-			this.txtVisibility.AutoSize = true;
-			this.txtVisibility.Location = new System.Drawing.Point(137, 109);
-			this.txtVisibility.Name = "txtVisibility";
-			this.txtVisibility.Size = new System.Drawing.Size(55, 17);
-			this.txtVisibility.TabIndex = 216;
-			this.txtVisibility.Text = "Public";
-			this.txtVisibility.UseVisualStyleBackColor = true;
+			this.txtEmail.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtEmail.Location = new System.Drawing.Point(137, 29);
+			this.txtEmail.Name = "txtEmail";
+			this.txtEmail.ReadOnly = true;
+			this.txtEmail.Size = new System.Drawing.Size(370, 22);
+			this.txtEmail.TabIndex = 196;
 			// 
-			// txtName
+			// txtPassword
 			// 
-			this.txtName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtName.Location = new System.Drawing.Point(137, 29);
-			this.txtName.Name = "txtName";
-			this.txtName.ReadOnly = true;
-			this.txtName.Size = new System.Drawing.Size(370, 22);
-			this.txtName.TabIndex = 196;
-			// 
-			// txtBeginDate
-			// 
-			this.txtBeginDate.Location = new System.Drawing.Point(137, 57);
-			this.txtBeginDate.Name = "txtBeginDate";
-			this.txtBeginDate.Size = new System.Drawing.Size(370, 20);
-			this.txtBeginDate.TabIndex = 212;
-			// 
-			// txtEndDate
-			// 
-			this.txtEndDate.Location = new System.Drawing.Point(137, 83);
-			this.txtEndDate.Name = "txtEndDate";
-			this.txtEndDate.Size = new System.Drawing.Size(370, 20);
-			this.txtEndDate.TabIndex = 213;
-			// 
-			// txtBudget
-			// 
-			this.txtBudget.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtBudget.Location = new System.Drawing.Point(137, 156);
-			this.txtBudget.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtBudget.Name = "txtBudget";
-			this.txtBudget.ReadOnly = true;
-			this.txtBudget.Size = new System.Drawing.Size(370, 22);
-			this.txtBudget.TabIndex = 202;
+			this.txtPassword.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtPassword.Location = new System.Drawing.Point(137, 81);
+			this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+			this.txtPassword.Name = "txtPassword";
+			this.txtPassword.PasswordChar = '*';
+			this.txtPassword.ReadOnly = true;
+			this.txtPassword.Size = new System.Drawing.Size(370, 22);
+			this.txtPassword.TabIndex = 202;
 			// 
 			// panelButtons
 			// 
@@ -344,7 +286,7 @@
 			this.bttnOK.Visible = false;
 			this.bttnOK.Click += new System.EventHandler(this.BttnOK_Click);
 			// 
-			// DialogEvents
+			// DialogParticipants
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -353,7 +295,7 @@
 			this.Controls.Add(this.tableLayoutPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "DialogEvents";
+			this.Name = "DialogParticipants";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Entry";
@@ -376,22 +318,17 @@
 		private System.Windows.Forms.Panel panelInfo;
 		internal System.Windows.Forms.Label label8;
 		internal System.Windows.Forms.Label Label11;
-		internal System.Windows.Forms.Label Label5;
 		internal System.Windows.Forms.Label Label3;
 		internal System.Windows.Forms.Label Label2;
 		internal System.Windows.Forms.Label Label1;
-		internal System.Windows.Forms.TextBox txtBudget;
-		internal System.Windows.Forms.TextBox txtName;
+		internal System.Windows.Forms.TextBox txtPassword;
+		internal System.Windows.Forms.TextBox txtEmail;
 		private System.Windows.Forms.Panel panelButtons;
 		internal System.Windows.Forms.Button bttnOK;
 		internal System.Windows.Forms.Button bttnEdit;
 		internal System.Windows.Forms.Button bttnCancel;
 		private System.Windows.Forms.Button bttnDelete;
-		private System.Windows.Forms.DateTimePicker txtBeginDate;
-		private System.Windows.Forms.DateTimePicker txtEndDate;
-		internal System.Windows.Forms.Label label4;
-		internal System.Windows.Forms.TextBox txtManager;
-		private System.Windows.Forms.CheckBox txtVisibility;
+		internal System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.NumericUpDown txtID;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

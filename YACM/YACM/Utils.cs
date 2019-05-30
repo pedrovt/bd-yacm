@@ -32,8 +32,11 @@ namespace YACM
 				for (int i = 1; i < numFields; i++) {
 					item.SubItems.Add(reader[i].ToString().TrimEnd());
 				}
+				Console.WriteLine("Adding " + reader[0].ToString());
 
 			}
+
+			reader.Close();
 
 			// Adjusting the columns width
 			for (int i = 0; i < numFields; i++) {
@@ -41,6 +44,16 @@ namespace YACM
 			}
 
 			Program.db.Close();
+		}
+
+		public static void HideColumn (int index, ListView list) {
+			int totalItems = list.Items.Count;
+			for (int i = 0; i < totalItems; i++) {
+				// Column B is at index 1
+				list.Items[i].SubItems[index].Text = string.Empty;
+			}
+
+			list.Columns.RemoveAt(index);
 		}
 	}
 }

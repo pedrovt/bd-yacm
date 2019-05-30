@@ -83,6 +83,48 @@
   <ItemGroup>
     <Compile Include="DBLayer\Events.cs" />
     <Compile Include="DBLayer\Login.cs" />
+    <Compile Include="Dialogs\DialogSponsors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogSponsors.Designer.cs">
+      <DependentUpon>DialogSponsors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogDocuments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogDocuments.Designer.cs">
+      <DependentUpon>DialogDocuments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogTeams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogTeams.Designer.cs">
+      <DependentUpon>DialogTeams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogEquipment.Designer.cs">
+      <DependentUpon>DialogEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogPrize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogPrize.Designer.cs">
+      <DependentUpon>DialogPrize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogStages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogStages.Designer.cs">
+      <DependentUpon>DialogStages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogParticipants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogParticipants.Designer.cs">
+      <DependentUpon>DialogParticipants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="DBLayer\DatabaseHandler.cs" />
@@ -113,6 +155,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\DialogSponsors.resx">
+      <DependentUpon>DialogSponsors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogDocuments.resx">
+      <DependentUpon>DialogDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogTeams.resx">
+      <DependentUpon>DialogTeams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogEquipment.resx">
+      <DependentUpon>DialogEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogPrize.resx">
+      <DependentUpon>DialogPrize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogStages.resx">
+      <DependentUpon>DialogStages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogParticipants.resx">
+      <DependentUpon>DialogParticipants.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DialogEvents.resx">
       <DependentUpon>DialogEvents.cs</DependentUpon>
     </EmbeddedResource>
