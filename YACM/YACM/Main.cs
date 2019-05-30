@@ -32,6 +32,8 @@ namespace YACM
 			eventsCount = -1;
 			eventIndex = -1;
 			labelTitle.Text = "Welcome back, " + user;
+
+			eventManagement.Hide();
 		}
 
 		private void Main_Load(object sender, EventArgs e) {
@@ -44,22 +46,23 @@ namespace YACM
 		private void ReadEvents() {
 			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Event", Program.db.Open());
 			SqlDataReader reader = cmd.ExecuteReader();
+			
 
 			// Creating the columns in the List View
 			int numFields = reader.FieldCount;
 			String field;
-			listView1.Columns.Clear();      // clear previous columns, if needed
+			eventsList.Columns.Clear();      // clear previous columns, if needed
 			for (int i = 0; i < numFields; i++) {
 				field = reader.GetName(i);
 
-				listView1.Columns.Add(field);
+				eventsList.Columns.Add(field);
 			}
 
 			// Loading the data
-			listView1.Items.Clear();        // clear previous items, if needed
+			eventsList.Items.Clear();        // clear previous items, if needed
 			eventsCount = 0;
 			while (reader.Read()) {
-				ListViewItem item = listView1.Items.Add(reader[0].ToString());
+				ListViewItem item = eventsList.Items.Add(reader[0].ToString());
 				for (int i = 1; i < numFields; i++) {
 					item.SubItems.Add(reader[i].ToString().TrimEnd());
 				}
@@ -68,24 +71,83 @@ namespace YACM
 
 			// Adjusting the columns width
 			for (int i = 0; i < numFields; i++) {
-				listView1.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+				eventsList.Columns[i].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
 			}
 
 			Program.db.Close();
+
+		}
+		
+		private void ReadEventDetails() {
+			eventManagement.Show();
+			LoadAbout();
 		}
 		#endregion
 
 		#region Event Handlers
-		private void ListView1_SelectedIndexChanged(object sender, EventArgs e) {
+		private void EventsList_SelectedIndexChanged(object sender, EventArgs e) {
 			
-			if (listView1.SelectedItems != null) {
-				ListViewItem firstSelectedItem = listView1.FocusedItem;
+			if (eventsList.SelectedItems != null) {
+				ListViewItem firstSelectedItem = eventsList.FocusedItem;
 				eventIndex = Convert.ToInt32(firstSelectedItem.SubItems[0].Text.ToString());
 				debugInfo.Text = "Selected Event ID is " + eventIndex;
 			}
+
+			ReadEventDetails();
 		}
 
-		private void EditEventToolStripMenuItem_Click(object sender, EventArgs e) {
+		private void EventManagement_SelectedIndexChanged(object sender, EventArgs e) {
+			switch (eventManagement.SelectedIndex) {
+				case 0:                 // About
+					Console.WriteLine("Selected About");
+					LoadAbout();
+					break;
+				case 1:                 // Equipment
+					Console.WriteLine("Selected Equipment");
+					LoadEquipment();
+					break;
+				case 2:                 // Participants
+					Console.WriteLine("Selected Participants");
+					LoadParticipants();
+					break;
+				case 3:                 // Prizes
+					Console.WriteLine("Selected Prizes");
+					LoadPrizes();
+					break;
+				case 4:                 // Sponsors
+					Console.WriteLine("Selected Sponsors");
+					LoadSponsors();
+					break;
+				case 5:                 // Stages
+					Console.WriteLine("Selected Stages");
+					LoadStages();
+					break;
+				case 6:                 // Teams
+					Console.WriteLine("Selected Teams");
+					LoadTeams();
+					break;
+				case 7:                 // Documents
+					Console.WriteLine("Selected Documents");
+					LoadDocuments();
+					break;
+
+			}
+		}
+		#endregion
+
+		#region Toolstrip Event Handlers
+
+		private void AddEvent_Click(object sender, EventArgs e) {
+			DialogEvents dialog = new DialogEvents(eventIndex, true, eventsCount);
+			dialog.Show();
+			ReadEvents();
+		}
+
+		private void RefreshEvents_Click(object sender, EventArgs e) {
+			ReadEvents();
+		}
+
+		private void EditEvent_Click(object sender, EventArgs e) {
 			if (eventIndex >= 0) {
 				DialogEvents dialog = new DialogEvents(eventIndex, false, eventsCount);
 				dialog.Show();
@@ -93,24 +155,50 @@ namespace YACM
 			}
 		}
 
-		private void AddEventToolStripMenuItem_Click(object sender, EventArgs e) {
-			DialogEvents dialog = new DialogEvents(eventIndex, true, eventsCount);
-			dialog.Show();
-			ReadEvents();
-		}
-
-		private void UpdateToolStripMenuItem_Click(object sender, EventArgs e) {
-			ReadEvents();
-		}
-
-		#endregion
-
-		private void ToolStripMenuItem22_Click(object sender, EventArgs e) {
+		private void Logout_Click(object sender, EventArgs e) {
 			Login login = new Login();
 			this.Hide();
 			login.ShowDialog();
 			this.Close();
 			this.Dispose();
 		}
+
+		#endregion
+
+		#region Events Management Tabs Logic
+		private void LoadDocuments() {
+			MessageBox.Show("Documents");
+		}
+
+		private void LoadTeams() {
+			MessageBox.Show("Teams");
+		}
+
+		private void LoadStages() {
+			MessageBox.Show("Stages");
+		}
+
+		private void LoadSponsors() {
+			MessageBox.Show("Sponsors");
+		}
+
+		private void LoadPrizes() {
+			MessageBox.Show("Prizes");
+		}
+
+		private void LoadParticipants() {
+			MessageBox.Show("Participants");
+		}
+
+		private void LoadEquipment() {
+			MessageBox.Show("Equipment");
+		}
+
+		private void LoadAbout() {
+			MessageBox.Show("About");
+			 
+		}
+
+		#endregion
 	}
 }
