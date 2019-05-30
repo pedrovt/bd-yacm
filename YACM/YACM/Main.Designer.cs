@@ -25,6 +25,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPageManager = new System.Windows.Forms.TabPage();
@@ -32,44 +33,45 @@
 			this.eventsList = new System.Windows.Forms.ListView();
 			this.eventManagement = new System.Windows.Forms.TabControl();
 			this.About = new System.Windows.Forms.TabPage();
+			this.eventName = new System.Windows.Forms.Label();
 			this.Equipment = new System.Windows.Forms.TabPage();
-			this.listView2 = new System.Windows.Forms.ListView();
+			this.equipmentList = new System.Windows.Forms.ListView();
 			this.menuStrip2 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Participants = new System.Windows.Forms.TabPage();
-			this.listView3 = new System.Windows.Forms.ListView();
+			this.participantsList = new System.Windows.Forms.ListView();
 			this.menuStrip3 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Prizes = new System.Windows.Forms.TabPage();
-			this.listView4 = new System.Windows.Forms.ListView();
+			this.prizesLIst = new System.Windows.Forms.ListView();
 			this.menuStrip4 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Sponsors = new System.Windows.Forms.TabPage();
-			this.listView5 = new System.Windows.Forms.ListView();
+			this.sponsorsList = new System.Windows.Forms.ListView();
 			this.menuStrip5 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Stages = new System.Windows.Forms.TabPage();
-			this.listView6 = new System.Windows.Forms.ListView();
+			this.stagesList = new System.Windows.Forms.ListView();
 			this.menuStrip6 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Teams = new System.Windows.Forms.TabPage();
-			this.listView7 = new System.Windows.Forms.ListView();
+			this.teamsList = new System.Windows.Forms.ListView();
 			this.menuStrip7 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
 			this.Documents = new System.Windows.Forms.TabPage();
-			this.listView8 = new System.Windows.Forms.ListView();
+			this.documentsList = new System.Windows.Forms.ListView();
 			this.menuStrip8 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +88,7 @@
 			this.copyrightInfo = new System.Windows.Forms.ToolStripStatusLabel();
 			this.labelTitle = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.eventName = new System.Windows.Forms.Label();
+			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.tabControl1.SuspendLayout();
 			this.tabPageManager.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -198,27 +200,38 @@
 			this.About.Text = "About";
 			this.About.UseVisualStyleBackColor = true;
 			// 
+			// eventName
+			// 
+			this.eventName.AutoSize = true;
+			this.eventName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.eventName.Location = new System.Drawing.Point(160, 3);
+			this.eventName.Name = "eventName";
+			this.eventName.Size = new System.Drawing.Size(187, 26);
+			this.eventName.TabIndex = 5;
+			this.eventName.Text = "About <eventName>";
+			this.eventName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// Equipment
 			// 
-			this.Equipment.Controls.Add(this.listView2);
+			this.Equipment.Controls.Add(this.equipmentList);
 			this.Equipment.Controls.Add(this.menuStrip2);
 			this.Equipment.Location = new System.Drawing.Point(4, 22);
 			this.Equipment.Name = "Equipment";
 			this.Equipment.Padding = new System.Windows.Forms.Padding(3);
-			this.Equipment.Size = new System.Drawing.Size(514, 436);
+			this.Equipment.Size = new System.Drawing.Size(514, 416);
 			this.Equipment.TabIndex = 1;
 			this.Equipment.Text = "Equipment";
 			this.Equipment.UseVisualStyleBackColor = true;
 			// 
-			// listView2
+			// equipmentList
 			// 
-			this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView2.Location = new System.Drawing.Point(3, 27);
-			this.listView2.Name = "listView2";
-			this.listView2.Size = new System.Drawing.Size(508, 406);
-			this.listView2.TabIndex = 4;
-			this.listView2.UseCompatibleStateImageBehavior = false;
-			this.listView2.View = System.Windows.Forms.View.Details;
+			this.equipmentList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.equipmentList.Location = new System.Drawing.Point(3, 27);
+			this.equipmentList.Name = "equipmentList";
+			this.equipmentList.Size = new System.Drawing.Size(508, 386);
+			this.equipmentList.TabIndex = 4;
+			this.equipmentList.UseCompatibleStateImageBehavior = false;
+			this.equipmentList.View = System.Windows.Forms.View.Details;
 			// 
 			// menuStrip2
 			// 
@@ -255,24 +268,24 @@
 			// 
 			// Participants
 			// 
-			this.Participants.Controls.Add(this.listView3);
+			this.Participants.Controls.Add(this.participantsList);
 			this.Participants.Controls.Add(this.menuStrip3);
 			this.Participants.Location = new System.Drawing.Point(4, 22);
 			this.Participants.Name = "Participants";
-			this.Participants.Size = new System.Drawing.Size(514, 436);
+			this.Participants.Size = new System.Drawing.Size(514, 416);
 			this.Participants.TabIndex = 2;
 			this.Participants.Text = "Participants";
 			this.Participants.UseVisualStyleBackColor = true;
 			// 
-			// listView3
+			// participantsList
 			// 
-			this.listView3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView3.Location = new System.Drawing.Point(0, 24);
-			this.listView3.Name = "listView3";
-			this.listView3.Size = new System.Drawing.Size(514, 412);
-			this.listView3.TabIndex = 6;
-			this.listView3.UseCompatibleStateImageBehavior = false;
-			this.listView3.View = System.Windows.Forms.View.Details;
+			this.participantsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.participantsList.Location = new System.Drawing.Point(0, 24);
+			this.participantsList.Name = "participantsList";
+			this.participantsList.Size = new System.Drawing.Size(514, 392);
+			this.participantsList.TabIndex = 6;
+			this.participantsList.UseCompatibleStateImageBehavior = false;
+			this.participantsList.View = System.Windows.Forms.View.Details;
 			// 
 			// menuStrip3
 			// 
@@ -309,24 +322,24 @@
 			// 
 			// Prizes
 			// 
-			this.Prizes.Controls.Add(this.listView4);
+			this.Prizes.Controls.Add(this.prizesLIst);
 			this.Prizes.Controls.Add(this.menuStrip4);
 			this.Prizes.Location = new System.Drawing.Point(4, 22);
 			this.Prizes.Name = "Prizes";
-			this.Prizes.Size = new System.Drawing.Size(514, 436);
+			this.Prizes.Size = new System.Drawing.Size(514, 416);
 			this.Prizes.TabIndex = 3;
 			this.Prizes.Text = "Prize";
 			this.Prizes.UseVisualStyleBackColor = true;
 			// 
-			// listView4
+			// prizesLIst
 			// 
-			this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView4.Location = new System.Drawing.Point(0, 24);
-			this.listView4.Name = "listView4";
-			this.listView4.Size = new System.Drawing.Size(514, 412);
-			this.listView4.TabIndex = 6;
-			this.listView4.UseCompatibleStateImageBehavior = false;
-			this.listView4.View = System.Windows.Forms.View.Details;
+			this.prizesLIst.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.prizesLIst.Location = new System.Drawing.Point(0, 24);
+			this.prizesLIst.Name = "prizesLIst";
+			this.prizesLIst.Size = new System.Drawing.Size(514, 392);
+			this.prizesLIst.TabIndex = 6;
+			this.prizesLIst.UseCompatibleStateImageBehavior = false;
+			this.prizesLIst.View = System.Windows.Forms.View.Details;
 			// 
 			// menuStrip4
 			// 
@@ -363,24 +376,24 @@
 			// 
 			// Sponsors
 			// 
-			this.Sponsors.Controls.Add(this.listView5);
+			this.Sponsors.Controls.Add(this.sponsorsList);
 			this.Sponsors.Controls.Add(this.menuStrip5);
 			this.Sponsors.Location = new System.Drawing.Point(4, 22);
 			this.Sponsors.Name = "Sponsors";
-			this.Sponsors.Size = new System.Drawing.Size(514, 436);
+			this.Sponsors.Size = new System.Drawing.Size(514, 416);
 			this.Sponsors.TabIndex = 4;
 			this.Sponsors.Text = "Sponsors";
 			this.Sponsors.UseVisualStyleBackColor = true;
 			// 
-			// listView5
+			// sponsorsList
 			// 
-			this.listView5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView5.Location = new System.Drawing.Point(0, 24);
-			this.listView5.Name = "listView5";
-			this.listView5.Size = new System.Drawing.Size(514, 412);
-			this.listView5.TabIndex = 6;
-			this.listView5.UseCompatibleStateImageBehavior = false;
-			this.listView5.View = System.Windows.Forms.View.Details;
+			this.sponsorsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.sponsorsList.Location = new System.Drawing.Point(0, 24);
+			this.sponsorsList.Name = "sponsorsList";
+			this.sponsorsList.Size = new System.Drawing.Size(514, 392);
+			this.sponsorsList.TabIndex = 6;
+			this.sponsorsList.UseCompatibleStateImageBehavior = false;
+			this.sponsorsList.View = System.Windows.Forms.View.Details;
 			// 
 			// menuStrip5
 			// 
@@ -417,24 +430,24 @@
 			// 
 			// Stages
 			// 
-			this.Stages.Controls.Add(this.listView6);
+			this.Stages.Controls.Add(this.stagesList);
 			this.Stages.Controls.Add(this.menuStrip6);
 			this.Stages.Location = new System.Drawing.Point(4, 22);
 			this.Stages.Name = "Stages";
-			this.Stages.Size = new System.Drawing.Size(514, 436);
+			this.Stages.Size = new System.Drawing.Size(514, 416);
 			this.Stages.TabIndex = 5;
 			this.Stages.Text = "Stages";
 			this.Stages.UseVisualStyleBackColor = true;
 			// 
-			// listView6
+			// stagesList
 			// 
-			this.listView6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView6.Location = new System.Drawing.Point(0, 24);
-			this.listView6.Name = "listView6";
-			this.listView6.Size = new System.Drawing.Size(514, 412);
-			this.listView6.TabIndex = 6;
-			this.listView6.UseCompatibleStateImageBehavior = false;
-			this.listView6.View = System.Windows.Forms.View.Details;
+			this.stagesList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.stagesList.Location = new System.Drawing.Point(0, 24);
+			this.stagesList.Name = "stagesList";
+			this.stagesList.Size = new System.Drawing.Size(514, 392);
+			this.stagesList.TabIndex = 6;
+			this.stagesList.UseCompatibleStateImageBehavior = false;
+			this.stagesList.View = System.Windows.Forms.View.Details;
 			// 
 			// menuStrip6
 			// 
@@ -471,24 +484,24 @@
 			// 
 			// Teams
 			// 
-			this.Teams.Controls.Add(this.listView7);
+			this.Teams.Controls.Add(this.teamsList);
 			this.Teams.Controls.Add(this.menuStrip7);
 			this.Teams.Location = new System.Drawing.Point(4, 22);
 			this.Teams.Name = "Teams";
-			this.Teams.Size = new System.Drawing.Size(514, 436);
+			this.Teams.Size = new System.Drawing.Size(514, 416);
 			this.Teams.TabIndex = 6;
 			this.Teams.Text = "Teams";
 			this.Teams.UseVisualStyleBackColor = true;
 			// 
-			// listView7
+			// teamsList
 			// 
-			this.listView7.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView7.Location = new System.Drawing.Point(0, 24);
-			this.listView7.Name = "listView7";
-			this.listView7.Size = new System.Drawing.Size(514, 412);
-			this.listView7.TabIndex = 6;
-			this.listView7.UseCompatibleStateImageBehavior = false;
-			this.listView7.View = System.Windows.Forms.View.Details;
+			this.teamsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.teamsList.Location = new System.Drawing.Point(0, 24);
+			this.teamsList.Name = "teamsList";
+			this.teamsList.Size = new System.Drawing.Size(514, 392);
+			this.teamsList.TabIndex = 6;
+			this.teamsList.UseCompatibleStateImageBehavior = false;
+			this.teamsList.View = System.Windows.Forms.View.Details;
 			// 
 			// menuStrip7
 			// 
@@ -525,24 +538,24 @@
 			// 
 			// Documents
 			// 
-			this.Documents.Controls.Add(this.listView8);
+			this.Documents.Controls.Add(this.documentsList);
 			this.Documents.Controls.Add(this.menuStrip8);
 			this.Documents.Location = new System.Drawing.Point(4, 22);
 			this.Documents.Name = "Documents";
-			this.Documents.Size = new System.Drawing.Size(514, 436);
+			this.Documents.Size = new System.Drawing.Size(514, 416);
 			this.Documents.TabIndex = 7;
 			this.Documents.Text = "Documents";
 			this.Documents.UseVisualStyleBackColor = true;
 			// 
-			// listView8
+			// documentsList
 			// 
-			this.listView8.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView8.Location = new System.Drawing.Point(0, 24);
-			this.listView8.Name = "listView8";
-			this.listView8.Size = new System.Drawing.Size(514, 412);
-			this.listView8.TabIndex = 6;
-			this.listView8.UseCompatibleStateImageBehavior = false;
-			this.listView8.View = System.Windows.Forms.View.Details;
+			this.documentsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.documentsList.Location = new System.Drawing.Point(0, 24);
+			this.documentsList.Name = "documentsList";
+			this.documentsList.Size = new System.Drawing.Size(514, 392);
+			this.documentsList.TabIndex = 6;
+			this.documentsList.UseCompatibleStateImageBehavior = false;
+			this.documentsList.View = System.Windows.Forms.View.Details;
 			// 
 			// menuStrip8
 			// 
@@ -622,6 +635,7 @@
 			this.logout.Name = "logout";
 			this.logout.Size = new System.Drawing.Size(73, 20);
 			this.logout.Text = "Logout";
+			this.logout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			this.logout.Click += new System.EventHandler(this.Logout_Click);
 			// 
 			// tabPageParticipant
@@ -629,7 +643,7 @@
 			this.tabPageParticipant.Location = new System.Drawing.Point(4, 4);
 			this.tabPageParticipant.Name = "tabPageParticipant";
 			this.tabPageParticipant.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageParticipant.Size = new System.Drawing.Size(1048, 492);
+			this.tabPageParticipant.Size = new System.Drawing.Size(1048, 472);
 			this.tabPageParticipant.TabIndex = 1;
 			this.tabPageParticipant.Text = "Events I\'m Participating";
 			this.tabPageParticipant.UseVisualStyleBackColor = true;
@@ -638,7 +652,7 @@
 			// 
 			this.tabPageSponsor.Location = new System.Drawing.Point(4, 4);
 			this.tabPageSponsor.Name = "tabPageSponsor";
-			this.tabPageSponsor.Size = new System.Drawing.Size(1048, 492);
+			this.tabPageSponsor.Size = new System.Drawing.Size(1048, 472);
 			this.tabPageSponsor.TabIndex = 2;
 			this.tabPageSponsor.Text = "Events I\'m Sponsoring";
 			this.tabPageSponsor.UseVisualStyleBackColor = true;
@@ -697,18 +711,14 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1062, 580);
 			this.tableLayoutPanel1.TabIndex = 5;
 			// 
-			// eventName
+			// notifyIcon1
 			// 
-			this.eventName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.eventName.AutoSize = true;
-			this.eventName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.eventName.Location = new System.Drawing.Point(160, 3);
-			this.eventName.Name = "eventName";
-			this.eventName.Size = new System.Drawing.Size(187, 26);
-			this.eventName.TabIndex = 5;
-			this.eventName.Text = "About <eventName>";
-			this.eventName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			this.notifyIcon1.BalloonTipText = "Welcome to YACM!";
+			this.notifyIcon1.BalloonTipTitle = "YACM";
+			this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+			this.notifyIcon1.Text = "YACM";
+			this.notifyIcon1.Visible = true;
 			// 
 			// Main
 			// 
@@ -794,7 +804,7 @@
 		private System.Windows.Forms.TabControl eventManagement;
 		private System.Windows.Forms.TabPage Participants;
 		private System.Windows.Forms.TabPage Equipment;
-		private System.Windows.Forms.ListView listView2;
+		private System.Windows.Forms.ListView equipmentList;
 		private System.Windows.Forms.MenuStrip menuStrip2;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
@@ -805,37 +815,38 @@
 		private System.Windows.Forms.TabPage Teams;
 		private System.Windows.Forms.TabPage Documents;
 		private System.Windows.Forms.TabPage About;
-		private System.Windows.Forms.ListView listView3;
+		private System.Windows.Forms.ListView participantsList;
 		private System.Windows.Forms.MenuStrip menuStrip3;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-		private System.Windows.Forms.ListView listView4;
+		private System.Windows.Forms.ListView prizesLIst;
 		private System.Windows.Forms.MenuStrip menuStrip4;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
-		private System.Windows.Forms.ListView listView5;
+		private System.Windows.Forms.ListView sponsorsList;
 		private System.Windows.Forms.MenuStrip menuStrip5;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
-		private System.Windows.Forms.ListView listView6;
+		private System.Windows.Forms.ListView stagesList;
 		private System.Windows.Forms.MenuStrip menuStrip6;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
-		private System.Windows.Forms.ListView listView7;
+		private System.Windows.Forms.ListView teamsList;
 		private System.Windows.Forms.MenuStrip menuStrip7;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem16;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
-		private System.Windows.Forms.ListView listView8;
+		private System.Windows.Forms.ListView documentsList;
 		private System.Windows.Forms.MenuStrip menuStrip8;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
 		private System.Windows.Forms.ToolStripMenuItem logout;
 		private System.Windows.Forms.Label eventName;
+		private System.Windows.Forms.NotifyIcon notifyIcon1;
 	}
 }

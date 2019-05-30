@@ -23,86 +23,52 @@ namespace YACM
 	{
 
 		#region Instance Fields
-		private Event E;
-		private readonly int eventIndex;
-		private readonly int eventsCount;
+		private readonly Event E;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
 
 		#region CTOR
 		/// <summary>
-		/// 
+		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
-		/// <param name="eventIndex"></param>
-		/// <param name="createMode"> true if Dialog is create from a Add Button</param>
-		public DialogEvents(int eventIndex, bool createMode, int eventsCount) {
+		/// <param name="E">Event</param>
+		public DialogEvents(Event E) {
 			InitializeComponent();
 
-			this.E = new Event();
-			this.eventIndex = eventIndex;
+			this.E = E;
 			this.toUpdate = false;
-			this.eventsCount = eventsCount;
-
-			if (createMode) {
-				// Add an Event
-				UnlockControls();
-				ClearFields();
-			}
-			else {
-				// Show Event Details
-				ReadEvent(eventIndex);
-				ShowEvent();
-			}
-
-			UpdateButtons(createMode);
-		}
-		#endregion
-
-		#region Create, Read, Update, Delete methods
-		private void CreateEvent(Event E) {
-			DBLayer.Events.Create(E);
-		}
-
-		private void ReadEvent(int eventNumber) {
-			E = DBLayer.Events.Read(eventNumber);
-
-			if (E == null) {
-				MessageBox.Show("Event with number " + eventNumber + " not found!");
-				
-			}
-			else {
-				ShowEvent();
-			}
-
+			
+			// Show Event Details
+			ShowEvent();
 			LockControls();
-
-			//currentContact = 0;
-
+			UpdateButtons(false);
 		}
 
-		private void UpdateEvent(Event E) {
-			DBLayer.Events.Update(E);
+		/// <summary>
+		/// Constructor for a Dialog to create a new Event
+		/// </summary>
+		public DialogEvents() {
+			InitializeComponent();
+			// Add an Event
+			ClearFields();
+			UnlockControls();
+			UpdateButtons(true);
 		}
-
-		private void DeleteEvent(Event E) {
-			DBLayer.Events.Delete(E);
-		}
-
+		
 		#endregion
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			if (toUpdate) {
+			if (canCommit) {
 				SaveEvent();
-				if (canCommit) UpdateEvent(E);
-			}
-			else {
-				SaveEvent();
-				if (canCommit) CreateEvent(E);
-			}
-			if (canCommit) {		//Return to main
+
+				if (toUpdate) DBLayer.Events.Update(E);
+				else DBLayer.Events.Create(E);
+				
+				//Return to main
 				this.Dispose();
+				
 			}
 		}
 
@@ -113,7 +79,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DeleteEvent(E);
+			DBLayer.Events.Delete(E);
 			this.Dispose();
 		}
 
@@ -152,7 +118,7 @@ namespace YACM
 
 		public void LockControls() {
 			txtEndDate.Enabled = false;
-			txtID.ReadOnly = true;
+			txtID.Enabled = false;
 			txtBudget.ReadOnly = true;
 			txtVisibility.Enabled = true;
 			txtBeginDate.Enabled = false;
@@ -162,8 +128,8 @@ namespace YACM
 
 		public void UnlockControls() {
 			txtEndDate.Enabled = true;
-			txtID.ReadOnly = false;
-			txtID.Minimum = eventsCount;
+			txtID.Enabled = false;
+			txtID.Minimum = 0;
 			txtBudget.ReadOnly = false;
 			txtVisibility.Enabled = false;
 			txtBeginDate.Enabled = true;
@@ -196,8 +162,8 @@ namespace YACM
 		public void ClearFields() {
 			
 			txtEndDate.Text = "";
-			txtID.Value = eventsCount;
-			txtID.Minimum = eventsCount;
+			txtID.Value = 0;
+			txtID.Minimum = 0;
 			txtBudget.Text = "";
 			txtVisibility.Text = "";
 			txtBeginDate.Text = "";

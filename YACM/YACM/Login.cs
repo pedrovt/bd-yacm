@@ -19,8 +19,7 @@ namespace YACM
 	public partial class Login : Form
 	{
 
-		private String user;
-
+	
 		public Login() {
 			InitializeComponent();
 
@@ -43,8 +42,7 @@ namespace YACM
 				return;
 			}
 
-			user = "User";
-
+			
 			// Connect to Database
 			Console.WriteLine("Chosen Database: " + instance.Text);
 			Program.db = new DatabaseHandler(instance.Text);
@@ -62,8 +60,6 @@ namespace YACM
 				MessageBox.Show("Please fill out all the information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
-			user = "User";
 
 			// Connect to Database
 			Console.WriteLine("Chosen Database: " + instance.Text);

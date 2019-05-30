@@ -72,6 +72,7 @@ namespace YACM
 			ManagerID = managerID;
 		}
 
+		
 	}
 }
 
