@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBLayer\EventHandler.cs" />
     <Compile Include="DBLayer\Events.cs" />
     <Compile Include="DBLayer\Login.cs" />
     <Compile Include="Dialogs\DialogSponsors.cs">
