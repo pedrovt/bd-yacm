@@ -32,63 +32,67 @@
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.eventsList = new System.Windows.Forms.ListView();
 			this.eventManagement = new System.Windows.Forms.TabControl();
-			this.About = new System.Windows.Forms.TabPage();
-			this.eventName = new System.Windows.Forms.Label();
+			this.Statistics = new System.Windows.Forms.TabPage();
 			this.Equipment = new System.Windows.Forms.TabPage();
 			this.equipmentList = new System.Windows.Forms.ListView();
-			this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.equipamentActions = new System.Windows.Forms.MenuStrip();
+			this.addEquipment = new System.Windows.Forms.ToolStripMenuItem();
+			this.editEquipment = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshEquipment = new System.Windows.Forms.ToolStripMenuItem();
 			this.Participants = new System.Windows.Forms.TabPage();
 			this.participantsList = new System.Windows.Forms.ListView();
-			this.menuStrip3 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+			this.participantsActions = new System.Windows.Forms.MenuStrip();
+			this.addParticipants = new System.Windows.Forms.ToolStripMenuItem();
+			this.editParticipants = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshParticipants = new System.Windows.Forms.ToolStripMenuItem();
 			this.Prizes = new System.Windows.Forms.TabPage();
-			this.prizesLIst = new System.Windows.Forms.ListView();
-			this.menuStrip4 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+			this.prizesList = new System.Windows.Forms.ListView();
+			this.prizeActions = new System.Windows.Forms.MenuStrip();
+			this.addPrizes = new System.Windows.Forms.ToolStripMenuItem();
+			this.editPrizes = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshPrizes = new System.Windows.Forms.ToolStripMenuItem();
 			this.Sponsors = new System.Windows.Forms.TabPage();
 			this.sponsorsList = new System.Windows.Forms.ListView();
-			this.menuStrip5 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+			this.sponsorsActions = new System.Windows.Forms.MenuStrip();
+			this.addSponsors = new System.Windows.Forms.ToolStripMenuItem();
+			this.editSponsors = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshSponsors = new System.Windows.Forms.ToolStripMenuItem();
 			this.Stages = new System.Windows.Forms.TabPage();
 			this.stagesList = new System.Windows.Forms.ListView();
-			this.menuStrip6 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+			this.stagesActions = new System.Windows.Forms.MenuStrip();
+			this.addStages = new System.Windows.Forms.ToolStripMenuItem();
+			this.editStages = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshStages = new System.Windows.Forms.ToolStripMenuItem();
 			this.Teams = new System.Windows.Forms.TabPage();
 			this.teamsList = new System.Windows.Forms.ListView();
-			this.menuStrip7 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+			this.teamActions = new System.Windows.Forms.MenuStrip();
+			this.addTeams = new System.Windows.Forms.ToolStripMenuItem();
+			this.editTeams = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshTeams = new System.Windows.Forms.ToolStripMenuItem();
 			this.Documents = new System.Windows.Forms.TabPage();
 			this.documentsList = new System.Windows.Forms.ListView();
-			this.menuStrip8 = new System.Windows.Forms.MenuStrip();
-			this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
+			this.documentsActions = new System.Windows.Forms.MenuStrip();
+			this.addDocuments = new System.Windows.Forms.ToolStripMenuItem();
+			this.editDocuments = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshDocuments = new System.Windows.Forms.ToolStripMenuItem();
 			this.eventsActions = new System.Windows.Forms.MenuStrip();
 			this.addEvent = new System.Windows.Forms.ToolStripMenuItem();
 			this.editEvent = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshEvent = new System.Windows.Forms.ToolStripMenuItem();
 			this.logout = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabPageParticipant = new System.Windows.Forms.TabPage();
-			this.tabPageSponsor = new System.Windows.Forms.TabPage();
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.debugInfo = new System.Windows.Forms.ToolStripStatusLabel();
 			this.copyrightInfo = new System.Windows.Forms.ToolStripStatusLabel();
 			this.labelTitle = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.StagesParticipants = new System.Windows.Forms.TabPage();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.addStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
+			this.editStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
+			this.stagesParticipationsList = new System.Windows.Forms.ListView();
 			this.tabControl1.SuspendLayout();
 			this.tabPageManager.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -96,34 +100,34 @@
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
 			this.eventManagement.SuspendLayout();
-			this.About.SuspendLayout();
 			this.Equipment.SuspendLayout();
-			this.menuStrip2.SuspendLayout();
+			this.equipamentActions.SuspendLayout();
 			this.Participants.SuspendLayout();
-			this.menuStrip3.SuspendLayout();
+			this.participantsActions.SuspendLayout();
 			this.Prizes.SuspendLayout();
-			this.menuStrip4.SuspendLayout();
+			this.prizeActions.SuspendLayout();
 			this.Sponsors.SuspendLayout();
-			this.menuStrip5.SuspendLayout();
+			this.sponsorsActions.SuspendLayout();
 			this.Stages.SuspendLayout();
-			this.menuStrip6.SuspendLayout();
+			this.stagesActions.SuspendLayout();
 			this.Teams.SuspendLayout();
-			this.menuStrip7.SuspendLayout();
+			this.teamActions.SuspendLayout();
 			this.Documents.SuspendLayout();
-			this.menuStrip8.SuspendLayout();
+			this.documentsActions.SuspendLayout();
 			this.eventsActions.SuspendLayout();
-			this.statusStrip1.SuspendLayout();
+			this.statusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.StagesParticipants.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
 			// 
-			this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
 			this.tabControl1.Controls.Add(this.tabPageManager);
 			this.tabControl1.Controls.Add(this.tabPageParticipant);
-			this.tabControl1.Controls.Add(this.tabPageSponsor);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(3, 71);
+			this.tabControl1.Multiline = true;
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(1439, 625);
@@ -134,7 +138,7 @@
 			// 
 			this.tabPageManager.Controls.Add(this.splitContainer1);
 			this.tabPageManager.Controls.Add(this.eventsActions);
-			this.tabPageManager.Location = new System.Drawing.Point(4, 4);
+			this.tabPageManager.Location = new System.Drawing.Point(4, 22);
 			this.tabPageManager.Name = "tabPageManager";
 			this.tabPageManager.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPageManager.Size = new System.Drawing.Size(1431, 599);
@@ -172,12 +176,13 @@
 			// 
 			// eventManagement
 			// 
-			this.eventManagement.Controls.Add(this.About);
+			this.eventManagement.Controls.Add(this.Statistics);
 			this.eventManagement.Controls.Add(this.Equipment);
 			this.eventManagement.Controls.Add(this.Participants);
 			this.eventManagement.Controls.Add(this.Prizes);
 			this.eventManagement.Controls.Add(this.Sponsors);
 			this.eventManagement.Controls.Add(this.Stages);
+			this.eventManagement.Controls.Add(this.StagesParticipants);
 			this.eventManagement.Controls.Add(this.Teams);
 			this.eventManagement.Controls.Add(this.Documents);
 			this.eventManagement.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -189,32 +194,20 @@
 			this.eventManagement.TabIndex = 4;
 			this.eventManagement.SelectedIndexChanged += new System.EventHandler(this.EventManagement_SelectedIndexChanged);
 			// 
-			// About
+			// Statistics
 			// 
-			this.About.Controls.Add(this.eventName);
-			this.About.Location = new System.Drawing.Point(4, 22);
-			this.About.Name = "About";
-			this.About.Padding = new System.Windows.Forms.Padding(3);
-			this.About.Size = new System.Drawing.Size(708, 543);
-			this.About.TabIndex = 8;
-			this.About.Text = "About";
-			this.About.UseVisualStyleBackColor = true;
-			// 
-			// eventName
-			// 
-			this.eventName.AutoSize = true;
-			this.eventName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.eventName.Location = new System.Drawing.Point(160, 3);
-			this.eventName.Name = "eventName";
-			this.eventName.Size = new System.Drawing.Size(187, 26);
-			this.eventName.TabIndex = 5;
-			this.eventName.Text = "About <eventName>";
-			this.eventName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.Statistics.Location = new System.Drawing.Point(4, 22);
+			this.Statistics.Name = "Statistics";
+			this.Statistics.Padding = new System.Windows.Forms.Padding(3);
+			this.Statistics.Size = new System.Drawing.Size(708, 543);
+			this.Statistics.TabIndex = 8;
+			this.Statistics.Text = "Statistics";
+			this.Statistics.UseVisualStyleBackColor = true;
 			// 
 			// Equipment
 			// 
 			this.Equipment.Controls.Add(this.equipmentList);
-			this.Equipment.Controls.Add(this.menuStrip2);
+			this.Equipment.Controls.Add(this.equipamentActions);
 			this.Equipment.Location = new System.Drawing.Point(4, 22);
 			this.Equipment.Name = "Equipment";
 			this.Equipment.Padding = new System.Windows.Forms.Padding(3);
@@ -233,44 +226,47 @@
 			this.equipmentList.UseCompatibleStateImageBehavior = false;
 			this.equipmentList.View = System.Windows.Forms.View.Details;
 			// 
-			// menuStrip2
+			// equipamentActions
 			// 
-			this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-			this.menuStrip2.Location = new System.Drawing.Point(3, 3);
-			this.menuStrip2.Name = "menuStrip2";
-			this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.menuStrip2.Size = new System.Drawing.Size(702, 24);
-			this.menuStrip2.TabIndex = 5;
-			this.menuStrip2.Text = "menuStrip2";
+			this.equipamentActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addEquipment,
+            this.editEquipment,
+            this.refreshEquipment});
+			this.equipamentActions.Location = new System.Drawing.Point(3, 3);
+			this.equipamentActions.Name = "equipamentActions";
+			this.equipamentActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			this.equipamentActions.Size = new System.Drawing.Size(702, 24);
+			this.equipamentActions.TabIndex = 5;
+			this.equipamentActions.Text = "menuStrip2";
 			// 
-			// toolStripMenuItem1
+			// addEquipment
 			// 
-			this.toolStripMenuItem1.Image = global::YACM.Properties.Resources.ic_add;
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(57, 20);
-			this.toolStripMenuItem1.Text = "Add";
+			this.addEquipment.Image = global::YACM.Properties.Resources.ic_add;
+			this.addEquipment.Name = "addEquipment";
+			this.addEquipment.Size = new System.Drawing.Size(57, 20);
+			this.addEquipment.Text = "Add";
+			this.addEquipment.Click += new System.EventHandler(this.AddEquipment_Click);
 			// 
-			// toolStripMenuItem2
+			// editEquipment
 			// 
-			this.toolStripMenuItem2.Image = global::YACM.Properties.Resources.ic_edit;
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(55, 20);
-			this.toolStripMenuItem2.Text = "Edit";
+			this.editEquipment.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editEquipment.Name = "editEquipment";
+			this.editEquipment.Size = new System.Drawing.Size(55, 20);
+			this.editEquipment.Text = "Edit";
+			this.editEquipment.Click += new System.EventHandler(this.EditEquipment_Click);
 			// 
-			// toolStripMenuItem3
+			// refreshEquipment
 			// 
-			this.toolStripMenuItem3.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(73, 20);
-			this.toolStripMenuItem3.Text = "Update";
+			this.refreshEquipment.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshEquipment.Name = "refreshEquipment";
+			this.refreshEquipment.Size = new System.Drawing.Size(73, 20);
+			this.refreshEquipment.Text = "Update";
+			this.refreshEquipment.Click += new System.EventHandler(this.RefreshEquipment_Click);
 			// 
 			// Participants
 			// 
 			this.Participants.Controls.Add(this.participantsList);
-			this.Participants.Controls.Add(this.menuStrip3);
+			this.Participants.Controls.Add(this.participantsActions);
 			this.Participants.Location = new System.Drawing.Point(4, 22);
 			this.Participants.Name = "Participants";
 			this.Participants.Size = new System.Drawing.Size(708, 543);
@@ -288,46 +284,46 @@
 			this.participantsList.UseCompatibleStateImageBehavior = false;
 			this.participantsList.View = System.Windows.Forms.View.Details;
 			// 
-			// menuStrip3
+			// participantsActions
 			// 
-			this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6});
-			this.menuStrip3.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip3.Name = "menuStrip3";
-			this.menuStrip3.Size = new System.Drawing.Size(708, 24);
-			this.menuStrip3.TabIndex = 7;
-			this.menuStrip3.Text = "menuStrip3";
+			this.participantsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addParticipants,
+            this.editParticipants,
+            this.refreshParticipants});
+			this.participantsActions.Location = new System.Drawing.Point(0, 0);
+			this.participantsActions.Name = "participantsActions";
+			this.participantsActions.Size = new System.Drawing.Size(708, 24);
+			this.participantsActions.TabIndex = 7;
+			this.participantsActions.Text = "menuStrip3";
 			// 
-			// toolStripMenuItem4
+			// addParticipants
 			// 
-			this.toolStripMenuItem4.Image = global::YACM.Properties.Resources.ic_add;
-			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(57, 20);
-			this.toolStripMenuItem4.Text = "Add";
-			this.toolStripMenuItem4.Click += new System.EventHandler(this.ToolStripMenuItem4_Click);
+			this.addParticipants.Image = global::YACM.Properties.Resources.ic_add;
+			this.addParticipants.Name = "addParticipants";
+			this.addParticipants.Size = new System.Drawing.Size(57, 20);
+			this.addParticipants.Text = "Add";
+			this.addParticipants.Click += new System.EventHandler(this.AddParticipants_Click);
 			// 
-			// toolStripMenuItem5
+			// editParticipants
 			// 
-			this.toolStripMenuItem5.Image = global::YACM.Properties.Resources.ic_edit;
-			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(55, 20);
-			this.toolStripMenuItem5.Text = "Edit";
-			this.toolStripMenuItem5.Click += new System.EventHandler(this.ToolStripMenuItem5_Click);
+			this.editParticipants.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editParticipants.Name = "editParticipants";
+			this.editParticipants.Size = new System.Drawing.Size(55, 20);
+			this.editParticipants.Text = "Edit";
+			this.editParticipants.Click += new System.EventHandler(this.EditParticipants_Click);
 			// 
-			// toolStripMenuItem6
+			// refreshParticipants
 			// 
-			this.toolStripMenuItem6.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-			this.toolStripMenuItem6.Size = new System.Drawing.Size(73, 20);
-			this.toolStripMenuItem6.Text = "Update";
-			this.toolStripMenuItem6.Click += new System.EventHandler(this.ToolStripMenuItem6_Click);
+			this.refreshParticipants.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshParticipants.Name = "refreshParticipants";
+			this.refreshParticipants.Size = new System.Drawing.Size(73, 20);
+			this.refreshParticipants.Text = "Update";
+			this.refreshParticipants.Click += new System.EventHandler(this.RefreshParticipants_Click);
 			// 
 			// Prizes
 			// 
-			this.Prizes.Controls.Add(this.prizesLIst);
-			this.Prizes.Controls.Add(this.menuStrip4);
+			this.Prizes.Controls.Add(this.prizesList);
+			this.Prizes.Controls.Add(this.prizeActions);
 			this.Prizes.Location = new System.Drawing.Point(4, 22);
 			this.Prizes.Name = "Prizes";
 			this.Prizes.Size = new System.Drawing.Size(708, 543);
@@ -335,53 +331,56 @@
 			this.Prizes.Text = "Prize";
 			this.Prizes.UseVisualStyleBackColor = true;
 			// 
-			// prizesLIst
+			// prizesList
 			// 
-			this.prizesLIst.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.prizesLIst.Location = new System.Drawing.Point(0, 24);
-			this.prizesLIst.Name = "prizesLIst";
-			this.prizesLIst.Size = new System.Drawing.Size(708, 519);
-			this.prizesLIst.TabIndex = 6;
-			this.prizesLIst.UseCompatibleStateImageBehavior = false;
-			this.prizesLIst.View = System.Windows.Forms.View.Details;
+			this.prizesList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.prizesList.Location = new System.Drawing.Point(0, 24);
+			this.prizesList.Name = "prizesList";
+			this.prizesList.Size = new System.Drawing.Size(708, 519);
+			this.prizesList.TabIndex = 6;
+			this.prizesList.UseCompatibleStateImageBehavior = false;
+			this.prizesList.View = System.Windows.Forms.View.Details;
 			// 
-			// menuStrip4
+			// prizeActions
 			// 
-			this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem9});
-			this.menuStrip4.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip4.Name = "menuStrip4";
-			this.menuStrip4.Size = new System.Drawing.Size(708, 24);
-			this.menuStrip4.TabIndex = 7;
-			this.menuStrip4.Text = "menuStrip4";
+			this.prizeActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addPrizes,
+            this.editPrizes,
+            this.refreshPrizes});
+			this.prizeActions.Location = new System.Drawing.Point(0, 0);
+			this.prizeActions.Name = "prizeActions";
+			this.prizeActions.Size = new System.Drawing.Size(708, 24);
+			this.prizeActions.TabIndex = 7;
+			this.prizeActions.Text = "menuStrip4";
 			// 
-			// toolStripMenuItem7
+			// addPrizes
 			// 
-			this.toolStripMenuItem7.Image = global::YACM.Properties.Resources.ic_add;
-			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-			this.toolStripMenuItem7.Size = new System.Drawing.Size(57, 20);
-			this.toolStripMenuItem7.Text = "Add";
+			this.addPrizes.Image = global::YACM.Properties.Resources.ic_add;
+			this.addPrizes.Name = "addPrizes";
+			this.addPrizes.Size = new System.Drawing.Size(57, 20);
+			this.addPrizes.Text = "Add";
+			this.addPrizes.Click += new System.EventHandler(this.AddPrizes_Click);
 			// 
-			// toolStripMenuItem8
+			// editPrizes
 			// 
-			this.toolStripMenuItem8.Image = global::YACM.Properties.Resources.ic_edit;
-			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(55, 20);
-			this.toolStripMenuItem8.Text = "Edit";
+			this.editPrizes.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editPrizes.Name = "editPrizes";
+			this.editPrizes.Size = new System.Drawing.Size(55, 20);
+			this.editPrizes.Text = "Edit";
+			this.editPrizes.Click += new System.EventHandler(this.EditPrizes_Click);
 			// 
-			// toolStripMenuItem9
+			// refreshPrizes
 			// 
-			this.toolStripMenuItem9.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-			this.toolStripMenuItem9.Size = new System.Drawing.Size(73, 20);
-			this.toolStripMenuItem9.Text = "Update";
+			this.refreshPrizes.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshPrizes.Name = "refreshPrizes";
+			this.refreshPrizes.Size = new System.Drawing.Size(73, 20);
+			this.refreshPrizes.Text = "Update";
+			this.refreshPrizes.Click += new System.EventHandler(this.RefreshPrizes_Click);
 			// 
 			// Sponsors
 			// 
 			this.Sponsors.Controls.Add(this.sponsorsList);
-			this.Sponsors.Controls.Add(this.menuStrip5);
+			this.Sponsors.Controls.Add(this.sponsorsActions);
 			this.Sponsors.Location = new System.Drawing.Point(4, 22);
 			this.Sponsors.Name = "Sponsors";
 			this.Sponsors.Size = new System.Drawing.Size(708, 543);
@@ -399,43 +398,46 @@
 			this.sponsorsList.UseCompatibleStateImageBehavior = false;
 			this.sponsorsList.View = System.Windows.Forms.View.Details;
 			// 
-			// menuStrip5
+			// sponsorsActions
 			// 
-			this.menuStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem10,
-            this.toolStripMenuItem11,
-            this.toolStripMenuItem12});
-			this.menuStrip5.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip5.Name = "menuStrip5";
-			this.menuStrip5.Size = new System.Drawing.Size(708, 24);
-			this.menuStrip5.TabIndex = 7;
-			this.menuStrip5.Text = "menuStrip5";
+			this.sponsorsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addSponsors,
+            this.editSponsors,
+            this.refreshSponsors});
+			this.sponsorsActions.Location = new System.Drawing.Point(0, 0);
+			this.sponsorsActions.Name = "sponsorsActions";
+			this.sponsorsActions.Size = new System.Drawing.Size(708, 24);
+			this.sponsorsActions.TabIndex = 7;
+			this.sponsorsActions.Text = "menuStrip5";
 			// 
-			// toolStripMenuItem10
+			// addSponsors
 			// 
-			this.toolStripMenuItem10.Image = global::YACM.Properties.Resources.ic_add;
-			this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-			this.toolStripMenuItem10.Size = new System.Drawing.Size(57, 20);
-			this.toolStripMenuItem10.Text = "Add";
+			this.addSponsors.Image = global::YACM.Properties.Resources.ic_add;
+			this.addSponsors.Name = "addSponsors";
+			this.addSponsors.Size = new System.Drawing.Size(57, 20);
+			this.addSponsors.Text = "Add";
+			this.addSponsors.Click += new System.EventHandler(this.AddSponsors_Click);
 			// 
-			// toolStripMenuItem11
+			// editSponsors
 			// 
-			this.toolStripMenuItem11.Image = global::YACM.Properties.Resources.ic_edit;
-			this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-			this.toolStripMenuItem11.Size = new System.Drawing.Size(55, 20);
-			this.toolStripMenuItem11.Text = "Edit";
+			this.editSponsors.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editSponsors.Name = "editSponsors";
+			this.editSponsors.Size = new System.Drawing.Size(55, 20);
+			this.editSponsors.Text = "Edit";
+			this.editSponsors.Click += new System.EventHandler(this.EditSponsors_Click);
 			// 
-			// toolStripMenuItem12
+			// refreshSponsors
 			// 
-			this.toolStripMenuItem12.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-			this.toolStripMenuItem12.Size = new System.Drawing.Size(73, 20);
-			this.toolStripMenuItem12.Text = "Update";
+			this.refreshSponsors.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshSponsors.Name = "refreshSponsors";
+			this.refreshSponsors.Size = new System.Drawing.Size(73, 20);
+			this.refreshSponsors.Text = "Update";
+			this.refreshSponsors.Click += new System.EventHandler(this.RefreshSponsors_Click);
 			// 
 			// Stages
 			// 
 			this.Stages.Controls.Add(this.stagesList);
-			this.Stages.Controls.Add(this.menuStrip6);
+			this.Stages.Controls.Add(this.stagesActions);
 			this.Stages.Location = new System.Drawing.Point(4, 22);
 			this.Stages.Name = "Stages";
 			this.Stages.Size = new System.Drawing.Size(708, 543);
@@ -453,43 +455,46 @@
 			this.stagesList.UseCompatibleStateImageBehavior = false;
 			this.stagesList.View = System.Windows.Forms.View.Details;
 			// 
-			// menuStrip6
+			// stagesActions
 			// 
-			this.menuStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem13,
-            this.toolStripMenuItem14,
-            this.toolStripMenuItem15});
-			this.menuStrip6.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip6.Name = "menuStrip6";
-			this.menuStrip6.Size = new System.Drawing.Size(708, 24);
-			this.menuStrip6.TabIndex = 7;
-			this.menuStrip6.Text = "menuStrip6";
+			this.stagesActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addStages,
+            this.editStages,
+            this.refreshStages});
+			this.stagesActions.Location = new System.Drawing.Point(0, 0);
+			this.stagesActions.Name = "stagesActions";
+			this.stagesActions.Size = new System.Drawing.Size(708, 24);
+			this.stagesActions.TabIndex = 7;
+			this.stagesActions.Text = "menuStrip6";
 			// 
-			// toolStripMenuItem13
+			// addStages
 			// 
-			this.toolStripMenuItem13.Image = global::YACM.Properties.Resources.ic_add;
-			this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-			this.toolStripMenuItem13.Size = new System.Drawing.Size(57, 20);
-			this.toolStripMenuItem13.Text = "Add";
+			this.addStages.Image = global::YACM.Properties.Resources.ic_add;
+			this.addStages.Name = "addStages";
+			this.addStages.Size = new System.Drawing.Size(57, 20);
+			this.addStages.Text = "Add";
+			this.addStages.Click += new System.EventHandler(this.AddStages_Click);
 			// 
-			// toolStripMenuItem14
+			// editStages
 			// 
-			this.toolStripMenuItem14.Image = global::YACM.Properties.Resources.ic_edit;
-			this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-			this.toolStripMenuItem14.Size = new System.Drawing.Size(55, 20);
-			this.toolStripMenuItem14.Text = "Edit";
+			this.editStages.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editStages.Name = "editStages";
+			this.editStages.Size = new System.Drawing.Size(55, 20);
+			this.editStages.Text = "Edit";
+			this.editStages.Click += new System.EventHandler(this.EditStages_Click);
 			// 
-			// toolStripMenuItem15
+			// refreshStages
 			// 
-			this.toolStripMenuItem15.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-			this.toolStripMenuItem15.Size = new System.Drawing.Size(73, 20);
-			this.toolStripMenuItem15.Text = "Update";
+			this.refreshStages.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshStages.Name = "refreshStages";
+			this.refreshStages.Size = new System.Drawing.Size(73, 20);
+			this.refreshStages.Text = "Update";
+			this.refreshStages.Click += new System.EventHandler(this.RefreshStages_Click);
 			// 
 			// Teams
 			// 
 			this.Teams.Controls.Add(this.teamsList);
-			this.Teams.Controls.Add(this.menuStrip7);
+			this.Teams.Controls.Add(this.teamActions);
 			this.Teams.Location = new System.Drawing.Point(4, 22);
 			this.Teams.Name = "Teams";
 			this.Teams.Size = new System.Drawing.Size(708, 543);
@@ -507,43 +512,46 @@
 			this.teamsList.UseCompatibleStateImageBehavior = false;
 			this.teamsList.View = System.Windows.Forms.View.Details;
 			// 
-			// menuStrip7
+			// teamActions
 			// 
-			this.menuStrip7.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem16,
-            this.toolStripMenuItem17,
-            this.toolStripMenuItem18});
-			this.menuStrip7.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip7.Name = "menuStrip7";
-			this.menuStrip7.Size = new System.Drawing.Size(708, 24);
-			this.menuStrip7.TabIndex = 7;
-			this.menuStrip7.Text = "menuStrip7";
+			this.teamActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addTeams,
+            this.editTeams,
+            this.refreshTeams});
+			this.teamActions.Location = new System.Drawing.Point(0, 0);
+			this.teamActions.Name = "teamActions";
+			this.teamActions.Size = new System.Drawing.Size(708, 24);
+			this.teamActions.TabIndex = 7;
+			this.teamActions.Text = "menuStrip7";
 			// 
-			// toolStripMenuItem16
+			// addTeams
 			// 
-			this.toolStripMenuItem16.Image = global::YACM.Properties.Resources.ic_add;
-			this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-			this.toolStripMenuItem16.Size = new System.Drawing.Size(57, 20);
-			this.toolStripMenuItem16.Text = "Add";
+			this.addTeams.Image = global::YACM.Properties.Resources.ic_add;
+			this.addTeams.Name = "addTeams";
+			this.addTeams.Size = new System.Drawing.Size(57, 20);
+			this.addTeams.Text = "Add";
+			this.addTeams.Click += new System.EventHandler(this.AddTeams_Click);
 			// 
-			// toolStripMenuItem17
+			// editTeams
 			// 
-			this.toolStripMenuItem17.Image = global::YACM.Properties.Resources.ic_edit;
-			this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-			this.toolStripMenuItem17.Size = new System.Drawing.Size(55, 20);
-			this.toolStripMenuItem17.Text = "Edit";
+			this.editTeams.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editTeams.Name = "editTeams";
+			this.editTeams.Size = new System.Drawing.Size(55, 20);
+			this.editTeams.Text = "Edit";
+			this.editTeams.Click += new System.EventHandler(this.EditTeams_Click);
 			// 
-			// toolStripMenuItem18
+			// refreshTeams
 			// 
-			this.toolStripMenuItem18.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-			this.toolStripMenuItem18.Size = new System.Drawing.Size(73, 20);
-			this.toolStripMenuItem18.Text = "Update";
+			this.refreshTeams.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshTeams.Name = "refreshTeams";
+			this.refreshTeams.Size = new System.Drawing.Size(73, 20);
+			this.refreshTeams.Text = "Update";
+			this.refreshTeams.Click += new System.EventHandler(this.RefreshTeams_Click);
 			// 
 			// Documents
 			// 
 			this.Documents.Controls.Add(this.documentsList);
-			this.Documents.Controls.Add(this.menuStrip8);
+			this.Documents.Controls.Add(this.documentsActions);
 			this.Documents.Location = new System.Drawing.Point(4, 22);
 			this.Documents.Name = "Documents";
 			this.Documents.Size = new System.Drawing.Size(708, 543);
@@ -561,38 +569,41 @@
 			this.documentsList.UseCompatibleStateImageBehavior = false;
 			this.documentsList.View = System.Windows.Forms.View.Details;
 			// 
-			// menuStrip8
+			// documentsActions
 			// 
-			this.menuStrip8.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem19,
-            this.toolStripMenuItem20,
-            this.toolStripMenuItem21});
-			this.menuStrip8.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip8.Name = "menuStrip8";
-			this.menuStrip8.Size = new System.Drawing.Size(708, 24);
-			this.menuStrip8.TabIndex = 7;
-			this.menuStrip8.Text = "menuStrip8";
+			this.documentsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addDocuments,
+            this.editDocuments,
+            this.refreshDocuments});
+			this.documentsActions.Location = new System.Drawing.Point(0, 0);
+			this.documentsActions.Name = "documentsActions";
+			this.documentsActions.Size = new System.Drawing.Size(708, 24);
+			this.documentsActions.TabIndex = 7;
+			this.documentsActions.Text = "menuStrip8";
 			// 
-			// toolStripMenuItem19
+			// addDocuments
 			// 
-			this.toolStripMenuItem19.Image = global::YACM.Properties.Resources.ic_add;
-			this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-			this.toolStripMenuItem19.Size = new System.Drawing.Size(57, 20);
-			this.toolStripMenuItem19.Text = "Add";
+			this.addDocuments.Image = global::YACM.Properties.Resources.ic_add;
+			this.addDocuments.Name = "addDocuments";
+			this.addDocuments.Size = new System.Drawing.Size(57, 20);
+			this.addDocuments.Text = "Add";
+			this.addDocuments.Click += new System.EventHandler(this.AddDocuments_Click);
 			// 
-			// toolStripMenuItem20
+			// editDocuments
 			// 
-			this.toolStripMenuItem20.Image = global::YACM.Properties.Resources.ic_edit;
-			this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-			this.toolStripMenuItem20.Size = new System.Drawing.Size(55, 20);
-			this.toolStripMenuItem20.Text = "Edit";
+			this.editDocuments.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editDocuments.Name = "editDocuments";
+			this.editDocuments.Size = new System.Drawing.Size(55, 20);
+			this.editDocuments.Text = "Edit";
+			this.editDocuments.Click += new System.EventHandler(this.EditDocuments_Click);
 			// 
-			// toolStripMenuItem21
+			// refreshDocuments
 			// 
-			this.toolStripMenuItem21.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-			this.toolStripMenuItem21.Size = new System.Drawing.Size(73, 20);
-			this.toolStripMenuItem21.Text = "Update";
+			this.refreshDocuments.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshDocuments.Name = "refreshDocuments";
+			this.refreshDocuments.Size = new System.Drawing.Size(73, 20);
+			this.refreshDocuments.Text = "Update";
+			this.refreshDocuments.Click += new System.EventHandler(this.RefreshDocuments_Click);
 			// 
 			// eventsActions
 			// 
@@ -645,33 +656,24 @@
 			// 
 			// tabPageParticipant
 			// 
-			this.tabPageParticipant.Location = new System.Drawing.Point(4, 4);
+			this.tabPageParticipant.Location = new System.Drawing.Point(4, 22);
 			this.tabPageParticipant.Name = "tabPageParticipant";
 			this.tabPageParticipant.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPageParticipant.Size = new System.Drawing.Size(1431, 599);
 			this.tabPageParticipant.TabIndex = 1;
-			this.tabPageParticipant.Text = "Events I\'m Participating";
+			this.tabPageParticipant.Text = "Other Events";
 			this.tabPageParticipant.UseVisualStyleBackColor = true;
 			// 
-			// tabPageSponsor
+			// statusStrip
 			// 
-			this.tabPageSponsor.Location = new System.Drawing.Point(4, 4);
-			this.tabPageSponsor.Name = "tabPageSponsor";
-			this.tabPageSponsor.Size = new System.Drawing.Size(1431, 599);
-			this.tabPageSponsor.TabIndex = 2;
-			this.tabPageSponsor.Text = "Events I\'m Sponsoring";
-			this.tabPageSponsor.UseVisualStyleBackColor = true;
-			// 
-			// statusStrip1
-			// 
-			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.debugInfo,
             this.copyrightInfo});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 720);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(1445, 22);
-			this.statusStrip1.TabIndex = 1;
-			this.statusStrip1.Text = "statusStrip1";
+			this.statusStrip.Location = new System.Drawing.Point(0, 720);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.Size = new System.Drawing.Size(1445, 22);
+			this.statusStrip.TabIndex = 1;
+			this.statusStrip.Text = "statusStrip1";
 			// 
 			// debugInfo
 			// 
@@ -716,14 +718,72 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1445, 720);
 			this.tableLayoutPanel1.TabIndex = 5;
 			// 
-			// notifyIcon1
+			// notifyIcon
 			// 
-			this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			this.notifyIcon1.BalloonTipText = "Welcome to YACM!";
-			this.notifyIcon1.BalloonTipTitle = "YACM";
-			this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-			this.notifyIcon1.Text = "YACM";
-			this.notifyIcon1.Visible = true;
+			this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			this.notifyIcon.BalloonTipText = "Welcome to YACM!";
+			this.notifyIcon.BalloonTipTitle = "YACM";
+			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+			this.notifyIcon.Text = "YACM";
+			this.notifyIcon.Visible = true;
+			// 
+			// StagesParticipants
+			// 
+			this.StagesParticipants.Controls.Add(this.stagesParticipationsList);
+			this.StagesParticipants.Controls.Add(this.menuStrip1);
+			this.StagesParticipants.Location = new System.Drawing.Point(4, 22);
+			this.StagesParticipants.Name = "StagesParticipants";
+			this.StagesParticipants.Padding = new System.Windows.Forms.Padding(3);
+			this.StagesParticipants.Size = new System.Drawing.Size(708, 543);
+			this.StagesParticipants.TabIndex = 9;
+			this.StagesParticipants.Text = "Stages Participants";
+			this.StagesParticipants.UseVisualStyleBackColor = true;
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addStagesParticipations,
+            this.editStagesParticipations,
+            this.refreshStagesParticipations});
+			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(702, 24);
+			this.menuStrip1.TabIndex = 9;
+			this.menuStrip1.Text = "menuStrip6";
+			// 
+			// addStagesParticipations
+			// 
+			this.addStagesParticipations.Image = global::YACM.Properties.Resources.ic_add;
+			this.addStagesParticipations.Name = "addStagesParticipations";
+			this.addStagesParticipations.Size = new System.Drawing.Size(57, 20);
+			this.addStagesParticipations.Text = "Add";
+			this.addStagesParticipations.Click += new System.EventHandler(this.AddStagesParticipations_Click);
+			// 
+			// editStagesParticipations
+			// 
+			this.editStagesParticipations.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editStagesParticipations.Name = "editStagesParticipations";
+			this.editStagesParticipations.Size = new System.Drawing.Size(55, 20);
+			this.editStagesParticipations.Text = "Edit";
+			this.editStagesParticipations.Click += new System.EventHandler(this.EditStagesParticipations_Click);
+			// 
+			// refreshStagesParticipations
+			// 
+			this.refreshStagesParticipations.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshStagesParticipations.Name = "refreshStagesParticipations";
+			this.refreshStagesParticipations.Size = new System.Drawing.Size(73, 20);
+			this.refreshStagesParticipations.Text = "Update";
+			this.refreshStagesParticipations.Click += new System.EventHandler(this.RefreshStagesParticipations_Click);
+			// 
+			// stagesParticipationsList
+			// 
+			this.stagesParticipationsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.stagesParticipationsList.Location = new System.Drawing.Point(3, 27);
+			this.stagesParticipationsList.Name = "stagesParticipationsList";
+			this.stagesParticipationsList.Size = new System.Drawing.Size(702, 513);
+			this.stagesParticipationsList.TabIndex = 10;
+			this.stagesParticipationsList.UseCompatibleStateImageBehavior = false;
+			this.stagesParticipationsList.View = System.Windows.Forms.View.Details;
 			// 
 			// Main
 			// 
@@ -732,7 +792,7 @@
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(1445, 742);
 			this.Controls.Add(this.tableLayoutPanel1);
-			this.Controls.Add(this.statusStrip1);
+			this.Controls.Add(this.statusStrip);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.eventsActions;
 			this.Name = "Main";
@@ -747,42 +807,44 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.eventManagement.ResumeLayout(false);
-			this.About.ResumeLayout(false);
-			this.About.PerformLayout();
 			this.Equipment.ResumeLayout(false);
 			this.Equipment.PerformLayout();
-			this.menuStrip2.ResumeLayout(false);
-			this.menuStrip2.PerformLayout();
+			this.equipamentActions.ResumeLayout(false);
+			this.equipamentActions.PerformLayout();
 			this.Participants.ResumeLayout(false);
 			this.Participants.PerformLayout();
-			this.menuStrip3.ResumeLayout(false);
-			this.menuStrip3.PerformLayout();
+			this.participantsActions.ResumeLayout(false);
+			this.participantsActions.PerformLayout();
 			this.Prizes.ResumeLayout(false);
 			this.Prizes.PerformLayout();
-			this.menuStrip4.ResumeLayout(false);
-			this.menuStrip4.PerformLayout();
+			this.prizeActions.ResumeLayout(false);
+			this.prizeActions.PerformLayout();
 			this.Sponsors.ResumeLayout(false);
 			this.Sponsors.PerformLayout();
-			this.menuStrip5.ResumeLayout(false);
-			this.menuStrip5.PerformLayout();
+			this.sponsorsActions.ResumeLayout(false);
+			this.sponsorsActions.PerformLayout();
 			this.Stages.ResumeLayout(false);
 			this.Stages.PerformLayout();
-			this.menuStrip6.ResumeLayout(false);
-			this.menuStrip6.PerformLayout();
+			this.stagesActions.ResumeLayout(false);
+			this.stagesActions.PerformLayout();
 			this.Teams.ResumeLayout(false);
 			this.Teams.PerformLayout();
-			this.menuStrip7.ResumeLayout(false);
-			this.menuStrip7.PerformLayout();
+			this.teamActions.ResumeLayout(false);
+			this.teamActions.PerformLayout();
 			this.Documents.ResumeLayout(false);
 			this.Documents.PerformLayout();
-			this.menuStrip8.ResumeLayout(false);
-			this.menuStrip8.PerformLayout();
+			this.documentsActions.ResumeLayout(false);
+			this.documentsActions.PerformLayout();
 			this.eventsActions.ResumeLayout(false);
 			this.eventsActions.PerformLayout();
-			this.statusStrip1.ResumeLayout(false);
-			this.statusStrip1.PerformLayout();
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.StagesParticipants.ResumeLayout(false);
+			this.StagesParticipants.PerformLayout();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -793,12 +855,11 @@
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tabPageManager;
 		private System.Windows.Forms.TabPage tabPageParticipant;
-		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.StatusStrip statusStrip;
 		private System.Windows.Forms.ToolStripStatusLabel debugInfo;
 		private System.Windows.Forms.ToolStripStatusLabel copyrightInfo;
 		private System.Windows.Forms.Label labelTitle;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.TabPage tabPageSponsor;
 		private System.Windows.Forms.ListView eventsList;
 		private System.Windows.Forms.MenuStrip eventsActions;
 		private System.Windows.Forms.ToolStripMenuItem addEvent;
@@ -809,48 +870,53 @@
 		private System.Windows.Forms.TabPage Participants;
 		private System.Windows.Forms.TabPage Equipment;
 		private System.Windows.Forms.ListView equipmentList;
-		private System.Windows.Forms.MenuStrip menuStrip2;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+		private System.Windows.Forms.MenuStrip equipamentActions;
+		private System.Windows.Forms.ToolStripMenuItem addEquipment;
+		private System.Windows.Forms.ToolStripMenuItem editEquipment;
+		private System.Windows.Forms.ToolStripMenuItem refreshEquipment;
 		private System.Windows.Forms.TabPage Prizes;
 		private System.Windows.Forms.TabPage Sponsors;
 		private System.Windows.Forms.TabPage Stages;
 		private System.Windows.Forms.TabPage Teams;
 		private System.Windows.Forms.TabPage Documents;
-		private System.Windows.Forms.TabPage About;
+		private System.Windows.Forms.TabPage Statistics;
 		private System.Windows.Forms.ListView participantsList;
-		private System.Windows.Forms.MenuStrip menuStrip3;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-		private System.Windows.Forms.ListView prizesLIst;
-		private System.Windows.Forms.MenuStrip menuStrip4;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+		private System.Windows.Forms.MenuStrip participantsActions;
+		private System.Windows.Forms.ToolStripMenuItem addParticipants;
+		private System.Windows.Forms.ToolStripMenuItem editParticipants;
+		private System.Windows.Forms.ToolStripMenuItem refreshParticipants;
+		private System.Windows.Forms.ListView prizesList;
+		private System.Windows.Forms.MenuStrip prizeActions;
+		private System.Windows.Forms.ToolStripMenuItem addPrizes;
+		private System.Windows.Forms.ToolStripMenuItem editPrizes;
+		private System.Windows.Forms.ToolStripMenuItem refreshPrizes;
 		private System.Windows.Forms.ListView sponsorsList;
-		private System.Windows.Forms.MenuStrip menuStrip5;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+		private System.Windows.Forms.MenuStrip sponsorsActions;
+		private System.Windows.Forms.ToolStripMenuItem addSponsors;
+		private System.Windows.Forms.ToolStripMenuItem editSponsors;
+		private System.Windows.Forms.ToolStripMenuItem refreshSponsors;
 		private System.Windows.Forms.ListView stagesList;
-		private System.Windows.Forms.MenuStrip menuStrip6;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
+		private System.Windows.Forms.MenuStrip stagesActions;
+		private System.Windows.Forms.ToolStripMenuItem addStages;
+		private System.Windows.Forms.ToolStripMenuItem editStages;
+		private System.Windows.Forms.ToolStripMenuItem refreshStages;
 		private System.Windows.Forms.ListView teamsList;
-		private System.Windows.Forms.MenuStrip menuStrip7;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem16;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
+		private System.Windows.Forms.MenuStrip teamActions;
+		private System.Windows.Forms.ToolStripMenuItem addTeams;
+		private System.Windows.Forms.ToolStripMenuItem editTeams;
+		private System.Windows.Forms.ToolStripMenuItem refreshTeams;
 		private System.Windows.Forms.ListView documentsList;
-		private System.Windows.Forms.MenuStrip menuStrip8;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
+		private System.Windows.Forms.MenuStrip documentsActions;
+		private System.Windows.Forms.ToolStripMenuItem addDocuments;
+		private System.Windows.Forms.ToolStripMenuItem editDocuments;
+		private System.Windows.Forms.ToolStripMenuItem refreshDocuments;
 		private System.Windows.Forms.ToolStripMenuItem logout;
-		private System.Windows.Forms.Label eventName;
-		private System.Windows.Forms.NotifyIcon notifyIcon1;
+		private System.Windows.Forms.NotifyIcon notifyIcon;
+		private System.Windows.Forms.TabPage StagesParticipants;
+		private System.Windows.Forms.ListView stagesParticipationsList;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem addStagesParticipations;
+		private System.Windows.Forms.ToolStripMenuItem editStagesParticipations;
+		private System.Windows.Forms.ToolStripMenuItem refreshStagesParticipations;
 	}
 }

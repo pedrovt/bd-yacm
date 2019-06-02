@@ -45,6 +45,7 @@ namespace YACM
 
 		#endregion
 
+		// ----------------------------------------
 		#region Events List Event Handlers
 		private void EventsList_SelectedIndexChanged(object sender, EventArgs e) {
 			
@@ -64,14 +65,14 @@ namespace YACM
 			// Read Event Details
 			eventManagement.Show();
 			EventManagement_SelectedIndexChanged(sender, e);		// Update
-			LoadAbout();
+			LoadStatistics();
 		}
 
 		private void EventManagement_SelectedIndexChanged(object sender, EventArgs e) {
 			switch (eventManagement.SelectedIndex) {
 				case 0:                 // About
 					Console.WriteLine("Selected About");
-					LoadAbout();
+					LoadStatistics();
 					break;
 				case 1:                 // Equipment
 					Console.WriteLine("Selected Equipment");
@@ -93,11 +94,15 @@ namespace YACM
 					Console.WriteLine("Selected Stages");
 					LoadStages();
 					break;
-				case 6:                 // Teams
+				case 6:                 // Stage Participations
+					Console.WriteLine("Selected Stage Participations");
+					LoadStageParticipations();
+					break;
+				case 7:                 // Teams
 					Console.WriteLine("Selected Teams");
 					LoadTeams();
 					break;
-				case 7:                 // Documents
+				case 8:                 // Documents
 					Console.WriteLine("Selected Documents");
 					LoadDocuments();
 					break;
@@ -139,69 +144,233 @@ namespace YACM
 
 		#endregion
 
+		// ----------------------------------------
+		// Load of list views
 		#region Events Management Tabs Logic
 		// All these methods have access to Event E
 
 		private void LoadDocuments() {
 			//MessageBox.Show("Documents");
+			documentsList.Hide();
+
+			// TODO Stored Procedure to, given an event number, return document id, type and content/path
+			// TODO fixme sql injection asap (create a SP)
+
+			Utils.ReadToListView("SELECT * FROM YACM.[Document] WHERE eventNumber=" + E.Number, documentsList);
+
+			documentsList.Show();
 		}
 
 		private void LoadTeams() {
 			//MessageBox.Show("Teams");
+			teamsList.Hide();
+
+			// TODO Stored Procedure to, given an event number, return team name, number of participants on team, number of sponsors and total monetary value
+			// TODO FIXME SQL INJECTION ASAP (create a SP?)
+
+			Utils.ReadToListView("SELECT * FROM YACM.[Team]", teamsList);
+
+			teamsList.Show();
 		}
 
 		private void LoadStages() {
 			//MessageBox.Show("Stages");
+			stagesList.Hide();
+
+			// TODO Stored Procedure to, given an event number, return date, start location, end location, distance
+			// TODO FIXME SQL INJECTION ASAP (create a SP?)
+
+			Utils.ReadToListView("SELECT * FROM YACM.[Stage] WHERE eventNumber=" + E.Number, stagesList);
+
+			stagesList.Show();
+
+		}
+
+		private void LoadStageParticipations() {
+			//MessageBox.Show("Stage Participations");
+			stagesParticipationsList.Hide();
+
+			// TODO Stored Procedure to, given an event number, return date, start location, end location, distance
+			// TODO FIXME SQL INJECTION ASAP (create a SP?)
+
+			Utils.ReadToListView("SELECT * FROM YACM.[StageParticipation] WHERE eventNumber=" + E.Number, stagesParticipationsList);
+
+			stagesParticipationsList.Show();
+
 		}
 
 		private void LoadSponsors() {
 			//MessageBox.Show("Sponsors");
+			sponsorsList.Hide();
+			
+			// TODO Stored Procedure to, given an event number, return sponsor IDs, sponsor Name, receiver ID, receiver name, value
+			// TODO FIXME SQL INJECTION ASAP (create a SP?)
+
+			Utils.ReadToListView("SELECT * FROM YACM.[SponsorshipEvent] WHERE eventNumber=" + E.Number, sponsorsList);  
+
+			sponsorsList.Show();
 		}
 
 		private void LoadPrizes() {
 			//MessageBox.Show("Prizes");
+			prizesList.Hide();
+
+			// TODO Stored Procedure to, given an event number, return sponsor ID, sponsor Name, receiver ID, receiver name, value
+			// TODO FIXME SQL INJECTION ASAP (create a SP?)
+			Utils.ReadToListView("SELECT id, sponsorID, receiverID, value FROM YACM.[Prize] WHERE eventNumber=" + E.Number, prizesList);   
+			
+			prizesList.Show();
 		}
 
 		private void LoadParticipants() {
 			//MessageBox.Show("Participants");
-
 			participantsList.Hide();
 
-			Utils.ReadToListView("SELECT id, email, name, password FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=" + E.Number, participantsList);   //TODO FIXME SQL INJECTION ASAP (create a SP?)
+			// TODO Stored Procedure to, given an event number, return id, email, name and status (drop out, enrollment, on team and team name, start and end date)
+			// TODO FIXME SQL INJECTION ASAP (create a SP?)
+			Utils.ReadToListView("SELECT id, email, name FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=" + E.Number, participantsList);   
 
-			// Not supposed to show passwords!
-			Utils.HideColumn(3, participantsList);
+			// Not supposed to show passwords! --> forgot I could simply remove from SELECT 
+			// Utils.HideColumn(3, participantsList);
 
 			participantsList.Show();
 		}
 
 		private void LoadEquipment() {
 			//MessageBox.Show("Equipment");
+			equipmentList.Hide();
+
+			// TODO Stored Procedure to, given an event number, equipments id, category and participant ID and name
+			// TODO FIXME SQL INJECTION ASAP (create a SP?)
 			Utils.ReadToListView("SELECT * FROM YACM.EQUIPMENT", equipmentList);
+
+			equipmentList.Show();
 		}
 
-		private void LoadAbout() {
-			//MessageBox.Show("About");
-			eventName.Text = E.Name;
-			 
+		private void LoadStatistics() {
+			//MessageBox.Show("Statistics");
+
 		}
 
 
 		#endregion
 
-		#region Events Management :: Participants 
-		private void ToolStripMenuItem4_Click(object sender, EventArgs e) {
+		// ----------------------------------------
+		// Add, Edit, Refresh Buttons
+
+		#region Events Management :: Equipments 
+		private void AddEquipment_Click(object sender, EventArgs e) {
 
 		}
 
-		private void ToolStripMenuItem5_Click(object sender, EventArgs e) {
+		private void EditEquipment_Click(object sender, EventArgs e) {
 
 		}
 
-		private void ToolStripMenuItem6_Click(object sender, EventArgs e) {
+		private void RefreshEquipment_Click(object sender, EventArgs e) {
 
 		}
+
+		#endregion
+
+		#region Events Management :: Participants
+		private void AddParticipants_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditParticipants_Click(object sender, EventArgs e) {
+
+		}
+
+		private void RefreshParticipants_Click(object sender, EventArgs e) {
+
+		}
+
+		#endregion
+
+		#region Events Management :: Prizes
+		private void AddPrizes_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditPrizes_Click(object sender, EventArgs e) {
+
+		}
+
+		private void RefreshPrizes_Click(object sender, EventArgs e) {
+		}
+
+		#endregion
+
+		#region Events Management :: Sponsors
+		private void AddSponsors_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditSponsors_Click(object sender, EventArgs e) {
+
+		}
+
+		private void RefreshSponsors_Click(object sender, EventArgs e) {
+
+		}
+		#endregion
+
+		#region Events Management :: Stages
+		private void AddStages_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditStages_Click(object sender, EventArgs e) {
+
+		}
+
+		private void RefreshStages_Click(object sender, EventArgs e) {
+
+		}
+		#endregion
+
+		#region Events Management :: Stages Participations
+		private void AddStagesParticipations_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditStagesParticipations_Click(object sender, EventArgs e) {
+
+		}
+
+		private void RefreshStagesParticipations_Click(object sender, EventArgs e) {
+
+		}
+		#endregion
+
+		#region Events Management :: Teams
+		private void AddTeams_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditTeams_Click(object sender, EventArgs e) {
+
+		}
+
+		private void RefreshTeams_Click(object sender, EventArgs e) {
+
+		}
+		#endregion
+
+		#region Events Management :: Documents
+		private void AddDocuments_Click(object sender, EventArgs e) {
+
+		}
+
+		private void EditDocuments_Click(object sender, EventArgs e) {
+
+		}
+
+		private void RefreshDocuments_Click(object sender, EventArgs e) {
+
+		}
+		#endregion
 		
-		#endregion
 	}
 }
