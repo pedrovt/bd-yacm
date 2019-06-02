@@ -84,6 +84,12 @@
     <Compile Include="DBLayer\EventHandler.cs" />
     <Compile Include="DBLayer\Events.cs" />
     <Compile Include="DBLayer\Login.cs" />
+    <Compile Include="Dialogs\DialogStagesParticipations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogStagesParticipations.Designer.cs">
+      <DependentUpon>DialogStagesParticipations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\DialogSponsors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\DialogStagesParticipations.resx">
+      <DependentUpon>DialogStagesParticipations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DialogSponsors.resx">
       <DependentUpon>DialogSponsors.cs</DependentUpon>
     </EmbeddedResource>

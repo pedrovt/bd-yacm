@@ -96,7 +96,7 @@ namespace YACM
 					break;
 				case 6:                 // Stage Participations
 					Console.WriteLine("Selected Stage Participations");
-					LoadStageParticipations();
+					LoadStagesParticipations();
 					break;
 				case 7:                 // Teams
 					Console.WriteLine("Selected Teams");
@@ -118,8 +118,6 @@ namespace YACM
 			dialog.Show();
 			ReadEventsList();
 		}
-
-		
 
 		private void RefreshEvents_Click(object sender, EventArgs e) {
 			ReadEventsList();
@@ -186,7 +184,7 @@ namespace YACM
 
 		}
 
-		private void LoadStageParticipations() {
+		private void LoadStagesParticipations() {
 			//MessageBox.Show("Stage Participations");
 			stagesParticipationsList.Hide();
 
@@ -260,115 +258,149 @@ namespace YACM
 
 		#region Events Management :: Equipments 
 		private void AddEquipment_Click(object sender, EventArgs e) {
-
+			DialogEquipment dialog = new DialogEquipment();
+			dialog.Show();
+			LoadEquipment();
 		}
 
 		private void EditEquipment_Click(object sender, EventArgs e) {
-
+			DialogEvents dialog = new DialogEvents(E);
+			dialog.Show();
+			LoadEquipment();
 		}
 
 		private void RefreshEquipment_Click(object sender, EventArgs e) {
-
+			LoadEquipment();
 		}
 
 		#endregion
 
 		#region Events Management :: Participants
 		private void AddParticipants_Click(object sender, EventArgs e) {
-
+			DialogParticipants dialog = new DialogParticipants();
+			dialog.Show();
+			LoadParticipants();
 		}
 
 		private void EditParticipants_Click(object sender, EventArgs e) {
-
+			DialogParticipants dialog = new DialogParticipants(E);
+			dialog.Show();
+			LoadParticipants();
 		}
 
 		private void RefreshParticipants_Click(object sender, EventArgs e) {
-
+			LoadParticipants();		
 		}
 
 		#endregion
 
 		#region Events Management :: Prizes
 		private void AddPrizes_Click(object sender, EventArgs e) {
-
+			DialogPrize dialog = new DialogPrize();
+			dialog.Show();
+			LoadPrizes();
 		}
 
 		private void EditPrizes_Click(object sender, EventArgs e) {
-
+			DialogPrize dialog = new DialogPrize(E);
+			dialog.Show();
+			LoadPrizes();
 		}
 
 		private void RefreshPrizes_Click(object sender, EventArgs e) {
+			LoadPrizes();
 		}
 
 		#endregion
 
 		#region Events Management :: Sponsors
 		private void AddSponsors_Click(object sender, EventArgs e) {
-
+			DialogSponsors dialog = new DialogSponsors();
+			dialog.Show();
+			LoadSponsors();
 		}
 
 		private void EditSponsors_Click(object sender, EventArgs e) {
-
+			DialogSponsors dialog = new DialogSponsors(E);
+			dialog.Show();
+			LoadSponsors();
 		}
 
 		private void RefreshSponsors_Click(object sender, EventArgs e) {
-
+			LoadSponsors();
 		}
 		#endregion
 
 		#region Events Management :: Stages
 		private void AddStages_Click(object sender, EventArgs e) {
-
+			DialogStages dialog = new DialogStages();
+			dialog.Show();
+			LoadStages();
 		}
 
 		private void EditStages_Click(object sender, EventArgs e) {
-
+			DialogStages dialog = new DialogStages(E);
+			dialog.Show();
+			LoadStages();
 		}
 
 		private void RefreshStages_Click(object sender, EventArgs e) {
-
+			LoadStages();
 		}
+
 		#endregion
 
 		#region Events Management :: Stages Participations
 		private void AddStagesParticipations_Click(object sender, EventArgs e) {
-
+			DialogStagesParticipations dialog = new DialogStagesParticipations();
+			dialog.Show();
+			LoadStagesParticipations();
 		}
 
 		private void EditStagesParticipations_Click(object sender, EventArgs e) {
-
+			DialogStagesParticipations dialog = new DialogStagesParticipations(E);
+			dialog.Show();
+			LoadStagesParticipations();
 		}
 
 		private void RefreshStagesParticipations_Click(object sender, EventArgs e) {
-
+			LoadStagesParticipations();
 		}
 		#endregion
 
 		#region Events Management :: Teams
 		private void AddTeams_Click(object sender, EventArgs e) {
-
+			DialogTeams dialog = new DialogTeams();
+			dialog.Show();
+			LoadTeams();
 		}
 
 		private void EditTeams_Click(object sender, EventArgs e) {
-
+			DialogTeams dialog = new DialogTeams(E);
+			dialog.Show();
+			LoadTeams();
 		}
 
 		private void RefreshTeams_Click(object sender, EventArgs e) {
-
+			LoadTeams();
 		}
 		#endregion
 
 		#region Events Management :: Documents
 		private void AddDocuments_Click(object sender, EventArgs e) {
-
+			DialogDocuments dialog = new DialogDocuments();
+			dialog.Show();
+			LoadDocuments();
 		}
 
 		private void EditDocuments_Click(object sender, EventArgs e) {
-
+			DialogDocuments dialog = new DialogDocuments(E);
+			dialog.Show();
+			LoadDocuments();
 		}
 
 		private void RefreshDocuments_Click(object sender, EventArgs e) {
-
+			LoadDocuments();
 		}
 		#endregion
 		
