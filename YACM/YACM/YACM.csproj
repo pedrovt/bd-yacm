@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBLayer\EventHandler.cs" />
+    <Compile Include="DBLayer\Documents.cs" />
     <Compile Include="DBLayer\Events.cs" />
     <Compile Include="DBLayer\Login.cs" />
     <Compile Include="Dialogs\DialogStagesParticipations.cs">
@@ -132,6 +133,7 @@
     <Compile Include="Dialogs\DialogParticipants.Designer.cs">
       <DependentUpon>DialogParticipants.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Document.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="DBLayer\DatabaseHandler.cs" />

@@ -155,7 +155,7 @@ namespace YACM
 			// TODO fixme sql injection asap (create a SP)
 
 			Utils.ReadToListView("SELECT * FROM YACM.[Document] WHERE eventNumber=" + E.Number, documentsList);
-
+			
 			documentsList.Show();
 		}
 
@@ -264,7 +264,7 @@ namespace YACM
 		}
 
 		private void EditEquipment_Click(object sender, EventArgs e) {
-			DialogEvents dialog = new DialogEvents(E);
+			DialogEquipment dialog = new DialogEquipment(E);
 			dialog.Show();
 			LoadEquipment();
 		}
@@ -394,7 +394,9 @@ namespace YACM
 		}
 
 		private void EditDocuments_Click(object sender, EventArgs e) {
-			DialogDocuments dialog = new DialogDocuments(E);
+			Document D = new Document(1, DocumentType.Text, "Hello");
+
+			DialogDocuments dialog = new DialogDocuments(E, D);
 			dialog.Show();
 			LoadDocuments();
 		}

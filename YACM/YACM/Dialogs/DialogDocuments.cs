@@ -24,25 +24,48 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
+		private readonly Document D;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
 
 		#region CTOR
 		/// <summary>
-		/// Constructor for a Dialog for an Existing Event
+		/// Constructor for a Dialog for an Existing Document
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogDocuments(Event E) {
+		public DialogDocuments(Event E, Document D) {
 			InitializeComponent();
 
 			this.E = E;
+			this.D = D;
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowEvent();
+			ShowDocument();
 			LockControls();
 			UpdateButtons(false);
+
+			if (D.Type == DocumentType.Text) {
+				txtType.SelectedIndex = 0;
+				txtPath.Hide();
+				Label2.Hide();
+				txtContents.Show();
+				label8.Show();
+			}
+			else if (D.Type == DocumentType.Other) { 
+				txtType.SelectedIndex = 1;
+				txtPath.Show();
+				Label2.Show();
+				txtContents.Hide();
+				label8.Hide();
+			}
+			else {
+				txtPath.Hide();
+				Label2.Hide();
+				txtContents.Hide();
+				label8.Hide();
+			}
 		}
 
 		/// <summary>
@@ -60,11 +83,11 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveEvent();
+			SaveDocument();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.Documents.Update(D);
+				else DBLayer.Documents.Create(D);
 				
 				//Return to main
 				this.Dispose();
@@ -79,7 +102,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.Documents.Delete(D);
 			this.Dispose();
 		}
 
@@ -90,24 +113,41 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowEvent() {
-			txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtBudget.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtName.Text = E.Name;
-			txtManager.Text = E.ManagerID.ToString();
+		public void ShowDocument() {
+			txtID.Value = D.Id;
+
+			if (D.Type == DocumentType.Text) {
+				txtType.SelectedIndex = 0;
+				txtPath.Hide();
+				Label2.Hide();
+				txtContents.Show();
+				label8.Show();
+			}
+			else {
+				txtType.SelectedIndex = 1;
+				txtPath.Show();
+				Label2.Show();
+				txtContents.Hide();
+				label8.Hide();
+			}
+
+			txtPath.Text = D.Path;
+			txtContents.Text = D.Contents;
+			
 		}
 
-		public void SaveEvent() {
+		public void SaveDocument() {
+			D.EventID = E.Number;
 			try {
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEndDate.Value;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtName.Text;
-				E.ManagerID = Convert.ToInt32(txtManager.Text);
+				if (txtType.SelectedIndex == 0) {
+					D.Type = DocumentType.Text;
+				}
+				else {
+					D.Type = DocumentType.Other;
+				}
+
+				D.Path = txtPath.Text;
+				D.Contents = txtContents.Text;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -115,26 +155,18 @@ namespace YACM
 			}
 		}
 
-
 		public void LockControls() {
-			txtEndDate.Enabled = false;
-			txtID.Enabled = false;
-			txtBudget.ReadOnly = true;
-			txtVisibility.Enabled = true;
-			txtBeginDate.Enabled = false;
-			txtName.ReadOnly = true;
-			txtManager.ReadOnly = true;
+			txtID.Enabled		= false;
+			txtType.Enabled		= false;
+			txtPath.Enabled		= false;
+			txtContents.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtEndDate.Enabled = true;
-			txtID.Enabled = false;
-			txtID.Minimum = 0;
-			txtBudget.ReadOnly = false;
-			txtVisibility.Enabled = false;
-			txtBeginDate.Enabled = true;
-			txtName.ReadOnly = false;
-			txtManager.ReadOnly = false;
+			txtID.Enabled		= false;
+			txtType.Enabled		= true;
+			txtPath.Enabled		= true;
+			txtContents.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {
@@ -160,18 +192,28 @@ namespace YACM
 		}
 
 		public void ClearFields() {
-			
-			txtEndDate.Text = "";
-			txtID.Value = 0;
-			txtID.Minimum = 0;
-			txtBudget.Text = "";
-			txtVisibility.Text = "";
-			txtBeginDate.Text = "";
-			txtName.Text = "";
+			txtID.Text = "";
+			txtType.Text = "";
+			txtPath.Text = "";
+			txtContents.Text = "";
 		}
+
 
 		#endregion
 
-		
+		private void TxtType_SelectedIndexChanged(object sender, EventArgs e) {
+			if (txtType.SelectedIndex == 0) {
+				txtPath.Hide();
+				Label2.Hide();
+				txtContents.Show();
+				label8.Show();
+			}
+			else if (txtType.SelectedIndex == 1) {				
+				txtPath.Show();
+				Label2.Show();
+				txtContents.Hide();
+				label8.Hide();
+			}
+		}
 	}
 }
