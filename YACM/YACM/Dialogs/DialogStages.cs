@@ -55,7 +55,10 @@ namespace YACM
 			UnlockControls();
 			UpdateButtons(true);
 		}
-		
+
+		public DialogStages(Event E, Stage s) : this(E) {
+		}
+
 		#endregion
 
 		#region Event Handlers

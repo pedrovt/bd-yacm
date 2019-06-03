@@ -24,6 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
+		private readonly Sponsor S;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -33,10 +34,11 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogSponsors(Event E) {
+		public DialogSponsors(Event E, Sponsor S) {
 			InitializeComponent();
 
 			this.E = E;
+			this.S = S;
 			this.toUpdate = false;
 			
 			// Show Event Details
@@ -55,7 +57,7 @@ namespace YACM
 			UnlockControls();
 			UpdateButtons(true);
 		}
-		
+
 		#endregion
 
 		#region Event Handlers

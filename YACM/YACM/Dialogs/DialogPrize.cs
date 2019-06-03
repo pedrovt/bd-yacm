@@ -24,6 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
+		private readonly Prize P;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -33,14 +34,15 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogPrize(Event E) {
+		public DialogPrize(Event E, Prize P) {
 			InitializeComponent();
 
 			this.E = E;
+			this.P = P;
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowEvent();
+			ShowPrize();
 			LockControls();
 			UpdateButtons(false);
 		}
@@ -55,7 +57,7 @@ namespace YACM
 			UnlockControls();
 			UpdateButtons(true);
 		}
-		
+
 		#endregion
 
 		#region Event Handlers
@@ -63,8 +65,8 @@ namespace YACM
 			SaveEvent();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.Prizes.Update(P);
+				else DBLayer.Prizes.Create(P);
 				
 				//Return to main
 				this.Dispose();
@@ -79,7 +81,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.Prizes.Delete(P);
 			this.Dispose();
 		}
 
@@ -90,24 +92,21 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowEvent() {
-			txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtBudget.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtName.Text = E.Name;
-			txtManager.Text = E.ManagerID.ToString();
+		public void ShowPrize() {
+			txtID.Value = P.ID;
+			txtSponsorID.Text = P.SponsorID.ToString();
+			txtReceiverID.Text = P.ReceiverID.ToString();
+			txtValue.Text = P.Value.ToString();
+			
 		}
 
 		public void SaveEvent() {
 			try {
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEndDate.Value;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtName.Text;
-				E.ManagerID = Convert.ToInt32(txtManager.Text);
+				P.ID = Convert.ToInt32(txtID.Value);
+				P.SponsorID = Convert.ToInt32(txtSponsorID.Text);
+				P.ReceiverID = Convert.ToInt32(txtReceiverID.Text);
+				P.EventNumber = E.Number;
+				P.Value	= Convert.ToInt32(txtValue.Text);
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -117,24 +116,17 @@ namespace YACM
 
 
 		public void LockControls() {
-			txtEndDate.Enabled = false;
 			txtID.Enabled = false;
-			txtBudget.ReadOnly = true;
-			txtVisibility.Enabled = true;
-			txtBeginDate.Enabled = false;
-			txtName.ReadOnly = true;
-			txtManager.ReadOnly = true;
+			txtSponsorID.Enabled = false;
+			txtReceiverID.Enabled = false;
+			txtValue.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtEndDate.Enabled = true;
 			txtID.Enabled = false;
-			txtID.Minimum = 0;
-			txtBudget.ReadOnly = false;
-			txtVisibility.Enabled = false;
-			txtBeginDate.Enabled = true;
-			txtName.ReadOnly = false;
-			txtManager.ReadOnly = false;
+			txtSponsorID.Enabled = true;
+			txtReceiverID.Enabled = true;
+			txtValue.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {
@@ -160,14 +152,11 @@ namespace YACM
 		}
 
 		public void ClearFields() {
-			
-			txtEndDate.Text = "";
-			txtID.Value = 0;
-			txtID.Minimum = 0;
-			txtBudget.Text = "";
-			txtVisibility.Text = "";
-			txtBeginDate.Text = "";
-			txtName.Text = "";
+
+			txtID.Text = "";
+			txtSponsorID.Text = "";
+			txtReceiverID.Text = "";
+			txtValue.Text = "";
 		}
 
 		#endregion

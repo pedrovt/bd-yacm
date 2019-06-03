@@ -43,7 +43,7 @@ namespace YACM
         {
         }
 
-        public User(String name) : base()
+        public Team(String name) : base()
         {
             Name = name;
         }

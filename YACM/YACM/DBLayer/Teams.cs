@@ -8,17 +8,17 @@ using System.Windows.Forms;
 
 namespace YACM.DBLayer
 {
-	class Documents
+	class Teams
 	{
 
 		#region CRUD methods
-		internal static void Create(Document D) {
+		internal static void Create(Team P) {
 			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
 			/* 
 			SqlCommand cmd = new SqlCommand();
-			
 
-			cmd.CommandText = "INSERT YACM.Document (number, name, beginningDate, endDate, visibility, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
+
+			cmd.CommandText = "INSERT YACM.Team (number, name, beginningDate, endDate, visibility, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
 			cmd.Parameters.Clear();
 
 			cmd.Parameters.AddWithValue("@number", E.Number);
@@ -44,14 +44,14 @@ namespace YACM.DBLayer
 
 		}
 
-		internal static Document Read(int id) {
-			Debug.Assert(id > -1, "Document Index Invalid. Can't Load Document");
+		internal static Team Read(int id) {
+			Debug.Assert(id > -1, "Team Index Invalid. Can't Load Team");
 
-			Document D = new Document();
-			
+			Team P = new Team();
+
 			// Stored Procedure to based on the id, retrieve either the file or the otherfile
 			/* 
-			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Document WHERE id = @id", Program.db.Open());
+			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Team WHERE id = @id", Program.db.Open());
 
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@id", id);
@@ -68,17 +68,17 @@ namespace YACM.DBLayer
 			}
 
 			Program.db.Close();
-			*/ 
-			return D;
+			*/
+			return P;
 		}
 
-		internal static void Update(Document D) {
+		internal static void Update(Team P) {
 			int rows = 0;
 
 			/*
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "UPDATE YACM.Document " + "SET number = @number, " + "    name = @name, " + "    beginningDate = @beginningDate, " + "    endDate = @endDate, " + "    visibility = @visibility, " + "    managerID = @managerID " + "WHERE number = @number";
+			cmd.CommandText = "UPDATE YACM.Team " + "SET number = @number, " + "    name = @name, " + "    beginningDate = @beginningDate, " + "    endDate = @endDate, " + "    visibility = @visibility, " + "    managerID = @managerID " + "WHERE number = @number";
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@number", E.Number);
 			cmd.Parameters.AddWithValue("@name", E.Name);
@@ -107,12 +107,12 @@ namespace YACM.DBLayer
 			*/
 		}
 
-		internal static void Delete(Document D) {
+		internal static void Delete(Team P) {
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "DELETE YACM.Document WHERE number=@number ";
+			cmd.CommandText = "DELETE YACM.Team WHERE number=@number ";
 			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@number", D.Id);
+			//cmd.Parameters.AddWithValue("@number", D.Id);
 			cmd.Connection = Program.db.Open();
 
 			try {

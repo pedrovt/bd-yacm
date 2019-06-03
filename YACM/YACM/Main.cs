@@ -264,9 +264,12 @@ namespace YACM
 		}
 
 		private void EditEquipment_Click(object sender, EventArgs e) {
-			DialogEquipment dialog = new DialogEquipment(E);
-			dialog.Show();
-			LoadEquipment();
+			if (GetSelectedID(equipmentList) != -1) {
+				Equipment EQ = DBLayer.Equipments.Read(GetSelectedID(equipmentList));
+				DialogEquipment dialog = new DialogEquipment(E, EQ);
+				dialog.Show();
+				LoadEquipment();
+			}
 		}
 
 		private void RefreshEquipment_Click(object sender, EventArgs e) {
@@ -302,9 +305,12 @@ namespace YACM
 		}
 
 		private void EditPrizes_Click(object sender, EventArgs e) {
-			DialogPrize dialog = new DialogPrize(E);
-			dialog.Show();
-			LoadPrizes();
+			if (GetSelectedID(prizesList) != -1) {
+				Prize P = DBLayer.Prizes.Read(GetSelectedID(prizesList));
+				DialogPrize dialog = new DialogPrize(E, P);
+				dialog.Show();
+				LoadPrizes();
+			}
 		}
 
 		private void RefreshPrizes_Click(object sender, EventArgs e) {
@@ -321,9 +327,12 @@ namespace YACM
 		}
 
 		private void EditSponsors_Click(object sender, EventArgs e) {
-			DialogSponsors dialog = new DialogSponsors(E);
-			dialog.Show();
-			LoadSponsors();
+			if (GetSelectedID(sponsorsList) != -1) {
+				Sponsor S = DBLayer.Sponsors.Read(GetSelectedID(sponsorsList));
+				DialogSponsors dialog = new DialogSponsors(E, S);
+				dialog.Show();
+				LoadSponsors();
+			}
 		}
 
 		private void RefreshSponsors_Click(object sender, EventArgs e) {
@@ -339,9 +348,12 @@ namespace YACM
 		}
 
 		private void EditStages_Click(object sender, EventArgs e) {
-			DialogStages dialog = new DialogStages(E);
-			dialog.Show();
-			LoadStages();
+			if (GetSelectedID(stagesList) != -1) {
+				Stage S = DBLayer.Stages.Read(GetSelectedID(stagesList));
+				DialogStages dialog = new DialogStages(E, S);
+				dialog.Show();
+				LoadStages();
+			}
 		}
 
 		private void RefreshStages_Click(object sender, EventArgs e) {
@@ -350,7 +362,7 @@ namespace YACM
 
 		#endregion
 
-		#region Events Management :: Stages Participations
+		#region Events Management :: Stages Participations [DEPRECATED]
 		private void AddStagesParticipations_Click(object sender, EventArgs e) {
 			DialogStagesParticipations dialog = new DialogStagesParticipations();
 			dialog.Show();
@@ -361,6 +373,8 @@ namespace YACM
 			DialogStagesParticipations dialog = new DialogStagesParticipations(E);
 			dialog.Show();
 			LoadStagesParticipations();
+
+
 		}
 
 		private void RefreshStagesParticipations_Click(object sender, EventArgs e) {
@@ -376,9 +390,12 @@ namespace YACM
 		}
 
 		private void EditTeams_Click(object sender, EventArgs e) {
-			DialogTeams dialog = new DialogTeams(E);
-			dialog.Show();
-			LoadTeams();
+			if (GetSelectedID(teamsList) != -1) {
+				Team T = DBLayer.Teams.Read(GetSelectedID(teamsList));
+				DialogTeams dialog = new DialogTeams(E, T);
+				dialog.Show();
+				LoadTeams();
+			}
 		}
 
 		private void RefreshTeams_Click(object sender, EventArgs e) {
@@ -394,17 +411,31 @@ namespace YACM
 		}
 
 		private void EditDocuments_Click(object sender, EventArgs e) {
-			Document D = new Document(1, DocumentType.Text, "Hello");
-
-			DialogDocuments dialog = new DialogDocuments(E, D);
-			dialog.Show();
-			LoadDocuments();
+			if (GetSelectedID(documentsList) != -1) {
+				// DEBUG
+				// Document D = new Document(1, DocumentType.Text, "Hello");
+				Document D = DBLayer.Documents.Read(GetSelectedID(documentsList));
+				DialogDocuments dialog = new DialogDocuments(E, D);
+				dialog.Show();
+				LoadDocuments();
+			}
 		}
 
 		private void RefreshDocuments_Click(object sender, EventArgs e) {
 			LoadDocuments();
 		}
 		#endregion
+
+
+		private int GetSelectedID (ListView list) {
+			int index = -1;
+			if (list.SelectedItems != null) {
+				ListViewItem firstSelectedItem = list.FocusedItem;
+				index = Convert.ToInt32(firstSelectedItem.SubItems[0].Text.ToString());
+				debugInfo.Text = "Selected ID is " + index;
+			}
+			return index;
+		}
 		
 	}
 }
