@@ -108,6 +108,7 @@ AS
 	RETURN 0;
 GO
 
+-- Trigger on Delete
 GO
 CREATE TRIGGER DocumentRekt ON YACM.Document AFTER DELETE
 AS
@@ -123,7 +124,7 @@ GO
 -- ============
 -- === USER ===
 -- ============
--- Event on Delete
+-- Trigger on Delete
 GO
 CREATE TRIGGER ValarMorghulis ON YACM.[User] AFTER DELETE
 AS
