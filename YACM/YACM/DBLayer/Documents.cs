@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -11,39 +12,22 @@ namespace YACM.DBLayer
 	class Documents
 	{
 
-		#region CRUD methods
-		internal static void Create(Document D) {
-			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
+        #region CRUD methods
+        internal static void Create(Document D)
+        {
 
-            // Insertion in Document
-			SqlCommand cmd = new SqlCommand();
-			cmd.CommandText = "INSERT YACM.Document (eventNumber) " + "VALUES (@eventNumber) ";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Clear();
-			//cmd.Parameters.AddWithValue("@id", D.ID);
-			cmd.Parameters.AddWithValue("@eventNumber", D.EventID);
-			cmd.Connection = Program.db.Open();
-			try {
-				cmd.ExecuteNonQuery();
-			} catch (Exception ex) {
-				MessageBox.Show("Failed to insert into database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			} finally {
-				Program.db.Close();
-			}
-
-            // Insertion in TextFile or OtherFile
-            cmd = new SqlCommand();
-            if (D.Type == DocumentType.Text)
+            cmd.Parameters.AddWithValue("@eventID", D.EventID);
+            if (D.Type==DocumentType.Other)
             {
-                cmd.CommandText = "INSERT YACM.TextFile (id, content) " + "VALUES (@id, @content) ";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id", D.ID);
+                cmd.CommandText = "dbo.p_CreateTextFile";
                 cmd.Parameters.AddWithValue("@content", D.Contents);
             }
             else
             {
-                cmd.CommandText = "INSERT YACM.OtherFile (id, content) " + "VALUES (@id, @path) ";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id", D.ID);
+                cmd.CommandText = "dbo.p_CreateOtherFile";
                 cmd.Parameters.AddWithValue("@path", D.Path);
             }
             cmd.Connection = Program.db.Open();
@@ -53,7 +37,7 @@ namespace YACM.DBLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to update in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to insert into database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -62,7 +46,7 @@ namespace YACM.DBLayer
 
         }
 
-		internal static Document Read(int id) {
+        internal static Document Read(int id) {
 			Debug.Assert(id > -1, "Document Index Invalid. Can't Load Document");
 
 			Document D = new Document();

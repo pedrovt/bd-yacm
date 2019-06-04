@@ -73,3 +73,37 @@ AS
 	END;
 GO
 SELECT * FROM dbo.GetEventDocuments(0);
+
+
+
+
+-- ================
+-- === DOCUMENT ===
+-- ================
+-- Stored Procedure to create a document
+GO
+CREATE PROC dbo.p_CreateDocument (@eventNumber int, @id int OUT)
+AS
+	INSERT INTO YACM.Document (eventNumber) VALUES (@eventNumber);
+	SET	@id = SCOPE_IDENTITY()
+GO
+
+-- Stored Procedure to create a text file
+GO
+CREATE PROC dbo.p_CreateTextFile (@eventID int, @content varchar(MAX))
+AS
+	DECLARE @id AS INT;
+	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id;
+	INSERT INTO YACM.TextFile(id,content) VALUES (@id,@content);
+	RETURN 0;
+GO
+
+-- Stored Procedure to create a other file
+GO
+CREATE PROC dbo.p_CreateOtherFile (@eventID int, @path varchar(50))
+AS
+	DECLARE @id AS INT;
+	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id;
+	INSERT INTO YACM.OtherFile(id,content) VALUES (@id,@path);
+	RETURN 0;
+GO
