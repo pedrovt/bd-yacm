@@ -280,7 +280,7 @@ namespace YACM
 
 		#region Events Management :: Participants
 		private void AddParticipants_Click(object sender, EventArgs e) {
-			DialogParticipants dialog = new DialogParticipants();
+			DialogParticipants dialog = new DialogParticipants(E);
 			dialog.Show();
 			LoadParticipants();
 		}

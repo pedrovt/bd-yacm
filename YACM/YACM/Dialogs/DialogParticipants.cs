@@ -24,6 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
+		private readonly User U;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -33,10 +34,11 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogParticipants(Event E) {
+		public DialogParticipants(Event E, User U) {
 			InitializeComponent();
 
 			this.E = E;
+			this.U = U;
 			this.toUpdate = false;
 			
 			// Show Event Details
@@ -48,9 +50,9 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogParticipants() {
+		public DialogParticipants(Event E) {
 			InitializeComponent();
-			// Add an Event
+			this.E = E;
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -122,16 +124,16 @@ namespace YACM
 
 		public void LockControls() {
 			txtID.Enabled = false;
-			txtEmail.Enabled = false;
-			txtName.Enabled = false;
-			txtPassword.Enabled = false;
+			txtParticipantID.Enabled = false;
+			txtTeamName.Enabled = false;
+			txtDorsal.Enabled = false;
 		}
 
 		public void UnlockControls() {
 			txtID.Enabled = true;
-			txtEmail.Enabled = true;
-			txtName.Enabled = true;
-			txtPassword.Enabled = true;
+			txtParticipantID.Enabled = true;
+			txtTeamName.Enabled = true;
+			txtDorsal.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {
@@ -158,9 +160,9 @@ namespace YACM
 
 		public void ClearFields() {
 			txtID.Value = 0;
-			txtEmail.Text = "";
-			txtName.Text = "";
-			txtPassword.Text= "";
+			txtParticipantID.Text = "";
+			txtTeamName.Text = "";
+			txtDorsal.Text= "";
 		}
 
 		#endregion

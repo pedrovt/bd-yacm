@@ -33,24 +33,30 @@
 			this.Label11 = new System.Windows.Forms.Label();
 			this.Label1 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
-			this.Label3 = new System.Windows.Forms.Label();
 			this.Label2 = new System.Windows.Forms.Label();
-			this.txtName = new System.Windows.Forms.TextBox();
 			this.txtID = new System.Windows.Forms.NumericUpDown();
-			this.txtEmail = new System.Windows.Forms.TextBox();
-			this.txtPassword = new System.Windows.Forms.TextBox();
+			this.txtParticipantID = new System.Windows.Forms.TextBox();
+			this.txtTeamName = new System.Windows.Forms.TextBox();
+			this.txtDorsal = new System.Windows.Forms.TextBox();
 			this.panelButtons = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.bttnEdit = new System.Windows.Forms.Button();
 			this.bttnCancel = new System.Windows.Forms.Button();
 			this.bttnDelete = new System.Windows.Forms.Button();
 			this.bttnOK = new System.Windows.Forms.Button();
+			this.type = new System.Windows.Forms.ComboBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.start = new System.Windows.Forms.DateTimePicker();
+			this.end = new System.Windows.Forms.DateTimePicker();
 			this.tableLayoutPanel.SuspendLayout();
 			this.panelInfo.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
 			this.panelButtons.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.tableLayoutPanel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel
@@ -96,23 +102,27 @@
 			this.tableLayoutPanel2.ColumnCount = 2;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.61933F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.38067F));
+			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 5);
+			this.tableLayoutPanel2.Controls.Add(this.label3, 0, 4);
 			this.tableLayoutPanel2.Controls.Add(this.Label11, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.Label1, 0, 1);
 			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 3);
-			this.tableLayoutPanel2.Controls.Add(this.Label3, 0, 4);
 			this.tableLayoutPanel2.Controls.Add(this.Label2, 0, 2);
 			this.tableLayoutPanel2.Controls.Add(this.txtID, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.txtEmail, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 2);
-			this.tableLayoutPanel2.Controls.Add(this.txtPassword, 1, 3);
+			this.tableLayoutPanel2.Controls.Add(this.txtParticipantID, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.txtDorsal, 1, 4);
+			this.tableLayoutPanel2.Controls.Add(this.txtTeamName, 1, 3);
+			this.tableLayoutPanel2.Controls.Add(this.type, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 5);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 5;
+			this.tableLayoutPanel2.RowCount = 6;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(683, 243);
 			this.tableLayoutPanel2.TabIndex = 218;
 			// 
@@ -136,28 +146,18 @@
 			this.Label1.Name = "Label1";
 			this.Label1.Size = new System.Drawing.Size(128, 24);
 			this.Label1.TabIndex = 195;
-			this.Label1.Text = "Email";
+			this.Label1.Text = "Participant ID";
 			// 
 			// label8
 			// 
 			this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.label8.Location = new System.Drawing.Point(3, 83);
+			this.label8.Location = new System.Drawing.Point(3, 84);
 			this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(128, 22);
+			this.label8.Size = new System.Drawing.Size(128, 46);
 			this.label8.TabIndex = 210;
-			this.label8.Text = "Password";
-			// 
-			// Label3
-			// 
-			this.Label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.Label3.Location = new System.Drawing.Point(3, 109);
-			this.Label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.Label3.Name = "Label3";
-			this.Label3.Size = new System.Drawing.Size(128, 133);
-			this.Label3.TabIndex = 199;
+			this.label8.Text = "Team Name (On Team, Enrollment Only)";
 			// 
 			// Label2
 			// 
@@ -166,19 +166,9 @@
 			this.Label2.Location = new System.Drawing.Point(3, 57);
 			this.Label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
 			this.Label2.Name = "Label2";
-			this.Label2.Size = new System.Drawing.Size(128, 22);
+			this.Label2.Size = new System.Drawing.Size(128, 23);
 			this.Label2.TabIndex = 197;
-			this.Label2.Text = "Name";
-			// 
-			// txtName
-			// 
-			this.txtName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtName.Location = new System.Drawing.Point(137, 55);
-			this.txtName.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtName.Name = "txtName";
-			this.txtName.ReadOnly = true;
-			this.txtName.Size = new System.Drawing.Size(370, 22);
-			this.txtName.TabIndex = 215;
+			this.Label2.Text = "Type";
 			// 
 			// txtID
 			// 
@@ -187,25 +177,35 @@
 			this.txtID.Size = new System.Drawing.Size(161, 20);
 			this.txtID.TabIndex = 217;
 			// 
-			// txtEmail
+			// txtParticipantID
 			// 
-			this.txtEmail.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtEmail.Location = new System.Drawing.Point(137, 29);
-			this.txtEmail.Name = "txtEmail";
-			this.txtEmail.ReadOnly = true;
-			this.txtEmail.Size = new System.Drawing.Size(370, 22);
-			this.txtEmail.TabIndex = 196;
+			this.txtParticipantID.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtParticipantID.Location = new System.Drawing.Point(137, 29);
+			this.txtParticipantID.Name = "txtParticipantID";
+			this.txtParticipantID.ReadOnly = true;
+			this.txtParticipantID.Size = new System.Drawing.Size(370, 22);
+			this.txtParticipantID.TabIndex = 196;
 			// 
-			// txtPassword
+			// txtTeamName
 			// 
-			this.txtPassword.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtPassword.Location = new System.Drawing.Point(137, 81);
-			this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtPassword.Name = "txtPassword";
-			this.txtPassword.PasswordChar = '*';
-			this.txtPassword.ReadOnly = true;
-			this.txtPassword.Size = new System.Drawing.Size(370, 22);
-			this.txtPassword.TabIndex = 202;
+			this.txtTeamName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtTeamName.Location = new System.Drawing.Point(137, 82);
+			this.txtTeamName.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+			this.txtTeamName.Name = "txtTeamName";
+			this.txtTeamName.ReadOnly = true;
+			this.txtTeamName.Size = new System.Drawing.Size(370, 22);
+			this.txtTeamName.TabIndex = 215;
+			// 
+			// txtDorsal
+			// 
+			this.txtDorsal.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtDorsal.Location = new System.Drawing.Point(137, 132);
+			this.txtDorsal.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+			this.txtDorsal.Name = "txtDorsal";
+			this.txtDorsal.PasswordChar = '*';
+			this.txtDorsal.ReadOnly = true;
+			this.txtDorsal.Size = new System.Drawing.Size(370, 22);
+			this.txtDorsal.TabIndex = 202;
 			// 
 			// panelButtons
 			// 
@@ -286,6 +286,69 @@
 			this.bttnOK.Visible = false;
 			this.bttnOK.Click += new System.EventHandler(this.BttnOK_Click);
 			// 
+			// type
+			// 
+			this.type.FormattingEnabled = true;
+			this.type.Items.AddRange(new object[] {
+            "Drop Out",
+            "Enrollment",
+            "On Team"});
+			this.type.Location = new System.Drawing.Point(137, 57);
+			this.type.Name = "type";
+			this.type.Size = new System.Drawing.Size(370, 21);
+			this.type.TabIndex = 218;
+			// 
+			// label3
+			// 
+			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.label3.Location = new System.Drawing.Point(3, 134);
+			this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(128, 46);
+			this.label3.TabIndex = 219;
+			this.label3.Text = "Dorsal (Enrollment Only)";
+			// 
+			// label4
+			// 
+			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.label4.Location = new System.Drawing.Point(3, 184);
+			this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(128, 58);
+			this.label4.TabIndex = 220;
+			this.label4.Text = "Start-End (On Team Only)";
+			// 
+			// tableLayoutPanel3
+			// 
+			this.tableLayoutPanel3.ColumnCount = 2;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.46225F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.53775F));
+			this.tableLayoutPanel3.Controls.Add(this.start, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.end, 1, 0);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(137, 184);
+			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+			this.tableLayoutPanel3.RowCount = 1;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(543, 56);
+			this.tableLayoutPanel3.TabIndex = 221;
+			// 
+			// start
+			// 
+			this.start.Location = new System.Drawing.Point(3, 3);
+			this.start.Name = "start";
+			this.start.Size = new System.Drawing.Size(200, 20);
+			this.start.TabIndex = 0;
+			// 
+			// end
+			// 
+			this.end.Location = new System.Drawing.Point(238, 3);
+			this.end.Name = "end";
+			this.end.Size = new System.Drawing.Size(200, 20);
+			this.end.TabIndex = 1;
+			// 
 			// DialogParticipants
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,6 +370,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
 			this.panelButtons.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel3.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -318,19 +382,24 @@
 		private System.Windows.Forms.Panel panelInfo;
 		internal System.Windows.Forms.Label label8;
 		internal System.Windows.Forms.Label Label11;
-		internal System.Windows.Forms.Label Label3;
 		internal System.Windows.Forms.Label Label2;
 		internal System.Windows.Forms.Label Label1;
-		internal System.Windows.Forms.TextBox txtPassword;
-		internal System.Windows.Forms.TextBox txtEmail;
+		internal System.Windows.Forms.TextBox txtDorsal;
+		internal System.Windows.Forms.TextBox txtParticipantID;
 		private System.Windows.Forms.Panel panelButtons;
 		internal System.Windows.Forms.Button bttnOK;
 		internal System.Windows.Forms.Button bttnEdit;
 		internal System.Windows.Forms.Button bttnCancel;
 		private System.Windows.Forms.Button bttnDelete;
-		internal System.Windows.Forms.TextBox txtName;
+		internal System.Windows.Forms.TextBox txtTeamName;
 		private System.Windows.Forms.NumericUpDown txtID;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		internal System.Windows.Forms.Label label4;
+		internal System.Windows.Forms.Label label3;
+		private System.Windows.Forms.ComboBox type;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+		private System.Windows.Forms.DateTimePicker start;
+		private System.Windows.Forms.DateTimePicker end;
 	}
 }
