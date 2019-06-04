@@ -39,13 +39,14 @@ namespace YACM
 		}
 
 		private void Main_Load(object sender, EventArgs e) {
-			ReadEventsList();
+			DBLayer.ReadTables.ReadEventsList(userID, eventsList);
+			DBLayer.ReadTables.ReadUsers(usersList);
 		}
 
 		#endregion
 
 		// ----------------------------------------
-		#region Events List Event Handlers
+		#region Main Event Handlers
 		private void EventsList_SelectedIndexChanged(object sender, EventArgs e) {
 			
 			if (eventsList.SelectedItems != null) {
@@ -64,82 +65,60 @@ namespace YACM
 			// Read Event Details
 			eventManagement.Show();
 			EventManagement_SelectedIndexChanged(sender, e);		// Update
-			ReadStatistics();
+			DBLayer.ReadTables.ReadStatistics();
 		}
 
 		private void EventManagement_SelectedIndexChanged(object sender, EventArgs e) {
 			switch (eventManagement.SelectedIndex) {
 				case 0:                 // About
 					Console.WriteLine("Selected Statistics");
-					ReadStatistics();
+					DBLayer.ReadTables.ReadStatistics();
 					break;
 				case 1:                 // Equipment
 					Console.WriteLine("Selected Equipment");
-					ReadEquipments();
+					DBLayer.ReadTables.ReadEquipments(equipmentList, E);
 					break;
-				case 2:                 // Participants
+				case 2:                 // Participants Drop Out
 					Console.WriteLine("Selected Drop Out Participants");
-					ReadParticipantsDropOut();
+					DBLayer.ReadTables.ReadParticipantsDropOut(participantsDropOutList, E);
 					break;
-				case 3:
+				case 3:					// Participants Enrollment
 					Console.WriteLine("Selected Enrolled Participants");
-					ReadParticipantsEnrollment();
+					DBLayer.ReadTables.ReadParticipantsEnrollment(participantsEnrollmentList, E);
 					break;
-				case 4:
+				case 4:					// Participants on Team
 					Console.WriteLine("Selected On Team Participants");
-					ReadParticipantsOnTeam();
+					DBLayer.ReadTables.ReadParticipantsOnTeam(participantsOnTeamList, E);
 					break;
 				case 5:                 // Prizes
 					Console.WriteLine("Selected Prizes");
-					ReadPrizes();
+					DBLayer.ReadTables.ReadPrizes(prizesList, E);
 					break;
-				case 6:                 // Sponsors
+				case 6:                 // Sponsorship Events
 					Console.WriteLine("Selected Sponsorships Events");
-					ReadSponsorshipsEvents();
+					DBLayer.ReadTables.ReadSponsorshipsEvents(sponsorshipEventsList, E);
 					break;
 				case 7:
 					Console.WriteLine("Selected Sponsorships Teams");
-					ReadSponsorshipsTeams();
+					DBLayer.ReadTables.ReadSponsorshipsTeams(sponsorshipTeamsList, E);
 					break;
 				case 8:                 // Stages
 					Console.WriteLine("Selected Stages");
-					ReadStages();
+					DBLayer.ReadTables.ReadStages(stagesList, E);
 					break;
 				case 9:                 // Stage Participations
 					Console.WriteLine("Selected Stage Participations");
-					ReadStagesParticipations();
+					DBLayer.ReadTables.ReadStagesParticipations(stagesParticipationsList, E);
 					break;
 				case 10:                 // Teams
 					Console.WriteLine("Selected Teams");
-					ReadTeams();
+					DBLayer.ReadTables.ReadTeams(teamsList, E);
 					break;
 				case 11:                 // Documents
 					Console.WriteLine("Selected Documents");
-					ReadDocuments();
+					DBLayer.ReadTables.ReadDocuments(documentsList, E);
 					break;
 
-			}
-		}
-		#endregion
-
-		#region Events List Toolstrip Event Handlers
-
-		private void AddEvent_Click(object sender, EventArgs e) {
-			DialogEvents dialog = new DialogEvents();
-			dialog.Show();
-			ReadEventsList();
-		}
-
-		private void RefreshEvents_Click(object sender, EventArgs e) {
-			ReadEventsList();
-			eventManagement.Hide();
-		}
-
-		private void EditEvent_Click(object sender, EventArgs e) {
-			if (eventIndex >= 0) {
-				DialogEvents dialog = new DialogEvents(E);
-				dialog.Show();
-				ReadEventsList();
 			}
 		}
 
@@ -154,130 +133,78 @@ namespace YACM
 		#endregion
 
 		// ----------------------------------------
-		// Load of list views
-		#region Events Management Tabs Logic
-		// All these methods have access to Event E
-		// TODO FIXME SQL INJECTION ASAP (create a SP?)
-
-		private void ReadEventsList() {
-			Utils.ReadToListView("SELECT number, name, beginningDate, endDate, visibility FROM YACM.Event WHERE managerID=" + userID, eventsList);
-		}
-
-		private void ReadStatistics() {
-			//MessageBox.Show("Statistics");
-			// TODO txtNAME.text = value from query
-		}
-
-		private void ReadEquipments() {
-			equipmentList.Hide();
-
-			// Given an event number, equipments id, category and participant ID and name for equipment for participants enrolled in the event
-			Utils.ReadToListView("SELECT E.id, participantID, email, name, category, description FROM YACM.EQUIPMENT AS E JOIN (SELECT id, email, name FROM YACM.[User] AS U LEFT OUTER JOIN (SELECT * FROM YACM.ParticipantEnrollment WHERE eventNumber = " + E.Number + ") AS P ON P.participantID = U.id WHERE participantID IS NOT NULL) AS U ON U.id=participantID", equipmentList);  //OK
-
-			equipmentList.Show();
-		}
-
-		private void ReadParticipantsDropOut() {
-			participantsDropOutList.Hide();
-
-			// Given an event number, return id, email, name
-			Utils.ReadToListView("SELECT id, email, name FROM YACM.[User] JOIN YACM.ParticipantDropOut ON id=participantID WHERE eventNumber=" + E.Number, participantsDropOutList);		//OK
-
-			participantsDropOutList.Show();
-		}
-
-		private void ReadParticipantsEnrollment() {
-			participantsEnrollmentList.Hide();
-
-			// Given an event number, return id, email, name
-			Utils.ReadToListView("SELECT id, email, name FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=" + E.Number, participantsEnrollmentList);  //OK
-
-			participantsEnrollmentList.Show();
-		}
-
-		private void ReadParticipantsOnTeam() {
-			participantsOnTeamList.Hide();
-
-			// Given an event number, return id, email, name, team info, start date and end date
-			Utils.ReadToListView("SELECT participantID, email, name, teamName, startDate, endDate FROM (SELECT id, email, name FROM YACM.[User] AS U LEFT OUTER JOIN (SELECT * FROM YACM.ParticipantEnrollment WHERE eventNumber = " + E.Number + ") AS P ON P.participantID = U.id WHERE participantID IS NOT NULL) AS U JOIN YACM.ParticipantOnTeam AS P ON U.id=P.participantID", participantsOnTeamList);
-			
-			participantsOnTeamList.Show();
-		}
-
-		private void ReadPrizes() {
-			prizesList.Hide();
-
-			// Given an event number, return sponsor ID, sponsor Name, receiver ID, receiver name, value
-			Utils.ReadToListView("SELECT T.id, sponsorID, sponsorEmail, sponsorName, ReceiverID as receiverID, email as receiverEmail, name as receiverName, value FROM (SELECT P.id, P.sponsorID, P.ReceiverID, email AS sponsorEmail, name AS sponsorName, value FROM YACM.[Prize] AS P JOIN YACM.[User] AS U ON sponsorID=U.id WHERE eventNumber=" + E.Number +") AS T JOIN YACM.[User] AS U ON T.receiverID=U.id", prizesList);
-
-			prizesList.Show();
-		}
-
-		private void ReadSponsorshipsEvents() {
-			sponsorshipEventsList.Hide();
-
-			// Given an event number, return sponsor IDs, sponsor Name, receiver ID, receiver name, value
-			Utils.ReadToListView("SELECT sponsorID, email, name, monetaryValue FROM YACM.[SponsorshipEvent] JOIN YACM.[User] ON sponsorID=id WHERE eventNumber=" + E.Number, sponsorshipEventsList);
-			
-			sponsorshipEventsList.Show();
-		}
-
-		private void ReadSponsorshipsTeams() {
-			sponsorshipTeamsList.Hide();
-
-			// Return sponsor info and teams names
-			Utils.ReadToListView("SELECT sponsorID, email, name, teamName, monetaryValue FROM YACM.SponsorshipTeam JOIN YACM.[User] ON sponsorID=id ", sponsorshipTeamsList);
-
-			sponsorshipTeamsList.Show();
-		}
-
-		private void ReadStages() {
-			stagesList.Hide();
-
-			// Given an event number, return date, start location, end location, distance
-			Utils.ReadToListView("SELECT date, startLocation, endLocation, distance FROM YACM.[Stage] WHERE eventNumber=" + E.Number, stagesList);
-
-			stagesList.Show();
-
-		}
-
-		private void ReadStagesParticipations() {
-			stagesParticipationsList.Hide();
-
-			// Given an event number, return participant and stage info and result
-			Utils.ReadToListView("SELECT participantID, email, name, stageDate, stageStartLocation, stageEndLocation, result FROM YACM.[StageParticipation] JOIN YACM.[User] on participantID=id WHERE eventNumber=" + E.Number, stagesParticipationsList);
-
-			stagesParticipationsList.Show();
-
-		}
-
-		private void ReadTeams() {
-			teamsList.Hide();
-
-			// TODO Given an event number, return team name, number of participants on team, number of sponsors and total monetary value
-			Utils.ReadToListView("SELECT * FROM YACM.[Team]", teamsList);		
-
-			teamsList.Show();
-		}
-
-		private void ReadDocuments() {
-			documentsList.Hide();
-
-			// TODO Given an event number, return document id, type and content/path
-			Utils.ReadToListView("SELECT * FROM YACM.[Document] WHERE eventNumber=" + E.Number, documentsList);
-
-			documentsList.Show();
-		}
-		#endregion
-
-		// ----------------------------------------
 		// Add, Edit, Refresh Buttons
+		#region Add Buttons
+		private void AddEvent_Click(object sender, EventArgs e) {
+			DialogEvents dialog = new DialogEvents();
+			dialog.Show();
+		}
 
-		#region Events Management :: Equipments 
 		private void AddEquipment_Click(object sender, EventArgs e) {
 			DialogEquipment dialog = new DialogEquipment(E);
 			dialog.Show();
-			ReadEquipments();
+		}
+
+		private void AddParticipantsDropOut_Click(object sender, EventArgs e) {
+			DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E);
+			dialog.Show();
+		}
+
+		private void AddParticipantsEnrollment_Click(object sender, EventArgs e) {
+
+		}
+
+		private void AddParticipantsOnTeam_Click(object sender, EventArgs e) {
+
+		}
+
+		private void AddPrizes_Click(object sender, EventArgs e) {
+			DialogPrize dialog = new DialogPrize(E);
+			dialog.Show();
+
+		}
+
+		private void AddSponsorshipEvents_Click(object sender, EventArgs e) {
+			DialogSponsors dialog = new DialogSponsors(E);
+			dialog.Show();
+
+		}
+
+		private void AddSponsorshipTeams_Click(object sender, EventArgs e) {
+
+		}
+
+		private void AddStages_Click(object sender, EventArgs e) {
+			DialogStages dialog = new DialogStages(E);
+			dialog.Show();
+
+		}
+
+		private void AddStagesParticipations_Click(object sender, EventArgs e) {
+			DialogStagesParticipations dialog = new DialogStagesParticipations();
+			dialog.Show();
+
+		}
+
+		private void AddTeams_Click(object sender, EventArgs e) {
+			DialogTeams dialog = new DialogTeams();
+			dialog.Show();
+
+		}
+
+		private void AddDocuments_Click(object sender, EventArgs e) {
+			DialogDocuments dialog = new DialogDocuments(E);
+			dialog.Show();
+
+		}
+		#endregion
+
+		#region Edit Buttons
+		private void EditEvent_Click(object sender, EventArgs e) {
+			if (eventIndex >= 0) {
+				DialogEvents dialog = new DialogEvents(E);
+				dialog.Show();
+			}
 		}
 
 		private void EditEquipment_Click(object sender, EventArgs e) {
@@ -285,44 +212,26 @@ namespace YACM
 				Equipment EQ = DBLayer.Equipments.Read(GetSelectedID(equipmentList));
 				DialogEquipment dialog = new DialogEquipment(E, EQ);
 				dialog.Show();
-				ReadEquipments();
+				
 			}
 		}
 
-		private void RefreshEquipment_Click(object sender, EventArgs e) {
-			ReadEquipments();
-		}
-
-		#endregion
-
-		#region Events Management :: Participants Dropout
-		private void AddParticipants_Click(object sender, EventArgs e) {
-			DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E);
-			dialog.Show();
-			ReadParticipantsDropOut();
-		}
-
-		private void EditParticipants_Click(object sender, EventArgs e) {
+		private void EditParticipantsDropOut_Click(object sender, EventArgs e) {
 			if (GetSelectedID(prizesList) != -1) {
 				Participant P = DBLayer.Participants.Read(GetSelectedID(participantsDropOutList));
 				DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E, P);
 				dialog.Show();
-				ReadParticipantsDropOut();
+				
 			}
 			
 		}
 
-		private void RefreshParticipants_Click(object sender, EventArgs e) {
-			ReadParticipantsDropOut();		
+		private void EditParticipantsEnrollment_Click(object sender, EventArgs e) {
+
 		}
 
-		#endregion
+		private void EditParticipantsOnTeam_Click(object sender, EventArgs e) {
 
-		#region Events Management :: Prizes
-		private void AddPrizes_Click(object sender, EventArgs e) {
-			DialogPrize dialog = new DialogPrize(E);
-			dialog.Show();
-			ReadPrizes();
 		}
 
 		private void EditPrizes_Click(object sender, EventArgs e) {
@@ -330,42 +239,21 @@ namespace YACM
 				Prize P = DBLayer.Prizes.Read(GetSelectedID(prizesList));
 				DialogPrize dialog = new DialogPrize(E, P);
 				dialog.Show();
-				ReadPrizes();
+				
 			}
 		}
 
-		private void RefreshPrizes_Click(object sender, EventArgs e) {
-			ReadPrizes();
-		}
-
-		#endregion
-
-		#region Events Management :: Sponsors
-		private void AddSponsors_Click(object sender, EventArgs e) {
-			DialogSponsors dialog = new DialogSponsors(E);
-			dialog.Show();
-			ReadSponsorshipsEvents();
-		}
-
-		private void EditSponsors_Click(object sender, EventArgs e) {
+		private void EditSponsorshipEvents_Click(object sender, EventArgs e) {
 			if (GetSelectedID(sponsorshipEventsList) != -1) {
 				Sponsor S = DBLayer.Sponsors.Read(GetSelectedID(sponsorshipEventsList));
 				DialogSponsors dialog = new DialogSponsors(E, S);
 				dialog.Show();
-				ReadSponsorshipsEvents();
+				
 			}
 		}
 
-		private void RefreshSponsors_Click(object sender, EventArgs e) {
-			ReadSponsorshipsEvents();
-		}
-		#endregion
+		private void EditSponsorshipTeams_Click(object sender, EventArgs e) {
 
-		#region Events Management :: Stages
-		private void AddStages_Click(object sender, EventArgs e) {
-			DialogStages dialog = new DialogStages(E);
-			dialog.Show();
-			ReadStages();
 		}
 
 		private void EditStages_Click(object sender, EventArgs e) {
@@ -377,42 +265,15 @@ namespace YACM
 				Stage S = DBLayer.Stages.Read(date, startLocation, endLocation);
 				DialogStages dialog = new DialogStages(E, S);
 				dialog.Show();
-				ReadStages();
+				
 			}
 			
-		}
-
-		private void RefreshStages_Click(object sender, EventArgs e) {
-			ReadStages();
-		}
-
-		#endregion
-
-		#region Events Management :: Stages Participations [DEPRECATED]
-		private void AddStagesParticipations_Click(object sender, EventArgs e) {
-			DialogStagesParticipations dialog = new DialogStagesParticipations();
-			dialog.Show();
-			ReadStagesParticipations();
 		}
 
 		private void EditStagesParticipations_Click(object sender, EventArgs e) {
 			DialogStagesParticipations dialog = new DialogStagesParticipations(E);
 			dialog.Show();
-			ReadStagesParticipations();
-
-
-		}
-
-		private void RefreshStagesParticipations_Click(object sender, EventArgs e) {
-			ReadStagesParticipations();
-		}
-		#endregion
-
-		#region Events Management :: Teams
-		private void AddTeams_Click(object sender, EventArgs e) {
-			DialogTeams dialog = new DialogTeams();
-			dialog.Show();
-			ReadTeams();
+		
 		}
 
 		private void EditTeams_Click(object sender, EventArgs e) {
@@ -422,22 +283,10 @@ namespace YACM
 				Team T = DBLayer.Teams.Read(name);
 				DialogTeams dialog = new DialogTeams(E, T);
 				dialog.Show();
-				ReadTeams();
+				
 			}
 		}
-
-		private void RefreshTeams_Click(object sender, EventArgs e) {
-			ReadTeams();
-		}
-		#endregion
-
-		#region Events Management :: Documents
-		private void AddDocuments_Click(object sender, EventArgs e) {
-			DialogDocuments dialog = new DialogDocuments(E);
-			dialog.Show();
-			ReadDocuments();
-		}
-
+		
 		private void EditDocuments_Click(object sender, EventArgs e) {
 			if (GetSelectedID(documentsList) != -1) {
 				// DEBUG
@@ -445,13 +294,63 @@ namespace YACM
 				Document D = DBLayer.Documents.Read(GetSelectedID(documentsList));
 				DialogDocuments dialog = new DialogDocuments(E, D);
 				dialog.Show();
-				ReadDocuments();
+				
 			}
 		}
 
-		private void RefreshDocuments_Click(object sender, EventArgs e) {
-			ReadDocuments();
+		#endregion
+
+		#region Refresh Buttons Click Handlers
+		private void RefreshEvents_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadEventsList(userID, eventsList);
+			eventManagement.Hide();
 		}
+
+		private void RefreshEquipment_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadEquipments(equipmentList, E);
+		}
+
+		private void RefreshParticipantsDropOut_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadParticipantsDropOut(participantsDropOutList, E);
+		}
+
+		private void RefreshParticipantsEnrollment_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadParticipantsEnrollment(participantsEnrollmentList, E);
+		}
+
+		private void RefreshParticipantsOnTeam_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadParticipantsOnTeam(participantsOnTeamList, E);
+		}
+
+		private void RefreshPrizes_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadPrizes(prizesList, E);
+		}
+
+		private void RefreshSponsorshipEvents_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadSponsorshipsEvents(sponsorshipEventsList, E);
+		}
+
+		private void RefreshSponsorshipTeams_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadSponsorshipsTeams(sponsorshipTeamsList, E);
+		}
+
+		private void RefreshStages_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadStages(stagesList, E);
+		}
+
+		private void RefreshStagesParticipations_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadStagesParticipations(stagesParticipationsList, E);
+		}
+
+		private void RefreshTeams_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadTeams(teamsList, E);
+		}
+
+		private void RefreshDocuments_Click(object sender, EventArgs e) {
+			DBLayer.ReadTables.ReadDocuments(documentsList, E);
+		}
+
+
 		#endregion
 
 		#region Auxiliar Methods

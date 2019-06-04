@@ -88,6 +88,7 @@
     <Compile Include="DBLayer\Managers.cs" />
     <Compile Include="DBLayer\Participants.cs" />
     <Compile Include="DBLayer\Prizes.cs" />
+    <Compile Include="DBLayer\ReadTables.cs" />
     <Compile Include="DBLayer\Sponsors.cs" />
     <Compile Include="DBLayer\Stages.cs" />
     <Compile Include="DBLayer\Teams.cs" />

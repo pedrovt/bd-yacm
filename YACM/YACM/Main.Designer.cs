@@ -105,6 +105,7 @@
 			this.refreshEvent = new System.Windows.Forms.ToolStripMenuItem();
 			this.logout = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabPageParticipant = new System.Windows.Forms.TabPage();
+			this.usersList = new System.Windows.Forms.ListView();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.debugInfo = new System.Windows.Forms.ToolStripStatusLabel();
 			this.copyrightInfo = new System.Windows.Forms.ToolStripStatusLabel();
@@ -141,6 +142,7 @@
 			this.Documents.SuspendLayout();
 			this.documentsActions.SuspendLayout();
 			this.eventsActions.SuspendLayout();
+			this.tabPageParticipant.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -329,7 +331,7 @@
 			this.addParticipantsDropOut.Name = "addParticipantsDropOut";
 			this.addParticipantsDropOut.Size = new System.Drawing.Size(57, 20);
 			this.addParticipantsDropOut.Text = "Add";
-			this.addParticipantsDropOut.Click += new System.EventHandler(this.AddParticipants_Click);
+			this.addParticipantsDropOut.Click += new System.EventHandler(this.AddParticipantsDropOut_Click);
 			// 
 			// editParticipantsDropOut
 			// 
@@ -337,7 +339,7 @@
 			this.editParticipantsDropOut.Name = "editParticipantsDropOut";
 			this.editParticipantsDropOut.Size = new System.Drawing.Size(55, 20);
 			this.editParticipantsDropOut.Text = "Edit";
-			this.editParticipantsDropOut.Click += new System.EventHandler(this.EditParticipants_Click);
+			this.editParticipantsDropOut.Click += new System.EventHandler(this.EditParticipantsDropOut_Click);
 			// 
 			// refreshParticipants
 			// 
@@ -345,7 +347,7 @@
 			this.refreshParticipants.Name = "refreshParticipants";
 			this.refreshParticipants.Size = new System.Drawing.Size(73, 20);
 			this.refreshParticipants.Text = "Update";
-			this.refreshParticipants.Click += new System.EventHandler(this.RefreshParticipants_Click);
+			this.refreshParticipants.Click += new System.EventHandler(this.RefreshParticipantsDropOut_Click);
 			// 
 			// ParticipantsEnrollment
 			// 
@@ -387,6 +389,7 @@
 			this.addParticipantsEnrollment.Name = "addParticipantsEnrollment";
 			this.addParticipantsEnrollment.Size = new System.Drawing.Size(57, 20);
 			this.addParticipantsEnrollment.Text = "Add";
+			this.addParticipantsEnrollment.Click += new System.EventHandler(this.AddParticipantsEnrollment_Click);
 			// 
 			// editParticipantsEnrollment
 			// 
@@ -394,6 +397,7 @@
 			this.editParticipantsEnrollment.Name = "editParticipantsEnrollment";
 			this.editParticipantsEnrollment.Size = new System.Drawing.Size(55, 20);
 			this.editParticipantsEnrollment.Text = "Edit";
+			this.editParticipantsEnrollment.Click += new System.EventHandler(this.EditParticipantsEnrollment_Click);
 			// 
 			// refreshParticipantsEnrollment
 			// 
@@ -401,6 +405,7 @@
 			this.refreshParticipantsEnrollment.Name = "refreshParticipantsEnrollment";
 			this.refreshParticipantsEnrollment.Size = new System.Drawing.Size(73, 20);
 			this.refreshParticipantsEnrollment.Text = "Update";
+			this.refreshParticipantsEnrollment.Click += new System.EventHandler(this.RefreshParticipantsEnrollment_Click);
 			// 
 			// ParticipantsOnTeam
 			// 
@@ -441,6 +446,7 @@
 			this.addParticipantsOnTeam.Name = "addParticipantsOnTeam";
 			this.addParticipantsOnTeam.Size = new System.Drawing.Size(57, 20);
 			this.addParticipantsOnTeam.Text = "Add";
+			this.addParticipantsOnTeam.Click += new System.EventHandler(this.AddParticipantsOnTeam_Click);
 			// 
 			// editParticipantsOnTeam
 			// 
@@ -448,6 +454,7 @@
 			this.editParticipantsOnTeam.Name = "editParticipantsOnTeam";
 			this.editParticipantsOnTeam.Size = new System.Drawing.Size(55, 20);
 			this.editParticipantsOnTeam.Text = "Edit";
+			this.editParticipantsOnTeam.Click += new System.EventHandler(this.EditParticipantsOnTeam_Click);
 			// 
 			// refreshParticipantsOnTeam
 			// 
@@ -455,6 +462,7 @@
 			this.refreshParticipantsOnTeam.Name = "refreshParticipantsOnTeam";
 			this.refreshParticipantsOnTeam.Size = new System.Drawing.Size(73, 20);
 			this.refreshParticipantsOnTeam.Text = "Update";
+			this.refreshParticipantsOnTeam.Click += new System.EventHandler(this.RefreshParticipantsOnTeam_Click);
 			// 
 			// Prizes
 			// 
@@ -552,7 +560,7 @@
 			this.addSponsorshipEvents.Name = "addSponsorshipEvents";
 			this.addSponsorshipEvents.Size = new System.Drawing.Size(57, 20);
 			this.addSponsorshipEvents.Text = "Add";
-			this.addSponsorshipEvents.Click += new System.EventHandler(this.AddSponsors_Click);
+			this.addSponsorshipEvents.Click += new System.EventHandler(this.AddSponsorshipEvents_Click);
 			// 
 			// editSponsorshipEvents
 			// 
@@ -560,7 +568,7 @@
 			this.editSponsorshipEvents.Name = "editSponsorshipEvents";
 			this.editSponsorshipEvents.Size = new System.Drawing.Size(55, 20);
 			this.editSponsorshipEvents.Text = "Edit";
-			this.editSponsorshipEvents.Click += new System.EventHandler(this.EditSponsors_Click);
+			this.editSponsorshipEvents.Click += new System.EventHandler(this.EditSponsorshipEvents_Click);
 			// 
 			// refreshSponsorshipEvents
 			// 
@@ -568,7 +576,7 @@
 			this.refreshSponsorshipEvents.Name = "refreshSponsorshipEvents";
 			this.refreshSponsorshipEvents.Size = new System.Drawing.Size(73, 20);
 			this.refreshSponsorshipEvents.Text = "Update";
-			this.refreshSponsorshipEvents.Click += new System.EventHandler(this.RefreshSponsors_Click);
+			this.refreshSponsorshipEvents.Click += new System.EventHandler(this.RefreshSponsorshipEvents_Click);
 			// 
 			// SponsorshipTeams
 			// 
@@ -610,6 +618,7 @@
 			this.addSponsorshipTeams.Name = "addSponsorshipTeams";
 			this.addSponsorshipTeams.Size = new System.Drawing.Size(57, 20);
 			this.addSponsorshipTeams.Text = "Add";
+			this.addSponsorshipTeams.Click += new System.EventHandler(this.AddSponsorshipTeams_Click);
 			// 
 			// editSponsorshipTeams
 			// 
@@ -617,6 +626,7 @@
 			this.editSponsorshipTeams.Name = "editSponsorshipTeams";
 			this.editSponsorshipTeams.Size = new System.Drawing.Size(55, 20);
 			this.editSponsorshipTeams.Text = "Edit";
+			this.editSponsorshipTeams.Click += new System.EventHandler(this.EditSponsorshipTeams_Click);
 			// 
 			// refreshSponsorshipTeams
 			// 
@@ -624,6 +634,7 @@
 			this.refreshSponsorshipTeams.Name = "refreshSponsorshipTeams";
 			this.refreshSponsorshipTeams.Size = new System.Drawing.Size(73, 20);
 			this.refreshSponsorshipTeams.Text = "Update";
+			this.refreshSponsorshipTeams.Click += new System.EventHandler(this.RefreshSponsorshipTeams_Click);
 			// 
 			// Stages
 			// 
@@ -905,6 +916,7 @@
 			// 
 			// tabPageParticipant
 			// 
+			this.tabPageParticipant.Controls.Add(this.usersList);
 			this.tabPageParticipant.Location = new System.Drawing.Point(4, 22);
 			this.tabPageParticipant.Name = "tabPageParticipant";
 			this.tabPageParticipant.Padding = new System.Windows.Forms.Padding(3);
@@ -912,6 +924,16 @@
 			this.tabPageParticipant.TabIndex = 1;
 			this.tabPageParticipant.Text = "List of Users";
 			this.tabPageParticipant.UseVisualStyleBackColor = true;
+			// 
+			// usersList
+			// 
+			this.usersList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.usersList.Location = new System.Drawing.Point(3, 3);
+			this.usersList.Name = "usersList";
+			this.usersList.Size = new System.Drawing.Size(1625, 599);
+			this.usersList.TabIndex = 2;
+			this.usersList.UseCompatibleStateImageBehavior = false;
+			this.usersList.View = System.Windows.Forms.View.Details;
 			// 
 			// statusStrip
 			// 
@@ -1044,6 +1066,7 @@
 			this.documentsActions.PerformLayout();
 			this.eventsActions.ResumeLayout(false);
 			this.eventsActions.PerformLayout();
+			this.tabPageParticipant.ResumeLayout(false);
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
@@ -1139,5 +1162,6 @@
 		private System.Windows.Forms.ToolStripMenuItem addSponsorshipTeams;
 		private System.Windows.Forms.ToolStripMenuItem editSponsorshipTeams;
 		private System.Windows.Forms.ToolStripMenuItem refreshSponsorshipTeams;
+		private System.Windows.Forms.ListView usersList;
 	}
 }
