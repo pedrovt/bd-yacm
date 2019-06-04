@@ -91,6 +91,18 @@
     <Compile Include="DBLayer\Sponsors.cs" />
     <Compile Include="DBLayer\Stages.cs" />
     <Compile Include="DBLayer\Teams.cs" />
+    <Compile Include="Dialogs\DialogParticipantsDropOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogParticipantsDropOut.Designer.cs">
+      <DependentUpon>DialogParticipantsDropOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogParticipantsOnTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogParticipantsOnTeam.Designer.cs">
+      <DependentUpon>DialogParticipantsOnTeam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\DialogStagesParticipations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,11 +145,11 @@
     <Compile Include="Dialogs\DialogStages.Designer.cs">
       <DependentUpon>DialogStages.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\DialogParticipants.cs">
+    <Compile Include="Dialogs\DialogParticipantsEnrollment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DialogParticipants.Designer.cs">
-      <DependentUpon>DialogParticipants.cs</DependentUpon>
+    <Compile Include="Dialogs\DialogParticipantsEnrollment.Designer.cs">
+      <DependentUpon>DialogParticipantsEnrollment.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Sponsor.cs" />
     <Compile Include="Entities\Equipment.cs" />
@@ -178,6 +190,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\DialogParticipantsDropOut.resx">
+      <DependentUpon>DialogParticipantsDropOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogParticipantsOnTeam.resx">
+      <DependentUpon>DialogParticipantsOnTeam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DialogStagesParticipations.resx">
       <DependentUpon>DialogStagesParticipations.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,8 +217,8 @@
     <EmbeddedResource Include="Dialogs\DialogStages.resx">
       <DependentUpon>DialogStages.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DialogParticipants.resx">
-      <DependentUpon>DialogParticipants.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\DialogParticipantsEnrollment.resx">
+      <DependentUpon>DialogParticipantsEnrollment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DialogEvents.resx">
       <DependentUpon>DialogEvents.cs</DependentUpon>

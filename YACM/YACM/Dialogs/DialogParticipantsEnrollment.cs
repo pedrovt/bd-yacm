@@ -19,12 +19,12 @@ namespace YACM
 	/// Pedro Teixeira		pedro.teix@ua.pt
 	/// 09-May-2019
 	/// </summary>
-	public partial class DialogParticipants : Form
+	public partial class DialogParticipantsEnrollment : Form
 	{
 
 		#region Instance Fields
 		private readonly Event E;
-		private readonly User U;
+		private readonly Participant P;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -34,15 +34,15 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogParticipants(Event E, User U) {
+		public DialogParticipantsEnrollment(Event E, Participant P) {
 			InitializeComponent();
 
 			this.E = E;
-			this.U = U;
+			this.P = P;
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowEvent();
+			ShowParticipantEnrollment();
 			LockControls();
 			UpdateButtons(false);
 		}
@@ -50,9 +50,10 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogParticipants(Event E) {
+		public DialogParticipantsEnrollment(Event E) {
 			InitializeComponent();
 			this.E = E;
+			this.P = new Participant();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -92,28 +93,17 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowEvent() {
-			/*
-			txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtPassword.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtEmail.Text = E.Name;
-			txtName.Text = E.ManagerID.ToString();
-			*/
+		public void ShowParticipantEnrollment() {
+			txtParticipantID.Text = P.ID.ToString();
+			txtDorsal.Text = P.Dorsal.ToString();
+			txtTeamName.Text = P.TeamName.ToString();
 		}
 
 		public void SaveUser() {
 			try {
-				/*
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEmail.Text;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtEmail.Text;
-				E.ManagerID = Convert.ToInt32(txtName.Text);
-				*/
+				P.ID = Convert.ToInt32(txtParticipantID.Text);
+				P.Dorsal = Convert.ToInt32(txtDorsal.Text);
+				P.TeamName = txtTeamName.Text;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -123,14 +113,12 @@ namespace YACM
 
 
 		public void LockControls() {
-			txtID.Enabled = false;
 			txtParticipantID.Enabled = false;
 			txtTeamName.Enabled = false;
 			txtDorsal.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtID.Enabled = true;
 			txtParticipantID.Enabled = true;
 			txtTeamName.Enabled = true;
 			txtDorsal.Enabled = true;
@@ -158,8 +146,8 @@ namespace YACM
 			}
 		}
 
-		public void ClearFields() {
-			txtID.Value = 0;
+		public void ClearFields() 
+		{
 			txtParticipantID.Text = "";
 			txtTeamName.Text = "";
 			txtDorsal.Text= "";

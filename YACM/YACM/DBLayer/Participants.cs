@@ -59,7 +59,7 @@ namespace YACM.DBLayer
 
         }
 
-        internal static Participant Read(int id)
+		internal static Participant Read(int id)
         {
             Debug.Assert(id > -1, "Prize Index Invalid. Can't Load Prize");
 
@@ -146,7 +146,76 @@ namespace YACM.DBLayer
                 Program.db.Close();
             }
         }
-        #endregion
+		#endregion
 
-    }
+		#region DropOut 
+		internal static void DropOutDelete(User U, Event E) {
+			SqlCommand cmd = new SqlCommand();
+
+			// Deletion is performed only on Table User
+			// Triggers will do the rest
+			cmd.CommandText = "DELETE YACM.ParticipantDropOut WHERE participantID=@id AND eventNumber=@eventID ";
+			cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@id", U.ID);
+			cmd.Parameters.AddWithValue("@id", E.Number);
+
+			cmd.Connection = Program.db.Open();
+			try {
+				cmd.ExecuteNonQuery();
+			}
+			catch (Exception ex) {
+				MessageBox.Show("Failed to delete user in database. \n Error Message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally {
+				Program.db.Close();
+			}
+		}
+
+		internal static void DropOutCreate(User U, Event E) {
+			// Insertion into User Table
+			SqlCommand cmd = new SqlCommand();
+			cmd.CommandText = "INSERT YACM.ParticipantDropOut (participantID, eventNumber) VALUES (@id, @eventID)";
+			cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@id", U.ID);
+			cmd.Parameters.AddWithValue("@eventID", E.Number);
+			cmd.Connection = Program.db.Open();
+			try {
+				cmd.ExecuteNonQuery();
+			}
+			catch (Exception ex) {
+				MessageBox.Show("Failed to insert into database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally {
+				Program.db.Close();
+			}
+		}
+
+		internal static void DropOutUpdate(User U, Event E) {
+			int rows = 0;
+
+			// Update User Table
+			SqlCommand cmd = new SqlCommand();
+			cmd.CommandText = "UPDATE YACM.ParticipantDropOut SET participantID=@id, eventNumber=@eventID";
+			cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@id", U.ID);
+			cmd.Parameters.AddWithValue("@eventID", E.Number);
+			cmd.Connection = Program.db.Open();
+			try {
+				rows = cmd.ExecuteNonQuery();
+			}
+			catch (Exception ex) {
+				MessageBox.Show("Failed to update user in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally {
+				if (rows == 1)
+					MessageBox.Show("Updated sucessfully");
+				else
+					MessageBox.Show("Update not sucesfull");
+
+				Program.db.Close();
+			}
+		}
+		#endregion
+
+	}
 }

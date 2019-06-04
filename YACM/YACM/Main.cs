@@ -71,7 +71,7 @@ namespace YACM
 		private void EventManagement_SelectedIndexChanged(object sender, EventArgs e) {
 			switch (eventManagement.SelectedIndex) {
 				case 0:                 // About
-					Console.WriteLine("Selected About");
+					Console.WriteLine("Selected Statistics");
 					LoadStatistics();
 					break;
 				case 1:                 // Equipment
@@ -79,30 +79,42 @@ namespace YACM
 					LoadEquipment();
 					break;
 				case 2:                 // Participants
-					Console.WriteLine("Selected Participants");
-					LoadParticipants();
+					Console.WriteLine("Selected Drop Out Participants");
+					LoadParticipantsDropOut();
 					break;
-				case 3:                 // Prizes
+				case 3:
+					Console.WriteLine("Selected Enrolled Participants");
+					LoadParticipantsEnrollment();
+					break;
+				case 4:
+					Console.WriteLine("Selected On Team Participants");
+					LoadParticipantsOnTeam();
+					break;
+				case 5:                 // Prizes
 					Console.WriteLine("Selected Prizes");
 					LoadPrizes();
 					break;
-				case 4:                 // Sponsors
-					Console.WriteLine("Selected Sponsors");
-					LoadSponsors();
+				case 6:                 // Sponsors
+					Console.WriteLine("Selected Sponsorships Events");
+					LoadSponsorshipsEvents();
 					break;
-				case 5:                 // Stages
+				case 7:
+					Console.WriteLine("Selected Sponsorships Teams");
+					LoadSponsorshipsTeams();
+					break;
+				case 8:                 // Stages
 					Console.WriteLine("Selected Stages");
 					LoadStages();
 					break;
-				case 6:                 // Stage Participations
+				case 9:                 // Stage Participations
 					Console.WriteLine("Selected Stage Participations");
 					LoadStagesParticipations();
 					break;
-				case 7:                 // Teams
+				case 10:                 // Teams
 					Console.WriteLine("Selected Teams");
 					LoadTeams();
 					break;
-				case 8:                 // Documents
+				case 11:                 // Documents
 					Console.WriteLine("Selected Documents");
 					LoadDocuments();
 					break;
@@ -146,29 +158,75 @@ namespace YACM
 		// Load of list views
 		#region Events Management Tabs Logic
 		// All these methods have access to Event E
+		// TODO FIXME SQL INJECTION ASAP (create a SP?)
 
-		private void LoadDocuments() {
-			//MessageBox.Show("Documents");
-			documentsList.Hide();
-
-			// TODO Stored Procedure to, given an event number, return document id, type and content/path
-			// TODO fixme sql injection asap (create a SP)
-
-			Utils.ReadToListView("SELECT * FROM YACM.[Document] WHERE eventNumber=" + E.Number, documentsList);
-			
-			documentsList.Show();
+		private void LoadStatistics() {
+			//MessageBox.Show("Statistics");
+			// TODO txtNAME.text = value from query
 		}
 
-		private void LoadTeams() {
-			//MessageBox.Show("Teams");
-			teamsList.Hide();
+		private void LoadEquipment() {
+			equipmentList.Hide();
 
-			// TODO Stored Procedure to, given an event number, return team name, number of participants on team, number of sponsors and total monetary value
-			// TODO FIXME SQL INJECTION ASAP (create a SP?)
+			// Given an event number, equipments id, category and participant ID and name for equipment for participants enrolled in the event
+			Utils.ReadToListView("SELECT E.id, participantID, email, name, category, description FROM YACM.EQUIPMENT AS E JOIN (SELECT id, email, name FROM YACM.[User] AS U LEFT OUTER JOIN (SELECT * FROM YACM.ParticipantEnrollment WHERE eventNumber = " + E.Number + ") AS P ON P.participantID = U.id WHERE participantID IS NOT NULL) AS U ON U.id=participantID", equipmentList);  //OK
 
-			Utils.ReadToListView("SELECT * FROM YACM.[Team]", teamsList);
+			equipmentList.Show();
+		}
 
-			teamsList.Show();
+		private void LoadParticipantsDropOut() {
+			participantsDropOutList.Hide();
+
+			// Given an event number, return id, email, name
+			Utils.ReadToListView("SELECT id, email, name FROM YACM.[User] JOIN YACM.ParticipantDropOut ON id=participantID WHERE eventNumber=" + E.Number, participantsDropOutList);		//OK
+
+			participantsDropOutList.Show();
+		}
+
+		private void LoadParticipantsEnrollment() {
+			participantsEnrollmentList.Hide();
+
+			// Given an event number, return id, email, name
+			Utils.ReadToListView("SELECT id, email, name FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=" + E.Number, participantsEnrollmentList);  //OK
+
+			participantsEnrollmentList.Show();
+		}
+
+		private void LoadParticipantsOnTeam() {
+			participantsOnTeamList.Hide();
+
+			// Given an event number, return id, email, name, team info, start date and end date
+			Utils.ReadToListView("SELECT participantID, email, name, teamName, startDate, endDate FROM (SELECT id, email, name FROM YACM.[User] AS U LEFT OUTER JOIN (SELECT * FROM YACM.ParticipantEnrollment WHERE eventNumber = " + E.Number + ") AS P ON P.participantID = U.id WHERE participantID IS NOT NULL) AS U JOIN YACM.ParticipantOnTeam AS P ON U.id=P.participantID", participantsOnTeamList);
+			
+			participantsOnTeamList.Show();
+		}
+
+		private void LoadPrizes() {
+			prizesList.Hide();
+
+			// Given an event number, return sponsor ID, sponsor Name, receiver ID, receiver name, value
+			Utils.ReadToListView("SELECT id, sponsorID, receiverID, value FROM YACM.[Prize] WHERE eventNumber=" + E.Number, prizesList);
+
+			prizesList.Show();
+		}
+
+		private void LoadSponsorshipsEvents() {
+			sponsorshipEventsList.Hide();
+
+			// Given an event number, return sponsor IDs, sponsor Name, receiver ID, receiver name, value
+			Utils.ReadToListView("SELECT P.id, P.sponsorID, email AS sponsorEmail, name AS sponsorName, value FROM YACM.[Prize] AS P JOIN YACM.[User] AS U ON sponsorID=U.id WHERE eventNumber=" + E.Number, sponsorshipEventsList);
+
+			sponsorshipEventsList.Show();
+		}
+
+		private void LoadSponsorshipsTeams() {
+			//MessageBox.Show("Sponsors");
+			sponsorshipTeamsList.Hide();
+
+			// Given an event number, return sponsor IDs and teams names
+			Utils.ReadToListView("SELECT * FROM YACM.[SponsorshipEvent] WHERE eventNumber=" + E.Number, sponsorshipTeamsList);
+
+			sponsorshipTeamsList.Show();
 		}
 
 		private void LoadStages() {
@@ -197,60 +255,29 @@ namespace YACM
 
 		}
 
-		private void LoadSponsors() {
-			//MessageBox.Show("Sponsors");
-			sponsorsList.Hide();
-			
-			// TODO Stored Procedure to, given an event number, return sponsor IDs, sponsor Name, receiver ID, receiver name, value
+		private void LoadTeams() {
+			//MessageBox.Show("Teams");
+			teamsList.Hide();
+
+			// TODO Stored Procedure to, given an event number, return team name, number of participants on team, number of sponsors and total monetary value
 			// TODO FIXME SQL INJECTION ASAP (create a SP?)
 
-			Utils.ReadToListView("SELECT * FROM YACM.[SponsorshipEvent] WHERE eventNumber=" + E.Number, sponsorsList);  
+			Utils.ReadToListView("SELECT * FROM YACM.[Team]", teamsList);		//OK
 
-			sponsorsList.Show();
+			teamsList.Show();
 		}
 
-		private void LoadPrizes() {
-			//MessageBox.Show("Prizes");
-			prizesList.Hide();
+		private void LoadDocuments() {
+			//MessageBox.Show("Documents");
+			documentsList.Hide();
 
-			// TODO Stored Procedure to, given an event number, return sponsor ID, sponsor Name, receiver ID, receiver name, value
-			// TODO FIXME SQL INJECTION ASAP (create a SP?)
-			Utils.ReadToListView("SELECT id, sponsorID, receiverID, value FROM YACM.[Prize] WHERE eventNumber=" + E.Number, prizesList);   
-			
-			prizesList.Show();
+			// TODO Stored Procedure to, given an event number, return document id, type and content/path
+			// TODO fixme sql injection asap (create a SP)
+
+			Utils.ReadToListView("SELECT * FROM YACM.[Document] WHERE eventNumber=" + E.Number, documentsList);
+
+			documentsList.Show();
 		}
-
-		private void LoadParticipants() {
-			//MessageBox.Show("Participants");
-			participantsList.Hide();
-
-			// TODO Stored Procedure to, given an event number, return id, email, name and status (drop out, enrollment, on team and team name, start and end date)
-			// TODO FIXME SQL INJECTION ASAP (create a SP?)
-			Utils.ReadToListView("SELECT id, email, name FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=" + E.Number, participantsList);   
-
-			// Not supposed to show passwords! --> forgot I could simply remove from SELECT 
-			// Utils.HideColumn(3, participantsList);
-
-			participantsList.Show();
-		}
-
-		private void LoadEquipment() {
-			//MessageBox.Show("Equipment");
-			equipmentList.Hide();
-
-			// TODO Stored Procedure to, given an event number, equipments id, category and participant ID and name
-			// TODO FIXME SQL INJECTION ASAP (create a SP?)
-			Utils.ReadToListView("SELECT * FROM YACM.EQUIPMENT", equipmentList);
-
-			equipmentList.Show();
-		}
-
-		private void LoadStatistics() {
-			//MessageBox.Show("Statistics");
-
-		}
-
-
 		#endregion
 
 		// ----------------------------------------
@@ -278,21 +305,25 @@ namespace YACM
 
 		#endregion
 
-		#region Events Management :: Participants
+		#region Events Management :: Participants Dropout
 		private void AddParticipants_Click(object sender, EventArgs e) {
-			DialogParticipants dialog = new DialogParticipants(E);
+			DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E);
 			dialog.Show();
-			LoadParticipants();
+			LoadParticipantsDropOut();
 		}
 
 		private void EditParticipants_Click(object sender, EventArgs e) {
-			DialogParticipants dialog = new DialogParticipants(E);
-			dialog.Show();
-			LoadParticipants();
+			if (GetSelectedID(prizesList) != -1) {
+				Participant P = DBLayer.Participants.Read(GetSelectedID(participantsDropOutList));
+				DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E, P);
+				dialog.Show();
+				LoadParticipantsDropOut();
+			}
+			
 		}
 
 		private void RefreshParticipants_Click(object sender, EventArgs e) {
-			LoadParticipants();		
+			LoadParticipantsDropOut();		
 		}
 
 		#endregion
@@ -323,20 +354,20 @@ namespace YACM
 		private void AddSponsors_Click(object sender, EventArgs e) {
 			DialogSponsors dialog = new DialogSponsors(E);
 			dialog.Show();
-			LoadSponsors();
+			LoadSponsorshipsEvents();
 		}
 
 		private void EditSponsors_Click(object sender, EventArgs e) {
-			if (GetSelectedID(sponsorsList) != -1) {
-				Sponsor S = DBLayer.Sponsors.Read(GetSelectedID(sponsorsList));
+			if (GetSelectedID(sponsorshipEventsList) != -1) {
+				Sponsor S = DBLayer.Sponsors.Read(GetSelectedID(sponsorshipEventsList));
 				DialogSponsors dialog = new DialogSponsors(E, S);
 				dialog.Show();
-				LoadSponsors();
+				LoadSponsorshipsEvents();
 			}
 		}
 
 		private void RefreshSponsors_Click(object sender, EventArgs e) {
-			LoadSponsors();
+			LoadSponsorshipsEvents();
 		}
 		#endregion
 
@@ -433,7 +464,7 @@ namespace YACM
 		}
 		#endregion
 
-
+		#region Auxiliar Methods
 		private int GetSelectedID (ListView list) {
 			int index = -1;
 			if (list.SelectedItems != null) {
@@ -443,6 +474,7 @@ namespace YACM
 			}
 			return index;
 		}
-		
+		#endregion
+
 	}
 }

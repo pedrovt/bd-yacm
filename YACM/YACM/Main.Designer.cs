@@ -39,30 +39,54 @@
 			this.addEquipment = new System.Windows.Forms.ToolStripMenuItem();
 			this.editEquipment = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshEquipment = new System.Windows.Forms.ToolStripMenuItem();
-			this.Participants = new System.Windows.Forms.TabPage();
-			this.participantsList = new System.Windows.Forms.ListView();
-			this.participantsActions = new System.Windows.Forms.MenuStrip();
-			this.addParticipants = new System.Windows.Forms.ToolStripMenuItem();
-			this.editParticipants = new System.Windows.Forms.ToolStripMenuItem();
+			this.ParticipantsDropOut = new System.Windows.Forms.TabPage();
+			this.participantsDropOutList = new System.Windows.Forms.ListView();
+			this.participantsDropOutActions = new System.Windows.Forms.MenuStrip();
+			this.addParticipantsDropOut = new System.Windows.Forms.ToolStripMenuItem();
+			this.editParticipantsDropOut = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshParticipants = new System.Windows.Forms.ToolStripMenuItem();
+			this.ParticipantsEnrollment = new System.Windows.Forms.TabPage();
+			this.participantsEnrollmentList = new System.Windows.Forms.ListView();
+			this.participantsEnrollmentActions = new System.Windows.Forms.MenuStrip();
+			this.addParticipantsEnrollment = new System.Windows.Forms.ToolStripMenuItem();
+			this.editParticipantsEnrollment = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshParticipantsEnrollment = new System.Windows.Forms.ToolStripMenuItem();
+			this.ParticipantsOnTeam = new System.Windows.Forms.TabPage();
+			this.participantsOnTeamList = new System.Windows.Forms.ListView();
+			this.participantsOnTeamActions = new System.Windows.Forms.MenuStrip();
+			this.addParticipantsOnTeam = new System.Windows.Forms.ToolStripMenuItem();
+			this.editParticipantsOnTeam = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshParticipantsOnTeam = new System.Windows.Forms.ToolStripMenuItem();
 			this.Prizes = new System.Windows.Forms.TabPage();
 			this.prizesList = new System.Windows.Forms.ListView();
 			this.prizeActions = new System.Windows.Forms.MenuStrip();
 			this.addPrizes = new System.Windows.Forms.ToolStripMenuItem();
 			this.editPrizes = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshPrizes = new System.Windows.Forms.ToolStripMenuItem();
-			this.Sponsors = new System.Windows.Forms.TabPage();
-			this.sponsorsList = new System.Windows.Forms.ListView();
-			this.sponsorsActions = new System.Windows.Forms.MenuStrip();
-			this.addSponsors = new System.Windows.Forms.ToolStripMenuItem();
-			this.editSponsors = new System.Windows.Forms.ToolStripMenuItem();
-			this.refreshSponsors = new System.Windows.Forms.ToolStripMenuItem();
+			this.SponsorshipEvents = new System.Windows.Forms.TabPage();
+			this.sponsorshipEventsList = new System.Windows.Forms.ListView();
+			this.sponsorshipEventsActions = new System.Windows.Forms.MenuStrip();
+			this.addSponsorshipEvents = new System.Windows.Forms.ToolStripMenuItem();
+			this.editSponsorshipEvents = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshSponsorshipEvents = new System.Windows.Forms.ToolStripMenuItem();
+			this.SponsorshipTeams = new System.Windows.Forms.TabPage();
+			this.sponsorshipTeamsList = new System.Windows.Forms.ListView();
+			this.sponsorshipTeamsActions = new System.Windows.Forms.MenuStrip();
+			this.addSponsorshipTeams = new System.Windows.Forms.ToolStripMenuItem();
+			this.editSponsorshipTeams = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshSponsorshipTeams = new System.Windows.Forms.ToolStripMenuItem();
 			this.Stages = new System.Windows.Forms.TabPage();
 			this.stagesList = new System.Windows.Forms.ListView();
 			this.stagesActions = new System.Windows.Forms.MenuStrip();
 			this.addStages = new System.Windows.Forms.ToolStripMenuItem();
 			this.editStages = new System.Windows.Forms.ToolStripMenuItem();
 			this.refreshStages = new System.Windows.Forms.ToolStripMenuItem();
+			this.StagesParticipants = new System.Windows.Forms.TabPage();
+			this.stagesParticipationsList = new System.Windows.Forms.ListView();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.addStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
+			this.editStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
 			this.Teams = new System.Windows.Forms.TabPage();
 			this.teamsList = new System.Windows.Forms.ListView();
 			this.teamActions = new System.Windows.Forms.MenuStrip();
@@ -87,12 +111,6 @@
 			this.labelTitle = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-			this.StagesParticipants = new System.Windows.Forms.TabPage();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.addStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
-			this.editStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
-			this.refreshStagesParticipations = new System.Windows.Forms.ToolStripMenuItem();
-			this.stagesParticipationsList = new System.Windows.Forms.ListView();
 			this.tabControl1.SuspendLayout();
 			this.tabPageManager.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -102,14 +120,22 @@
 			this.eventManagement.SuspendLayout();
 			this.Equipment.SuspendLayout();
 			this.equipamentActions.SuspendLayout();
-			this.Participants.SuspendLayout();
-			this.participantsActions.SuspendLayout();
+			this.ParticipantsDropOut.SuspendLayout();
+			this.participantsDropOutActions.SuspendLayout();
+			this.ParticipantsEnrollment.SuspendLayout();
+			this.participantsEnrollmentActions.SuspendLayout();
+			this.ParticipantsOnTeam.SuspendLayout();
+			this.participantsOnTeamActions.SuspendLayout();
 			this.Prizes.SuspendLayout();
 			this.prizeActions.SuspendLayout();
-			this.Sponsors.SuspendLayout();
-			this.sponsorsActions.SuspendLayout();
+			this.SponsorshipEvents.SuspendLayout();
+			this.sponsorshipEventsActions.SuspendLayout();
+			this.SponsorshipTeams.SuspendLayout();
+			this.sponsorshipTeamsActions.SuspendLayout();
 			this.Stages.SuspendLayout();
 			this.stagesActions.SuspendLayout();
+			this.StagesParticipants.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.Teams.SuspendLayout();
 			this.teamActions.SuspendLayout();
 			this.Documents.SuspendLayout();
@@ -117,8 +143,6 @@
 			this.eventsActions.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.StagesParticipants.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -126,11 +150,11 @@
 			this.tabControl1.Controls.Add(this.tabPageManager);
 			this.tabControl1.Controls.Add(this.tabPageParticipant);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(3, 71);
+			this.tabControl1.Location = new System.Drawing.Point(3, 72);
 			this.tabControl1.Multiline = true;
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1439, 625);
+			this.tabControl1.Size = new System.Drawing.Size(1639, 631);
 			this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
 			this.tabControl1.TabIndex = 0;
 			// 
@@ -141,7 +165,7 @@
 			this.tabPageManager.Location = new System.Drawing.Point(4, 22);
 			this.tabPageManager.Name = "tabPageManager";
 			this.tabPageManager.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageManager.Size = new System.Drawing.Size(1431, 599);
+			this.tabPageManager.Size = new System.Drawing.Size(1631, 605);
 			this.tabPageManager.TabIndex = 0;
 			this.tabPageManager.Text = "Events I\'m Managing";
 			this.tabPageManager.UseVisualStyleBackColor = true;
@@ -159,8 +183,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.eventManagement);
-			this.splitContainer1.Size = new System.Drawing.Size(1425, 569);
-			this.splitContainer1.SplitterDistance = 705;
+			this.splitContainer1.Size = new System.Drawing.Size(1625, 575);
+			this.splitContainer1.SplitterDistance = 550;
 			this.splitContainer1.TabIndex = 5;
 			// 
 			// eventsList
@@ -168,7 +192,7 @@
 			this.eventsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.eventsList.Location = new System.Drawing.Point(0, 0);
 			this.eventsList.Name = "eventsList";
-			this.eventsList.Size = new System.Drawing.Size(705, 569);
+			this.eventsList.Size = new System.Drawing.Size(550, 575);
 			this.eventsList.TabIndex = 1;
 			this.eventsList.UseCompatibleStateImageBehavior = false;
 			this.eventsList.View = System.Windows.Forms.View.Details;
@@ -178,9 +202,12 @@
 			// 
 			this.eventManagement.Controls.Add(this.Statistics);
 			this.eventManagement.Controls.Add(this.Equipment);
-			this.eventManagement.Controls.Add(this.Participants);
+			this.eventManagement.Controls.Add(this.ParticipantsDropOut);
+			this.eventManagement.Controls.Add(this.ParticipantsEnrollment);
+			this.eventManagement.Controls.Add(this.ParticipantsOnTeam);
 			this.eventManagement.Controls.Add(this.Prizes);
-			this.eventManagement.Controls.Add(this.Sponsors);
+			this.eventManagement.Controls.Add(this.SponsorshipEvents);
+			this.eventManagement.Controls.Add(this.SponsorshipTeams);
 			this.eventManagement.Controls.Add(this.Stages);
 			this.eventManagement.Controls.Add(this.StagesParticipants);
 			this.eventManagement.Controls.Add(this.Teams);
@@ -190,7 +217,7 @@
 			this.eventManagement.Multiline = true;
 			this.eventManagement.Name = "eventManagement";
 			this.eventManagement.SelectedIndex = 0;
-			this.eventManagement.Size = new System.Drawing.Size(716, 569);
+			this.eventManagement.Size = new System.Drawing.Size(1071, 575);
 			this.eventManagement.TabIndex = 4;
 			this.eventManagement.SelectedIndexChanged += new System.EventHandler(this.EventManagement_SelectedIndexChanged);
 			// 
@@ -199,7 +226,7 @@
 			this.Statistics.Location = new System.Drawing.Point(4, 22);
 			this.Statistics.Name = "Statistics";
 			this.Statistics.Padding = new System.Windows.Forms.Padding(3);
-			this.Statistics.Size = new System.Drawing.Size(708, 543);
+			this.Statistics.Size = new System.Drawing.Size(1063, 549);
 			this.Statistics.TabIndex = 8;
 			this.Statistics.Text = "Statistics";
 			this.Statistics.UseVisualStyleBackColor = true;
@@ -211,7 +238,7 @@
 			this.Equipment.Location = new System.Drawing.Point(4, 22);
 			this.Equipment.Name = "Equipment";
 			this.Equipment.Padding = new System.Windows.Forms.Padding(3);
-			this.Equipment.Size = new System.Drawing.Size(708, 543);
+			this.Equipment.Size = new System.Drawing.Size(858, 549);
 			this.Equipment.TabIndex = 1;
 			this.Equipment.Text = "Equipment";
 			this.Equipment.UseVisualStyleBackColor = true;
@@ -221,7 +248,7 @@
 			this.equipmentList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.equipmentList.Location = new System.Drawing.Point(3, 27);
 			this.equipmentList.Name = "equipmentList";
-			this.equipmentList.Size = new System.Drawing.Size(702, 513);
+			this.equipmentList.Size = new System.Drawing.Size(852, 519);
 			this.equipmentList.TabIndex = 4;
 			this.equipmentList.UseCompatibleStateImageBehavior = false;
 			this.equipmentList.View = System.Windows.Forms.View.Details;
@@ -235,7 +262,7 @@
 			this.equipamentActions.Location = new System.Drawing.Point(3, 3);
 			this.equipamentActions.Name = "equipamentActions";
 			this.equipamentActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.equipamentActions.Size = new System.Drawing.Size(702, 24);
+			this.equipamentActions.Size = new System.Drawing.Size(852, 24);
 			this.equipamentActions.TabIndex = 5;
 			this.equipamentActions.Text = "menuStrip2";
 			// 
@@ -263,54 +290,54 @@
 			this.refreshEquipment.Text = "Update";
 			this.refreshEquipment.Click += new System.EventHandler(this.RefreshEquipment_Click);
 			// 
-			// Participants
+			// ParticipantsDropOut
 			// 
-			this.Participants.Controls.Add(this.participantsList);
-			this.Participants.Controls.Add(this.participantsActions);
-			this.Participants.Location = new System.Drawing.Point(4, 22);
-			this.Participants.Name = "Participants";
-			this.Participants.Size = new System.Drawing.Size(708, 543);
-			this.Participants.TabIndex = 2;
-			this.Participants.Text = "Participants";
-			this.Participants.UseVisualStyleBackColor = true;
+			this.ParticipantsDropOut.Controls.Add(this.participantsDropOutList);
+			this.ParticipantsDropOut.Controls.Add(this.participantsDropOutActions);
+			this.ParticipantsDropOut.Location = new System.Drawing.Point(4, 22);
+			this.ParticipantsDropOut.Name = "ParticipantsDropOut";
+			this.ParticipantsDropOut.Size = new System.Drawing.Size(858, 549);
+			this.ParticipantsDropOut.TabIndex = 2;
+			this.ParticipantsDropOut.Text = "Participants (Drop Out)";
+			this.ParticipantsDropOut.UseVisualStyleBackColor = true;
 			// 
-			// participantsList
+			// participantsDropOutList
 			// 
-			this.participantsList.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.participantsList.Location = new System.Drawing.Point(0, 24);
-			this.participantsList.Name = "participantsList";
-			this.participantsList.Size = new System.Drawing.Size(708, 519);
-			this.participantsList.TabIndex = 6;
-			this.participantsList.UseCompatibleStateImageBehavior = false;
-			this.participantsList.View = System.Windows.Forms.View.Details;
+			this.participantsDropOutList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.participantsDropOutList.Location = new System.Drawing.Point(0, 24);
+			this.participantsDropOutList.Name = "participantsDropOutList";
+			this.participantsDropOutList.Size = new System.Drawing.Size(858, 525);
+			this.participantsDropOutList.TabIndex = 6;
+			this.participantsDropOutList.UseCompatibleStateImageBehavior = false;
+			this.participantsDropOutList.View = System.Windows.Forms.View.Details;
 			// 
-			// participantsActions
+			// participantsDropOutActions
 			// 
-			this.participantsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addParticipants,
-            this.editParticipants,
+			this.participantsDropOutActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addParticipantsDropOut,
+            this.editParticipantsDropOut,
             this.refreshParticipants});
-			this.participantsActions.Location = new System.Drawing.Point(0, 0);
-			this.participantsActions.Name = "participantsActions";
-			this.participantsActions.Size = new System.Drawing.Size(708, 24);
-			this.participantsActions.TabIndex = 7;
-			this.participantsActions.Text = "menuStrip3";
+			this.participantsDropOutActions.Location = new System.Drawing.Point(0, 0);
+			this.participantsDropOutActions.Name = "participantsDropOutActions";
+			this.participantsDropOutActions.Size = new System.Drawing.Size(858, 24);
+			this.participantsDropOutActions.TabIndex = 7;
+			this.participantsDropOutActions.Text = "menuStrip3";
 			// 
-			// addParticipants
+			// addParticipantsDropOut
 			// 
-			this.addParticipants.Image = global::YACM.Properties.Resources.ic_add;
-			this.addParticipants.Name = "addParticipants";
-			this.addParticipants.Size = new System.Drawing.Size(57, 20);
-			this.addParticipants.Text = "Add";
-			this.addParticipants.Click += new System.EventHandler(this.AddParticipants_Click);
+			this.addParticipantsDropOut.Image = global::YACM.Properties.Resources.ic_add;
+			this.addParticipantsDropOut.Name = "addParticipantsDropOut";
+			this.addParticipantsDropOut.Size = new System.Drawing.Size(57, 20);
+			this.addParticipantsDropOut.Text = "Add";
+			this.addParticipantsDropOut.Click += new System.EventHandler(this.AddParticipants_Click);
 			// 
-			// editParticipants
+			// editParticipantsDropOut
 			// 
-			this.editParticipants.Image = global::YACM.Properties.Resources.ic_edit;
-			this.editParticipants.Name = "editParticipants";
-			this.editParticipants.Size = new System.Drawing.Size(55, 20);
-			this.editParticipants.Text = "Edit";
-			this.editParticipants.Click += new System.EventHandler(this.EditParticipants_Click);
+			this.editParticipantsDropOut.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editParticipantsDropOut.Name = "editParticipantsDropOut";
+			this.editParticipantsDropOut.Size = new System.Drawing.Size(55, 20);
+			this.editParticipantsDropOut.Text = "Edit";
+			this.editParticipantsDropOut.Click += new System.EventHandler(this.EditParticipants_Click);
 			// 
 			// refreshParticipants
 			// 
@@ -320,13 +347,122 @@
 			this.refreshParticipants.Text = "Update";
 			this.refreshParticipants.Click += new System.EventHandler(this.RefreshParticipants_Click);
 			// 
+			// ParticipantsEnrollment
+			// 
+			this.ParticipantsEnrollment.Controls.Add(this.participantsEnrollmentList);
+			this.ParticipantsEnrollment.Controls.Add(this.participantsEnrollmentActions);
+			this.ParticipantsEnrollment.Location = new System.Drawing.Point(4, 22);
+			this.ParticipantsEnrollment.Name = "ParticipantsEnrollment";
+			this.ParticipantsEnrollment.Padding = new System.Windows.Forms.Padding(3);
+			this.ParticipantsEnrollment.Size = new System.Drawing.Size(858, 549);
+			this.ParticipantsEnrollment.TabIndex = 11;
+			this.ParticipantsEnrollment.Text = "Participants (Enrolled)";
+			this.ParticipantsEnrollment.UseVisualStyleBackColor = true;
+			// 
+			// participantsEnrollmentList
+			// 
+			this.participantsEnrollmentList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.participantsEnrollmentList.Location = new System.Drawing.Point(3, 27);
+			this.participantsEnrollmentList.Name = "participantsEnrollmentList";
+			this.participantsEnrollmentList.Size = new System.Drawing.Size(852, 519);
+			this.participantsEnrollmentList.TabIndex = 8;
+			this.participantsEnrollmentList.UseCompatibleStateImageBehavior = false;
+			this.participantsEnrollmentList.View = System.Windows.Forms.View.Details;
+			// 
+			// participantsEnrollmentActions
+			// 
+			this.participantsEnrollmentActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addParticipantsEnrollment,
+            this.editParticipantsEnrollment,
+            this.refreshParticipantsEnrollment});
+			this.participantsEnrollmentActions.Location = new System.Drawing.Point(3, 3);
+			this.participantsEnrollmentActions.Name = "participantsEnrollmentActions";
+			this.participantsEnrollmentActions.Size = new System.Drawing.Size(852, 24);
+			this.participantsEnrollmentActions.TabIndex = 9;
+			this.participantsEnrollmentActions.Text = "menuStrip3";
+			// 
+			// addParticipantsEnrollment
+			// 
+			this.addParticipantsEnrollment.Image = global::YACM.Properties.Resources.ic_add;
+			this.addParticipantsEnrollment.Name = "addParticipantsEnrollment";
+			this.addParticipantsEnrollment.Size = new System.Drawing.Size(57, 20);
+			this.addParticipantsEnrollment.Text = "Add";
+			// 
+			// editParticipantsEnrollment
+			// 
+			this.editParticipantsEnrollment.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editParticipantsEnrollment.Name = "editParticipantsEnrollment";
+			this.editParticipantsEnrollment.Size = new System.Drawing.Size(55, 20);
+			this.editParticipantsEnrollment.Text = "Edit";
+			// 
+			// refreshParticipantsEnrollment
+			// 
+			this.refreshParticipantsEnrollment.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshParticipantsEnrollment.Name = "refreshParticipantsEnrollment";
+			this.refreshParticipantsEnrollment.Size = new System.Drawing.Size(73, 20);
+			this.refreshParticipantsEnrollment.Text = "Update";
+			// 
+			// ParticipantsOnTeam
+			// 
+			this.ParticipantsOnTeam.Controls.Add(this.participantsOnTeamList);
+			this.ParticipantsOnTeam.Controls.Add(this.participantsOnTeamActions);
+			this.ParticipantsOnTeam.Location = new System.Drawing.Point(4, 22);
+			this.ParticipantsOnTeam.Name = "ParticipantsOnTeam";
+			this.ParticipantsOnTeam.Size = new System.Drawing.Size(1063, 549);
+			this.ParticipantsOnTeam.TabIndex = 12;
+			this.ParticipantsOnTeam.Text = "Participants (On Team)";
+			this.ParticipantsOnTeam.UseVisualStyleBackColor = true;
+			// 
+			// participantsOnTeamList
+			// 
+			this.participantsOnTeamList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.participantsOnTeamList.Location = new System.Drawing.Point(0, 24);
+			this.participantsOnTeamList.Name = "participantsOnTeamList";
+			this.participantsOnTeamList.Size = new System.Drawing.Size(1063, 525);
+			this.participantsOnTeamList.TabIndex = 8;
+			this.participantsOnTeamList.UseCompatibleStateImageBehavior = false;
+			this.participantsOnTeamList.View = System.Windows.Forms.View.Details;
+			// 
+			// participantsOnTeamActions
+			// 
+			this.participantsOnTeamActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addParticipantsOnTeam,
+            this.editParticipantsOnTeam,
+            this.refreshParticipantsOnTeam});
+			this.participantsOnTeamActions.Location = new System.Drawing.Point(0, 0);
+			this.participantsOnTeamActions.Name = "participantsOnTeamActions";
+			this.participantsOnTeamActions.Size = new System.Drawing.Size(1063, 24);
+			this.participantsOnTeamActions.TabIndex = 9;
+			this.participantsOnTeamActions.Text = "menuStrip3";
+			// 
+			// addParticipantsOnTeam
+			// 
+			this.addParticipantsOnTeam.Image = global::YACM.Properties.Resources.ic_add;
+			this.addParticipantsOnTeam.Name = "addParticipantsOnTeam";
+			this.addParticipantsOnTeam.Size = new System.Drawing.Size(57, 20);
+			this.addParticipantsOnTeam.Text = "Add";
+			// 
+			// editParticipantsOnTeam
+			// 
+			this.editParticipantsOnTeam.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editParticipantsOnTeam.Name = "editParticipantsOnTeam";
+			this.editParticipantsOnTeam.Size = new System.Drawing.Size(55, 20);
+			this.editParticipantsOnTeam.Text = "Edit";
+			// 
+			// refreshParticipantsOnTeam
+			// 
+			this.refreshParticipantsOnTeam.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshParticipantsOnTeam.Name = "refreshParticipantsOnTeam";
+			this.refreshParticipantsOnTeam.Size = new System.Drawing.Size(73, 20);
+			this.refreshParticipantsOnTeam.Text = "Update";
+			// 
 			// Prizes
 			// 
 			this.Prizes.Controls.Add(this.prizesList);
 			this.Prizes.Controls.Add(this.prizeActions);
 			this.Prizes.Location = new System.Drawing.Point(4, 22);
 			this.Prizes.Name = "Prizes";
-			this.Prizes.Size = new System.Drawing.Size(708, 543);
+			this.Prizes.Size = new System.Drawing.Size(1063, 549);
 			this.Prizes.TabIndex = 3;
 			this.Prizes.Text = "Prize";
 			this.Prizes.UseVisualStyleBackColor = true;
@@ -336,7 +472,7 @@
 			this.prizesList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.prizesList.Location = new System.Drawing.Point(0, 24);
 			this.prizesList.Name = "prizesList";
-			this.prizesList.Size = new System.Drawing.Size(708, 519);
+			this.prizesList.Size = new System.Drawing.Size(1063, 525);
 			this.prizesList.TabIndex = 6;
 			this.prizesList.UseCompatibleStateImageBehavior = false;
 			this.prizesList.View = System.Windows.Forms.View.Details;
@@ -349,7 +485,7 @@
             this.refreshPrizes});
 			this.prizeActions.Location = new System.Drawing.Point(0, 0);
 			this.prizeActions.Name = "prizeActions";
-			this.prizeActions.Size = new System.Drawing.Size(708, 24);
+			this.prizeActions.Size = new System.Drawing.Size(1063, 24);
 			this.prizeActions.TabIndex = 7;
 			this.prizeActions.Text = "menuStrip4";
 			// 
@@ -377,62 +513,117 @@
 			this.refreshPrizes.Text = "Update";
 			this.refreshPrizes.Click += new System.EventHandler(this.RefreshPrizes_Click);
 			// 
-			// Sponsors
+			// SponsorshipEvents
 			// 
-			this.Sponsors.Controls.Add(this.sponsorsList);
-			this.Sponsors.Controls.Add(this.sponsorsActions);
-			this.Sponsors.Location = new System.Drawing.Point(4, 22);
-			this.Sponsors.Name = "Sponsors";
-			this.Sponsors.Size = new System.Drawing.Size(708, 543);
-			this.Sponsors.TabIndex = 4;
-			this.Sponsors.Text = "Sponsors";
-			this.Sponsors.UseVisualStyleBackColor = true;
+			this.SponsorshipEvents.Controls.Add(this.sponsorshipEventsList);
+			this.SponsorshipEvents.Controls.Add(this.sponsorshipEventsActions);
+			this.SponsorshipEvents.Location = new System.Drawing.Point(4, 22);
+			this.SponsorshipEvents.Name = "SponsorshipEvents";
+			this.SponsorshipEvents.Size = new System.Drawing.Size(858, 549);
+			this.SponsorshipEvents.TabIndex = 4;
+			this.SponsorshipEvents.Text = "Sponsorship of Events";
+			this.SponsorshipEvents.UseVisualStyleBackColor = true;
 			// 
-			// sponsorsList
+			// sponsorshipEventsList
 			// 
-			this.sponsorsList.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.sponsorsList.Location = new System.Drawing.Point(0, 24);
-			this.sponsorsList.Name = "sponsorsList";
-			this.sponsorsList.Size = new System.Drawing.Size(708, 519);
-			this.sponsorsList.TabIndex = 6;
-			this.sponsorsList.UseCompatibleStateImageBehavior = false;
-			this.sponsorsList.View = System.Windows.Forms.View.Details;
+			this.sponsorshipEventsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.sponsorshipEventsList.Location = new System.Drawing.Point(0, 24);
+			this.sponsorshipEventsList.Name = "sponsorshipEventsList";
+			this.sponsorshipEventsList.Size = new System.Drawing.Size(858, 525);
+			this.sponsorshipEventsList.TabIndex = 6;
+			this.sponsorshipEventsList.UseCompatibleStateImageBehavior = false;
+			this.sponsorshipEventsList.View = System.Windows.Forms.View.Details;
 			// 
-			// sponsorsActions
+			// sponsorshipEventsActions
 			// 
-			this.sponsorsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addSponsors,
-            this.editSponsors,
-            this.refreshSponsors});
-			this.sponsorsActions.Location = new System.Drawing.Point(0, 0);
-			this.sponsorsActions.Name = "sponsorsActions";
-			this.sponsorsActions.Size = new System.Drawing.Size(708, 24);
-			this.sponsorsActions.TabIndex = 7;
-			this.sponsorsActions.Text = "menuStrip5";
+			this.sponsorshipEventsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addSponsorshipEvents,
+            this.editSponsorshipEvents,
+            this.refreshSponsorshipEvents});
+			this.sponsorshipEventsActions.Location = new System.Drawing.Point(0, 0);
+			this.sponsorshipEventsActions.Name = "sponsorshipEventsActions";
+			this.sponsorshipEventsActions.Size = new System.Drawing.Size(858, 24);
+			this.sponsorshipEventsActions.TabIndex = 7;
+			this.sponsorshipEventsActions.Text = "menuStrip5";
 			// 
-			// addSponsors
+			// addSponsorshipEvents
 			// 
-			this.addSponsors.Image = global::YACM.Properties.Resources.ic_add;
-			this.addSponsors.Name = "addSponsors";
-			this.addSponsors.Size = new System.Drawing.Size(57, 20);
-			this.addSponsors.Text = "Add";
-			this.addSponsors.Click += new System.EventHandler(this.AddSponsors_Click);
+			this.addSponsorshipEvents.Image = global::YACM.Properties.Resources.ic_add;
+			this.addSponsorshipEvents.Name = "addSponsorshipEvents";
+			this.addSponsorshipEvents.Size = new System.Drawing.Size(57, 20);
+			this.addSponsorshipEvents.Text = "Add";
+			this.addSponsorshipEvents.Click += new System.EventHandler(this.AddSponsors_Click);
 			// 
-			// editSponsors
+			// editSponsorshipEvents
 			// 
-			this.editSponsors.Image = global::YACM.Properties.Resources.ic_edit;
-			this.editSponsors.Name = "editSponsors";
-			this.editSponsors.Size = new System.Drawing.Size(55, 20);
-			this.editSponsors.Text = "Edit";
-			this.editSponsors.Click += new System.EventHandler(this.EditSponsors_Click);
+			this.editSponsorshipEvents.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editSponsorshipEvents.Name = "editSponsorshipEvents";
+			this.editSponsorshipEvents.Size = new System.Drawing.Size(55, 20);
+			this.editSponsorshipEvents.Text = "Edit";
+			this.editSponsorshipEvents.Click += new System.EventHandler(this.EditSponsors_Click);
 			// 
-			// refreshSponsors
+			// refreshSponsorshipEvents
 			// 
-			this.refreshSponsors.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.refreshSponsors.Name = "refreshSponsors";
-			this.refreshSponsors.Size = new System.Drawing.Size(73, 20);
-			this.refreshSponsors.Text = "Update";
-			this.refreshSponsors.Click += new System.EventHandler(this.RefreshSponsors_Click);
+			this.refreshSponsorshipEvents.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshSponsorshipEvents.Name = "refreshSponsorshipEvents";
+			this.refreshSponsorshipEvents.Size = new System.Drawing.Size(73, 20);
+			this.refreshSponsorshipEvents.Text = "Update";
+			this.refreshSponsorshipEvents.Click += new System.EventHandler(this.RefreshSponsors_Click);
+			// 
+			// SponsorshipTeams
+			// 
+			this.SponsorshipTeams.Controls.Add(this.sponsorshipTeamsList);
+			this.SponsorshipTeams.Controls.Add(this.sponsorshipTeamsActions);
+			this.SponsorshipTeams.Location = new System.Drawing.Point(4, 22);
+			this.SponsorshipTeams.Name = "SponsorshipTeams";
+			this.SponsorshipTeams.Padding = new System.Windows.Forms.Padding(3);
+			this.SponsorshipTeams.Size = new System.Drawing.Size(858, 549);
+			this.SponsorshipTeams.TabIndex = 10;
+			this.SponsorshipTeams.Text = "Sponsorship of Teams";
+			this.SponsorshipTeams.UseVisualStyleBackColor = true;
+			// 
+			// sponsorshipTeamsList
+			// 
+			this.sponsorshipTeamsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.sponsorshipTeamsList.Location = new System.Drawing.Point(3, 27);
+			this.sponsorshipTeamsList.Name = "sponsorshipTeamsList";
+			this.sponsorshipTeamsList.Size = new System.Drawing.Size(852, 519);
+			this.sponsorshipTeamsList.TabIndex = 8;
+			this.sponsorshipTeamsList.UseCompatibleStateImageBehavior = false;
+			this.sponsorshipTeamsList.View = System.Windows.Forms.View.Details;
+			// 
+			// sponsorshipTeamsActions
+			// 
+			this.sponsorshipTeamsActions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addSponsorshipTeams,
+            this.editSponsorshipTeams,
+            this.refreshSponsorshipTeams});
+			this.sponsorshipTeamsActions.Location = new System.Drawing.Point(3, 3);
+			this.sponsorshipTeamsActions.Name = "sponsorshipTeamsActions";
+			this.sponsorshipTeamsActions.Size = new System.Drawing.Size(852, 24);
+			this.sponsorshipTeamsActions.TabIndex = 9;
+			this.sponsorshipTeamsActions.Text = "menuStrip3";
+			// 
+			// addSponsorshipTeams
+			// 
+			this.addSponsorshipTeams.Image = global::YACM.Properties.Resources.ic_add;
+			this.addSponsorshipTeams.Name = "addSponsorshipTeams";
+			this.addSponsorshipTeams.Size = new System.Drawing.Size(57, 20);
+			this.addSponsorshipTeams.Text = "Add";
+			// 
+			// editSponsorshipTeams
+			// 
+			this.editSponsorshipTeams.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editSponsorshipTeams.Name = "editSponsorshipTeams";
+			this.editSponsorshipTeams.Size = new System.Drawing.Size(55, 20);
+			this.editSponsorshipTeams.Text = "Edit";
+			// 
+			// refreshSponsorshipTeams
+			// 
+			this.refreshSponsorshipTeams.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshSponsorshipTeams.Name = "refreshSponsorshipTeams";
+			this.refreshSponsorshipTeams.Size = new System.Drawing.Size(73, 20);
+			this.refreshSponsorshipTeams.Text = "Update";
 			// 
 			// Stages
 			// 
@@ -440,7 +631,7 @@
 			this.Stages.Controls.Add(this.stagesActions);
 			this.Stages.Location = new System.Drawing.Point(4, 22);
 			this.Stages.Name = "Stages";
-			this.Stages.Size = new System.Drawing.Size(708, 543);
+			this.Stages.Size = new System.Drawing.Size(858, 549);
 			this.Stages.TabIndex = 5;
 			this.Stages.Text = "Stages";
 			this.Stages.UseVisualStyleBackColor = true;
@@ -450,7 +641,7 @@
 			this.stagesList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.stagesList.Location = new System.Drawing.Point(0, 24);
 			this.stagesList.Name = "stagesList";
-			this.stagesList.Size = new System.Drawing.Size(708, 519);
+			this.stagesList.Size = new System.Drawing.Size(858, 525);
 			this.stagesList.TabIndex = 6;
 			this.stagesList.UseCompatibleStateImageBehavior = false;
 			this.stagesList.View = System.Windows.Forms.View.Details;
@@ -463,7 +654,7 @@
             this.refreshStages});
 			this.stagesActions.Location = new System.Drawing.Point(0, 0);
 			this.stagesActions.Name = "stagesActions";
-			this.stagesActions.Size = new System.Drawing.Size(708, 24);
+			this.stagesActions.Size = new System.Drawing.Size(858, 24);
 			this.stagesActions.TabIndex = 7;
 			this.stagesActions.Text = "menuStrip6";
 			// 
@@ -491,13 +682,71 @@
 			this.refreshStages.Text = "Update";
 			this.refreshStages.Click += new System.EventHandler(this.RefreshStages_Click);
 			// 
+			// StagesParticipants
+			// 
+			this.StagesParticipants.Controls.Add(this.stagesParticipationsList);
+			this.StagesParticipants.Controls.Add(this.menuStrip1);
+			this.StagesParticipants.Location = new System.Drawing.Point(4, 40);
+			this.StagesParticipants.Name = "StagesParticipants";
+			this.StagesParticipants.Padding = new System.Windows.Forms.Padding(3);
+			this.StagesParticipants.Size = new System.Drawing.Size(858, 531);
+			this.StagesParticipants.TabIndex = 9;
+			this.StagesParticipants.Text = "Stages Participants";
+			this.StagesParticipants.UseVisualStyleBackColor = true;
+			// 
+			// stagesParticipationsList
+			// 
+			this.stagesParticipationsList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.stagesParticipationsList.Location = new System.Drawing.Point(3, 27);
+			this.stagesParticipationsList.Name = "stagesParticipationsList";
+			this.stagesParticipationsList.Size = new System.Drawing.Size(852, 501);
+			this.stagesParticipationsList.TabIndex = 10;
+			this.stagesParticipationsList.UseCompatibleStateImageBehavior = false;
+			this.stagesParticipationsList.View = System.Windows.Forms.View.Details;
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addStagesParticipations,
+            this.editStagesParticipations,
+            this.refreshStagesParticipations});
+			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(852, 24);
+			this.menuStrip1.TabIndex = 9;
+			this.menuStrip1.Text = "menuStrip6";
+			// 
+			// addStagesParticipations
+			// 
+			this.addStagesParticipations.Image = global::YACM.Properties.Resources.ic_add;
+			this.addStagesParticipations.Name = "addStagesParticipations";
+			this.addStagesParticipations.Size = new System.Drawing.Size(57, 20);
+			this.addStagesParticipations.Text = "Add";
+			this.addStagesParticipations.Click += new System.EventHandler(this.AddStagesParticipations_Click);
+			// 
+			// editStagesParticipations
+			// 
+			this.editStagesParticipations.Image = global::YACM.Properties.Resources.ic_edit;
+			this.editStagesParticipations.Name = "editStagesParticipations";
+			this.editStagesParticipations.Size = new System.Drawing.Size(55, 20);
+			this.editStagesParticipations.Text = "Edit";
+			this.editStagesParticipations.Click += new System.EventHandler(this.EditStagesParticipations_Click);
+			// 
+			// refreshStagesParticipations
+			// 
+			this.refreshStagesParticipations.Image = global::YACM.Properties.Resources.ic_refresh;
+			this.refreshStagesParticipations.Name = "refreshStagesParticipations";
+			this.refreshStagesParticipations.Size = new System.Drawing.Size(73, 20);
+			this.refreshStagesParticipations.Text = "Update";
+			this.refreshStagesParticipations.Click += new System.EventHandler(this.RefreshStagesParticipations_Click);
+			// 
 			// Teams
 			// 
 			this.Teams.Controls.Add(this.teamsList);
 			this.Teams.Controls.Add(this.teamActions);
-			this.Teams.Location = new System.Drawing.Point(4, 22);
+			this.Teams.Location = new System.Drawing.Point(4, 40);
 			this.Teams.Name = "Teams";
-			this.Teams.Size = new System.Drawing.Size(708, 543);
+			this.Teams.Size = new System.Drawing.Size(858, 531);
 			this.Teams.TabIndex = 6;
 			this.Teams.Text = "Teams";
 			this.Teams.UseVisualStyleBackColor = true;
@@ -507,7 +756,7 @@
 			this.teamsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.teamsList.Location = new System.Drawing.Point(0, 24);
 			this.teamsList.Name = "teamsList";
-			this.teamsList.Size = new System.Drawing.Size(708, 519);
+			this.teamsList.Size = new System.Drawing.Size(858, 507);
 			this.teamsList.TabIndex = 6;
 			this.teamsList.UseCompatibleStateImageBehavior = false;
 			this.teamsList.View = System.Windows.Forms.View.Details;
@@ -520,7 +769,7 @@
             this.refreshTeams});
 			this.teamActions.Location = new System.Drawing.Point(0, 0);
 			this.teamActions.Name = "teamActions";
-			this.teamActions.Size = new System.Drawing.Size(708, 24);
+			this.teamActions.Size = new System.Drawing.Size(858, 24);
 			this.teamActions.TabIndex = 7;
 			this.teamActions.Text = "menuStrip7";
 			// 
@@ -552,9 +801,9 @@
 			// 
 			this.Documents.Controls.Add(this.documentsList);
 			this.Documents.Controls.Add(this.documentsActions);
-			this.Documents.Location = new System.Drawing.Point(4, 22);
+			this.Documents.Location = new System.Drawing.Point(4, 40);
 			this.Documents.Name = "Documents";
-			this.Documents.Size = new System.Drawing.Size(708, 543);
+			this.Documents.Size = new System.Drawing.Size(858, 531);
 			this.Documents.TabIndex = 7;
 			this.Documents.Text = "Documents";
 			this.Documents.UseVisualStyleBackColor = true;
@@ -564,7 +813,7 @@
 			this.documentsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.documentsList.Location = new System.Drawing.Point(0, 24);
 			this.documentsList.Name = "documentsList";
-			this.documentsList.Size = new System.Drawing.Size(708, 519);
+			this.documentsList.Size = new System.Drawing.Size(858, 507);
 			this.documentsList.TabIndex = 6;
 			this.documentsList.UseCompatibleStateImageBehavior = false;
 			this.documentsList.View = System.Windows.Forms.View.Details;
@@ -577,7 +826,7 @@
             this.refreshDocuments});
 			this.documentsActions.Location = new System.Drawing.Point(0, 0);
 			this.documentsActions.Name = "documentsActions";
-			this.documentsActions.Size = new System.Drawing.Size(708, 24);
+			this.documentsActions.Size = new System.Drawing.Size(858, 24);
 			this.documentsActions.TabIndex = 7;
 			this.documentsActions.Text = "menuStrip8";
 			// 
@@ -616,7 +865,7 @@
 			this.eventsActions.Location = new System.Drawing.Point(3, 3);
 			this.eventsActions.Name = "eventsActions";
 			this.eventsActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-			this.eventsActions.Size = new System.Drawing.Size(1425, 24);
+			this.eventsActions.Size = new System.Drawing.Size(1625, 24);
 			this.eventsActions.TabIndex = 3;
 			this.eventsActions.Text = "menuStrip1";
 			// 
@@ -659,9 +908,9 @@
 			this.tabPageParticipant.Location = new System.Drawing.Point(4, 22);
 			this.tabPageParticipant.Name = "tabPageParticipant";
 			this.tabPageParticipant.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageParticipant.Size = new System.Drawing.Size(1431, 599);
+			this.tabPageParticipant.Size = new System.Drawing.Size(1631, 605);
 			this.tabPageParticipant.TabIndex = 1;
-			this.tabPageParticipant.Text = "Other Events";
+			this.tabPageParticipant.Text = "List of Users";
 			this.tabPageParticipant.UseVisualStyleBackColor = true;
 			// 
 			// statusStrip
@@ -669,9 +918,9 @@
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.debugInfo,
             this.copyrightInfo});
-			this.statusStrip.Location = new System.Drawing.Point(0, 720);
+			this.statusStrip.Location = new System.Drawing.Point(0, 727);
 			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.Size = new System.Drawing.Size(1445, 22);
+			this.statusStrip.Size = new System.Drawing.Size(1645, 22);
 			this.statusStrip.TabIndex = 1;
 			this.statusStrip.Text = "statusStrip1";
 			// 
@@ -684,7 +933,7 @@
 			// copyrightInfo
 			// 
 			this.copyrightInfo.Name = "copyrightInfo";
-			this.copyrightInfo.Size = new System.Drawing.Size(1391, 17);
+			this.copyrightInfo.Size = new System.Drawing.Size(1591, 17);
 			this.copyrightInfo.Spring = true;
 			this.copyrightInfo.Text = "© Paulo, Pedro 2019";
 			this.copyrightInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -696,7 +945,7 @@
 			this.labelTitle.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelTitle.Location = new System.Drawing.Point(3, 0);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(1439, 68);
+			this.labelTitle.Size = new System.Drawing.Size(1639, 69);
 			this.labelTitle.TabIndex = 4;
 			this.labelTitle.Text = "Welcome back, User";
 			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -715,7 +964,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.827586F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.17242F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1445, 720);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1645, 727);
 			this.tableLayoutPanel1.TabIndex = 5;
 			// 
 			// notifyIcon
@@ -727,70 +976,12 @@
 			this.notifyIcon.Text = "YACM";
 			this.notifyIcon.Visible = true;
 			// 
-			// StagesParticipants
-			// 
-			this.StagesParticipants.Controls.Add(this.stagesParticipationsList);
-			this.StagesParticipants.Controls.Add(this.menuStrip1);
-			this.StagesParticipants.Location = new System.Drawing.Point(4, 22);
-			this.StagesParticipants.Name = "StagesParticipants";
-			this.StagesParticipants.Padding = new System.Windows.Forms.Padding(3);
-			this.StagesParticipants.Size = new System.Drawing.Size(708, 543);
-			this.StagesParticipants.TabIndex = 9;
-			this.StagesParticipants.Text = "Stages Participants";
-			this.StagesParticipants.UseVisualStyleBackColor = true;
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addStagesParticipations,
-            this.editStagesParticipations,
-            this.refreshStagesParticipations});
-			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(702, 24);
-			this.menuStrip1.TabIndex = 9;
-			this.menuStrip1.Text = "menuStrip6";
-			// 
-			// addStagesParticipations
-			// 
-			this.addStagesParticipations.Image = global::YACM.Properties.Resources.ic_add;
-			this.addStagesParticipations.Name = "addStagesParticipations";
-			this.addStagesParticipations.Size = new System.Drawing.Size(57, 20);
-			this.addStagesParticipations.Text = "Add";
-			this.addStagesParticipations.Click += new System.EventHandler(this.AddStagesParticipations_Click);
-			// 
-			// editStagesParticipations
-			// 
-			this.editStagesParticipations.Image = global::YACM.Properties.Resources.ic_edit;
-			this.editStagesParticipations.Name = "editStagesParticipations";
-			this.editStagesParticipations.Size = new System.Drawing.Size(55, 20);
-			this.editStagesParticipations.Text = "Edit";
-			this.editStagesParticipations.Click += new System.EventHandler(this.EditStagesParticipations_Click);
-			// 
-			// refreshStagesParticipations
-			// 
-			this.refreshStagesParticipations.Image = global::YACM.Properties.Resources.ic_refresh;
-			this.refreshStagesParticipations.Name = "refreshStagesParticipations";
-			this.refreshStagesParticipations.Size = new System.Drawing.Size(73, 20);
-			this.refreshStagesParticipations.Text = "Update";
-			this.refreshStagesParticipations.Click += new System.EventHandler(this.RefreshStagesParticipations_Click);
-			// 
-			// stagesParticipationsList
-			// 
-			this.stagesParticipationsList.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.stagesParticipationsList.Location = new System.Drawing.Point(3, 27);
-			this.stagesParticipationsList.Name = "stagesParticipationsList";
-			this.stagesParticipationsList.Size = new System.Drawing.Size(702, 513);
-			this.stagesParticipationsList.TabIndex = 10;
-			this.stagesParticipationsList.UseCompatibleStateImageBehavior = false;
-			this.stagesParticipationsList.View = System.Windows.Forms.View.Details;
-			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(1445, 742);
+			this.ClientSize = new System.Drawing.Size(1645, 749);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.statusStrip);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -811,22 +1002,38 @@
 			this.Equipment.PerformLayout();
 			this.equipamentActions.ResumeLayout(false);
 			this.equipamentActions.PerformLayout();
-			this.Participants.ResumeLayout(false);
-			this.Participants.PerformLayout();
-			this.participantsActions.ResumeLayout(false);
-			this.participantsActions.PerformLayout();
+			this.ParticipantsDropOut.ResumeLayout(false);
+			this.ParticipantsDropOut.PerformLayout();
+			this.participantsDropOutActions.ResumeLayout(false);
+			this.participantsDropOutActions.PerformLayout();
+			this.ParticipantsEnrollment.ResumeLayout(false);
+			this.ParticipantsEnrollment.PerformLayout();
+			this.participantsEnrollmentActions.ResumeLayout(false);
+			this.participantsEnrollmentActions.PerformLayout();
+			this.ParticipantsOnTeam.ResumeLayout(false);
+			this.ParticipantsOnTeam.PerformLayout();
+			this.participantsOnTeamActions.ResumeLayout(false);
+			this.participantsOnTeamActions.PerformLayout();
 			this.Prizes.ResumeLayout(false);
 			this.Prizes.PerformLayout();
 			this.prizeActions.ResumeLayout(false);
 			this.prizeActions.PerformLayout();
-			this.Sponsors.ResumeLayout(false);
-			this.Sponsors.PerformLayout();
-			this.sponsorsActions.ResumeLayout(false);
-			this.sponsorsActions.PerformLayout();
+			this.SponsorshipEvents.ResumeLayout(false);
+			this.SponsorshipEvents.PerformLayout();
+			this.sponsorshipEventsActions.ResumeLayout(false);
+			this.sponsorshipEventsActions.PerformLayout();
+			this.SponsorshipTeams.ResumeLayout(false);
+			this.SponsorshipTeams.PerformLayout();
+			this.sponsorshipTeamsActions.ResumeLayout(false);
+			this.sponsorshipTeamsActions.PerformLayout();
 			this.Stages.ResumeLayout(false);
 			this.Stages.PerformLayout();
 			this.stagesActions.ResumeLayout(false);
 			this.stagesActions.PerformLayout();
+			this.StagesParticipants.ResumeLayout(false);
+			this.StagesParticipants.PerformLayout();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.Teams.ResumeLayout(false);
 			this.Teams.PerformLayout();
 			this.teamActions.ResumeLayout(false);
@@ -841,10 +1048,6 @@
 			this.statusStrip.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			this.StagesParticipants.ResumeLayout(false);
-			this.StagesParticipants.PerformLayout();
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -867,7 +1070,7 @@
 		private System.Windows.Forms.ToolStripMenuItem refreshEvent;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.TabControl eventManagement;
-		private System.Windows.Forms.TabPage Participants;
+		private System.Windows.Forms.TabPage ParticipantsDropOut;
 		private System.Windows.Forms.TabPage Equipment;
 		private System.Windows.Forms.ListView equipmentList;
 		private System.Windows.Forms.MenuStrip equipamentActions;
@@ -875,26 +1078,26 @@
 		private System.Windows.Forms.ToolStripMenuItem editEquipment;
 		private System.Windows.Forms.ToolStripMenuItem refreshEquipment;
 		private System.Windows.Forms.TabPage Prizes;
-		private System.Windows.Forms.TabPage Sponsors;
+		private System.Windows.Forms.TabPage SponsorshipEvents;
 		private System.Windows.Forms.TabPage Stages;
 		private System.Windows.Forms.TabPage Teams;
 		private System.Windows.Forms.TabPage Documents;
 		private System.Windows.Forms.TabPage Statistics;
-		private System.Windows.Forms.ListView participantsList;
-		private System.Windows.Forms.MenuStrip participantsActions;
-		private System.Windows.Forms.ToolStripMenuItem addParticipants;
-		private System.Windows.Forms.ToolStripMenuItem editParticipants;
+		private System.Windows.Forms.ListView participantsDropOutList;
+		private System.Windows.Forms.MenuStrip participantsDropOutActions;
+		private System.Windows.Forms.ToolStripMenuItem addParticipantsDropOut;
+		private System.Windows.Forms.ToolStripMenuItem editParticipantsDropOut;
 		private System.Windows.Forms.ToolStripMenuItem refreshParticipants;
 		private System.Windows.Forms.ListView prizesList;
 		private System.Windows.Forms.MenuStrip prizeActions;
 		private System.Windows.Forms.ToolStripMenuItem addPrizes;
 		private System.Windows.Forms.ToolStripMenuItem editPrizes;
 		private System.Windows.Forms.ToolStripMenuItem refreshPrizes;
-		private System.Windows.Forms.ListView sponsorsList;
-		private System.Windows.Forms.MenuStrip sponsorsActions;
-		private System.Windows.Forms.ToolStripMenuItem addSponsors;
-		private System.Windows.Forms.ToolStripMenuItem editSponsors;
-		private System.Windows.Forms.ToolStripMenuItem refreshSponsors;
+		private System.Windows.Forms.ListView sponsorshipEventsList;
+		private System.Windows.Forms.MenuStrip sponsorshipEventsActions;
+		private System.Windows.Forms.ToolStripMenuItem addSponsorshipEvents;
+		private System.Windows.Forms.ToolStripMenuItem editSponsorshipEvents;
+		private System.Windows.Forms.ToolStripMenuItem refreshSponsorshipEvents;
 		private System.Windows.Forms.ListView stagesList;
 		private System.Windows.Forms.MenuStrip stagesActions;
 		private System.Windows.Forms.ToolStripMenuItem addStages;
@@ -918,5 +1121,23 @@
 		private System.Windows.Forms.ToolStripMenuItem addStagesParticipations;
 		private System.Windows.Forms.ToolStripMenuItem editStagesParticipations;
 		private System.Windows.Forms.ToolStripMenuItem refreshStagesParticipations;
+		private System.Windows.Forms.TabPage SponsorshipTeams;
+		private System.Windows.Forms.TabPage ParticipantsEnrollment;
+		private System.Windows.Forms.TabPage ParticipantsOnTeam;
+		private System.Windows.Forms.ListView participantsEnrollmentList;
+		private System.Windows.Forms.MenuStrip participantsEnrollmentActions;
+		private System.Windows.Forms.ToolStripMenuItem addParticipantsEnrollment;
+		private System.Windows.Forms.ToolStripMenuItem editParticipantsEnrollment;
+		private System.Windows.Forms.ToolStripMenuItem refreshParticipantsEnrollment;
+		private System.Windows.Forms.ListView participantsOnTeamList;
+		private System.Windows.Forms.MenuStrip participantsOnTeamActions;
+		private System.Windows.Forms.ToolStripMenuItem addParticipantsOnTeam;
+		private System.Windows.Forms.ToolStripMenuItem editParticipantsOnTeam;
+		private System.Windows.Forms.ToolStripMenuItem refreshParticipantsOnTeam;
+		private System.Windows.Forms.ListView sponsorshipTeamsList;
+		private System.Windows.Forms.MenuStrip sponsorshipTeamsActions;
+		private System.Windows.Forms.ToolStripMenuItem addSponsorshipTeams;
+		private System.Windows.Forms.ToolStripMenuItem editSponsorshipTeams;
+		private System.Windows.Forms.ToolStripMenuItem refreshSponsorshipTeams;
 	}
 }
