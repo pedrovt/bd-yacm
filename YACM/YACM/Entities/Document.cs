@@ -23,14 +23,14 @@ namespace YACM
 		public String Contents { get; set; }
 
 		public override String ToString() {
-			return "Document " + Id + " type  " + Type;
+			return "Document " + ID + " type  " + Type;
 		}
 
 		public Document() : base() {
 		}
 
 		public Document(int id, DocumentType type, String pathOrContents) : base() {
-			this.Id = id;
+			this.ID = id;
 			Type = type;
 			switch (type) {
 				case DocumentType.Text:

@@ -93,7 +93,7 @@ namespace YACM
 
 		#region Auxilar Methods
 		public void ShowEquipment() {
-			txtID.Value = EQ.Id;
+			txtID.Value = EQ.ID;
 			txtParticipant.Text = Convert.ToString(EQ.ParticipantID);
 			txtCategory.Text = EQ.Category;
 			txtDescription.Text = EQ.Description;
@@ -101,7 +101,7 @@ namespace YACM
 
 		public void SaveEvent() {
 			try {
-				EQ.Id = Convert.ToInt32(txtID.Value);
+				EQ.ID = Convert.ToInt32(txtID.Value);
 				EQ.ParticipantID = Convert.ToInt32(txtParticipant.Text);
 				EQ.Category = txtCategory.Text;
 				EQ.Description = txtDescription.Text;

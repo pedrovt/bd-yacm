@@ -45,7 +45,6 @@ namespace YACM
             EventNumber = eventID;
             ReceiverID  = receiverID;
             Value       = value;
-            Description = "TBA";
         }
         #endregion
 

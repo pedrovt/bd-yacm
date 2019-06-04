@@ -224,7 +224,7 @@ namespace YACM.DBLayer
         }
 
 
-        internal static void GetOtherVisibleEvents(String managerEmail)
+        internal static List<Event> GetOtherVisibleEvents(String managerEmail)
         {
             List<Event> retVal = new List<Event>();
 

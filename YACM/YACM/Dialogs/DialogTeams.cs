@@ -64,8 +64,9 @@ namespace YACM
 			SaveParticipant();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Teams.Update(T);
-				else DBLayer.Teams.Create(T);
+				//if (toUpdate) DBLayer.Teams.Update(T);
+				//else
+				DBLayer.Teams.Create(T);
 				
 				//Return to main
 				this.Dispose();
@@ -128,8 +129,8 @@ namespace YACM
 				bttnDelete.Visible = false;
 			}
 			else {
-				bttnEdit.Enabled = true;
-				bttnEdit.Visible = true;
+				bttnEdit.Enabled = false;
+				bttnEdit.Visible = false;
 
 				bttnDelete.Enabled = true;
 				bttnDelete.Visible = true;

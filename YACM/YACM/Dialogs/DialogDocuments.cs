@@ -114,7 +114,7 @@ namespace YACM
 		
 		#region Auxilar Methods
 		public void ShowDocument() {
-			txtID.Value = D.Id;
+			txtID.Value = D.ID;
 
 			if (D.Type == DocumentType.Text) {
 				txtType.SelectedIndex = 0;

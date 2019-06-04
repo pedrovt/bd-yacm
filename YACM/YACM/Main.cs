@@ -348,12 +348,17 @@ namespace YACM
 		}
 
 		private void EditStages_Click(object sender, EventArgs e) {
-			if (GetSelectedID(stagesList) != -1) {
-				Stage S = DBLayer.Stages.Read(GetSelectedID(stagesList));
+			if (stagesList.SelectedItems != null) {
+				ListViewItem firstSelectedItem = stagesList.FocusedItem;
+				DateTime date = Convert.ToDateTime(firstSelectedItem.SubItems[0].Text);
+				string startLocation = firstSelectedItem.SubItems[1].Text;
+				string endLocation = firstSelectedItem.SubItems[2].Text;
+				Stage S = DBLayer.Stages.Read(date, startLocation, endLocation);
 				DialogStages dialog = new DialogStages(E, S);
 				dialog.Show();
 				LoadStages();
 			}
+			
 		}
 
 		private void RefreshStages_Click(object sender, EventArgs e) {
@@ -390,8 +395,10 @@ namespace YACM
 		}
 
 		private void EditTeams_Click(object sender, EventArgs e) {
-			if (GetSelectedID(teamsList) != -1) {
-				Team T = DBLayer.Teams.Read(GetSelectedID(teamsList));
+			if (teamsList.SelectedItems != null) {
+				ListViewItem firstSelectedItem = teamsList.FocusedItem;
+				string name = firstSelectedItem.SubItems[0].Text;
+				Team T = DBLayer.Teams.Read(name);
 				DialogTeams dialog = new DialogTeams(E, T);
 				dialog.Show();
 				LoadTeams();

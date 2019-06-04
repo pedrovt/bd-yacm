@@ -18,14 +18,14 @@ namespace YACM
 		public String Description { get; set; }
 
 		public override String ToString() {
-			return "Equipment " + Id;
+			return "Equipment " + ID;
 		}
 
 		public Equipment() : base() {
 		}
 
 		public Equipment(int id, int eventID, int participantID, String category, String description) : base() {
-			Id = id;
+			ID = id;
 			EventID = eventID;
 			ParticipantID = participantID;
 			Category = category;
