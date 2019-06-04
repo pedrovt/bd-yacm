@@ -104,6 +104,21 @@ CREATE PROC dbo.p_CreateOtherFile (@eventID int, @path varchar(50))
 AS
 	DECLARE @id AS INT;
 	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id;
-	INSERT INTO YACM.OtherFile(id,content) VALUES (@id,@path);
+	INSERT INTO YACM.OtherFile(id,[path]) VALUES (@id,@path);
 	RETURN 0;
 GO
+
+
+
+
+-- ============
+-- === USER ===
+-- ============
+-- Event on Delete
+CREATE TRIGGER ValarMorghulis ON YACM.[User] AFTER INSERT
+AS
+	DECLARE @id AS INT;
+	SELECT @id=id FROM inserted;
+	DELETE YACM.Manager		WHERE YACM.Manager.id=@id;
+	DELETE YACM.Participant	WHERE YACM.Participant.id=@id;
+	DELETE YACM.Sponsor		WHERE YACM.Sponsor.id=@id;
