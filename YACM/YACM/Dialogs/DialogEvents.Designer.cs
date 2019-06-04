@@ -33,7 +33,6 @@
 			this.Label11 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.Label1 = new System.Windows.Forms.Label();
-			this.Label5 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.Label3 = new System.Windows.Forms.Label();
 			this.Label2 = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.txtBeginDate = new System.Windows.Forms.DateTimePicker();
 			this.txtEndDate = new System.Windows.Forms.DateTimePicker();
-			this.txtBudget = new System.Windows.Forms.TextBox();
 			this.panelButtons = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.bttnEdit = new System.Windows.Forms.Button();
@@ -104,7 +102,6 @@
 			this.tableLayoutPanel2.Controls.Add(this.Label11, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 5);
 			this.tableLayoutPanel2.Controls.Add(this.Label1, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.Label5, 0, 6);
 			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 3);
 			this.tableLayoutPanel2.Controls.Add(this.Label3, 0, 4);
 			this.tableLayoutPanel2.Controls.Add(this.Label2, 0, 2);
@@ -114,7 +111,6 @@
 			this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 1);
 			this.tableLayoutPanel2.Controls.Add(this.txtBeginDate, 1, 2);
 			this.tableLayoutPanel2.Controls.Add(this.txtEndDate, 1, 3);
-			this.tableLayoutPanel2.Controls.Add(this.txtBudget, 1, 6);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 7;
@@ -160,17 +156,6 @@
 			this.Label1.Size = new System.Drawing.Size(128, 24);
 			this.Label1.TabIndex = 195;
 			this.Label1.Text = "&Name";
-			// 
-			// Label5
-			// 
-			this.Label5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.Label5.Location = new System.Drawing.Point(3, 158);
-			this.Label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.Label5.Name = "Label5";
-			this.Label5.Size = new System.Drawing.Size(128, 84);
-			this.Label5.TabIndex = 201;
-			this.Label5.Text = "Budget";
 			// 
 			// label8
 			// 
@@ -254,16 +239,6 @@
 			this.txtEndDate.Name = "txtEndDate";
 			this.txtEndDate.Size = new System.Drawing.Size(370, 20);
 			this.txtEndDate.TabIndex = 213;
-			// 
-			// txtBudget
-			// 
-			this.txtBudget.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtBudget.Location = new System.Drawing.Point(137, 156);
-			this.txtBudget.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtBudget.Name = "txtBudget";
-			this.txtBudget.ReadOnly = true;
-			this.txtBudget.Size = new System.Drawing.Size(370, 22);
-			this.txtBudget.TabIndex = 202;
 			// 
 			// panelButtons
 			// 
@@ -376,11 +351,9 @@
 		private System.Windows.Forms.Panel panelInfo;
 		internal System.Windows.Forms.Label label8;
 		internal System.Windows.Forms.Label Label11;
-		internal System.Windows.Forms.Label Label5;
 		internal System.Windows.Forms.Label Label3;
 		internal System.Windows.Forms.Label Label2;
 		internal System.Windows.Forms.Label Label1;
-		internal System.Windows.Forms.TextBox txtBudget;
 		internal System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.Panel panelButtons;
 		internal System.Windows.Forms.Button bttnOK;

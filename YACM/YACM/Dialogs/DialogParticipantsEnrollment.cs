@@ -24,7 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
-		private readonly Participant P;
+		private readonly ParticipantEnrollment P;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -34,7 +34,7 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogParticipantsEnrollment(Event E, Participant P) {
+		public DialogParticipantsEnrollment(Event E, ParticipantEnrollment P) {
 			InitializeComponent();
 
 			this.E = E;
@@ -53,7 +53,7 @@ namespace YACM
 		public DialogParticipantsEnrollment(Event E) {
 			InitializeComponent();
 			this.E = E;
-			this.P = new Participant();
+			this.P = new ParticipantEnrollment();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -94,14 +94,14 @@ namespace YACM
 		
 		#region Auxilar Methods
 		public void ShowParticipantEnrollment() {
-			txtParticipantID.Text = P.ID.ToString();
+			txtParticipantID.Text = P.ParticipantID.ToString();
 			txtDorsal.Text = P.Dorsal.ToString();
 			txtTeamName.Text = P.TeamName.ToString();
 		}
 
 		public void SaveUser() {
 			try {
-				P.ID = Convert.ToInt32(txtParticipantID.Text);
+				P.ParticipantID = Convert.ToInt32(txtParticipantID.Text);
 				P.Dorsal = Convert.ToInt32(txtDorsal.Text);
 				P.TeamName = txtTeamName.Text;
 				canCommit = true;

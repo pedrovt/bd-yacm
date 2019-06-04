@@ -19,12 +19,12 @@ namespace YACM
 	/// Pedro Teixeira		pedro.teix@ua.pt
 	/// 09-May-2019
 	/// </summary>
-	public partial class DialogParticipantsOnTeam : Form
+	public partial class DialogSponsorshipEvent : Form
 	{
 
 		#region Instance Fields
 		private readonly Event E;
-		private readonly User U;
+		private readonly Sponsor S;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -34,11 +34,11 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogParticipantsOnTeam(Event E, User U) {
+		public DialogSponsorshipEvent(Event E, Sponsor S) {
 			InitializeComponent();
 
 			this.E = E;
-			this.U = U;
+			this.S = S;
 			this.toUpdate = false;
 			
 			// Show Event Details
@@ -50,19 +50,20 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogParticipantsOnTeam(Event E) {
+		public DialogSponsorshipEvent(Event E) {
 			InitializeComponent();
 			this.E = E;
+			this.S = new Sponsor();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
 		}
-		
+
 		#endregion
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveUser();
+			SaveEvent();
 			if (canCommit) {
 
 				if (toUpdate) DBLayer.Events.Update(E);
@@ -96,23 +97,23 @@ namespace YACM
 			/*
 			txtEndDate.Value = E.EndDate;
 			txtID.Text = E.Number.ToString();
-			txtPassword.Text = "-1"; //TODO
+			txtMonetaryValue.Text = "-1"; //TODO
 			txtVisibility.Checked = E.Visibility;
 			txtBeginDate.Value = E.BeginningDate;
-			txtEmail.Text = E.Name;
-			txtName.Text = E.ManagerID.ToString();
+			txtSponsorID.Text = E.Name;
+			txtManager.Text = E.ManagerID.ToString();
 			*/
 		}
 
-		public void SaveUser() {
+		public void SaveEvent() {
 			try {
 				/*
 				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEmail.Text;
+				E.EndDate = txtEndDate.Value;
 				E.Visibility = txtVisibility.Checked;
 				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtEmail.Text;
-				E.ManagerID = Convert.ToInt32(txtName.Text);
+				E.Name = txtSponsorID.Text;
+				E.ManagerID = Convert.ToInt32(txtManager.Text);
 				*/
 				canCommit = true;
 			} catch (Exception) {
@@ -123,17 +124,13 @@ namespace YACM
 
 
 		public void LockControls() {
-			txtParticipantID.Enabled = false;
-			txtTeamName.Enabled = false;
-			start.Enabled = false;
-			end.Enabled = false;
+			txtSponsorID.Enabled = false;
+			txtMonetaryValue.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtParticipantID.Enabled = false;
-			txtTeamName.Enabled = false;
-			start.Enabled = true;
-			end.Enabled = true; 
+			txtSponsorID.Enabled = false;
+			txtMonetaryValue.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {
@@ -158,12 +155,12 @@ namespace YACM
 			}
 		}
 
-		public void ClearFields() {
-			txtParticipantID.Text = "";
-			txtTeamName.Text = "";
-			start.Value = DateTime.Now;
-			end.Value = DateTime.Now;
+		public void ClearFields() 
+		{
+			txtSponsorID.Text = "";
+			txtMonetaryValue.Text = "";
 		}
+
 		#endregion
 
 		

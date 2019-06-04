@@ -151,52 +151,50 @@ namespace YACM
 		}
 
 		private void AddParticipantsEnrollment_Click(object sender, EventArgs e) {
-
+			DialogParticipantsEnrollment dialog = new DialogParticipantsEnrollment(E);
+			dialog.Show();
 		}
 
 		private void AddParticipantsOnTeam_Click(object sender, EventArgs e) {
-
+			DialogParticipantsOnTeam dialog = new DialogParticipantsOnTeam(E);
+			dialog.Show();
 		}
 
 		private void AddPrizes_Click(object sender, EventArgs e) {
 			DialogPrize dialog = new DialogPrize(E);
 			dialog.Show();
-
 		}
 
 		private void AddSponsorshipEvents_Click(object sender, EventArgs e) {
-			DialogSponsors dialog = new DialogSponsors(E);
+			DialogSponsorshipEvent dialog = new DialogSponsorshipEvent(E);
 			dialog.Show();
-
 		}
 
 		private void AddSponsorshipTeams_Click(object sender, EventArgs e) {
-
+			DialogSponsorshipTeam dialog = new DialogSponsorshipTeam(E);
+			dialog.Show();
 		}
 
 		private void AddStages_Click(object sender, EventArgs e) {
 			DialogStages dialog = new DialogStages(E);
 			dialog.Show();
-
 		}
 
 		private void AddStagesParticipations_Click(object sender, EventArgs e) {
-			DialogStagesParticipations dialog = new DialogStagesParticipations();
+			DialogStagesParticipations dialog = new DialogStagesParticipations(E);
 			dialog.Show();
-
 		}
 
 		private void AddTeams_Click(object sender, EventArgs e) {
 			DialogTeams dialog = new DialogTeams();
 			dialog.Show();
-
 		}
 
 		private void AddDocuments_Click(object sender, EventArgs e) {
 			DialogDocuments dialog = new DialogDocuments(E);
 			dialog.Show();
-
 		}
+
 		#endregion
 
 		#region Edit Buttons
@@ -221,7 +219,6 @@ namespace YACM
 				Participant P = DBLayer.Participants.Read(GetSelectedID(participantsDropOutList));
 				DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E, P);
 				dialog.Show();
-				
 			}
 			
 		}
@@ -246,7 +243,7 @@ namespace YACM
 		private void EditSponsorshipEvents_Click(object sender, EventArgs e) {
 			if (GetSelectedID(sponsorshipEventsList) != -1) {
 				Sponsor S = DBLayer.Sponsors.Read(GetSelectedID(sponsorshipEventsList));
-				DialogSponsors dialog = new DialogSponsors(E, S);
+				DialogSponsorshipEvent dialog = new DialogSponsorshipEvent(E, S);
 				dialog.Show();
 				
 			}

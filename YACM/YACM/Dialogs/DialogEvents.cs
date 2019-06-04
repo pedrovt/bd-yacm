@@ -93,7 +93,7 @@ namespace YACM
 		public void ShowEvent() {
 			txtEndDate.Value = E.EndDate;
 			txtID.Text = E.Number.ToString();
-			txtBudget.Text = "-1"; //TODO
+			//txtBudget.Text = "-1"; //TODO
 			txtVisibility.Checked = E.Visibility;
 			txtBeginDate.Value = E.BeginningDate;
 			txtName.Text = E.Name;
@@ -119,7 +119,7 @@ namespace YACM
 		public void LockControls() {
 			txtEndDate.Enabled = false;
 			txtID.Enabled = false;
-			txtBudget.ReadOnly = true;
+			//txtBudget.ReadOnly = true;
 			txtVisibility.Enabled = true;
 			txtBeginDate.Enabled = false;
 			txtName.ReadOnly = true;
@@ -130,7 +130,7 @@ namespace YACM
 			txtEndDate.Enabled = true;
 			txtID.Enabled = false;
 			txtID.Minimum = 0;
-			txtBudget.ReadOnly = false;
+			//txtBudget.ReadOnly = false;
 			txtVisibility.Enabled = false;
 			txtBeginDate.Enabled = true;
 			txtName.ReadOnly = false;
@@ -164,7 +164,7 @@ namespace YACM
 			txtEndDate.Text = "";
 			txtID.Value = 0;
 			txtID.Minimum = 0;
-			txtBudget.Text = "";
+			//txtBudget.Text = "";
 			txtVisibility.Text = "";
 			txtBeginDate.Text = "";
 			txtName.Text = "";

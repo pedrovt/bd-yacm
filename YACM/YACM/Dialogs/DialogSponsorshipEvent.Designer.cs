@@ -1,6 +1,6 @@
 ﻿namespace YACM
 {
-	partial class DialogParticipantsOnTeam
+	partial class DialogSponsorshipEvent
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -25,25 +25,21 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogParticipantsOnTeam));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogSponsorshipEvent));
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.labelTitle = new System.Windows.Forms.Label();
 			this.panelInfo = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.label4 = new System.Windows.Forms.Label();
 			this.Label1 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.txtParticipantID = new System.Windows.Forms.TextBox();
-			this.txtTeamName = new System.Windows.Forms.TextBox();
-			this.start = new System.Windows.Forms.DateTimePicker();
-			this.end = new System.Windows.Forms.DateTimePicker();
+			this.Label5 = new System.Windows.Forms.Label();
+			this.txtSponsorID = new System.Windows.Forms.TextBox();
+			this.txtMonetaryValue = new System.Windows.Forms.TextBox();
 			this.panelButtons = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.bttnEdit = new System.Windows.Forms.Button();
 			this.bttnCancel = new System.Windows.Forms.Button();
 			this.bttnDelete = new System.Windows.Forms.Button();
 			this.bttnOK = new System.Windows.Forms.Button();
-			this.label3 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel.SuspendLayout();
 			this.panelInfo.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -77,7 +73,7 @@
 			this.labelTitle.Name = "labelTitle";
 			this.labelTitle.Size = new System.Drawing.Size(679, 49);
 			this.labelTitle.TabIndex = 212;
-			this.labelTitle.Text = "Participant On Team Entry";
+			this.labelTitle.Text = "Event Entry";
 			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// panelInfo
@@ -94,17 +90,14 @@
 			this.tableLayoutPanel2.ColumnCount = 2;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.61933F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.38067F));
-			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 5);
-			this.tableLayoutPanel2.Controls.Add(this.label3, 0, 4);
 			this.tableLayoutPanel2.Controls.Add(this.Label1, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 3);
-			this.tableLayoutPanel2.Controls.Add(this.txtParticipantID, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.txtTeamName, 1, 3);
-			this.tableLayoutPanel2.Controls.Add(this.start, 1, 4);
-			this.tableLayoutPanel2.Controls.Add(this.end, 1, 5);
+			this.tableLayoutPanel2.Controls.Add(this.Label5, 0, 6);
+			this.tableLayoutPanel2.Controls.Add(this.txtSponsorID, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.txtMonetaryValue, 1, 6);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 6;
+			this.tableLayoutPanel2.RowCount = 7;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -113,17 +106,6 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(683, 243);
 			this.tableLayoutPanel2.TabIndex = 218;
-			// 
-			// label4
-			// 
-			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.label4.Location = new System.Drawing.Point(3, 131);
-			this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(128, 111);
-			this.label4.TabIndex = 220;
-			this.label4.Text = "End Date";
 			// 
 			// Label1
 			// 
@@ -134,51 +116,37 @@
 			this.Label1.Name = "Label1";
 			this.Label1.Size = new System.Drawing.Size(128, 24);
 			this.Label1.TabIndex = 195;
-			this.Label1.Text = "Participant ID";
+			this.Label1.Text = "Sponsor ID";
 			// 
-			// label8
+			// Label5
 			// 
-			this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.label8.Location = new System.Drawing.Point(3, 31);
-			this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(128, 46);
-			this.label8.TabIndex = 210;
-			this.label8.Text = "Team Name";
+			this.Label5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.Label5.Location = new System.Drawing.Point(3, 31);
+			this.Label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+			this.Label5.Name = "Label5";
+			this.Label5.Size = new System.Drawing.Size(128, 211);
+			this.Label5.TabIndex = 201;
+			this.Label5.Text = "Monetary Value";
 			// 
-			// txtParticipantID
+			// txtSponsorID
 			// 
-			this.txtParticipantID.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtParticipantID.Location = new System.Drawing.Point(137, 3);
-			this.txtParticipantID.Name = "txtParticipantID";
-			this.txtParticipantID.ReadOnly = true;
-			this.txtParticipantID.Size = new System.Drawing.Size(370, 22);
-			this.txtParticipantID.TabIndex = 196;
+			this.txtSponsorID.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtSponsorID.Location = new System.Drawing.Point(137, 3);
+			this.txtSponsorID.Name = "txtSponsorID";
+			this.txtSponsorID.ReadOnly = true;
+			this.txtSponsorID.Size = new System.Drawing.Size(370, 22);
+			this.txtSponsorID.TabIndex = 196;
 			// 
-			// txtTeamName
+			// txtMonetaryValue
 			// 
-			this.txtTeamName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtTeamName.Location = new System.Drawing.Point(137, 29);
-			this.txtTeamName.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtTeamName.Name = "txtTeamName";
-			this.txtTeamName.ReadOnly = true;
-			this.txtTeamName.Size = new System.Drawing.Size(370, 22);
-			this.txtTeamName.TabIndex = 215;
-			// 
-			// start
-			// 
-			this.start.Location = new System.Drawing.Point(137, 81);
-			this.start.Name = "start";
-			this.start.Size = new System.Drawing.Size(200, 20);
-			this.start.TabIndex = 0;
-			// 
-			// end
-			// 
-			this.end.Location = new System.Drawing.Point(137, 131);
-			this.end.Name = "end";
-			this.end.Size = new System.Drawing.Size(200, 20);
-			this.end.TabIndex = 1;
+			this.txtMonetaryValue.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtMonetaryValue.Location = new System.Drawing.Point(137, 29);
+			this.txtMonetaryValue.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+			this.txtMonetaryValue.Name = "txtMonetaryValue";
+			this.txtMonetaryValue.ReadOnly = true;
+			this.txtMonetaryValue.Size = new System.Drawing.Size(370, 22);
+			this.txtMonetaryValue.TabIndex = 202;
 			// 
 			// panelButtons
 			// 
@@ -259,18 +227,7 @@
 			this.bttnOK.Visible = false;
 			this.bttnOK.Click += new System.EventHandler(this.BttnOK_Click);
 			// 
-			// label3
-			// 
-			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.label3.Location = new System.Drawing.Point(3, 81);
-			this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(128, 46);
-			this.label3.TabIndex = 219;
-			this.label3.Text = "Start Date";
-			// 
-			// DialogParticipantsOnTeam
+			// DialogSponsorshipEvent
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -279,7 +236,7 @@
 			this.Controls.Add(this.tableLayoutPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "DialogParticipantsOnTeam";
+			this.Name = "DialogSponsorshipEvent";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Entry";
@@ -299,20 +256,16 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
 		private System.Windows.Forms.Label labelTitle;
 		private System.Windows.Forms.Panel panelInfo;
-		internal System.Windows.Forms.Label label8;
+		internal System.Windows.Forms.Label Label5;
 		internal System.Windows.Forms.Label Label1;
-		internal System.Windows.Forms.TextBox txtParticipantID;
+		internal System.Windows.Forms.TextBox txtMonetaryValue;
+		internal System.Windows.Forms.TextBox txtSponsorID;
 		private System.Windows.Forms.Panel panelButtons;
 		internal System.Windows.Forms.Button bttnOK;
 		internal System.Windows.Forms.Button bttnEdit;
 		internal System.Windows.Forms.Button bttnCancel;
 		private System.Windows.Forms.Button bttnDelete;
-		internal System.Windows.Forms.TextBox txtTeamName;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		internal System.Windows.Forms.Label label4;
-		private System.Windows.Forms.DateTimePicker start;
-		private System.Windows.Forms.DateTimePicker end;
-		internal System.Windows.Forms.Label label3;
 	}
 }

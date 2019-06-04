@@ -104,17 +104,23 @@
     <Compile Include="Dialogs\DialogParticipantsOnTeam.Designer.cs">
       <DependentUpon>DialogParticipantsOnTeam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DialogSponsorshipTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogSponsorshipTeam.Designer.cs">
+      <DependentUpon>DialogSponsorshipTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogSponsorshipEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogSponsorshipEvent.Designer.cs">
+      <DependentUpon>DialogSponsorshipEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\DialogStagesParticipations.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\DialogStagesParticipations.Designer.cs">
       <DependentUpon>DialogStagesParticipations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\DialogSponsors.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\DialogSponsors.Designer.cs">
-      <DependentUpon>DialogSponsors.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\DialogDocuments.cs">
       <SubType>Form</SubType>
@@ -152,12 +158,18 @@
     <Compile Include="Dialogs\DialogParticipantsEnrollment.Designer.cs">
       <DependentUpon>DialogParticipantsEnrollment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ParticipantOnTeam.cs" />
+    <Compile Include="Entities\ParticipantEnrollment.cs" />
+    <Compile Include="Entities\ParticipantDropOut.cs" />
+    <Compile Include="Entities\SponsorshipTeam.cs" />
+    <Compile Include="Entities\SponsorshipEvent.cs" />
     <Compile Include="Entities\Sponsor.cs" />
     <Compile Include="Entities\Equipment.cs" />
     <Compile Include="Entities\Document.cs" />
     <Compile Include="Entities\Manager.cs" />
     <Compile Include="Entities\Participant.cs" />
     <Compile Include="Entities\Prize.cs" />
+    <Compile Include="Entities\StageParticipation.cs" />
     <Compile Include="Entities\Stage.cs" />
     <Compile Include="Entities\Team.cs" />
     <Compile Include="Entities\User.cs" />
@@ -197,11 +209,14 @@
     <EmbeddedResource Include="Dialogs\DialogParticipantsOnTeam.resx">
       <DependentUpon>DialogParticipantsOnTeam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogSponsorshipTeam.resx">
+      <DependentUpon>DialogSponsorshipTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogSponsorshipEvent.resx">
+      <DependentUpon>DialogSponsorshipEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DialogStagesParticipations.resx">
       <DependentUpon>DialogStagesParticipations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DialogSponsors.resx">
-      <DependentUpon>DialogSponsors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DialogDocuments.resx">
       <DependentUpon>DialogDocuments.cs</DependentUpon>

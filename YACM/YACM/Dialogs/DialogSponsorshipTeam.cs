@@ -19,7 +19,7 @@ namespace YACM
 	/// Pedro Teixeira		pedro.teix@ua.pt
 	/// 09-May-2019
 	/// </summary>
-	public partial class DialogSponsors : Form
+	public partial class DialogSponsorshipTeam : Form
 	{
 
 		#region Instance Fields
@@ -34,7 +34,7 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogSponsors(Event E, Sponsor S) {
+		public DialogSponsorshipTeam(Event E, Sponsor S) {
 			InitializeComponent();
 
 			this.E = E;
@@ -50,7 +50,7 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogSponsors(Event E) {
+		public DialogSponsorshipTeam(Event E) {
 			InitializeComponent();
 			this.E = E;
 			this.S = new Sponsor();
@@ -94,23 +94,25 @@ namespace YACM
 		
 		#region Auxilar Methods
 		public void ShowEvent() {
-			txtEndDate.Value = E.EndDate;
+			/*txtEndDate.Value = E.EndDate;
 			txtID.Text = E.Number.ToString();
-			txtBudget.Text = "-1"; //TODO
+			txtMonetaryValue.Text = "-1"; //TODO
 			txtVisibility.Checked = E.Visibility;
 			txtBeginDate.Value = E.BeginningDate;
-			txtName.Text = E.Name;
-			txtManager.Text = E.ManagerID.ToString();
+			txtSponsorID.Text = E.Name;
+			txtTeamName.Text = E.ManagerID.ToString();
+			*/
 		}
 
 		public void SaveEvent() {
 			try {
-				E.Number = Convert.ToInt32(txtID.Value);
+				/*E.Number = Convert.ToInt32(txtID.Value);
 				E.EndDate = txtEndDate.Value;
 				E.Visibility = txtVisibility.Checked;
 				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtName.Text;
-				E.ManagerID = Convert.ToInt32(txtManager.Text);
+				E.Name = txtSponsorID.Text;
+				E.ManagerID = Convert.ToInt32(txtTeamName.Text);
+				*/
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,24 +122,15 @@ namespace YACM
 
 
 		public void LockControls() {
-			txtEndDate.Enabled = false;
-			txtID.Enabled = false;
-			txtBudget.ReadOnly = true;
-			txtVisibility.Enabled = true;
-			txtBeginDate.Enabled = false;
-			txtName.ReadOnly = true;
-			txtManager.ReadOnly = true;
+			txtSponsorID.Enabled = false;
+			txtTeamName.Enabled = false;
+			txtMonetaryValue.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtEndDate.Enabled = true;
-			txtID.Enabled = false;
-			txtID.Minimum = 0;
-			txtBudget.ReadOnly = false;
-			txtVisibility.Enabled = false;
-			txtBeginDate.Enabled = true;
-			txtName.ReadOnly = false;
-			txtManager.ReadOnly = false;
+			txtSponsorID.Enabled = false;
+			txtTeamName.Enabled = false;
+			txtMonetaryValue.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {
@@ -162,15 +155,11 @@ namespace YACM
 			}
 		}
 
-		public void ClearFields() {
-			
-			txtEndDate.Text = "";
-			txtID.Value = 0;
-			txtID.Minimum = 0;
-			txtBudget.Text = "";
-			txtVisibility.Text = "";
-			txtBeginDate.Text = "";
-			txtName.Text = "";
+		public void ClearFields() 
+		{
+			txtSponsorID.Text = "";
+			txtTeamName.Text = "";
+			txtMonetaryValue.Text = "";	
 		}
 
 		#endregion
