@@ -17,10 +17,10 @@ namespace YACM
 		private DateTime _endDate;
 		private bool _visibility;
 		private int _managerID;
-        private List<int> enrollment = new List<int>();
-        private List<int> dropout = new List<int>();
+		private List<int> enrollment = new List<int>();
+		private List<int> dropout = new List<int>();
 
-        public int Number {
+		public int Number {
 			get { return _number; }
 			set { _number = value; }
 		}
@@ -57,12 +57,12 @@ namespace YACM
 			set { _managerID = value; }
 		}
 
-        public List<int> Enrollment { get; set; }
+		public List<int> Enrollment { get; set; }
 
-        public List<int> Dropout { get; set; }
+		public List<int> Dropout { get; set; }
 
 
-        public override String ToString() {
+		public override String ToString() {
 			return "Event " + _number + "   " + _name;
 		}
 
@@ -78,9 +78,9 @@ namespace YACM
 			ManagerID = managerID;
 		}
 
-        public Event(int number, String name, DateTime beginningDate, DateTime endDate, bool visilibty, int managerID, List<int> enrollment) : this(number, name, beginningDate, endDate, visilibty, managerID)
-        {
-            Enrollment = enrollment;
-        }
+		public Event(int number, String name, DateTime beginningDate, DateTime endDate, bool visilibty, int managerID, List<int> enrollment) : this(number, name, beginningDate, endDate, visilibty, managerID) {
+			Enrollment = enrollment;
+		}
+	}
 }
 

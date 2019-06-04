@@ -16,7 +16,7 @@ namespace YACM.DBLayer
 			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
 
 			SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT YACM.Team (name) VALUES (@name);
+            cmd.CommandText = "INSERT YACM.Team (name) VALUES (@name)";
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@name", T.Name);
 			cmd.Connection = Program.db.Open();
