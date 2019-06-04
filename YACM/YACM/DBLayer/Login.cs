@@ -38,7 +38,7 @@ namespace YACM.DBLayer
 
 		}
 
-		internal static Tuple<bool, String, String> Read(String email, String password) {
+		internal static Tuple<int, bool, String, String> Read(String email, String password) {
 			Debug.Assert(!email.Equals("") && !password.Equals(""), "Invalid email or password");
 			
 			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.[User] WHERE email = @email AND password = @password", Program.db.Open());
@@ -50,16 +50,18 @@ namespace YACM.DBLayer
 			SqlDataReader reader = cmd.ExecuteReader();
 
 			Boolean canLogin = false;
+			int id = -1;
 			String userName = "error";
 			String userType = "none";
 			while (reader.Read()) {
+				id = Convert.ToInt32(reader["id"]);
 				userName = Convert.ToString(reader["name"]);
 				canLogin = true;
 			}
 
 			Program.db.Close();
 
-			return new Tuple<bool, String, String>(canLogin, userName, userType);
+			return new Tuple<int, bool, String, String>(id, canLogin, userName, userType);
 		}
 
 	}

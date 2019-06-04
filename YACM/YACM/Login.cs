@@ -70,23 +70,24 @@ namespace YACM
 			login();
 		}
 
-		private void OpenMainForm(String username, String privileges) {
+		private void OpenMainForm(int id, String username, String privileges) {
 			// Run the Main Form
-			Main main = new Main(username);
+			Main main = new Main(id, username);
 			this.Hide();
 			main.ShowDialog();
 			this.Close();
+			
 		}
 
 		private void login() {
 			// Login
-			Tuple<bool, String, String> loginInfo = DBLayer.Login.Read(email.Text, password.Text);
-			if (!loginInfo.Item1) {
+			Tuple<int, bool, String, String> loginInfo = DBLayer.Login.Read(email.Text, password.Text);
+			if (!loginInfo.Item2) {
 				MessageBox.Show("Login Error. Please verify your credentials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			OpenMainForm(loginInfo.Item2, loginInfo.Item3);
+			OpenMainForm(loginInfo.Item1, loginInfo.Item3, loginInfo.Item4);
 		}
 		
 	}

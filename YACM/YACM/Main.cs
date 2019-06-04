@@ -23,13 +23,16 @@ namespace YACM
 		#region Instance Fields
 		private Event E;
 		private int eventIndex;
+		private int userID;
 		#endregion
 
 		#region CTOR and Load
-		public Main(String user) {
+		public Main(int id, String user) {
 			InitializeComponent();
 
 			eventIndex = -1;
+			userID = id;
+
 			labelTitle.Text = "Welcome back, " + user;
 
 			eventManagement.Hide();
@@ -37,10 +40,6 @@ namespace YACM
 
 		private void Main_Load(object sender, EventArgs e) {
 			ReadEventsList();
-		}
-
-		private void ReadEventsList() {
-			Utils.ReadToListView("SELECT * FROM YACM.Event", eventsList);
 		}
 
 		#endregion
@@ -65,58 +64,58 @@ namespace YACM
 			// Read Event Details
 			eventManagement.Show();
 			EventManagement_SelectedIndexChanged(sender, e);		// Update
-			LoadStatistics();
+			ReadStatistics();
 		}
 
 		private void EventManagement_SelectedIndexChanged(object sender, EventArgs e) {
 			switch (eventManagement.SelectedIndex) {
 				case 0:                 // About
 					Console.WriteLine("Selected Statistics");
-					LoadStatistics();
+					ReadStatistics();
 					break;
 				case 1:                 // Equipment
 					Console.WriteLine("Selected Equipment");
-					LoadEquipment();
+					ReadEquipments();
 					break;
 				case 2:                 // Participants
 					Console.WriteLine("Selected Drop Out Participants");
-					LoadParticipantsDropOut();
+					ReadParticipantsDropOut();
 					break;
 				case 3:
 					Console.WriteLine("Selected Enrolled Participants");
-					LoadParticipantsEnrollment();
+					ReadParticipantsEnrollment();
 					break;
 				case 4:
 					Console.WriteLine("Selected On Team Participants");
-					LoadParticipantsOnTeam();
+					ReadParticipantsOnTeam();
 					break;
 				case 5:                 // Prizes
 					Console.WriteLine("Selected Prizes");
-					LoadPrizes();
+					ReadPrizes();
 					break;
 				case 6:                 // Sponsors
 					Console.WriteLine("Selected Sponsorships Events");
-					LoadSponsorshipsEvents();
+					ReadSponsorshipsEvents();
 					break;
 				case 7:
 					Console.WriteLine("Selected Sponsorships Teams");
-					LoadSponsorshipsTeams();
+					ReadSponsorshipsTeams();
 					break;
 				case 8:                 // Stages
 					Console.WriteLine("Selected Stages");
-					LoadStages();
+					ReadStages();
 					break;
 				case 9:                 // Stage Participations
 					Console.WriteLine("Selected Stage Participations");
-					LoadStagesParticipations();
+					ReadStagesParticipations();
 					break;
 				case 10:                 // Teams
 					Console.WriteLine("Selected Teams");
-					LoadTeams();
+					ReadTeams();
 					break;
 				case 11:                 // Documents
 					Console.WriteLine("Selected Documents");
-					LoadDocuments();
+					ReadDocuments();
 					break;
 
 			}
@@ -160,12 +159,16 @@ namespace YACM
 		// All these methods have access to Event E
 		// TODO FIXME SQL INJECTION ASAP (create a SP?)
 
-		private void LoadStatistics() {
+		private void ReadEventsList() {
+			Utils.ReadToListView("SELECT number, name, beginningDate, endDate, visibility FROM YACM.Event WHERE managerID=" + userID, eventsList);
+		}
+
+		private void ReadStatistics() {
 			//MessageBox.Show("Statistics");
 			// TODO txtNAME.text = value from query
 		}
 
-		private void LoadEquipment() {
+		private void ReadEquipments() {
 			equipmentList.Hide();
 
 			// Given an event number, equipments id, category and participant ID and name for equipment for participants enrolled in the event
@@ -174,7 +177,7 @@ namespace YACM
 			equipmentList.Show();
 		}
 
-		private void LoadParticipantsDropOut() {
+		private void ReadParticipantsDropOut() {
 			participantsDropOutList.Hide();
 
 			// Given an event number, return id, email, name
@@ -183,7 +186,7 @@ namespace YACM
 			participantsDropOutList.Show();
 		}
 
-		private void LoadParticipantsEnrollment() {
+		private void ReadParticipantsEnrollment() {
 			participantsEnrollmentList.Hide();
 
 			// Given an event number, return id, email, name
@@ -192,7 +195,7 @@ namespace YACM
 			participantsEnrollmentList.Show();
 		}
 
-		private void LoadParticipantsOnTeam() {
+		private void ReadParticipantsOnTeam() {
 			participantsOnTeamList.Hide();
 
 			// Given an event number, return id, email, name, team info, start date and end date
@@ -201,79 +204,66 @@ namespace YACM
 			participantsOnTeamList.Show();
 		}
 
-		private void LoadPrizes() {
+		private void ReadPrizes() {
 			prizesList.Hide();
 
 			// Given an event number, return sponsor ID, sponsor Name, receiver ID, receiver name, value
-			Utils.ReadToListView("SELECT id, sponsorID, receiverID, value FROM YACM.[Prize] WHERE eventNumber=" + E.Number, prizesList);
+			Utils.ReadToListView("SELECT T.id, sponsorID, sponsorEmail, sponsorName, ReceiverID as receiverID, email as receiverEmail, name as receiverName, value FROM (SELECT P.id, P.sponsorID, P.ReceiverID, email AS sponsorEmail, name AS sponsorName, value FROM YACM.[Prize] AS P JOIN YACM.[User] AS U ON sponsorID=U.id WHERE eventNumber=" + E.Number +") AS T JOIN YACM.[User] AS U ON T.receiverID=U.id", prizesList);
 
 			prizesList.Show();
 		}
 
-		private void LoadSponsorshipsEvents() {
+		private void ReadSponsorshipsEvents() {
 			sponsorshipEventsList.Hide();
 
 			// Given an event number, return sponsor IDs, sponsor Name, receiver ID, receiver name, value
-			Utils.ReadToListView("SELECT P.id, P.sponsorID, email AS sponsorEmail, name AS sponsorName, value FROM YACM.[Prize] AS P JOIN YACM.[User] AS U ON sponsorID=U.id WHERE eventNumber=" + E.Number, sponsorshipEventsList);
-
+			Utils.ReadToListView("SELECT sponsorID, email, name, monetaryValue FROM YACM.[SponsorshipEvent] JOIN YACM.[User] ON sponsorID=id WHERE eventNumber=" + E.Number, sponsorshipEventsList);
+			
 			sponsorshipEventsList.Show();
 		}
 
-		private void LoadSponsorshipsTeams() {
-			//MessageBox.Show("Sponsors");
+		private void ReadSponsorshipsTeams() {
 			sponsorshipTeamsList.Hide();
 
-			// Given an event number, return sponsor IDs and teams names
-			Utils.ReadToListView("SELECT * FROM YACM.[SponsorshipEvent] WHERE eventNumber=" + E.Number, sponsorshipTeamsList);
+			// Return sponsor info and teams names
+			Utils.ReadToListView("SELECT sponsorID, email, name, teamName, monetaryValue FROM YACM.SponsorshipTeam JOIN YACM.[User] ON sponsorID=id ", sponsorshipTeamsList);
 
 			sponsorshipTeamsList.Show();
 		}
 
-		private void LoadStages() {
-			//MessageBox.Show("Stages");
+		private void ReadStages() {
 			stagesList.Hide();
 
-			// TODO Stored Procedure to, given an event number, return date, start location, end location, distance
-			// TODO FIXME SQL INJECTION ASAP (create a SP?)
-
-			Utils.ReadToListView("SELECT * FROM YACM.[Stage] WHERE eventNumber=" + E.Number, stagesList);
+			// Given an event number, return date, start location, end location, distance
+			Utils.ReadToListView("SELECT date, startLocation, endLocation, distance FROM YACM.[Stage] WHERE eventNumber=" + E.Number, stagesList);
 
 			stagesList.Show();
 
 		}
 
-		private void LoadStagesParticipations() {
-			//MessageBox.Show("Stage Participations");
+		private void ReadStagesParticipations() {
 			stagesParticipationsList.Hide();
 
-			// TODO Stored Procedure to, given an event number, return date, start location, end location, distance
-			// TODO FIXME SQL INJECTION ASAP (create a SP?)
-
-			Utils.ReadToListView("SELECT * FROM YACM.[StageParticipation] WHERE eventNumber=" + E.Number, stagesParticipationsList);
+			// Given an event number, return participant and stage info and result
+			Utils.ReadToListView("SELECT participantID, email, name, stageDate, stageStartLocation, stageEndLocation, result FROM YACM.[StageParticipation] JOIN YACM.[User] on participantID=id WHERE eventNumber=" + E.Number, stagesParticipationsList);
 
 			stagesParticipationsList.Show();
 
 		}
 
-		private void LoadTeams() {
-			//MessageBox.Show("Teams");
+		private void ReadTeams() {
 			teamsList.Hide();
 
-			// TODO Stored Procedure to, given an event number, return team name, number of participants on team, number of sponsors and total monetary value
-			// TODO FIXME SQL INJECTION ASAP (create a SP?)
-
-			Utils.ReadToListView("SELECT * FROM YACM.[Team]", teamsList);		//OK
+			// TODO Given an event number, return team name, number of participants on team, number of sponsors and total monetary value
+			Utils.ReadToListView("SELECT * FROM YACM.[Team]", teamsList);		
 
 			teamsList.Show();
 		}
 
-		private void LoadDocuments() {
-			//MessageBox.Show("Documents");
+		private void ReadDocuments() {
 			documentsList.Hide();
 
-			// TODO Stored Procedure to, given an event number, return document id, type and content/path
-			// TODO fixme sql injection asap (create a SP)
-
+			// TODO Given an event number, return document id, type and content/path
 			Utils.ReadToListView("SELECT * FROM YACM.[Document] WHERE eventNumber=" + E.Number, documentsList);
 
 			documentsList.Show();
@@ -287,7 +277,7 @@ namespace YACM
 		private void AddEquipment_Click(object sender, EventArgs e) {
 			DialogEquipment dialog = new DialogEquipment(E);
 			dialog.Show();
-			LoadEquipment();
+			ReadEquipments();
 		}
 
 		private void EditEquipment_Click(object sender, EventArgs e) {
@@ -295,12 +285,12 @@ namespace YACM
 				Equipment EQ = DBLayer.Equipments.Read(GetSelectedID(equipmentList));
 				DialogEquipment dialog = new DialogEquipment(E, EQ);
 				dialog.Show();
-				LoadEquipment();
+				ReadEquipments();
 			}
 		}
 
 		private void RefreshEquipment_Click(object sender, EventArgs e) {
-			LoadEquipment();
+			ReadEquipments();
 		}
 
 		#endregion
@@ -309,7 +299,7 @@ namespace YACM
 		private void AddParticipants_Click(object sender, EventArgs e) {
 			DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E);
 			dialog.Show();
-			LoadParticipantsDropOut();
+			ReadParticipantsDropOut();
 		}
 
 		private void EditParticipants_Click(object sender, EventArgs e) {
@@ -317,13 +307,13 @@ namespace YACM
 				Participant P = DBLayer.Participants.Read(GetSelectedID(participantsDropOutList));
 				DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E, P);
 				dialog.Show();
-				LoadParticipantsDropOut();
+				ReadParticipantsDropOut();
 			}
 			
 		}
 
 		private void RefreshParticipants_Click(object sender, EventArgs e) {
-			LoadParticipantsDropOut();		
+			ReadParticipantsDropOut();		
 		}
 
 		#endregion
@@ -332,7 +322,7 @@ namespace YACM
 		private void AddPrizes_Click(object sender, EventArgs e) {
 			DialogPrize dialog = new DialogPrize(E);
 			dialog.Show();
-			LoadPrizes();
+			ReadPrizes();
 		}
 
 		private void EditPrizes_Click(object sender, EventArgs e) {
@@ -340,12 +330,12 @@ namespace YACM
 				Prize P = DBLayer.Prizes.Read(GetSelectedID(prizesList));
 				DialogPrize dialog = new DialogPrize(E, P);
 				dialog.Show();
-				LoadPrizes();
+				ReadPrizes();
 			}
 		}
 
 		private void RefreshPrizes_Click(object sender, EventArgs e) {
-			LoadPrizes();
+			ReadPrizes();
 		}
 
 		#endregion
@@ -354,7 +344,7 @@ namespace YACM
 		private void AddSponsors_Click(object sender, EventArgs e) {
 			DialogSponsors dialog = new DialogSponsors(E);
 			dialog.Show();
-			LoadSponsorshipsEvents();
+			ReadSponsorshipsEvents();
 		}
 
 		private void EditSponsors_Click(object sender, EventArgs e) {
@@ -362,12 +352,12 @@ namespace YACM
 				Sponsor S = DBLayer.Sponsors.Read(GetSelectedID(sponsorshipEventsList));
 				DialogSponsors dialog = new DialogSponsors(E, S);
 				dialog.Show();
-				LoadSponsorshipsEvents();
+				ReadSponsorshipsEvents();
 			}
 		}
 
 		private void RefreshSponsors_Click(object sender, EventArgs e) {
-			LoadSponsorshipsEvents();
+			ReadSponsorshipsEvents();
 		}
 		#endregion
 
@@ -375,7 +365,7 @@ namespace YACM
 		private void AddStages_Click(object sender, EventArgs e) {
 			DialogStages dialog = new DialogStages(E);
 			dialog.Show();
-			LoadStages();
+			ReadStages();
 		}
 
 		private void EditStages_Click(object sender, EventArgs e) {
@@ -387,13 +377,13 @@ namespace YACM
 				Stage S = DBLayer.Stages.Read(date, startLocation, endLocation);
 				DialogStages dialog = new DialogStages(E, S);
 				dialog.Show();
-				LoadStages();
+				ReadStages();
 			}
 			
 		}
 
 		private void RefreshStages_Click(object sender, EventArgs e) {
-			LoadStages();
+			ReadStages();
 		}
 
 		#endregion
@@ -402,19 +392,19 @@ namespace YACM
 		private void AddStagesParticipations_Click(object sender, EventArgs e) {
 			DialogStagesParticipations dialog = new DialogStagesParticipations();
 			dialog.Show();
-			LoadStagesParticipations();
+			ReadStagesParticipations();
 		}
 
 		private void EditStagesParticipations_Click(object sender, EventArgs e) {
 			DialogStagesParticipations dialog = new DialogStagesParticipations(E);
 			dialog.Show();
-			LoadStagesParticipations();
+			ReadStagesParticipations();
 
 
 		}
 
 		private void RefreshStagesParticipations_Click(object sender, EventArgs e) {
-			LoadStagesParticipations();
+			ReadStagesParticipations();
 		}
 		#endregion
 
@@ -422,7 +412,7 @@ namespace YACM
 		private void AddTeams_Click(object sender, EventArgs e) {
 			DialogTeams dialog = new DialogTeams();
 			dialog.Show();
-			LoadTeams();
+			ReadTeams();
 		}
 
 		private void EditTeams_Click(object sender, EventArgs e) {
@@ -432,12 +422,12 @@ namespace YACM
 				Team T = DBLayer.Teams.Read(name);
 				DialogTeams dialog = new DialogTeams(E, T);
 				dialog.Show();
-				LoadTeams();
+				ReadTeams();
 			}
 		}
 
 		private void RefreshTeams_Click(object sender, EventArgs e) {
-			LoadTeams();
+			ReadTeams();
 		}
 		#endregion
 
@@ -445,7 +435,7 @@ namespace YACM
 		private void AddDocuments_Click(object sender, EventArgs e) {
 			DialogDocuments dialog = new DialogDocuments(E);
 			dialog.Show();
-			LoadDocuments();
+			ReadDocuments();
 		}
 
 		private void EditDocuments_Click(object sender, EventArgs e) {
@@ -455,12 +445,12 @@ namespace YACM
 				Document D = DBLayer.Documents.Read(GetSelectedID(documentsList));
 				DialogDocuments dialog = new DialogDocuments(E, D);
 				dialog.Show();
-				LoadDocuments();
+				ReadDocuments();
 			}
 		}
 
 		private void RefreshDocuments_Click(object sender, EventArgs e) {
-			LoadDocuments();
+			ReadDocuments();
 		}
 		#endregion
 
