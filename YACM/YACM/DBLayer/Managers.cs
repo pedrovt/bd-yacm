@@ -87,7 +87,6 @@ namespace YACM.DBLayer
             {
                 Program.db.Close();
             }
-            Program.db.Close();
             return M;
         }
 
@@ -148,5 +147,119 @@ namespace YACM.DBLayer
         }
         #endregion
 
+        #region Manager/Event Interaction
+        internal static List<Event> GetManagerEvents(String managerEmail)
+        {
+            List<Event> retVal = new List<Event>();
+            
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM dbo.GetManagerEvents(@email);";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@email", managerEmail);
+            cmd.Connection = Program.db.Open();
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Event E = new Event();
+                    E.Number = Convert.ToInt32(reader["number"].ToString());
+                    E.Name = reader["name"].ToString();
+                    E.BeginningDate = Convert.ToDateTime(reader["beginningDate"].ToString());
+                    E.EndDate = Convert.ToDateTime(reader["endDate"].ToString());
+                    E.Visibility = Convert.ToBoolean(reader["visibility"].ToString());
+                    retVal.Add(E);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
+
+            return retVal;
+
+        }
+
+
+        internal static List<Event> GetOtherEvents(String managerEmail)
+        {
+            List<Event> retVal = new List<Event>();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM dbo.GetOtherEvents(@email);";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@email", managerEmail);
+            cmd.Connection = Program.db.Open();
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Event E = new Event();
+                    E.Number = Convert.ToInt32(reader["number"].ToString());
+                    E.Name = reader["name"].ToString();
+                    E.BeginningDate = Convert.ToDateTime(reader["beginningDate"].ToString());
+                    E.EndDate = Convert.ToDateTime(reader["endDate"].ToString());
+                    E.Visibility = Convert.ToBoolean(reader["visibility"].ToString());
+                    retVal.Add(E);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
+
+            return retVal;
+
+        }
+
+
+        internal static void GetOtherVisibleEvents(String managerEmail)
+        {
+            List<Event> retVal = new List<Event>();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM dbo.GetOtherVisibleEvents(@email);";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@email", managerEmail);
+            cmd.Connection = Program.db.Open();
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Event E = new Event();
+                    E.Number = Convert.ToInt32(reader["number"].ToString());
+                    E.Name = reader["name"].ToString();
+                    E.BeginningDate = Convert.ToDateTime(reader["beginningDate"].ToString());
+                    E.EndDate = Convert.ToDateTime(reader["endDate"].ToString());
+                    E.Visibility = Convert.ToBoolean(reader["visibility"].ToString());
+                    retVal.Add(E);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
+
+            return retVal;
+
+        }
+        #endregion
     }
 }

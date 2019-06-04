@@ -82,10 +82,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBLayer\Equipments.cs" />
-    <Compile Include="DBLayer\EventHandler.cs" />
     <Compile Include="DBLayer\Documents.cs" />
     <Compile Include="DBLayer\Events.cs" />
     <Compile Include="DBLayer\Login.cs" />
+    <Compile Include="DBLayer\Managers.cs" />
+    <Compile Include="DBLayer\Participants.cs" />
     <Compile Include="DBLayer\Prizes.cs" />
     <Compile Include="DBLayer\Sponsors.cs" />
     <Compile Include="DBLayer\Stages.cs" />

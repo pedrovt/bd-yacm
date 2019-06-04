@@ -120,6 +120,78 @@ namespace YACM.DBLayer
 		#endregion
 
 		#region Statistics
-		#endregion
-	}
+        internal static List<Prize> GetEventPrizes(int eventID)
+        {
+            List<Prize> retVal = new List<Prize>();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM dbo.GetEventPrizes(@id);";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", eventID);
+            cmd.Connection = Program.db.Open();
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Prize P = new Prize();
+                    P.ID = Convert.ToInt32(reader["id"].ToString());
+                    P.SponsorID = Convert.ToInt32(reader["sponsorID"].ToString());
+                    P.EventNumber = Convert.ToInt32(reader["eventNumber"].ToString());
+                    P.ReceiverID = Convert.ToInt32(reader["receiverID"].ToString());
+                    P.Value = Convert.ToDouble(reader["value"].ToString());
+                    retVal.Add(P);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
+
+            return retVal;
+
+        }
+
+        internal static List<Document> GetEventDocuments(int eventID)
+        {
+            List<Document> retVal = new List<Document>();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM dbo.GetEventDocuments(@id);";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", eventID);
+            cmd.Connection = Program.db.Open();
+
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Document D = new Document();
+                    D.ID = Convert.ToInt32(reader["id"].ToString());
+                    D.EventID = Convert.ToInt32(reader["sponsorID"].ToString());
+                    D.Contents = reader["eventNumber"].ToString();
+                    D.Path = reader["receiverID"].ToString();
+                    retVal.Add(D);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
+
+            return retVal;
+
+        }
+        #endregion
+    }
 }
