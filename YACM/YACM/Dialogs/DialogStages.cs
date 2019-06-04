@@ -24,6 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
+		private readonly Stage S;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -33,10 +34,11 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogStages(Event E) {
+		public DialogStages(Event E, Stage S) {
 			InitializeComponent();
 
 			this.E = E;
+			this.S = S;
 			this.toUpdate = false;
 			
 			// Show Event Details
@@ -48,17 +50,16 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogStages() {
+		public DialogStages(Event E) {
 			InitializeComponent();
-			// Add an Event
+			this.E = E;
+			this.S = new Stage();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
 		}
 
-		public DialogStages(Event E, Stage s) : this(E) {
-		}
-
+	
 		#endregion
 
 		#region Event Handlers

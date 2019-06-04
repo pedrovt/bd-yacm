@@ -50,9 +50,10 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogSponsors() {
+		public DialogSponsors(Event E) {
 			InitializeComponent();
-			// Add an Event
+			this.E = E;
+			this.S = new Sponsor();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);

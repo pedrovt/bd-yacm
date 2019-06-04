@@ -52,7 +52,7 @@ namespace YACM
 		/// </summary>
 		public DialogTeams() {
 			InitializeComponent();
-			// Add an Event
+			this.T = new Team();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);

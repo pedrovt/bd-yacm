@@ -50,9 +50,10 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogPrize() {
+		public DialogPrize(Event E) {
 			InitializeComponent();
-			// Add an Event
+			this.E = E;
+			this.P = new Prize();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);

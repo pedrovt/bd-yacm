@@ -71,9 +71,11 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogDocuments() {
+		public DialogDocuments(Event E) {
 			InitializeComponent();
-			// Add an Event
+
+			this.E = E;
+			this.D = new Document();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);

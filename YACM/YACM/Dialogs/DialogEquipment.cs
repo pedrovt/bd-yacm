@@ -50,9 +50,10 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogEquipment() {
+		public DialogEquipment(Event E) {
 			InitializeComponent();
-			// Add an Event
+			this.E = E;
+			this.EQ = new Equipment();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);

@@ -258,7 +258,7 @@ namespace YACM
 
 		#region Events Management :: Equipments 
 		private void AddEquipment_Click(object sender, EventArgs e) {
-			DialogEquipment dialog = new DialogEquipment();
+			DialogEquipment dialog = new DialogEquipment(E);
 			dialog.Show();
 			LoadEquipment();
 		}
@@ -299,7 +299,7 @@ namespace YACM
 
 		#region Events Management :: Prizes
 		private void AddPrizes_Click(object sender, EventArgs e) {
-			DialogPrize dialog = new DialogPrize();
+			DialogPrize dialog = new DialogPrize(E);
 			dialog.Show();
 			LoadPrizes();
 		}
@@ -321,7 +321,7 @@ namespace YACM
 
 		#region Events Management :: Sponsors
 		private void AddSponsors_Click(object sender, EventArgs e) {
-			DialogSponsors dialog = new DialogSponsors();
+			DialogSponsors dialog = new DialogSponsors(E);
 			dialog.Show();
 			LoadSponsors();
 		}
@@ -342,7 +342,7 @@ namespace YACM
 
 		#region Events Management :: Stages
 		private void AddStages_Click(object sender, EventArgs e) {
-			DialogStages dialog = new DialogStages();
+			DialogStages dialog = new DialogStages(E);
 			dialog.Show();
 			LoadStages();
 		}
@@ -412,7 +412,7 @@ namespace YACM
 
 		#region Events Management :: Documents
 		private void AddDocuments_Click(object sender, EventArgs e) {
-			DialogDocuments dialog = new DialogDocuments();
+			DialogDocuments dialog = new DialogDocuments(E);
 			dialog.Show();
 			LoadDocuments();
 		}

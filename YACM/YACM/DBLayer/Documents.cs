@@ -17,9 +17,9 @@ namespace YACM.DBLayer
 
             // Insertion in Document
 			SqlCommand cmd = new SqlCommand();
-			cmd.CommandText = "INSERT YACM.Document (id, eventNumber) " + "VALUES (@id, @eventNumber) ";
+			cmd.CommandText = "INSERT YACM.Document (eventNumber) " + "VALUES (@eventNumber) ";
             cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@id", D.ID);
+			//cmd.Parameters.AddWithValue("@id", D.ID);
 			cmd.Parameters.AddWithValue("@eventNumber", D.EventID);
 			cmd.Connection = Program.db.Open();
 			try {
