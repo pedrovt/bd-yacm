@@ -12,7 +12,11 @@ namespace YACM
     public class Prize
     {
         #region Attributes
-        private String _description;
+        private int _id;
+        private int _sponsorID;
+        private int _eventNumber;
+        private int _receiverID;
+        private double _value;
         #endregion
 
         #region Getters/Setters
@@ -20,19 +24,6 @@ namespace YACM
         public int SponsorID { get; set; }
         public int EventNumber { get; set; }
         public int ReceiverID { get; set; }
-        public String Description
-        {
-            get { return _description; }
-            set
-            {
-                if (value == null | String.IsNullOrEmpty(value))
-                {
-                    throw new Exception("User Name field can’t be empty");
-                    //return;
-                }
-                _description = value;
-            }
-        }
         public double Value { get; set; }
         #endregion
 
@@ -55,10 +46,6 @@ namespace YACM
             ReceiverID  = receiverID;
             Value       = value;
             Description = "TBA";
-        }
-        public Prize(int id, int sponsorID, int eventID, int receiverID, double value, string description) : this(id, sponsorID, eventID, receiverID, value)
-        {
-            Description = description;
         }
         #endregion
 

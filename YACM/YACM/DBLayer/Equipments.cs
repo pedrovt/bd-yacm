@@ -14,33 +14,24 @@ namespace YACM.DBLayer
 		#region CRUD methods
 		internal static void Create(Equipment EQ) {
 			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
-			/* 
+
 			SqlCommand cmd = new SqlCommand();
-			
-
-			cmd.CommandText = "INSERT YACM.Equipment (number, name, beginningDate, endDate, visibility, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
+			cmd.CommandText = "INSERT YACM.Equipment (id, participantID, category, description) VALUES (@id, @participantID, @category, @description)";
 			cmd.Parameters.Clear();
-
-			cmd.Parameters.AddWithValue("@number", E.Number);
-			cmd.Parameters.AddWithValue("@name", E.Name);
-			cmd.Parameters.AddWithValue("@beginningDate", E.BeginningDate);
-			cmd.Parameters.AddWithValue("@endDate", E.EndDate);
-			cmd.Parameters.AddWithValue("@visibility", E.Visibility);
-			cmd.Parameters.AddWithValue("@managerID", E.ManagerID);
-
+			cmd.Parameters.AddWithValue("@id", EQ.ID);
+			cmd.Parameters.AddWithValue("@participantID", EQ.ParticipantID);
+			cmd.Parameters.AddWithValue("@category", EQ.Category);
+			cmd.Parameters.AddWithValue("@description", EQ.Description);
 			cmd.Connection = Program.db.Open();
-
 			try {
 				cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				MessageBox.Show("Failed to update in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to insert into database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				Program.db.Close();
 			}
-
-			*/
 
 		}
 
@@ -50,51 +41,48 @@ namespace YACM.DBLayer
 			Equipment EQ = new Equipment();
 			
 			// Stored Procedure to based on the id, retrieve either the file or the otherfile
-			/* 
 			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Equipment WHERE id = @id", Program.db.Open());
-
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@id", id);
-
-			SqlDataReader reader = cmd.ExecuteReader();
-
-			while (reader.Read()) {
-				D.Number = Convert.ToInt32(reader["number"].ToString());
-				E.Name = reader["name"].ToString();
-				E.BeginningDate = Convert.ToDateTime(reader["beginningDate"].ToString());
-				E.EndDate = Convert.ToDateTime(reader["endDate"].ToString());
-				E.Visibility = Convert.ToBoolean(reader["visibility"].ToString());
-				E.ManagerID = Convert.ToInt32(reader["managerID"].ToString());
-			}
-
-			Program.db.Close();
-			*/ 
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    EQ.ID = Convert.ToInt32(reader["id"].ToString());
+                    EQ.ParticipantID = Convert.ToInt32(reader["participantID"].ToString());
+                    EQ.Category = reader["category"].ToString();
+                    EQ.Description = reader["description"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
 			return EQ;
 		}
 
 		internal static void Update(Equipment EQ) {
 			int rows = 0;
-
-			/*
+            
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "UPDATE YACM.Equipment " + "SET number = @number, " + "    name = @name, " + "    beginningDate = @beginningDate, " + "    endDate = @endDate, " + "    visibility = @visibility, " + "    managerID = @managerID " + "WHERE number = @number";
-			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@number", E.Number);
-			cmd.Parameters.AddWithValue("@name", E.Name);
-			cmd.Parameters.AddWithValue("@beginningDate", E.BeginningDate);
-			cmd.Parameters.AddWithValue("@endDate", E.EndDate);
-			cmd.Parameters.AddWithValue("@visibility", E.Visibility);
-			cmd.Parameters.AddWithValue("@managerID", E.ManagerID);
-
-			cmd.Connection = Program.db.Open();
-
-
+			cmd.CommandText = "UPDATE YACM.Equipment SET participantID = @participantID, category = @category, description = @description WHERE id = @id";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", EQ.ID);
+            cmd.Parameters.AddWithValue("@participantID", EQ.ParticipantID);
+            cmd.Parameters.AddWithValue("@category", EQ.Category);
+            cmd.Parameters.AddWithValue("@description", EQ.Description);
+            cmd.Connection = Program.db.Open();
 			try {
 				rows = cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				MessageBox.Show("Failed to update event in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to update equipment in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				if (rows == 1)
@@ -104,22 +92,20 @@ namespace YACM.DBLayer
 
 				Program.db.Close();
 			}
-			*/
 		}
 
-		internal static void Delete(Equipment D) {
+		internal static void Delete(Equipment EQ) {
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "DELETE YACM.Equipment WHERE number=@number ";
+			cmd.CommandText = "DELETE YACM.Equipment WHERE id=@id ";
 			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@number", D.Id);
+			cmd.Parameters.AddWithValue("@id", EQ.ID);
 			cmd.Connection = Program.db.Open();
-
 			try {
 				cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				MessageBox.Show("Failed to delete event in database. \n Error Message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to delete equipment in database. \n Error Message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				Program.db.Close();

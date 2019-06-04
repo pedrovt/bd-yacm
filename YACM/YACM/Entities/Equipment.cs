@@ -11,7 +11,7 @@ namespace YACM
 	[Serializable()]
 	public class Equipment
 	{
-		public int Id { get; set; }
+		public int ID { get; set; }
 		public int EventID { get; set; }
 		public int ParticipantID { get; set; }
 		public String Category { get; set; }

@@ -14,35 +14,53 @@ namespace YACM.DBLayer
 		#region CRUD methods
 		internal static void Create(Document D) {
 			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
-			/* 
+
+            // Insertion in Document
 			SqlCommand cmd = new SqlCommand();
-			
-
-			cmd.CommandText = "INSERT YACM.Document (number, name, beginningDate, endDate, visibility, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
-			cmd.Parameters.Clear();
-
-			cmd.Parameters.AddWithValue("@number", E.Number);
-			cmd.Parameters.AddWithValue("@name", E.Name);
-			cmd.Parameters.AddWithValue("@beginningDate", E.BeginningDate);
-			cmd.Parameters.AddWithValue("@endDate", E.EndDate);
-			cmd.Parameters.AddWithValue("@visibility", E.Visibility);
-			cmd.Parameters.AddWithValue("@managerID", E.ManagerID);
-
+			cmd.CommandText = "INSERT YACM.Document (id, eventNumber) " + "VALUES (@id, @eventNumber) ";
+            cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@id", D.ID);
+			cmd.Parameters.AddWithValue("@eventNumber", D.EventID);
 			cmd.Connection = Program.db.Open();
-
 			try {
 				cmd.ExecuteNonQuery();
-			}
-			catch (Exception ex) {
-				MessageBox.Show("Failed to update in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			finally {
+			} catch (Exception ex) {
+				MessageBox.Show("Failed to insert into database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			} finally {
 				Program.db.Close();
 			}
 
-			*/
+            // Insertion in TextFile or OtherFile
+            cmd = new SqlCommand();
+            if (D.Type == DocumentType.Text)
+            {
+                cmd.CommandText = "INSERT YACM.TextFile (id, content) " + "VALUES (@id, @content) ";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", D.ID);
+                cmd.Parameters.AddWithValue("@content", D.Contents);
+            }
+            else
+            {
+                cmd.CommandText = "INSERT YACM.OtherFile (id, content) " + "VALUES (@id, @path) ";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", D.ID);
+                cmd.Parameters.AddWithValue("@path", D.Path);
+            }
+            cmd.Connection = Program.db.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to update in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
 
-		}
+        }
 
 		internal static Document Read(int id) {
 			Debug.Assert(id > -1, "Document Index Invalid. Can't Load Document");
@@ -50,51 +68,94 @@ namespace YACM.DBLayer
 			Document D = new Document();
 			
 			// Stored Procedure to based on the id, retrieve either the file or the otherfile
-			/* 
+			
+            // Retrieve data from Document Table
 			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Document WHERE id = @id", Program.db.Open());
-
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@id", id);
-
-			SqlDataReader reader = cmd.ExecuteReader();
-
-			while (reader.Read()) {
-				D.Number = Convert.ToInt32(reader["number"].ToString());
-				E.Name = reader["name"].ToString();
-				E.BeginningDate = Convert.ToDateTime(reader["beginningDate"].ToString());
-				E.EndDate = Convert.ToDateTime(reader["endDate"].ToString());
-				E.Visibility = Convert.ToBoolean(reader["visibility"].ToString());
-				E.ManagerID = Convert.ToInt32(reader["managerID"].ToString());
-			}
-
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    D.ID = Convert.ToInt32(reader["id"].ToString());
+                    D.EventID = Convert.ToInt32(reader["eventNumber"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
 			Program.db.Close();
-			*/ 
-			return D;
+
+            // Retrieve data from both TextFile or OtherFile table
+            // (only one will hit)
+            // TextFile (content retrieval)
+            cmd = new SqlCommand("SELECT * FROM YACM.TextFile WHERE id = @id", Program.db.Open());
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    D.Contents = reader["content"].ToString();
+                    D.Type = DocumentType.Text;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
+            // OtherFile (path retrieval)
+            cmd = new SqlCommand("SELECT * FROM YACM.OtherFile WHERE id = @id", Program.db.Open());
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    D.Contents = reader["path"].ToString();
+                    D.Type = DocumentType.Other;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to read from database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Program.db.Close();
+            }
+            Program.db.Close();
+
+            return D;
 		}
 
 		internal static void Update(Document D) {
 			int rows = 0;
 
-			/*
+            // Update Document table
 			SqlCommand cmd = new SqlCommand();
-
-			cmd.CommandText = "UPDATE YACM.Document " + "SET number = @number, " + "    name = @name, " + "    beginningDate = @beginningDate, " + "    endDate = @endDate, " + "    visibility = @visibility, " + "    managerID = @managerID " + "WHERE number = @number";
+			cmd.CommandText = "UPDATE YACM.Document SET eventNumber = @eventNumber WHERE id = @id";
 			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@number", E.Number);
-			cmd.Parameters.AddWithValue("@name", E.Name);
-			cmd.Parameters.AddWithValue("@beginningDate", E.BeginningDate);
-			cmd.Parameters.AddWithValue("@endDate", E.EndDate);
-			cmd.Parameters.AddWithValue("@visibility", E.Visibility);
-			cmd.Parameters.AddWithValue("@managerID", E.ManagerID);
-
+			cmd.Parameters.AddWithValue("@id", D.ID);
+			cmd.Parameters.AddWithValue("@eventNumber", D.EventID);
 			cmd.Connection = Program.db.Open();
-
-
 			try {
 				rows = cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				MessageBox.Show("Failed to update event in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to update document in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				if (rows == 1)
@@ -104,22 +165,76 @@ namespace YACM.DBLayer
 
 				Program.db.Close();
 			}
-			*/
-		}
+            if (D.Type==DocumentType.Text)
+            {
+                // Update TextFile table
+                cmd = new SqlCommand();
+                cmd.CommandText = "UPDATE YACM.TextFile SET content = @content WHERE id = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", D.ID);
+                cmd.Parameters.AddWithValue("@content", D.Contents);
+                cmd.Connection = Program.db.Open();
+                try
+                {
+                    rows = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to update document in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (rows == 1)
+                        MessageBox.Show("Updated sucessfully");
+                    else
+                        MessageBox.Show("Update not sucesfull");
+
+                    Program.db.Close();
+                }
+            }
+            else
+            {
+                // Update OtherFile table
+                cmd = new SqlCommand();
+                cmd.CommandText = "UPDATE YACM.OtherFile SET path = @path WHERE id = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", D.ID);
+                cmd.Parameters.AddWithValue("@path", D.Path);
+                cmd.Connection = Program.db.Open();
+                try
+                {
+                    rows = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to update document in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (rows == 1)
+                        MessageBox.Show("Updated sucessfully");
+                    else
+                        MessageBox.Show("Update not sucesfull");
+
+                    Program.db.Close();
+                }
+            }
+        }
 
 		internal static void Delete(Document D) {
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "DELETE YACM.Document WHERE number=@number ";
+            // Will only delete from Document Table
+            // Deletion occurs in either TextFile or OtherFile Table via Trigger
+			cmd.CommandText = "DELETE YACM.Document WHERE id=@id ";
 			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@number", D.Id);
+			cmd.Parameters.AddWithValue("@id", D.ID);
 			cmd.Connection = Program.db.Open();
-
 			try {
 				cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				MessageBox.Show("Failed to delete event in database. \n Error Message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to delete document in database. \n Error Message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
 				Program.db.Close();

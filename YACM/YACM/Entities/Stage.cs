@@ -15,6 +15,7 @@ namespace YACM
         private DateTime _date;
         private String _startLocation;
         private String _endLocation;
+        private int _eventID;
         private int _distance;
         #endregion
 
@@ -22,6 +23,7 @@ namespace YACM
         public DateTime Date { get; set; }
         public String StartLocation { get; set; }
         public String EndLocation { get; set; }
+        public int EventID { get; set; }
         public int Distance { get; set; }
         #endregion
 

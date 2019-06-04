@@ -16,7 +16,7 @@ namespace YACM
 	[Serializable()]
 	public class Document
 	{
-		public int Id { get; set; }
+		public int ID { get; set; }
 		public int EventID { get; set; }
 		public DocumentType Type { get; set; }
 		public String Path { get; set; }
