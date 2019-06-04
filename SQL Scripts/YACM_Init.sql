@@ -129,7 +129,7 @@ END
  *****************/
 
 CREATE TYPE string FROM varchar(50);
-CREATE TYPE bincontent FROM varbinary(MAX);
+CREATE TYPE bincontent FROM varchar(MAX);
 
 
 
