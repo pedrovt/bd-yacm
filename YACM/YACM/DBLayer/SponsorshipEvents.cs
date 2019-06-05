@@ -58,8 +58,10 @@ namespace YACM.DBLayer
 			int rows = 0;
 
 			SqlCommand cmd = new SqlCommand();
-			cmd.CommandText = "UPDATE YACM.SponsorshipEvent SET monetaryValue=@monetaryValue";
+			cmd.CommandText = "UPDATE YACM.SponsorshipEvent SET monetaryValue=@monetaryValue WHERE sponsorID=@sponsorID AND eventNumber=@eventNumber";
 			cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@sponsorID", E.SponsorID);
+			cmd.Parameters.AddWithValue("@eventNumber", E.EventNumber);
 			cmd.Parameters.AddWithValue("@monetaryValue", E.MonetaryValue);
 			cmd.Connection = Program.db.Open();
 			try {

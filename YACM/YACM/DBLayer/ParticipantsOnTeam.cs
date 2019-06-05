@@ -59,8 +59,10 @@ namespace YACM.DBLayer
 			int rows = 0;
 
 			SqlCommand cmd = new SqlCommand();
-			cmd.CommandText = "UPDATE YACM.ParticipantOnTeam SET startDate=@startDate, endDate=@endDate";
+			cmd.CommandText = "UPDATE YACM.ParticipantOnTeam SET startDate=@startDate, endDate=@endDate WHERE participantID=@participantID AND teamName=@teamName";
 			cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@participantID", P.ParticipantID);
+			cmd.Parameters.AddWithValue("@teamName", P.TeamName);
 			cmd.Parameters.AddWithValue("@startDate", P.StartDate);
 			cmd.Parameters.AddWithValue("@endDate", P.EndDate);
 			cmd.Connection = Program.db.Open();

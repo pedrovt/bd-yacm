@@ -61,8 +61,10 @@ namespace YACM.DBLayer
 			int rows = 0;
 
 			SqlCommand cmd = new SqlCommand();
-			cmd.CommandText = "UPDATE YACM.ParticipantEnrollment SET teamName=@teamName, dorsal=@dorsal";
+			cmd.CommandText = "UPDATE YACM.ParticipantEnrollment SET teamName=@teamName, dorsal=@dorsal WHERE participantID=@participantID AND eventNumber=@eventNumber";
 			cmd.Parameters.Clear();
+			cmd.Parameters.AddWithValue("@participantID", P.ParticipantID);
+			cmd.Parameters.AddWithValue("@eventNumber", P.EventNumber);
 			cmd.Parameters.AddWithValue("@teamName", P.TeamName);
 			cmd.Parameters.AddWithValue("@dorsal", P.Dorsal);
 			cmd.Connection = Program.db.Open();

@@ -50,32 +50,6 @@ namespace YACM.DBLayer
 			return P;
 		}
 
-		internal static void Update(User U, Event E) {
-			int rows = 0;
-
-			// Update User Table
-			SqlCommand cmd = new SqlCommand();
-			cmd.CommandText = "UPDATE YACM.ParticipantDropOut SET participantID=@id, eventNumber=@eventID";
-			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@id", U.ID);
-			cmd.Parameters.AddWithValue("@eventID", E.Number);
-			cmd.Connection = Program.db.Open();
-			try {
-				rows = cmd.ExecuteNonQuery();
-			}
-			catch (Exception ex) {
-				MessageBox.Show("Failed to update user in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			finally {
-				if (rows == 1)
-					MessageBox.Show("Updated sucessfully");
-				else
-					MessageBox.Show("Update not sucesfull");
-
-				Program.db.Close();
-			}
-		}
-
 		internal static void Delete(User U, Event E) {
 			SqlCommand cmd = new SqlCommand();
 
