@@ -49,8 +49,8 @@ namespace YACM.DBLayer
                     S.ParticipantID = Convert.ToInt32(reader["participantID"].ToString());
                     S.EventNumber = Convert.ToInt32(reader["eventNumber"].ToString());
                     S.StageDate = Convert.ToDateTime(reader["stageDate"].ToString());
-                    S.StageStartLocation = reader["stageStartLocation"].ToString());
-                    S.StageEndLocation = reader["stageEndLocation"].ToString());
+                    S.StageStartLocation = reader["stageStartLocation"].ToString();
+                    S.StageEndLocation = reader["stageEndLocation"].ToString();
                     S.Result = reader["result"].ToString();
                 }
             }

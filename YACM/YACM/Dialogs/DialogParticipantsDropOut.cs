@@ -65,8 +65,8 @@ namespace YACM
 			//SaveUser();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.ParticipantsDropOut.Update(U, E);
-				else DBLayer.ParticipantsDropOut.Create(U, E);
+				//if (toUpdate) DBLayer.ParticipantsDropOut.Update(U, E);
+				if (!toUpdate) DBLayer.ParticipantsDropOut.Create(U, E);
 				
 				//Return to main
 				this.Dispose();
