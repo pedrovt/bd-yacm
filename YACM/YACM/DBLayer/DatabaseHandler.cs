@@ -62,7 +62,7 @@ namespace YACM
 				case "Class Server":
 					builder = new SqlConnectionStringBuilder() {
 						DataSource = "tcp:mednat.ieeta.pt\\SQLSERVER,8101",
-						InitialCatalog = "YACM",
+						InitialCatalog = "p2g10",
 						UserID = "p2g10",
 						Password = "UbuntuAndMacSucks24/7"
 					};
