@@ -209,26 +209,38 @@ namespace YACM
 			if (GetSelectedID(equipmentList) != -1) {
 				Equipment EQ = DBLayer.Equipments.Read(GetSelectedID(equipmentList));
 				DialogEquipment dialog = new DialogEquipment(E, EQ);
-				dialog.Show();
-				
+				dialog.Show();	
 			}
 		}
 
 		private void EditParticipantsDropOut_Click(object sender, EventArgs e) {
-			if (GetSelectedID(prizesList) != -1) {
-				Participant P = DBLayer.Participants.Read(GetSelectedID(participantsDropOutList));
+			if (GetSelectedID(participantsDropOutList) != -1) {
+				ParticipantDropOut P = DBLayer.ParticipantsDropOut.Read(GetSelectedID(participantsDropOutList), E.Number);
 				DialogParticipantsDropOut dialog = new DialogParticipantsDropOut(E, P);
 				dialog.Show();
 			}
-			
 		}
 
 		private void EditParticipantsEnrollment_Click(object sender, EventArgs e) {
-
+			if (GetSelectedID(participantsEnrollmentList) != -1) {
+				ParticipantEnrollment P = DBLayer.ParticipantsEnrollments.Read(GetSelectedID(participantsEnrollmentList), E.Number);
+				DialogParticipantsEnrollment dialog = new DialogParticipantsEnrollment(E, P);
+				dialog.Show();
+			}
 		}
 
 		private void EditParticipantsOnTeam_Click(object sender, EventArgs e) {
+			if (participantsOnTeamList.SelectedItems != null) {
+				// Get primary keys
+				ListViewItem firstSelectedItem = participantsOnTeamList.FocusedItem;
+				int participantID = Convert.ToInt32(firstSelectedItem.SubItems[0].Text);
+				string teamName = firstSelectedItem.SubItems[3].Text;
+				
+				ParticipantOnTeam P = DBLayer.ParticipantsOnTeam.Read(participantID, teamName);
 
+				DialogParticipantsOnTeam dialog = new DialogParticipantsOnTeam(E, P);
+				dialog.Show();
+			}
 		}
 
 		private void EditPrizes_Click(object sender, EventArgs e) {
@@ -288,19 +300,17 @@ namespace YACM
 		private void EditTeams_Click(object sender, EventArgs e) {
 			if (teamsList.SelectedItems != null) {
 				ListViewItem firstSelectedItem = teamsList.FocusedItem;
-				string name = firstSelectedItem.SubItems[0].Text;
-				Team T = DBLayer.Teams.Read(name);
+				string teamName = firstSelectedItem.SubItems[0].Text;
+				Team T = DBLayer.Teams.Read(teamName);
 				DialogTeams dialog = new DialogTeams(E, T);
 				dialog.Show();
-				
 			}
 		}
 		
 		private void EditDocuments_Click(object sender, EventArgs e) {
 			if (GetSelectedID(documentsList) != -1) {
-				// DEBUG
-				// Document D = new Document(1, DocumentType.Text, "Hello");
-				Document D = DBLayer.Documents.Read(GetSelectedID(documentsList));
+				ParseDocumentType(documentsList);
+				Document D = DBLayer.Documents.Read(GetSelectedID(documentsList, type));
 				DialogDocuments dialog = new DialogDocuments(E, D);
 				dialog.Show();
 				
@@ -371,6 +381,21 @@ namespace YACM
 				debugInfo.Text = "Selected ID is " + index;
 			}
 			return index;
+		}
+
+		private DocumentType ParseDocumentType(ListView list) {
+			if (list.SelectedItems != null) {
+				ListViewItem firstSelectedItem = list.FocusedItem;
+				string type = firstSelectedItem.SubItems[1].Text.ToString();
+				switch (type) {
+					case "text":
+						return DocumentType.Text;
+					case "other":
+						return DocumentType.Other;	
+				}
+				return DocumentType.Other;
+			}
+			
 		}
 		#endregion
 

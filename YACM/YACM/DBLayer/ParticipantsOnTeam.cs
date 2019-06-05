@@ -15,5 +15,9 @@ namespace YACM.DBLayer
 		internal static void Delete(ParticipantOnTeam p) {
 			throw new NotImplementedException();
 		}
+
+		internal static ParticipantOnTeam Read(int participantID, string teamName) {
+			throw new NotImplementedException();
+		}
 	}
 }

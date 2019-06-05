@@ -5,9 +5,8 @@ using System.Text;
 
 namespace YACM
 {
-    public class ParticipantDropOut
+    public class ParticipantDropOut : Participant
     {
-		public int ParticipantID { get; set; }
-		public int EventNumber { get; set; }
+		
 	}
 }

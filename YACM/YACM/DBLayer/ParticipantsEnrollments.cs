@@ -15,5 +15,9 @@ namespace YACM.DBLayer
 		internal static void Delete(ParticipantEnrollment p) {
 			throw new NotImplementedException();
 		}
+
+		internal static ParticipantEnrollment Read(int participantID, int eventNumber) {
+			throw new NotImplementedException();
+		}
 	}
 }
