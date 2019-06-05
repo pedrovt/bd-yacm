@@ -124,10 +124,15 @@ namespace YACM
 		}
 
 		public void UnlockControls() {
-			txtID.Enabled = false;
+			if (toUpdate) txtID.Enabled = false;
+			else txtID.Enabled = true;
+			txtID.ReadOnly = false;
 			txtSponsorID.Enabled = true;
+			txtSponsorID.ReadOnly = false;
 			txtReceiverID.Enabled = true;
+			txtReceiverID.ReadOnly = false;
 			txtValue.Enabled = true;
+			txtValue.ReadOnly = false;
 		}
 
 		private void UpdateButtons(bool create) {

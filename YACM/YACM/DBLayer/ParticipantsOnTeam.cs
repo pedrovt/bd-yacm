@@ -13,8 +13,16 @@ namespace YACM.DBLayer
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@participantID", P.ParticipantID);
 			cmd.Parameters.AddWithValue("@teamName", P.TeamName);
-			cmd.Parameters.AddWithValue("@startDate", P.StartDate);
-			cmd.Parameters.AddWithValue("@endDate", P.EndDate);
+
+			var startDate = new SqlParameter("@startDate", System.Data.SqlDbType.DateTime);
+			startDate.Value = P.StartDate;
+			cmd.Parameters.Add(startDate);
+
+
+			var endDate = new SqlParameter("@endDate", System.Data.SqlDbType.DateTime);
+			endDate.Value = P.EndDate;
+			cmd.Parameters.Add(endDate);
+
 
 			cmd.Connection = Program.db.Open();
 			try {

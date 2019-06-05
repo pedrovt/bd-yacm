@@ -12,9 +12,8 @@ namespace YACM.DBLayer
 	{
 		internal static void Create(Prize P) {
 			SqlCommand cmd = new SqlCommand();
-			cmd.CommandText = "INSERT YACM.Prize (id, sponsorID, eventNumber, receiverID, value) VALUES (@id, @sponsorID, @eventNumber, @receiverID, @value)";
+			cmd.CommandText = "INSERT YACM.Prize (sponsorID, eventNumber, receiverID, value) VALUES (@sponsorID, @eventNumber, @receiverID, @value)";
 			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@id", P.ID);
 			cmd.Parameters.AddWithValue("@sponsorID", P.SponsorID);
 			cmd.Parameters.AddWithValue("@eventNumber", P.EventNumber);
 			cmd.Parameters.AddWithValue("@receiverID", P.ReceiverID);

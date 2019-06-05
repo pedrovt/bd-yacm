@@ -109,7 +109,8 @@ namespace YACM
 		}
 
 		public void UnlockControls() {
-			txtParticipantID.Enabled = true;
+			if (toUpdate) txtParticipantID.Enabled = false;
+			else txtParticipantID.Enabled = true;
 			txtParticipantID.ReadOnly = false;
 		}
 
