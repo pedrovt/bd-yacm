@@ -10,12 +10,8 @@ namespace YACM.DBLayer
 {
 	class Sponsors
 	{
-
-        #region CRUD methods
         internal static void Create(Sponsor S)
         {
-            // TODO Stored procedure to insert, depending of the type, in the appropriated tables
-
             // Insertion into User Table
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "INSERT YACM.User (id, email, name, password) VALUES (@id, @email, @name, @password)";

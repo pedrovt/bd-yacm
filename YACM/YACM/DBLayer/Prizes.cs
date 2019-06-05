@@ -10,11 +10,7 @@ namespace YACM.DBLayer
 {
 	class Prizes
 	{
-
-		#region CRUD methods
 		internal static void Create(Prize P) {
-			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
-
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandText = "INSERT YACM.Prize (id, sponsorID, eventNumber, receiverID, value) VALUES (@id, @sponsorID, @eventNumber, @receiverID, @value)";
 			cmd.Parameters.Clear();
@@ -119,8 +115,6 @@ namespace YACM.DBLayer
                 Program.db.Close();
             }
         }
-
-		#endregion
 
 	}
 }

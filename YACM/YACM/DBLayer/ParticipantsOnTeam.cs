@@ -8,6 +8,10 @@ namespace YACM.DBLayer
 			throw new NotImplementedException();
 		}
 
+		internal static ParticipantOnTeam Read(int participantID, string teamName) {
+			throw new NotImplementedException();
+		}
+
 		internal static void Update(ParticipantOnTeam p) {
 			throw new NotImplementedException();
 		}
@@ -16,8 +20,6 @@ namespace YACM.DBLayer
 			throw new NotImplementedException();
 		}
 
-		internal static ParticipantOnTeam Read(int participantID, string teamName) {
-			throw new NotImplementedException();
-		}
+		
 	}
 }
