@@ -67,14 +67,18 @@ namespace YACM
 			// Read Event Details
 			eventManagement.Show();
 			EventManagement_SelectedIndexChanged(sender, e);		// Update
-			DBLayer.ReadTables.ReadStatistics();
+			ReadAbout();
+		}
+
+		public void ReadAbout() {
+			labelHelp.Text = "Welcome to " + E.Name + "!\nTo manage your event please select one of the tabs";
 		}
 
 		private void EventManagement_SelectedIndexChanged(object sender, EventArgs e) {
 			switch (eventManagement.SelectedIndex) {
 				case 0:                 // About
-					Console.WriteLine("Selected Statistics");
-					DBLayer.ReadTables.ReadStatistics();
+					Console.WriteLine("Selected About");
+					ReadAbout();
 					break;
 				case 1:                 // Equipment
 					Console.WriteLine("Selected Equipment");
@@ -405,5 +409,8 @@ namespace YACM
 		}
 		#endregion
 
+		private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e) {
+
+		}
 	}
 }

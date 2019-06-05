@@ -51,7 +51,7 @@ namespace YACM.DBLayer
 				    S.Date = Convert.ToDateTime(reader["date"].ToString());
 				    S.StartLocation = reader["startLocation"].ToString();
 				    S.EndLocation = reader["endLocation"].ToString();
-				    S.EventID = Convert.ToInt32(reader["eventID"].ToString());
+				    S.EventID = Convert.ToInt32(reader["eventNumber"].ToString());
 				    S.Distance = Convert.ToInt32(reader["distance"].ToString());
                 }
             }

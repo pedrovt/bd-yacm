@@ -18,16 +18,22 @@ namespace YACM.DBLayer
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@eventID", D.EventID);
-            if (D.Type==DocumentType.Other)
+            if (D.Type==DocumentType.Text)
             {
                 cmd.CommandText = "dbo.p_CreateTextFile";
-                cmd.Parameters.AddWithValue("@content", D.Contents);
-            }
+                
+				SqlParameter content = new SqlParameter("@content", SqlDbType.VarChar);
+				content.Value = D.Contents;
+				cmd.Parameters.Add(content);
+			}
             else
             {
                 cmd.CommandText = "dbo.p_CreateOtherFile";
-                cmd.Parameters.AddWithValue("@path", D.Path);
-            }
+
+				SqlParameter path = new SqlParameter("@path", SqlDbType.VarChar);
+				path.Value = D.Path;
+				cmd.Parameters.Add(path);
+			}
             cmd.Connection = Program.db.Open();
             try
             {
@@ -105,7 +111,7 @@ namespace YACM.DBLayer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    D.Contents = reader["path"].ToString();
+                    D.Path = reader["path"].ToString();
                     D.Type = DocumentType.Other;
                 }
             }
@@ -122,7 +128,8 @@ namespace YACM.DBLayer
 		}
 
 		internal static void Update(Document D) {
-			int rows = 0;
+			int rows1 = 0;
+			int rows2 = 0;
 
             // Update Document table
 			SqlCommand cmd = new SqlCommand();
@@ -132,19 +139,23 @@ namespace YACM.DBLayer
 			cmd.Parameters.AddWithValue("@eventNumber", D.EventID);
 			cmd.Connection = Program.db.Open();
 			try {
-				rows = cmd.ExecuteNonQuery();
+				rows1 = cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
 				MessageBox.Show("Failed to update document in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally {
-				if (rows == 1)
-					MessageBox.Show("Updated sucessfully");
-				else
+				if (rows1 != 1) {
 					MessageBox.Show("Update not sucesfull");
+				}
 
 				Program.db.Close();
 			}
+
+			if (rows1 != 1) {
+				return;
+			}
+
             if (D.Type==DocumentType.Text)
             {
                 // Update TextFile table
@@ -156,7 +167,7 @@ namespace YACM.DBLayer
                 cmd.Connection = Program.db.Open();
                 try
                 {
-                    rows = cmd.ExecuteNonQuery();
+					rows2 = cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -164,12 +175,12 @@ namespace YACM.DBLayer
                 }
                 finally
                 {
-                    if (rows == 1)
-                        MessageBox.Show("Updated sucessfully");
-                    else
-                        MessageBox.Show("Update not sucesfull");
+					if (rows1 == 1 && rows2 == 1)
+						MessageBox.Show("Updated sucessfully");
+					else
+						MessageBox.Show("Update not sucesfull");
 
-                    Program.db.Close();
+					Program.db.Close();
                 }
             }
             else
@@ -183,7 +194,7 @@ namespace YACM.DBLayer
                 cmd.Connection = Program.db.Open();
                 try
                 {
-                    rows = cmd.ExecuteNonQuery();
+                    rows2 = cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -191,7 +202,7 @@ namespace YACM.DBLayer
                 }
                 finally
                 {
-                    if (rows == 1)
+                    if (rows1 == 1 && rows2 == 1)
                         MessageBox.Show("Updated sucessfully");
                     else
                         MessageBox.Show("Update not sucesfull");

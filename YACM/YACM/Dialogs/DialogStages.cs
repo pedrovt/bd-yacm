@@ -124,10 +124,21 @@ namespace YACM
 		}
 
 		public void UnlockControls() {
-			txtDate.Enabled = false;
-			txtStart.Enabled = false;
-			txtEnd.Enabled = false;
+			if (S.EndLocation == null) {
+				txtDate.Enabled = true;
+				txtStart.Enabled = true;
+				txtEnd.Enabled = true;
+			} 
+			else {
+				txtDate.Enabled = false;
+				txtStart.Enabled = false;
+				txtEnd.Enabled = false;
+			}
+			txtStart.ReadOnly = false;
+			txtEnd.ReadOnly = false;
+
 			txtDistance.Enabled = true;
+			txtDistance.ReadOnly = false;
 		}
 
 		private void UpdateButtons(bool create) {
