@@ -162,7 +162,7 @@ GO
 SELECT * FROM dbo.Authenticate('paulobvasconcelos@gmail.com','ImTired');
 
 -- ================
--- === DOCUMENT ===
+-- ===== USER =====
 -- ================
 -- Stored Procedure to create a user
 GO
@@ -199,17 +199,5 @@ AS
 	DECLARE @id AS INT;
 	EXEC dbo.p_CreateUser @email=@email, @name=@name, @password=@password, @id=@id OUT;
 	INSERT INTO YACM.Sponsor(id) VALUES (@id);
-	RETURN 0;
-GO
-
-
-
--- Stored Procedure to create a other file
-GO
-CREATE PROC dbo.p_CreateOtherFile (@eventID int, @path varchar(50))
-AS
-	DECLARE @id AS INT;
-	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id OUT;
-	INSERT INTO YACM.OtherFile(id,[path]) VALUES (@id,@path);
 	RETURN 0;
 GO
