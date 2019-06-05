@@ -104,18 +104,19 @@
 			this.otherEventList = new System.Windows.Forms.ListView();
 			this.tabPageParticipant = new System.Windows.Forms.TabPage();
 			this.usersList = new System.Windows.Forms.ListView();
+			this.tabPageTeams = new System.Windows.Forms.TabPage();
+			this.allTeamsList = new System.Windows.Forms.ListView();
+			this.teamActions = new System.Windows.Forms.MenuStrip();
+			this.addTeams = new System.Windows.Forms.ToolStripMenuItem();
+			this.editTeams = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshTeams = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.debugInfo = new System.Windows.Forms.ToolStripStatusLabel();
 			this.copyrightInfo = new System.Windows.Forms.ToolStripStatusLabel();
 			this.labelTitle = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-			this.tabPageTeams = new System.Windows.Forms.TabPage();
-			this.teamActions = new System.Windows.Forms.MenuStrip();
-			this.addTeams = new System.Windows.Forms.ToolStripMenuItem();
-			this.editTeams = new System.Windows.Forms.ToolStripMenuItem();
-			this.refreshTeams = new System.Windows.Forms.ToolStripMenuItem();
-			this.allTeamsList = new System.Windows.Forms.ListView();
+			this.labelHelp = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPageManager.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -123,6 +124,7 @@
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
 			this.eventManagement.SuspendLayout();
+			this.Statistics.SuspendLayout();
 			this.Equipment.SuspendLayout();
 			this.equipamentActions.SuspendLayout();
 			this.ParticipantsDropOut.SuspendLayout();
@@ -147,10 +149,10 @@
 			this.eventsActions.SuspendLayout();
 			this.tabPageOtherEvents.SuspendLayout();
 			this.tabPageParticipant.SuspendLayout();
-			this.statusStrip.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
 			this.tabPageTeams.SuspendLayout();
 			this.teamActions.SuspendLayout();
+			this.statusStrip.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -194,7 +196,7 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.eventManagement);
 			this.splitContainer1.Size = new System.Drawing.Size(1520, 575);
-			this.splitContainer1.SplitterDistance = 459;
+			this.splitContainer1.SplitterDistance = 496;
 			this.splitContainer1.TabIndex = 5;
 			// 
 			// eventsList
@@ -202,7 +204,7 @@
 			this.eventsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.eventsList.Location = new System.Drawing.Point(0, 0);
 			this.eventsList.Name = "eventsList";
-			this.eventsList.Size = new System.Drawing.Size(459, 575);
+			this.eventsList.Size = new System.Drawing.Size(496, 575);
 			this.eventsList.TabIndex = 1;
 			this.eventsList.UseCompatibleStateImageBehavior = false;
 			this.eventsList.View = System.Windows.Forms.View.Details;
@@ -227,28 +229,29 @@
 			this.eventManagement.Multiline = true;
 			this.eventManagement.Name = "eventManagement";
 			this.eventManagement.SelectedIndex = 0;
-			this.eventManagement.Size = new System.Drawing.Size(1057, 575);
+			this.eventManagement.Size = new System.Drawing.Size(1020, 575);
 			this.eventManagement.TabIndex = 4;
 			this.eventManagement.SelectedIndexChanged += new System.EventHandler(this.EventManagement_SelectedIndexChanged);
 			// 
 			// Statistics
 			// 
-			this.Statistics.Location = new System.Drawing.Point(4, 40);
+			this.Statistics.Controls.Add(this.labelHelp);
+			this.Statistics.Location = new System.Drawing.Point(4, 22);
 			this.Statistics.Name = "Statistics";
 			this.Statistics.Padding = new System.Windows.Forms.Padding(3);
-			this.Statistics.Size = new System.Drawing.Size(994, 531);
+			this.Statistics.Size = new System.Drawing.Size(1012, 549);
 			this.Statistics.TabIndex = 8;
-			this.Statistics.Text = "Statistics";
+			this.Statistics.Text = "Help";
 			this.Statistics.UseVisualStyleBackColor = true;
 			// 
 			// Equipment
 			// 
 			this.Equipment.Controls.Add(this.equipmentList);
 			this.Equipment.Controls.Add(this.equipamentActions);
-			this.Equipment.Location = new System.Drawing.Point(4, 40);
+			this.Equipment.Location = new System.Drawing.Point(4, 22);
 			this.Equipment.Name = "Equipment";
 			this.Equipment.Padding = new System.Windows.Forms.Padding(3);
-			this.Equipment.Size = new System.Drawing.Size(994, 531);
+			this.Equipment.Size = new System.Drawing.Size(1049, 549);
 			this.Equipment.TabIndex = 1;
 			this.Equipment.Text = "Equipment";
 			this.Equipment.UseVisualStyleBackColor = true;
@@ -258,7 +261,7 @@
 			this.equipmentList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.equipmentList.Location = new System.Drawing.Point(3, 27);
 			this.equipmentList.Name = "equipmentList";
-			this.equipmentList.Size = new System.Drawing.Size(988, 501);
+			this.equipmentList.Size = new System.Drawing.Size(1043, 519);
 			this.equipmentList.TabIndex = 4;
 			this.equipmentList.UseCompatibleStateImageBehavior = false;
 			this.equipmentList.View = System.Windows.Forms.View.Details;
@@ -272,7 +275,7 @@
 			this.equipamentActions.Location = new System.Drawing.Point(3, 3);
 			this.equipamentActions.Name = "equipamentActions";
 			this.equipamentActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.equipamentActions.Size = new System.Drawing.Size(988, 24);
+			this.equipamentActions.Size = new System.Drawing.Size(1043, 24);
 			this.equipamentActions.TabIndex = 5;
 			this.equipamentActions.Text = "menuStrip2";
 			// 
@@ -304,9 +307,9 @@
 			// 
 			this.ParticipantsDropOut.Controls.Add(this.participantsDropOutList);
 			this.ParticipantsDropOut.Controls.Add(this.participantsDropOutActions);
-			this.ParticipantsDropOut.Location = new System.Drawing.Point(4, 40);
+			this.ParticipantsDropOut.Location = new System.Drawing.Point(4, 22);
 			this.ParticipantsDropOut.Name = "ParticipantsDropOut";
-			this.ParticipantsDropOut.Size = new System.Drawing.Size(994, 531);
+			this.ParticipantsDropOut.Size = new System.Drawing.Size(1049, 549);
 			this.ParticipantsDropOut.TabIndex = 2;
 			this.ParticipantsDropOut.Text = "Participants (Drop Out)";
 			this.ParticipantsDropOut.UseVisualStyleBackColor = true;
@@ -316,7 +319,7 @@
 			this.participantsDropOutList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.participantsDropOutList.Location = new System.Drawing.Point(0, 24);
 			this.participantsDropOutList.Name = "participantsDropOutList";
-			this.participantsDropOutList.Size = new System.Drawing.Size(994, 507);
+			this.participantsDropOutList.Size = new System.Drawing.Size(1049, 525);
 			this.participantsDropOutList.TabIndex = 6;
 			this.participantsDropOutList.UseCompatibleStateImageBehavior = false;
 			this.participantsDropOutList.View = System.Windows.Forms.View.Details;
@@ -329,7 +332,7 @@
             this.refreshParticipants});
 			this.participantsDropOutActions.Location = new System.Drawing.Point(0, 0);
 			this.participantsDropOutActions.Name = "participantsDropOutActions";
-			this.participantsDropOutActions.Size = new System.Drawing.Size(994, 24);
+			this.participantsDropOutActions.Size = new System.Drawing.Size(1049, 24);
 			this.participantsDropOutActions.TabIndex = 7;
 			this.participantsDropOutActions.Text = "menuStrip3";
 			// 
@@ -361,10 +364,10 @@
 			// 
 			this.ParticipantsEnrollment.Controls.Add(this.participantsEnrollmentList);
 			this.ParticipantsEnrollment.Controls.Add(this.participantsEnrollmentActions);
-			this.ParticipantsEnrollment.Location = new System.Drawing.Point(4, 40);
+			this.ParticipantsEnrollment.Location = new System.Drawing.Point(4, 22);
 			this.ParticipantsEnrollment.Name = "ParticipantsEnrollment";
 			this.ParticipantsEnrollment.Padding = new System.Windows.Forms.Padding(3);
-			this.ParticipantsEnrollment.Size = new System.Drawing.Size(994, 531);
+			this.ParticipantsEnrollment.Size = new System.Drawing.Size(1049, 549);
 			this.ParticipantsEnrollment.TabIndex = 11;
 			this.ParticipantsEnrollment.Text = "Participants (Enrolled)";
 			this.ParticipantsEnrollment.UseVisualStyleBackColor = true;
@@ -374,7 +377,7 @@
 			this.participantsEnrollmentList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.participantsEnrollmentList.Location = new System.Drawing.Point(3, 27);
 			this.participantsEnrollmentList.Name = "participantsEnrollmentList";
-			this.participantsEnrollmentList.Size = new System.Drawing.Size(988, 501);
+			this.participantsEnrollmentList.Size = new System.Drawing.Size(1043, 519);
 			this.participantsEnrollmentList.TabIndex = 8;
 			this.participantsEnrollmentList.UseCompatibleStateImageBehavior = false;
 			this.participantsEnrollmentList.View = System.Windows.Forms.View.Details;
@@ -387,7 +390,7 @@
             this.refreshParticipantsEnrollment});
 			this.participantsEnrollmentActions.Location = new System.Drawing.Point(3, 3);
 			this.participantsEnrollmentActions.Name = "participantsEnrollmentActions";
-			this.participantsEnrollmentActions.Size = new System.Drawing.Size(988, 24);
+			this.participantsEnrollmentActions.Size = new System.Drawing.Size(1043, 24);
 			this.participantsEnrollmentActions.TabIndex = 9;
 			this.participantsEnrollmentActions.Text = "menuStrip3";
 			// 
@@ -419,9 +422,9 @@
 			// 
 			this.ParticipantsOnTeam.Controls.Add(this.participantsOnTeamList);
 			this.ParticipantsOnTeam.Controls.Add(this.participantsOnTeamActions);
-			this.ParticipantsOnTeam.Location = new System.Drawing.Point(4, 40);
+			this.ParticipantsOnTeam.Location = new System.Drawing.Point(4, 22);
 			this.ParticipantsOnTeam.Name = "ParticipantsOnTeam";
-			this.ParticipantsOnTeam.Size = new System.Drawing.Size(994, 531);
+			this.ParticipantsOnTeam.Size = new System.Drawing.Size(1049, 549);
 			this.ParticipantsOnTeam.TabIndex = 12;
 			this.ParticipantsOnTeam.Text = "Participants (On Team)";
 			this.ParticipantsOnTeam.UseVisualStyleBackColor = true;
@@ -431,7 +434,7 @@
 			this.participantsOnTeamList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.participantsOnTeamList.Location = new System.Drawing.Point(0, 24);
 			this.participantsOnTeamList.Name = "participantsOnTeamList";
-			this.participantsOnTeamList.Size = new System.Drawing.Size(994, 507);
+			this.participantsOnTeamList.Size = new System.Drawing.Size(1049, 525);
 			this.participantsOnTeamList.TabIndex = 8;
 			this.participantsOnTeamList.UseCompatibleStateImageBehavior = false;
 			this.participantsOnTeamList.View = System.Windows.Forms.View.Details;
@@ -444,7 +447,7 @@
             this.refreshParticipantsOnTeam});
 			this.participantsOnTeamActions.Location = new System.Drawing.Point(0, 0);
 			this.participantsOnTeamActions.Name = "participantsOnTeamActions";
-			this.participantsOnTeamActions.Size = new System.Drawing.Size(994, 24);
+			this.participantsOnTeamActions.Size = new System.Drawing.Size(1049, 24);
 			this.participantsOnTeamActions.TabIndex = 9;
 			this.participantsOnTeamActions.Text = "menuStrip3";
 			// 
@@ -476,9 +479,9 @@
 			// 
 			this.Prizes.Controls.Add(this.prizesList);
 			this.Prizes.Controls.Add(this.prizeActions);
-			this.Prizes.Location = new System.Drawing.Point(4, 40);
+			this.Prizes.Location = new System.Drawing.Point(4, 22);
 			this.Prizes.Name = "Prizes";
-			this.Prizes.Size = new System.Drawing.Size(994, 531);
+			this.Prizes.Size = new System.Drawing.Size(1049, 549);
 			this.Prizes.TabIndex = 3;
 			this.Prizes.Text = "Prize";
 			this.Prizes.UseVisualStyleBackColor = true;
@@ -488,7 +491,7 @@
 			this.prizesList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.prizesList.Location = new System.Drawing.Point(0, 24);
 			this.prizesList.Name = "prizesList";
-			this.prizesList.Size = new System.Drawing.Size(994, 507);
+			this.prizesList.Size = new System.Drawing.Size(1049, 525);
 			this.prizesList.TabIndex = 6;
 			this.prizesList.UseCompatibleStateImageBehavior = false;
 			this.prizesList.View = System.Windows.Forms.View.Details;
@@ -501,7 +504,7 @@
             this.refreshPrizes});
 			this.prizeActions.Location = new System.Drawing.Point(0, 0);
 			this.prizeActions.Name = "prizeActions";
-			this.prizeActions.Size = new System.Drawing.Size(994, 24);
+			this.prizeActions.Size = new System.Drawing.Size(1049, 24);
 			this.prizeActions.TabIndex = 7;
 			this.prizeActions.Text = "menuStrip4";
 			// 
@@ -533,9 +536,9 @@
 			// 
 			this.SponsorshipEvents.Controls.Add(this.sponsorshipEventsList);
 			this.SponsorshipEvents.Controls.Add(this.sponsorshipEventsActions);
-			this.SponsorshipEvents.Location = new System.Drawing.Point(4, 40);
+			this.SponsorshipEvents.Location = new System.Drawing.Point(4, 22);
 			this.SponsorshipEvents.Name = "SponsorshipEvents";
-			this.SponsorshipEvents.Size = new System.Drawing.Size(994, 531);
+			this.SponsorshipEvents.Size = new System.Drawing.Size(1049, 549);
 			this.SponsorshipEvents.TabIndex = 4;
 			this.SponsorshipEvents.Text = "Sponsorship of Events";
 			this.SponsorshipEvents.UseVisualStyleBackColor = true;
@@ -545,7 +548,7 @@
 			this.sponsorshipEventsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.sponsorshipEventsList.Location = new System.Drawing.Point(0, 24);
 			this.sponsorshipEventsList.Name = "sponsorshipEventsList";
-			this.sponsorshipEventsList.Size = new System.Drawing.Size(994, 507);
+			this.sponsorshipEventsList.Size = new System.Drawing.Size(1049, 525);
 			this.sponsorshipEventsList.TabIndex = 6;
 			this.sponsorshipEventsList.UseCompatibleStateImageBehavior = false;
 			this.sponsorshipEventsList.View = System.Windows.Forms.View.Details;
@@ -558,7 +561,7 @@
             this.refreshSponsorshipEvents});
 			this.sponsorshipEventsActions.Location = new System.Drawing.Point(0, 0);
 			this.sponsorshipEventsActions.Name = "sponsorshipEventsActions";
-			this.sponsorshipEventsActions.Size = new System.Drawing.Size(994, 24);
+			this.sponsorshipEventsActions.Size = new System.Drawing.Size(1049, 24);
 			this.sponsorshipEventsActions.TabIndex = 7;
 			this.sponsorshipEventsActions.Text = "menuStrip5";
 			// 
@@ -590,10 +593,10 @@
 			// 
 			this.SponsorshipTeams.Controls.Add(this.sponsorshipTeamsList);
 			this.SponsorshipTeams.Controls.Add(this.sponsorshipTeamsActions);
-			this.SponsorshipTeams.Location = new System.Drawing.Point(4, 40);
+			this.SponsorshipTeams.Location = new System.Drawing.Point(4, 22);
 			this.SponsorshipTeams.Name = "SponsorshipTeams";
 			this.SponsorshipTeams.Padding = new System.Windows.Forms.Padding(3);
-			this.SponsorshipTeams.Size = new System.Drawing.Size(994, 531);
+			this.SponsorshipTeams.Size = new System.Drawing.Size(1049, 549);
 			this.SponsorshipTeams.TabIndex = 10;
 			this.SponsorshipTeams.Text = "Sponsorship of Teams";
 			this.SponsorshipTeams.UseVisualStyleBackColor = true;
@@ -603,7 +606,7 @@
 			this.sponsorshipTeamsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.sponsorshipTeamsList.Location = new System.Drawing.Point(3, 27);
 			this.sponsorshipTeamsList.Name = "sponsorshipTeamsList";
-			this.sponsorshipTeamsList.Size = new System.Drawing.Size(988, 501);
+			this.sponsorshipTeamsList.Size = new System.Drawing.Size(1043, 519);
 			this.sponsorshipTeamsList.TabIndex = 8;
 			this.sponsorshipTeamsList.UseCompatibleStateImageBehavior = false;
 			this.sponsorshipTeamsList.View = System.Windows.Forms.View.Details;
@@ -616,7 +619,7 @@
             this.refreshSponsorshipTeams});
 			this.sponsorshipTeamsActions.Location = new System.Drawing.Point(3, 3);
 			this.sponsorshipTeamsActions.Name = "sponsorshipTeamsActions";
-			this.sponsorshipTeamsActions.Size = new System.Drawing.Size(988, 24);
+			this.sponsorshipTeamsActions.Size = new System.Drawing.Size(1043, 24);
 			this.sponsorshipTeamsActions.TabIndex = 9;
 			this.sponsorshipTeamsActions.Text = "menuStrip3";
 			// 
@@ -648,9 +651,9 @@
 			// 
 			this.Stages.Controls.Add(this.stagesList);
 			this.Stages.Controls.Add(this.stagesActions);
-			this.Stages.Location = new System.Drawing.Point(4, 40);
+			this.Stages.Location = new System.Drawing.Point(4, 22);
 			this.Stages.Name = "Stages";
-			this.Stages.Size = new System.Drawing.Size(994, 531);
+			this.Stages.Size = new System.Drawing.Size(1049, 549);
 			this.Stages.TabIndex = 5;
 			this.Stages.Text = "Stages";
 			this.Stages.UseVisualStyleBackColor = true;
@@ -660,7 +663,7 @@
 			this.stagesList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.stagesList.Location = new System.Drawing.Point(0, 24);
 			this.stagesList.Name = "stagesList";
-			this.stagesList.Size = new System.Drawing.Size(994, 507);
+			this.stagesList.Size = new System.Drawing.Size(1049, 525);
 			this.stagesList.TabIndex = 6;
 			this.stagesList.UseCompatibleStateImageBehavior = false;
 			this.stagesList.View = System.Windows.Forms.View.Details;
@@ -673,7 +676,7 @@
             this.refreshStages});
 			this.stagesActions.Location = new System.Drawing.Point(0, 0);
 			this.stagesActions.Name = "stagesActions";
-			this.stagesActions.Size = new System.Drawing.Size(994, 24);
+			this.stagesActions.Size = new System.Drawing.Size(1049, 24);
 			this.stagesActions.TabIndex = 7;
 			this.stagesActions.Text = "menuStrip6";
 			// 
@@ -705,10 +708,10 @@
 			// 
 			this.StagesParticipants.Controls.Add(this.stagesParticipationsList);
 			this.StagesParticipants.Controls.Add(this.menuStrip1);
-			this.StagesParticipants.Location = new System.Drawing.Point(4, 40);
+			this.StagesParticipants.Location = new System.Drawing.Point(4, 22);
 			this.StagesParticipants.Name = "StagesParticipants";
 			this.StagesParticipants.Padding = new System.Windows.Forms.Padding(3);
-			this.StagesParticipants.Size = new System.Drawing.Size(994, 531);
+			this.StagesParticipants.Size = new System.Drawing.Size(1049, 549);
 			this.StagesParticipants.TabIndex = 9;
 			this.StagesParticipants.Text = "Stages Participations";
 			this.StagesParticipants.UseVisualStyleBackColor = true;
@@ -718,7 +721,7 @@
 			this.stagesParticipationsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.stagesParticipationsList.Location = new System.Drawing.Point(3, 27);
 			this.stagesParticipationsList.Name = "stagesParticipationsList";
-			this.stagesParticipationsList.Size = new System.Drawing.Size(988, 501);
+			this.stagesParticipationsList.Size = new System.Drawing.Size(1043, 519);
 			this.stagesParticipationsList.TabIndex = 10;
 			this.stagesParticipationsList.UseCompatibleStateImageBehavior = false;
 			this.stagesParticipationsList.View = System.Windows.Forms.View.Details;
@@ -731,7 +734,7 @@
             this.refreshStagesParticipations});
 			this.menuStrip1.Location = new System.Drawing.Point(3, 3);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(988, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1043, 24);
 			this.menuStrip1.TabIndex = 9;
 			this.menuStrip1.Text = "menuStrip6";
 			// 
@@ -783,9 +786,9 @@
 			// 
 			this.Documents.Controls.Add(this.documentsList);
 			this.Documents.Controls.Add(this.documentsActions);
-			this.Documents.Location = new System.Drawing.Point(4, 40);
+			this.Documents.Location = new System.Drawing.Point(4, 22);
 			this.Documents.Name = "Documents";
-			this.Documents.Size = new System.Drawing.Size(994, 531);
+			this.Documents.Size = new System.Drawing.Size(1049, 549);
 			this.Documents.TabIndex = 7;
 			this.Documents.Text = "Documents";
 			this.Documents.UseVisualStyleBackColor = true;
@@ -795,7 +798,7 @@
 			this.documentsList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.documentsList.Location = new System.Drawing.Point(0, 24);
 			this.documentsList.Name = "documentsList";
-			this.documentsList.Size = new System.Drawing.Size(994, 507);
+			this.documentsList.Size = new System.Drawing.Size(1049, 525);
 			this.documentsList.TabIndex = 6;
 			this.documentsList.UseCompatibleStateImageBehavior = false;
 			this.documentsList.View = System.Windows.Forms.View.Details;
@@ -808,7 +811,7 @@
             this.refreshDocuments});
 			this.documentsActions.Location = new System.Drawing.Point(0, 0);
 			this.documentsActions.Name = "documentsActions";
-			this.documentsActions.Size = new System.Drawing.Size(994, 24);
+			this.documentsActions.Size = new System.Drawing.Size(1049, 24);
 			this.documentsActions.TabIndex = 7;
 			this.documentsActions.Text = "menuStrip8";
 			// 
@@ -926,69 +929,6 @@
 			this.usersList.UseCompatibleStateImageBehavior = false;
 			this.usersList.View = System.Windows.Forms.View.Details;
 			// 
-			// statusStrip
-			// 
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.debugInfo,
-            this.copyrightInfo});
-			this.statusStrip.Location = new System.Drawing.Point(0, 727);
-			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.Size = new System.Drawing.Size(1540, 22);
-			this.statusStrip.TabIndex = 1;
-			this.statusStrip.Text = "statusStrip1";
-			// 
-			// debugInfo
-			// 
-			this.debugInfo.Name = "debugInfo";
-			this.debugInfo.Size = new System.Drawing.Size(39, 17);
-			this.debugInfo.Text = "Ready";
-			// 
-			// copyrightInfo
-			// 
-			this.copyrightInfo.Name = "copyrightInfo";
-			this.copyrightInfo.Size = new System.Drawing.Size(1486, 17);
-			this.copyrightInfo.Spring = true;
-			this.copyrightInfo.Text = "© Paulo, Pedro 2019";
-			this.copyrightInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// labelTitle
-			// 
-			this.labelTitle.AutoSize = true;
-			this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelTitle.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTitle.Location = new System.Drawing.Point(3, 0);
-			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(1534, 69);
-			this.labelTitle.TabIndex = 4;
-			this.labelTitle.Text = "Welcome back, User";
-			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Controls.Add(this.labelTitle, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 3;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.827586F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.17242F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1540, 727);
-			this.tableLayoutPanel1.TabIndex = 5;
-			// 
-			// notifyIcon
-			// 
-			this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			this.notifyIcon.BalloonTipText = "Welcome to YACM!";
-			this.notifyIcon.BalloonTipTitle = "YACM";
-			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-			this.notifyIcon.Text = "YACM";
-			this.notifyIcon.Visible = true;
-			// 
 			// tabPageTeams
 			// 
 			this.tabPageTeams.Controls.Add(this.allTeamsList);
@@ -999,6 +939,15 @@
 			this.tabPageTeams.TabIndex = 3;
 			this.tabPageTeams.Text = "Teams";
 			this.tabPageTeams.UseVisualStyleBackColor = true;
+			// 
+			// allTeamsList
+			// 
+			this.allTeamsList.Location = new System.Drawing.Point(3, 29);
+			this.allTeamsList.Name = "allTeamsList";
+			this.allTeamsList.Size = new System.Drawing.Size(1520, 547);
+			this.allTeamsList.TabIndex = 9;
+			this.allTeamsList.UseCompatibleStateImageBehavior = false;
+			this.allTeamsList.View = System.Windows.Forms.View.Details;
 			// 
 			// teamActions
 			// 
@@ -1033,14 +982,81 @@
 			this.refreshTeams.Size = new System.Drawing.Size(73, 20);
 			this.refreshTeams.Text = "Update";
 			// 
-			// allTeamsList
+			// statusStrip
 			// 
-			this.allTeamsList.Location = new System.Drawing.Point(3, 29);
-			this.allTeamsList.Name = "allTeamsList";
-			this.allTeamsList.Size = new System.Drawing.Size(1520, 547);
-			this.allTeamsList.TabIndex = 9;
-			this.allTeamsList.UseCompatibleStateImageBehavior = false;
-			this.allTeamsList.View = System.Windows.Forms.View.Details;
+			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.debugInfo,
+            this.copyrightInfo});
+			this.statusStrip.Location = new System.Drawing.Point(0, 727);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.Size = new System.Drawing.Size(1540, 22);
+			this.statusStrip.TabIndex = 1;
+			this.statusStrip.Text = "statusStrip1";
+			// 
+			// debugInfo
+			// 
+			this.debugInfo.Name = "debugInfo";
+			this.debugInfo.Size = new System.Drawing.Size(39, 17);
+			this.debugInfo.Text = "Ready";
+			// 
+			// copyrightInfo
+			// 
+			this.copyrightInfo.Name = "copyrightInfo";
+			this.copyrightInfo.Size = new System.Drawing.Size(1486, 17);
+			this.copyrightInfo.Spring = true;
+			this.copyrightInfo.Text = "© Paulo, Pedro 2019";
+			this.copyrightInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// labelTitle
+			// 
+			this.labelTitle.AutoSize = true;
+			this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelTitle.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelTitle.ForeColor = System.Drawing.Color.Firebrick;
+			this.labelTitle.Location = new System.Drawing.Point(3, 0);
+			this.labelTitle.Name = "labelTitle";
+			this.labelTitle.Size = new System.Drawing.Size(1534, 69);
+			this.labelTitle.TabIndex = 4;
+			this.labelTitle.Text = "Welcome back, User";
+			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.labelTitle, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 1);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 3;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.827586F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.17242F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1540, 727);
+			this.tableLayoutPanel1.TabIndex = 5;
+			// 
+			// notifyIcon
+			// 
+			this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			this.notifyIcon.BalloonTipText = "Welcome to YACM!";
+			this.notifyIcon.BalloonTipTitle = "YACM";
+			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+			this.notifyIcon.Text = "YACM";
+			this.notifyIcon.Visible = true;
+			// 
+			// labelHelp
+			// 
+			this.labelHelp.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelHelp.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelHelp.ForeColor = System.Drawing.Color.Firebrick;
+			this.labelHelp.Location = new System.Drawing.Point(3, 3);
+			this.labelHelp.Name = "labelHelp";
+			this.labelHelp.Size = new System.Drawing.Size(1006, 543);
+			this.labelHelp.TabIndex = 1;
+			this.labelHelp.Text = "Welcome! \r\nTo manage your event please \r\nselect one of the tabs";
+			this.labelHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// Main
 			// 
@@ -1064,6 +1080,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.eventManagement.ResumeLayout(false);
+			this.Statistics.ResumeLayout(false);
 			this.Equipment.ResumeLayout(false);
 			this.Equipment.PerformLayout();
 			this.equipamentActions.ResumeLayout(false);
@@ -1109,14 +1126,14 @@
 			this.eventsActions.PerformLayout();
 			this.tabPageOtherEvents.ResumeLayout(false);
 			this.tabPageParticipant.ResumeLayout(false);
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
 			this.tabPageTeams.ResumeLayout(false);
 			this.tabPageTeams.PerformLayout();
 			this.teamActions.ResumeLayout(false);
 			this.teamActions.PerformLayout();
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1213,5 +1230,6 @@
 		private System.Windows.Forms.ToolStripMenuItem addTeams;
 		private System.Windows.Forms.ToolStripMenuItem editTeams;
 		private System.Windows.Forms.ToolStripMenuItem refreshTeams;
+		private System.Windows.Forms.Label labelHelp;
 	}
 }

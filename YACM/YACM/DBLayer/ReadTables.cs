@@ -18,10 +18,6 @@ namespace YACM.DBLayer
 			Utils.ReadToListView(cmd, eventsList);
 			Program.db.Close();
 		}
-		
-		public static void ReadStatistics() {
-			// TODO txtNAME.text = value from query
-		}
 
 		public static void ReadUsers(ListView usersList) {
             SqlCommand cmd = new SqlCommand("(SELECT P.id, email, name, 'Manager' as 'type' FROM YACM.[User] AS U JOIN YACM.Manager AS P ON U.id = P.id) UNION (SELECT P.id, email, name, 'Sponsor' as 'type' FROM YACM.[User] AS U JOIN YACM.Sponsor AS P ON U.id = P.id) UNION (SELECT P.id, email, name, 'Participant' as 'type' FROM YACM.[User] AS U JOIN YACM.Participant AS P ON U.id = P.id )", Program.db.Open());
