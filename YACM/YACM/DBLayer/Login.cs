@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -13,26 +14,50 @@ namespace YACM.DBLayer
 
 		internal static void Create(String email, String name, String password, String userType) {
 
-			// TODO Verify if exists
-			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "INSERT YACM.[User] (email, name, password) " + "VALUES (@email, @name, @password) ";
+			SqlCommand cmd = new SqlCommand();
+			cmd.CommandType = CommandType.StoredProcedure;
 			cmd.Parameters.Clear();
 
-			cmd.Parameters.AddWithValue("@email", email);
-			cmd.Parameters.AddWithValue("@name", name);
-			cmd.Parameters.AddWithValue("@password", password);
+			SqlParameter emailParam = new SqlParameter("@email", SqlDbType.VarChar);
+			SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar);
+			SqlParameter passwordParam = new SqlParameter("@password", SqlDbType.VarChar);
+
+			emailParam.Value = email;
+			nameParam.Value = name;
+			passwordParam.Value = password;
+
+			cmd.Parameters.Add(emailParam);
+			cmd.Parameters.Add(nameParam);
+			cmd.Parameters.Add(passwordParam);
+
+			switch (userType) {
+				case "Participant":
+					cmd.CommandText = "dbo.p_CreateParticipant";
+					break;
+				case "Sponsor":
+					cmd.CommandText = "dbo.p_CreateSponsor";
+					break;
+				default: //Manager
+					cmd.CommandText = "dbo.p_CreateManager";
+					break;
+			}
+
 			cmd.Connection = Program.db.Open();
 
 			try {
 				cmd.ExecuteNonQuery();
 			}
 			catch (Exception ex) {
-				MessageBox.Show("Failed to update in database. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Failed to create user. \n Error message: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Program.db.Close();
+				return;
 			}
 			finally {
 				Program.db.Close();
 			}
+
+			MessageBox.Show(userType + " " + name + " created sucessfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 		}
 
