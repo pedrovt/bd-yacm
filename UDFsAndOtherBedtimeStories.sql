@@ -107,7 +107,7 @@ GO
 CREATE PROC dbo.p_CreateTextFile (@eventID int, @content varchar(MAX))
 AS
 	DECLARE @id AS INT;
-	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id;
+	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id OUT;
 	INSERT INTO YACM.TextFile(id,content) VALUES (@id,@content);
 	RETURN 0;
 GO
@@ -117,7 +117,7 @@ GO
 CREATE PROC dbo.p_CreateOtherFile (@eventID int, @path varchar(50))
 AS
 	DECLARE @id AS INT;
-	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id;
+	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id OUT;
 	INSERT INTO YACM.OtherFile(id,[path]) VALUES (@id,@path);
 	RETURN 0;
 GO
@@ -148,3 +148,15 @@ AS
 	DELETE YACM.Participant	WHERE YACM.Participant.id=@id;
 	DELETE YACM.Sponsor		WHERE YACM.Sponsor.id=@id;
 GO
+
+GO
+CREATE FUNCTION dbo.Authenticate(@userEmail varchar(50), @userPassword varchar(50)) RETURNS @RetVal TABLE (id int, email varchar(50), [name] varchar(50), [password] varchar(50), [type] varchar(50))
+AS
+	BEGIN
+		INSERT @RetVal SELECT P.id, email, name, [password], 'Manager' as 'type' FROM YACM.[User] AS U JOIN YACM.Manager AS P ON U.id = P.id WHERE email=@userEmail AND [password]=@userPassword
+		INSERT @RetVal SELECT P.id, email, name, [password], 'Sponsor' as 'type' FROM YACM.[User] AS U JOIN YACM.Sponsor AS P ON U.id = P.id WHERE email=@userEmail AND [password]=@userPassword
+		INSERT @RetVal SELECT P.id, email, name, [password], 'Participant' as 'type' FROM YACM.[User] AS U JOIN YACM.Participant AS P ON U.id = P.id WHERE email=@userEmail AND [password]=@userPassword
+		RETURN;
+	END;
+GO
+SELECT * FROM dbo.Authenticate('paulobvasconcelos@gmail.com','ImTired');
