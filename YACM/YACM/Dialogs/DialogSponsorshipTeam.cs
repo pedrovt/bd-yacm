@@ -71,7 +71,6 @@ namespace YACM
 				
 				//Return to main
 				this.Dispose();
-				
 			}
 		}
 
@@ -119,9 +118,19 @@ namespace YACM
 		}
 
 		public void UnlockControls() {
-			txtSponsorID.Enabled = false;
-			txtTeamName.Enabled = false;
+			if (S.SponsorID == 0) {
+				txtSponsorID.Enabled = true;
+				txtTeamName.Enabled = true;
+			}
+			else {
+				txtSponsorID.Enabled = false;
+				txtTeamName.Enabled = false;
+			}
+			txtSponsorID.ReadOnly = false;
+			txtTeamName.ReadOnly = false;
+
 			txtMonetaryValue.Enabled = true;
+			txtMonetaryValue.ReadOnly = false;
 		}
 
 		private void UpdateButtons(bool create) {

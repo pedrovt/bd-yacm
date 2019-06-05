@@ -39,7 +39,7 @@ namespace YACM
 
 			this.E = E;
 			this.S = S;
-			this.toUpdate = false;
+			this.toUpdate = true;
 			
 			// Show Event Details
 			ShowSponsorshipEvent();
@@ -54,6 +54,7 @@ namespace YACM
 			InitializeComponent();
 			this.E = E;
 			this.S = new SponsorshipEvent();
+			this.toUpdate = false;
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -117,8 +118,11 @@ namespace YACM
 		}
 
 		public void UnlockControls() {
-			txtSponsorID.Enabled = false;
+			if (!toUpdate) txtSponsorID.Enabled = true;
+			else if (toUpdate) txtSponsorID.Enabled = false;
+			txtSponsorID.ReadOnly = false;
 			txtMonetaryValue.Enabled = true;
+			txtMonetaryValue.ReadOnly = false;
 		}
 
 		private void UpdateButtons(bool create) {

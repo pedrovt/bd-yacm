@@ -382,7 +382,7 @@ namespace YACM
 		#region Auxiliar Methods
 		private int GetSelectedID (ListView list) {
 			int index = -1;
-			if (list.SelectedItems != null) {
+			if (list.FocusedItem != null) {
 				ListViewItem firstSelectedItem = list.FocusedItem;
 				index = Convert.ToInt32(firstSelectedItem.SubItems[0].Text.ToString());
 				debugInfo.Text = "Selected ID is " + index;

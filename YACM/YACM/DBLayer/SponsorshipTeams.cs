@@ -37,7 +37,7 @@ namespace YACM.DBLayer
 
             SponsorshipTeam S = new SponsorshipTeam();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.SponsorshipTeam WHERE participantID = @participantID AND teamName = @teamName", Program.db.Open());
+            SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.SponsorshipTeam WHERE sponsorID = @sponsorID AND teamName = @teamName", Program.db.Open());
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@sponsorID", sponsorID);
             cmd.Parameters.AddWithValue("@teamName", teamName);
@@ -46,7 +46,7 @@ namespace YACM.DBLayer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    S.SponsorID = Convert.ToInt32(reader["sponsor"].ToString());
+                    S.SponsorID = Convert.ToInt32(reader["sponsorID"].ToString());
                     S.TeamName = reader["teamName"].ToString();
                     S.MonetaryValue = Convert.ToInt32(reader["monetaryValue"].ToString());
                 }

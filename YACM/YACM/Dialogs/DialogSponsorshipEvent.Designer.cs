@@ -73,7 +73,7 @@
 			this.labelTitle.Name = "labelTitle";
 			this.labelTitle.Size = new System.Drawing.Size(679, 49);
 			this.labelTitle.TabIndex = 212;
-			this.labelTitle.Text = "Event Entry";
+			this.labelTitle.Text = "Event Sponsorship Entry";
 			this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// panelInfo
