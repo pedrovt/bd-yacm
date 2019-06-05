@@ -50,7 +50,6 @@ namespace YACM.DBLayer
 			finally {
 				Program.db.Close();
 			}
-			Program.db.Close();
 			return S; 
 		}
 

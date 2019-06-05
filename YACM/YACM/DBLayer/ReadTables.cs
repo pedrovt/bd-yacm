@@ -182,5 +182,17 @@ namespace YACM.DBLayer
 			documentsList.Show();
 		}
 		
+
+		public static void ReadAllTeams(ListView allTeamsList) {
+			allTeamsList.Hide();
+
+			// Given an event number, return document id, type and content/path
+			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.Team", Program.db.Open());
+			cmd.Parameters.Clear();
+			Utils.ReadToListView(cmd, allTeamsList);
+			Program.db.Close();
+
+			allTeamsList.Show();
+		}
 	}
 }

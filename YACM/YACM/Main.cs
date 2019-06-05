@@ -42,6 +42,7 @@ namespace YACM
 			DBLayer.ReadTables.ReadEventsList(userID, eventsList);
 			DBLayer.ReadTables.ReadUsers(usersList);
             DBLayer.ReadTables.ReadOtherEvents(userID, otherEventList);
+			DBLayer.ReadTables.ReadAllTeams(allTeamsList);
 		}
 
 		#endregion
@@ -231,7 +232,7 @@ namespace YACM
 		}
 
 		private void EditParticipantsOnTeam_Click(object sender, EventArgs e) {
-			if (participantsOnTeamList.SelectedItems != null) {
+			if (participantsOnTeamList.FocusedItem != null) {
 				// Get primary keys
 				ListViewItem firstSelectedItem = participantsOnTeamList.FocusedItem;
 				int participantID = Convert.ToInt32(firstSelectedItem.SubItems[0].Text);
@@ -261,7 +262,7 @@ namespace YACM
 		}
 
 		private void EditSponsorshipTeams_Click(object sender, EventArgs e) {
-			if (sponsorshipTeamsList.SelectedItems != null) {
+			if (sponsorshipTeamsList.FocusedItem != null) {
 				// Get primary keys
 				ListViewItem firstSelectedItem = sponsorshipTeamsList.FocusedItem;
 
@@ -276,7 +277,7 @@ namespace YACM
 		}
 
 		private void EditStages_Click(object sender, EventArgs e) {
-			if (stagesList.SelectedItems != null) {
+			if (stagesList.FocusedItem != null) {
 				// Get primary keys
 				ListViewItem firstSelectedItem = stagesList.FocusedItem;
 				DateTime date = Convert.ToDateTime(firstSelectedItem.SubItems[0].Text);
@@ -291,7 +292,7 @@ namespace YACM
 		}
 
 		private void EditStagesParticipations_Click(object sender, EventArgs e) {
-			if (stagesParticipationsList.SelectedItems != null) {
+			if (stagesParticipationsList.FocusedItem != null) {
 				// Get primary keys
 				ListViewItem firstSelectedItem = stagesParticipationsList.FocusedItem;
 				int participantID = Convert.ToInt32(firstSelectedItem.SubItems[0].Text);
@@ -306,8 +307,8 @@ namespace YACM
 		}
 
 		private void EditTeams_Click(object sender, EventArgs e) {
-			if (teamsList.SelectedItems != null) {
-				ListViewItem firstSelectedItem = teamsList.FocusedItem;
+			if (allTeamsList.FocusedItem != null) {
+				ListViewItem firstSelectedItem = allTeamsList.FocusedItem;
 				string teamName = firstSelectedItem.SubItems[0].Text;
 				Team T = DBLayer.Teams.Read(teamName);
 				DialogTeams dialog = new DialogTeams(E, T);
@@ -368,7 +369,7 @@ namespace YACM
 		}
 
 		private void RefreshTeams_Click(object sender, EventArgs e) {
-			DBLayer.ReadTables.ReadTeams(teamsList, E);
+			DBLayer.ReadTables.ReadAllTeams(allTeamsList);
 		}
 
 		private void RefreshDocuments_Click(object sender, EventArgs e) {

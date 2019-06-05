@@ -10,9 +10,7 @@ using System.Windows.Forms;
 namespace YACM.DBLayer
 {
 	class Documents
-	{
-
-        #region CRUD methods
+	{ 
         internal static void Create(Document D)
         {
 
@@ -74,7 +72,6 @@ namespace YACM.DBLayer
             {
                 Program.db.Close();
             }
-			Program.db.Close();
 
             // Retrieve data from both TextFile or OtherFile table
             // (only one will hit)
@@ -120,7 +117,6 @@ namespace YACM.DBLayer
             {
                 Program.db.Close();
             }
-            Program.db.Close();
 
             return D;
 		}
@@ -224,8 +220,5 @@ namespace YACM.DBLayer
 				Program.db.Close();
 			}
 		}
-
-		#endregion
-
 	}
 }
