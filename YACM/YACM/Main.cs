@@ -41,6 +41,7 @@ namespace YACM
 		private void Main_Load(object sender, EventArgs e) {
 			DBLayer.ReadTables.ReadEventsList(userID, eventsList);
 			DBLayer.ReadTables.ReadUsers(usersList);
+            DBLayer.ReadTables.ReadOtherEvents(userID, otherEventList);
 		}
 
 		#endregion

@@ -12,7 +12,7 @@ namespace YACM.DBLayer
 
 		// TODO FIXME SQL INJECTION ASAP (use template from first method)
 		public static void ReadEventsList(int userID, ListView eventsList) {
-			SqlCommand cmd = new SqlCommand("SELECT number, name, beginningDate, endDate, visibility FROM YACM.Event WHERE managerID=@id", Program.db.Open());
+            SqlCommand cmd = new SqlCommand("SELECT number, name, beginningDate, endDate, visibility FROM YACM.Event WHERE managerID=@id", Program.db.Open());
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@id", userID);
 			Utils.ReadToListView(cmd, eventsList);
@@ -30,7 +30,16 @@ namespace YACM.DBLayer
             Program.db.Close();
         }
 
-		public static void ReadEquipments(ListView equipmentList, Event E) {
+        internal static void ReadOtherEvents(int userID, ListView otherEventList)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT number, name, beginningDate, endDate, visibility FROM YACM.Event WHERE managerID!=@id AND visibility=1", Program.db.Open());
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@id", userID);
+            Utils.ReadToListView(cmd, otherEventList);
+            Program.db.Close();
+        }
+
+        public static void ReadEquipments(ListView equipmentList, Event E) {
 			equipmentList.Hide();
 
             // Given an event number, equipments id, category and participant ID and name for equipment for participants enrolled in the event
