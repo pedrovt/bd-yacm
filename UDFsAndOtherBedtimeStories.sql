@@ -63,7 +63,7 @@ SELECT * FROM dbo.GetEventPrizes(0);
 
 -- UDF to get Teams stats
 GO
-CREATE FUNCTION dbo.GetTeamsStatus(@eventID int) RETURNS @RetVal TABLE (teamName varchar(50), teamBudget int, numberOfAthletes int)
+CREATE FUNCTION dbo.GetTeamsStatus(@eventID int) RETURNS @RetVal TABLE (eventID int, teamName varchar(50), teamBudget int, numberOfAthletes int)
 AS
 	BEGIN
 		INSERT @RetVal SELECT YACM.ParticipantEnrollment.eventNumber,YACM.ParticipantEnrollment.teamName,SUM(YACM.SponsorshipTeam.monetaryValue),COUNT(YACM.ParticipantEnrollment.participantID)
