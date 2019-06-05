@@ -107,7 +107,7 @@ GO
 CREATE PROC dbo.p_CreateTextFile (@eventID int, @content varchar(MAX))
 AS
 	DECLARE @id AS INT;
-	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id;
+	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id OUT;
 	INSERT INTO YACM.TextFile(id,content) VALUES (@id,@content);
 	RETURN 0;
 GO
@@ -117,7 +117,7 @@ GO
 CREATE PROC dbo.p_CreateOtherFile (@eventID int, @path varchar(50))
 AS
 	DECLARE @id AS INT;
-	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id;
+	EXEC dbo.p_CreateDocument @eventNumber=@eventID,@id=@id OUT;
 	INSERT INTO YACM.OtherFile(id,[path]) VALUES (@id,@path);
 	RETURN 0;
 GO

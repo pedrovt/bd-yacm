@@ -18,16 +18,22 @@ namespace YACM.DBLayer
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@eventID", D.EventID);
-            if (D.Type==DocumentType.Other)
+            if (D.Type==DocumentType.Text)
             {
                 cmd.CommandText = "dbo.p_CreateTextFile";
-                cmd.Parameters.AddWithValue("@content", D.Contents);
-            }
+                
+				SqlParameter content = new SqlParameter("@content", SqlDbType.VarChar);
+				content.Value = D.Contents;
+				cmd.Parameters.Add(content);
+			}
             else
             {
                 cmd.CommandText = "dbo.p_CreateOtherFile";
-                cmd.Parameters.AddWithValue("@path", D.Path);
-            }
+
+				SqlParameter path = new SqlParameter("@path", SqlDbType.VarChar);
+				path.Value = D.Path;
+				cmd.Parameters.Add(path);
+			}
             cmd.Connection = Program.db.Open();
             try
             {
