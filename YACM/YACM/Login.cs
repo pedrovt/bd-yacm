@@ -55,7 +55,7 @@ namespace YACM
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void SignupButton_Click(object sender, EventArgs e) {
-			if (userType.SelectedIndex == -1 || instance.SelectedIndex == -1 || email.Text == "" || password.Text == "") {
+			if (userType.SelectedIndex == -1 || instance.SelectedIndex == -1 || email.Text == "" || !email.Text.Contains("@") || password.Text == "" || name.Text == "") {
 				MessageBox.Show("Please fill out all the information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
