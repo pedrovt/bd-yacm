@@ -279,7 +279,7 @@ namespace YACM
 
 		private void EditStagesParticipations_Click(object sender, EventArgs e) {
 
-			StagesParticipant S = null;
+			StageParticipation S = null;
 			DialogStagesParticipations dialog = new DialogStagesParticipations(E, S);
 			dialog.Show();
 		
