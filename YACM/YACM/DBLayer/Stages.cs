@@ -71,7 +71,6 @@ namespace YACM.DBLayer
             
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandText = "UPDATE YACM.Stage SET eventNumber=@eventNumber, distance=@distance WHERE date=@date AND startLocation=@startLocation AND endLocation=@endLocation";
-            cmd.CommandText = "INSERT YACM.Stage (date, startLocation, endLocation, eventNumber, distance) VALUES (@date, @startLocation, @endLocation, @eventNumber, @distance)";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@date", S.Date);
             cmd.Parameters.AddWithValue("@startLocation", S.StartLocation);
