@@ -165,8 +165,13 @@ namespace YACM
 		}
 
 		public void UnlockControls() {
+			if (D.ID == 0) {		// Create
+				txtType.Enabled	= true;
+			}
+			else {
+				txtType.Enabled = false;
+			}
 			txtID.Enabled		= false;
-			txtType.Enabled		= true;
 			txtPath.Enabled		= true;
 			txtContents.Enabled = true;
 		}
