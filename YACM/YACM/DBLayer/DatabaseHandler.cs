@@ -103,7 +103,7 @@ namespace YACM
 				catch (Exception e) {
 					MessageBox.Show("Error connecting to Database: " + e, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					Console.WriteLine("Error connecting to Database: " + e);
-					Application.Exit();		//Critical error
+					Environment.Exit(1);		//Critical error
 				}
 			}
 		}

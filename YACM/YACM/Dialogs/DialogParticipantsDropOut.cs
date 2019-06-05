@@ -24,7 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
-		private readonly User U;
+		private readonly ParticipantDropOut P;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -34,15 +34,15 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogParticipantsDropOut(Event E, User U) {
+		public DialogParticipantsDropOut(Event E, ParticipantDropOut U) {
 			InitializeComponent();
 
 			this.E = E;
-			this.U = U;
+			this.P = U;
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowUser();
+			ShowParticipantDropOut();
 			LockControls();
 			UpdateButtons(false);
 		}
@@ -53,6 +53,7 @@ namespace YACM
 		public DialogParticipantsDropOut(Event E) {
 			InitializeComponent();
 			this.E = E;
+			this.P = new ParticipantDropOut();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -62,11 +63,11 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			//SaveUser();
+			SaveParticipantDropOut();
 			if (canCommit) {
 
 				//if (toUpdate) DBLayer.ParticipantsDropOut.Update(U, E);
-				if (!toUpdate) DBLayer.ParticipantsDropOut.Create(U, E);
+				if (!toUpdate) DBLayer.ParticipantsDropOut.Create(P, E);
 				
 				//Return to main
 				this.Dispose();
@@ -81,7 +82,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.ParticipantsDropOut.Delete(U, E);
+			DBLayer.ParticipantsDropOut.Delete(P, E);
 			this.Dispose();
 		}
 
@@ -92,8 +93,14 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowUser() {
-			txtParticipantID.Text = U.ID.ToString();
+		public void ShowParticipantDropOut() {
+			txtParticipantID.Text = P.ID.ToString();
+		}
+
+		private void SaveParticipantDropOut() {
+			P.ID = Convert.ToInt32(txtParticipantID.Text);
+			P.EventNumber = E.Number;
+			canCommit = true;
 		}
 
 		public void LockControls() {

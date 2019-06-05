@@ -53,7 +53,6 @@ namespace YACM.DBLayer
 			finally {
 				Program.db.Close();
 			}
-			Program.db.Close();
 			return P;
 		}
 
@@ -79,7 +78,6 @@ namespace YACM.DBLayer
 					MessageBox.Show("Updated sucessfully");
 				else
 					MessageBox.Show("Update not sucesfull");
-
 				Program.db.Close();
 			}
 		}

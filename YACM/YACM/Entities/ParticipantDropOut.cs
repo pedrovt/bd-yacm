@@ -8,5 +8,6 @@ namespace YACM
     public class ParticipantDropOut : Participant
     {
 		
+		public int EventNumber { get; set; }
 	}
 }
