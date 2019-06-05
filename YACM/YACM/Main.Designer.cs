@@ -251,7 +251,7 @@
 			this.Equipment.Location = new System.Drawing.Point(4, 22);
 			this.Equipment.Name = "Equipment";
 			this.Equipment.Padding = new System.Windows.Forms.Padding(3);
-			this.Equipment.Size = new System.Drawing.Size(1049, 549);
+			this.Equipment.Size = new System.Drawing.Size(1012, 549);
 			this.Equipment.TabIndex = 1;
 			this.Equipment.Text = "Equipment";
 			this.Equipment.UseVisualStyleBackColor = true;
@@ -261,7 +261,7 @@
 			this.equipmentList.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.equipmentList.Location = new System.Drawing.Point(3, 27);
 			this.equipmentList.Name = "equipmentList";
-			this.equipmentList.Size = new System.Drawing.Size(1043, 519);
+			this.equipmentList.Size = new System.Drawing.Size(1006, 519);
 			this.equipmentList.TabIndex = 4;
 			this.equipmentList.UseCompatibleStateImageBehavior = false;
 			this.equipmentList.View = System.Windows.Forms.View.Details;
@@ -275,7 +275,7 @@
 			this.equipamentActions.Location = new System.Drawing.Point(3, 3);
 			this.equipamentActions.Name = "equipamentActions";
 			this.equipamentActions.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.equipamentActions.Size = new System.Drawing.Size(1043, 24);
+			this.equipamentActions.Size = new System.Drawing.Size(1006, 24);
 			this.equipamentActions.TabIndex = 5;
 			this.equipamentActions.Text = "menuStrip2";
 			// 

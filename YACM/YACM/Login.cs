@@ -41,7 +41,6 @@ namespace YACM
 				MessageBox.Show("Please fill out all the information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-
 			
 			// Connect to Database
 			Console.WriteLine("Chosen Database: " + instance.Text);
@@ -70,7 +69,7 @@ namespace YACM
 			login();
 		}
 
-		private void OpenMainForm(int id, String username, String privileges) {
+		private void OpenMainForm(int id, String username, UserType privileges) {
 			// Run the Main Form
 			Main main = new Main(id, username);
 			this.Hide();
@@ -81,13 +80,19 @@ namespace YACM
 
 		private void login() {
 			// Login
-			Tuple<int, bool, String, String> loginInfo = DBLayer.Login.Read(email.Text, password.Text);
-			if (!loginInfo.Item2) {
+			User U = DBLayer.Login.Read(email.Text, password.Text);
+			if (U == null) {
 				MessageBox.Show("Login Error. Please verify your credentials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			OpenMainForm(loginInfo.Item1, loginInfo.Item3, loginInfo.Item4);
+			if (U.Type == UserType.Manager) {			// only managers can use the app
+				OpenMainForm(U.ID, U.Name, U.Type);
+			}
+			else {
+				MessageBox.Show("Login Sucessful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
 		}
 		
 	}

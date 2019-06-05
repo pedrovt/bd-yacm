@@ -22,8 +22,6 @@ namespace YACM.DBLayer
 			cmd.Parameters.AddWithValue("@email", email);
 			cmd.Parameters.AddWithValue("@name", name);
 			cmd.Parameters.AddWithValue("@password", password);
-
-			// TODO use userType
 			cmd.Connection = Program.db.Open();
 
 			try {
@@ -38,30 +36,41 @@ namespace YACM.DBLayer
 
 		}
 
-		internal static Tuple<int, bool, String, String> Read(String email, String password) {
+		internal static User Read(String email, String password) {
 			Debug.Assert(!email.Equals("") && !password.Equals(""), "Invalid email or password");
 			
-			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.[User] WHERE email = @email AND password = @password", Program.db.Open());
+			SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Authenticate(@userEmail, @userPassword)", Program.db.Open());
 
 			cmd.Parameters.Clear();
-			cmd.Parameters.AddWithValue("@email", email);
-			cmd.Parameters.AddWithValue("@password", password);
+			cmd.Parameters.AddWithValue("@userEmail", email);
+			cmd.Parameters.AddWithValue("@userPassword", password);
 
 			SqlDataReader reader = cmd.ExecuteReader();
-
-			Boolean canLogin = false;
-			int id = -1;
-			String userName = "error";
-			String userType = "none";
+			User U = new User();
+			
 			while (reader.Read()) {
-				id = Convert.ToInt32(reader["id"]);
-				userName = Convert.ToString(reader["name"]);
-				canLogin = true;
+				U.ID = Convert.ToInt32(reader["id"]);
+				U.Name = Convert.ToString(reader["name"]);
+				U.Email = Convert.ToString(reader["email"]);
+				switch (Convert.ToString(reader["type"])) {
+					case "Manager":
+						U.Type = UserType.Manager;
+						break;
+					case "Participant":
+						U.Type = UserType.Participant;
+						break;
+					case "Sponsor":
+						U.Type = UserType.Sponsor;
+						break;
+					default:
+						U.Type = UserType.Manager;
+						break;
+				}
+				Program.db.Close();
+				return U;
 			}
-
 			Program.db.Close();
-
-			return new Tuple<int, bool, String, String>(id, canLogin, userName, userType);
+			return null;	// No authentication
 		}
 
 	}

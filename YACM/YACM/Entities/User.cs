@@ -8,6 +8,11 @@ using System.Diagnostics;
 namespace YACM
 {
 
+	public enum UserType
+	{
+		Manager, Participant, Sponsor
+	}
+
     [Serializable()]
     public class User
     {
@@ -15,6 +20,7 @@ namespace YACM
         private String _email;
         private String _name;
         private String _password;
+		private UserType _type;
         #endregion
 
         #region Getters/Setters
@@ -66,6 +72,11 @@ namespace YACM
                 _password = value;
             }
         }
+
+		public UserType Type {
+			get { return _type; }
+			set { _type = value;  }
+		}
         #endregion
 
         #region ToString
