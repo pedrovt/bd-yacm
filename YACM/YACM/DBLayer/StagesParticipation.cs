@@ -15,5 +15,9 @@ namespace YACM.DBLayer
 		internal static void Delete(StageParticipation s) {
 			throw new NotImplementedException();
 		}
+
+		internal static StageParticipation Read(int participantID, int number, DateTime stageDate, string stageStartLocation, string stageEndLocation) {
+			throw new NotImplementedException();
+		}
 	}
 }

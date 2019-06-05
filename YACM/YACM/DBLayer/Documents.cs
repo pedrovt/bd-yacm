@@ -46,7 +46,7 @@ namespace YACM.DBLayer
 
         }
 
-        internal static Document Read(int id) {
+        internal static Document Read(int id, DocumentType type) {
 			Debug.Assert(id > -1, "Document Index Invalid. Can't Load Document");
 
 			Document D = new Document();

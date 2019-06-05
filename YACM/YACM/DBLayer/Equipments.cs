@@ -11,7 +11,6 @@ namespace YACM.DBLayer
 	class Equipments
 	{
 
-		#region CRUD methods
 		internal static void Create(Equipment EQ) {
 			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
 
@@ -111,10 +110,5 @@ namespace YACM.DBLayer
 				Program.db.Close();
 			}
 		}
-
-		#endregion
-
-		#region Statistics
-		#endregion
 	}
 }

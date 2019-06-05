@@ -253,7 +253,7 @@ namespace YACM
 
 		private void EditSponsorshipEvents_Click(object sender, EventArgs e) {
 			if (GetSelectedID(sponsorshipEventsList) != -1) {
-				SponsorshipEvent S = DBLayer.SponsorshipEvents.Read(GetSelectedID(sponsorshipEventsList));
+				SponsorshipEvent S = DBLayer.SponsorshipEvents.Read(GetSelectedID(sponsorshipEventsList), E.Number);
 				DialogSponsorshipEvent dialog = new DialogSponsorshipEvent(E, S);
 				dialog.Show();
 			}
@@ -262,12 +262,12 @@ namespace YACM
 		private void EditSponsorshipTeams_Click(object sender, EventArgs e) {
 			if (sponsorshipTeamsList.SelectedItems != null) {
 				// Get primary keys
-				ListViewItem firstSelectedItem = stagesList.FocusedItem;
+				ListViewItem firstSelectedItem = sponsorshipTeamsList.FocusedItem;
 
-				//DateTime date = Convert.ToDateTime(firstSelectedItem.SubItems[0].Text);
-				
+				int sponsorID = Convert.ToInt32(firstSelectedItem.SubItems[0].Text);
+				string teamName = firstSelectedItem.SubItems[3].Text;
 
-				SponsorshipTeam S = DBLayer.SponsorshipTeams.Read(0, "");
+				SponsorshipTeam S = DBLayer.SponsorshipTeams.Read(sponsorID, teamName);
 
 				DialogSponsorshipTeam dialog = new DialogSponsorshipTeam(E, S);
 				dialog.Show();
@@ -290,11 +290,18 @@ namespace YACM
 		}
 
 		private void EditStagesParticipations_Click(object sender, EventArgs e) {
+			if (stagesParticipationsList.SelectedItems != null) {
+				// Get primary keys
+				ListViewItem firstSelectedItem = stagesParticipationsList.FocusedItem;
+				int participantID = Convert.ToInt32(firstSelectedItem.SubItems[0].Text);
+				DateTime stageDate = Convert.ToDateTime(firstSelectedItem.SubItems[3].Text);
+				string stageStartLocation = firstSelectedItem.SubItems[4].Text;
+				string stageEndLocation = firstSelectedItem.SubItems[5].Text;
 
-			StageParticipation S = null;
-			DialogStagesParticipations dialog = new DialogStagesParticipations(E, S);
-			dialog.Show();
-		
+				StageParticipation S = DBLayer.StagesParticipation.Read(participantID, E.Number, stageDate, stageStartLocation, stageEndLocation);
+				DialogStagesParticipations dialog = new DialogStagesParticipations(E, S);
+				dialog.Show();
+			}
 		}
 
 		private void EditTeams_Click(object sender, EventArgs e) {
@@ -309,11 +316,9 @@ namespace YACM
 		
 		private void EditDocuments_Click(object sender, EventArgs e) {
 			if (GetSelectedID(documentsList) != -1) {
-				ParseDocumentType(documentsList);
-				Document D = DBLayer.Documents.Read(GetSelectedID(documentsList, type));
+				Document D = DBLayer.Documents.Read(GetSelectedID(documentsList), ParseDocumentType(documentsList));
 				DialogDocuments dialog = new DialogDocuments(E, D);
 				dialog.Show();
-				
 			}
 		}
 
@@ -391,11 +396,10 @@ namespace YACM
 					case "text":
 						return DocumentType.Text;
 					case "other":
-						return DocumentType.Other;	
+						return DocumentType.Other;
 				}
-				return DocumentType.Other;
 			}
-			
+			return DocumentType.Other;
 		}
 		#endregion
 

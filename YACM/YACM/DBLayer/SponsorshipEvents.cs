@@ -4,7 +4,7 @@ namespace YACM.DBLayer
 {
 	internal class SponsorshipEvents
 	{
-		internal static SponsorshipEvent Read(int v) {
+		internal static SponsorshipEvent Read(int sponsorID, int eventNumber) {
 			throw new NotImplementedException();
 		}
 
