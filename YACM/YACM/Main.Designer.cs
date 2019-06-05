@@ -987,6 +987,7 @@
 			this.editTeams.Name = "editTeams";
 			this.editTeams.Size = new System.Drawing.Size(55, 20);
 			this.editTeams.Text = "Edit";
+			this.editTeams.Visible = false;
 			this.editTeams.Click += new System.EventHandler(this.EditTeams_Click);
 			// 
 			// refreshTeams
