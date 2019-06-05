@@ -34,20 +34,9 @@ GO*/
 /*****************
  * CREATE DB	 *
  *****************/
-
-IF EXISTS 
-   (
-     SELECT name FROM master.dbo.sysdatabases 
-    WHERE name = N'YACM'
-    )
-BEGIN
-    SELECT 'Database YACM already Exists' AS Message
-END
-ELSE
-BEGIN
-   IF NOT EXISTS (SELECT name FROM sys.filegroups WHERE is_default=1 AND name = N'PRIMARY') ALTER DATABASE [YACM] MODIFY FILEGROUP [PRIMARY] DEFAULT
-	CREATE DATABASE [YACM]
-END
+GO
+CREATE DATABASE [YACM]
+GO
 
 
 USE YACM;
