@@ -65,8 +65,8 @@ namespace YACM
 			//SaveUser();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Participants.DropOutUpdate(U, E);
-				else DBLayer.Participants.DropOutCreate(U, E);
+				if (toUpdate) DBLayer.ParticipantsDropOut.Update(U, E);
+				else DBLayer.ParticipantsDropOut.Create(U, E);
 				
 				//Return to main
 				this.Dispose();
@@ -81,7 +81,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Participants.DropOutDelete(U, E);
+			DBLayer.ParticipantsDropOut.Delete(U, E);
 			this.Dispose();
 		}
 
