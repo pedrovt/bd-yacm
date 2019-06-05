@@ -19,11 +19,6 @@ namespace YACM.DBLayer
 			Program.db.Close();
 		}
 		
-
-//		public static void ReadEventsListOld(int userID, ListView eventsList) {
-//			Utils.ReadToListView("SELECT number, name, beginningDate, endDate, visibility FROM YACM.Event WHERE managerID=" + userID, eventsList);
-//		}
-
 		public static void ReadStatistics() {
 			// TODO txtNAME.text = value from query
 		}

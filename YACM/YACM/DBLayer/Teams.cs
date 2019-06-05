@@ -10,11 +10,7 @@ namespace YACM.DBLayer
 {
 	class Teams
 	{
-
-		#region CRUD methods
 		internal static void Create(Team T) {
-			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
-
 			SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "INSERT YACM.Team (name) VALUES (@name)";
 			cmd.Parameters.Clear();
@@ -76,8 +72,5 @@ namespace YACM.DBLayer
 				Program.db.Close();
 			}
 		}
-
-		#endregion
-
 	}
 }

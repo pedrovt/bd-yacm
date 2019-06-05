@@ -10,11 +10,7 @@ namespace YACM.DBLayer
 {
 	class Stages
 	{
-
-		#region CRUD methods
 		internal static void Create(Stage S) {
-			// TODO Stored procedure to insert, depending of the type, in the appropriated tables
-
 			SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "INSERT YACM.Stage (date, startLocation, endLocation, eventNumber, distance) VALUES (@date, @startLocation, @endLocation, @eventNumber, @distance)";
             cmd.Parameters.Clear();
@@ -116,8 +112,5 @@ namespace YACM.DBLayer
 				Program.db.Close();
 			}
 		}
-
-		#endregion
-
 	}
 }

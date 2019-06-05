@@ -142,7 +142,5 @@ namespace YACM.DBLayer
                 Program.db.Close();
             }
         }
-        #endregion
-
     }
 }

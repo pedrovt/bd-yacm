@@ -4,15 +4,15 @@ namespace YACM.DBLayer
 {
 	internal class SponsorshipTeams
 	{
-		internal static SponsorshipTeam Read(object sponsorID, object teamName) {
+		internal static void Create(SponsorshipTeam s) {
+			throw new NotImplementedException();
+		}
+
+		internal static SponsorshipTeam Read(int sponsorID, string teamName) {
 			throw new NotImplementedException();
 		}
 
 		internal static void Update(SponsorshipTeam s) {
-			throw new NotImplementedException();
-		}
-
-		internal static void Create(SponsorshipTeam s) {
 			throw new NotImplementedException();
 		}
 
