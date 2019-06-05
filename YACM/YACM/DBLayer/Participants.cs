@@ -157,7 +157,7 @@ namespace YACM.DBLayer
 			cmd.CommandText = "DELETE YACM.ParticipantDropOut WHERE participantID=@id AND eventNumber=@eventID ";
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@id", U.ID);
-			cmd.Parameters.AddWithValue("@id", E.Number);
+			cmd.Parameters.AddWithValue("@eventID", E.Number);
 
 			cmd.Connection = Program.db.Open();
 			try {
