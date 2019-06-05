@@ -8,7 +8,6 @@ namespace YACM.DBLayer
 	internal class ParticipantsDropOut
 	{
 		internal static void Create(User U, Event E) {
-			// Insertion into User Table
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandText = "INSERT YACM.ParticipantDropOut (participantID, eventNumber) VALUES (@id, @eventID)";
 			cmd.Parameters.Clear();
