@@ -34,7 +34,7 @@ namespace YACM.DBLayer
 			SqlCommand cmd = new SqlCommand("SELECT * FROM YACM.ParticipantDropOut WHERE participantID = @participantID AND eventNumber = @eventNumber", Program.db.Open());
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@participantID", participantID);
-			cmd.Parameters.AddWithValue("eventNumber", eventNumber);
+			cmd.Parameters.AddWithValue("@eventNumber", eventNumber);
 			try {
 				SqlDataReader reader = cmd.ExecuteReader();
 				while (reader.Read()) {
@@ -80,8 +80,6 @@ namespace YACM.DBLayer
 		internal static void Delete(User U, Event E) {
 			SqlCommand cmd = new SqlCommand();
 
-			// Deletion is performed only on Table User
-			// Triggers will do the rest
 			cmd.CommandText = "DELETE YACM.ParticipantDropOut WHERE participantID=@id AND eventNumber=@eventID ";
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@id", U.ID);
