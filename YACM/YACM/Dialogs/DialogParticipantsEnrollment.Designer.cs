@@ -158,7 +158,6 @@
 			this.txtDorsal.Location = new System.Drawing.Point(137, 79);
 			this.txtDorsal.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
 			this.txtDorsal.Name = "txtDorsal";
-			this.txtDorsal.PasswordChar = '*';
 			this.txtDorsal.ReadOnly = true;
 			this.txtDorsal.Size = new System.Drawing.Size(370, 22);
 			this.txtDorsal.TabIndex = 202;

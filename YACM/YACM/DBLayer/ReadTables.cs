@@ -67,7 +67,7 @@ namespace YACM.DBLayer
 		public static void ReadParticipantsEnrollment(ListView participantsEnrollmentList, Event E) {
 			participantsEnrollmentList.Hide();
 
-            SqlCommand cmd = new SqlCommand("SELECT id, email, name FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=@eventNumber", Program.db.Open());
+            SqlCommand cmd = new SqlCommand("SELECT id, email, name, teamName, dorsal FROM YACM.[User] JOIN YACM.ParticipantEnrollment ON id=participantID WHERE eventNumber=@eventNumber", Program.db.Open());
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@eventNumber", E.Number);
             Utils.ReadToListView(cmd, participantsEnrollmentList);

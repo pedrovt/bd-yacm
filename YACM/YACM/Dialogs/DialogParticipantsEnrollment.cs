@@ -104,6 +104,7 @@ namespace YACM
 				P.ParticipantID = Convert.ToInt32(txtParticipantID.Text);
 				P.Dorsal = Convert.ToInt32(txtDorsal.Text);
 				P.TeamName = txtTeamName.Text;
+				P.EventNumber = E.Number;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -119,9 +120,12 @@ namespace YACM
 		}
 
 		public void UnlockControls() {
-			txtParticipantID.Enabled = true;
+			txtParticipantID.Enabled = false;
+			txtParticipantID.ReadOnly = false;
 			txtTeamName.Enabled = true;
+			txtTeamName.ReadOnly = false;
 			txtDorsal.Enabled = true;
+			txtDorsal.ReadOnly = false;
 		}
 
 		private void UpdateButtons(bool create) {
