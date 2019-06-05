@@ -42,7 +42,7 @@ namespace YACM
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowEvent();
+			ShowSponsor();
 			LockControls();
 			UpdateButtons(false);
 		}
@@ -64,11 +64,11 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveEvent();
+			SaveSponsor();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.Stages.Update(S);
+				else DBLayer.Stages.Create(S);
 				
 				//Return to main
 				this.Dispose();
@@ -83,7 +83,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.Stages.Delete(S);
 			this.Dispose();
 		}
 
@@ -94,24 +94,20 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowEvent() {
-			txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtBudget.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtName.Text = E.Name;
-			txtManager.Text = E.ManagerID.ToString();
+		public void ShowSponsor() {
+			txtDate.Value = S.Date;
+			txtStart.Text = S.StartLocation;
+			txtEnd.Text = S.EndLocation;
+			txtDistance.Text = S.Distance.ToString();
 		}
 
-		public void SaveEvent() {
+		public void SaveSponsor() {
 			try {
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEndDate.Value;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtName.Text;
-				E.ManagerID = Convert.ToInt32(txtManager.Text);
+				S.Date = Convert.ToDateTime(txtDate.Value);
+				S.StartLocation = txtStart.Text;
+				S.EndLocation = txtEnd.Text;
+				S.Distance = Convert.ToInt32(txtDistance.Text);
+				S.EventID = E.Number;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -121,24 +117,17 @@ namespace YACM
 
 
 		public void LockControls() {
-			txtEndDate.Enabled = false;
-			txtID.Enabled = false;
-			txtBudget.ReadOnly = true;
-			txtVisibility.Enabled = true;
-			txtBeginDate.Enabled = false;
-			txtName.ReadOnly = true;
-			txtManager.ReadOnly = true;
+			txtDate.Enabled = false;
+			txtStart.Enabled = false;
+			txtEnd.Enabled = false;
+			txtDistance.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtEndDate.Enabled = true;
-			txtID.Enabled = false;
-			txtID.Minimum = 0;
-			txtBudget.ReadOnly = false;
-			txtVisibility.Enabled = false;
-			txtBeginDate.Enabled = true;
-			txtName.ReadOnly = false;
-			txtManager.ReadOnly = false;
+			txtDate.Enabled = false;
+			txtStart.Enabled = false;
+			txtEnd.Enabled = false;
+			txtDistance.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {
@@ -163,15 +152,12 @@ namespace YACM
 			}
 		}
 
-		public void ClearFields() {
-			
-			txtEndDate.Text = "";
-			txtID.Value = 0;
-			txtID.Minimum = 0;
-			txtBudget.Text = "";
-			txtVisibility.Text = "";
-			txtBeginDate.Text = "";
-			txtName.Text = "";
+		public void ClearFields() 
+		{
+			txtDate.Text = "";
+			txtStart.Text = "";
+			txtEnd.Text = "";
+			txtDistance.Text = "";
 		}
 
 		#endregion

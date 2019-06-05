@@ -24,7 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
-		private readonly Sponsor S;
+		private readonly SponsorshipEvent S;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -34,7 +34,7 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogSponsorshipEvent(Event E, Sponsor S) {
+		public DialogSponsorshipEvent(Event E, SponsorshipEvent S) {
 			InitializeComponent();
 
 			this.E = E;
@@ -42,7 +42,7 @@ namespace YACM
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowEvent();
+			ShowSponsorshipEvent();
 			LockControls();
 			UpdateButtons(false);
 		}
@@ -53,7 +53,7 @@ namespace YACM
 		public DialogSponsorshipEvent(Event E) {
 			InitializeComponent();
 			this.E = E;
-			this.S = new Sponsor();
+			this.S = new SponsorshipEvent();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -63,11 +63,11 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveEvent();
+			SaveSponsorshipEvent();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.SponsorshipEvents.Update(S);
+				else DBLayer.SponsorshipEvents.Create(S);
 				
 				//Return to main
 				this.Dispose();
@@ -82,7 +82,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.SponsorshipEvents.Delete(S);
 			this.Dispose();
 		}
 
@@ -93,28 +93,16 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowEvent() {
-			/*
-			txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtMonetaryValue.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtSponsorID.Text = E.Name;
-			txtManager.Text = E.ManagerID.ToString();
-			*/
+		public void ShowSponsorshipEvent() {
+			txtSponsorID.Text = S.SponsorID.ToString();
+			txtMonetaryValue.Text = S.MonetaryValue.ToString();
 		}
 
-		public void SaveEvent() {
+		public void SaveSponsorshipEvent() {
 			try {
-				/*
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEndDate.Value;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtSponsorID.Text;
-				E.ManagerID = Convert.ToInt32(txtManager.Text);
-				*/
+				S.SponsorID = Convert.ToInt32(txtSponsorID.Text);
+				S.MonetaryValue = Convert.ToInt32(txtMonetaryValue.Text);
+				S.EventNumber = E.Number;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

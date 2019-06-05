@@ -24,6 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
+		private readonly StageParticipation S;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -33,14 +34,15 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogStagesParticipations(Event E) {
+		public DialogStagesParticipations(Event E, StageParticipation S) {
 			InitializeComponent();
 
 			this.E = E;
+			this.S = S;
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowEvent();
+			ShowStageParticipation();
 			LockControls();
 			UpdateButtons(false);
 		}
@@ -48,9 +50,10 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogStagesParticipations() {
+		public DialogStagesParticipations(Event E) {
 			InitializeComponent();
-			// Add an Event
+			this.E = E;
+			this.S = new StageParticipation();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -60,11 +63,11 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveEvent();
+			SaveStageParticipation();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.StagesParticipation.Update(S);
+				else DBLayer.StagesParticipation.Create(S);
 				
 				//Return to main
 				this.Dispose();
@@ -79,7 +82,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.StagesParticipation.Delete(S);
 			this.Dispose();
 		}
 
@@ -90,24 +93,22 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowEvent() {
-			txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtBudget.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtName.Text = E.Name;
-			txtManager.Text = E.ManagerID.ToString();
+		public void ShowStageParticipation() {
+			txtParticipantID.Text = S.ParticipantID.ToString();
+			txtDate.Value = S.StageDate;
+			txtStartLocation.Text = S.StageStartLocation;
+			txtEndLocation.Text = S.StageEndLocation;
+			txtResult.Text = S.Result;
 		}
 
-		public void SaveEvent() {
+		public void SaveStageParticipation() {
 			try {
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEndDate.Value;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtName.Text;
-				E.ManagerID = Convert.ToInt32(txtManager.Text);
+				S.ParticipantID = Convert.ToInt32(txtParticipantID.Text);
+				S.StageDate = txtDate.Value;
+				S.StageStartLocation = txtStartLocation.Text;
+				S.StageEndLocation = txtEndLocation.Text;
+				S.Result = txtResult.Text;
+				S.EventNumber = E.Number;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -117,24 +118,19 @@ namespace YACM
 
 
 		public void LockControls() {
-			txtEndDate.Enabled = false;
-			txtID.Enabled = false;
-			txtBudget.ReadOnly = true;
-			txtVisibility.Enabled = true;
-			txtBeginDate.Enabled = false;
-			txtName.ReadOnly = true;
-			txtManager.ReadOnly = true;
+			txtParticipantID.Enabled = false;
+			txtDate.Enabled = false;
+			txtStartLocation.Enabled = false;
+			txtEndLocation.Enabled = false;
+			txtResult.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtEndDate.Enabled = true;
-			txtID.Enabled = false;
-			txtID.Minimum = 0;
-			txtBudget.ReadOnly = false;
-			txtVisibility.Enabled = false;
-			txtBeginDate.Enabled = true;
-			txtName.ReadOnly = false;
-			txtManager.ReadOnly = false;
+			txtParticipantID.Enabled = false;
+			txtDate.Enabled = false;
+			txtStartLocation.Enabled = false;
+			txtEndLocation.Enabled = false;
+			txtResult.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {
@@ -159,15 +155,13 @@ namespace YACM
 			}
 		}
 
-		public void ClearFields() {
-			
-			txtEndDate.Text = "";
-			txtID.Value = 0;
-			txtID.Minimum = 0;
-			txtBudget.Text = "";
-			txtVisibility.Text = "";
-			txtBeginDate.Text = "";
-			txtName.Text = "";
+		public void ClearFields() 
+		{	
+			txtParticipantID.Text = "";
+			txtDate.Text = "";
+			txtStartLocation.Text = "";
+			txtEndLocation.Text = "";
+			txtResult.Text = "";
 		}
 
 		#endregion

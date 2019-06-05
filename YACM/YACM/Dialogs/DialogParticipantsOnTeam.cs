@@ -24,7 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
-		private readonly User U;
+		private readonly ParticipantOnTeam P;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -34,11 +34,11 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogParticipantsOnTeam(Event E, User U) {
+		public DialogParticipantsOnTeam(Event E, ParticipantOnTeam P) {
 			InitializeComponent();
 
 			this.E = E;
-			this.U = U;
+			this.P = P;
 			this.toUpdate = false;
 			
 			// Show Event Details
@@ -53,6 +53,7 @@ namespace YACM
 		public DialogParticipantsOnTeam(Event E) {
 			InitializeComponent();
 			this.E = E;
+			this.P = new ParticipantOnTeam();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -65,8 +66,8 @@ namespace YACM
 			SaveUser();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.ParticipantsOnTeam.Update(P);
+				else DBLayer.ParticipantsOnTeam.Create(P);
 				
 				//Return to main
 				this.Dispose();
@@ -81,7 +82,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.ParticipantsOnTeam.Delete(P);
 			this.Dispose();
 		}
 
@@ -93,27 +94,18 @@ namespace YACM
 		
 		#region Auxilar Methods
 		public void ShowEvent() {
-			/*
-			txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtPassword.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtEmail.Text = E.Name;
-			txtName.Text = E.ManagerID.ToString();
-			*/
+			txtParticipantID.Text = P.ParticipantID.ToString();
+			start.Value = P.StartDate;
+			end.Value = P.EndDate;
+			txtTeamName.Text = P.TeamName;
 		}
 
 		public void SaveUser() {
 			try {
-				/*
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEmail.Text;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtEmail.Text;
-				E.ManagerID = Convert.ToInt32(txtName.Text);
-				*/
+				P.ParticipantID = Convert.ToInt32(txtParticipantID.Text);
+				P.StartDate = start.Value;
+				P.EndDate = end.Value;
+				P.TeamName = txtTeamName.Text;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

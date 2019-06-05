@@ -66,8 +66,8 @@ namespace YACM
 			SaveUser();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.ParticipantsEnrollments.Update(P);
+				else DBLayer.ParticipantsEnrollments.Create(P);
 				
 				//Return to main
 				this.Dispose();
@@ -82,7 +82,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.ParticipantsEnrollments.Delete(P);
 			this.Dispose();
 		}
 

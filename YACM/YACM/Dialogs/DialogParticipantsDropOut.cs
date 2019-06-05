@@ -62,7 +62,7 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveUser();
+			//SaveUser();
 			if (canCommit) {
 
 				if (toUpdate) DBLayer.Participants.DropOutUpdate(U, E);
@@ -95,24 +95,6 @@ namespace YACM
 		public void ShowUser() {
 			txtParticipantID.Text = U.ID.ToString();
 		}
-
-		public void SaveUser() {
-			try {
-				/*
-				E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEmail.Text;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtEmail.Text;
-				E.ManagerID = Convert.ToInt32(txtName.Text);
-				*/
-				canCommit = true;
-			} catch (Exception) {
-				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				canCommit = false;
-			}
-		}
-
 
 		public void LockControls() {
 			txtParticipantID.Enabled = false;

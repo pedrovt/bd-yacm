@@ -24,7 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
-		private readonly Sponsor S;
+		private readonly SponsorshipTeam S;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -34,7 +34,7 @@ namespace YACM
 		/// Constructor for a Dialog for an Existing Event
 		/// </summary>
 		/// <param name="E">Event</param>
-		public DialogSponsorshipTeam(Event E, Sponsor S) {
+		public DialogSponsorshipTeam(Event E, SponsorshipTeam S) {
 			InitializeComponent();
 
 			this.E = E;
@@ -42,7 +42,7 @@ namespace YACM
 			this.toUpdate = false;
 			
 			// Show Event Details
-			ShowEvent();
+			ShowSponsorshipTeam();
 			LockControls();
 			UpdateButtons(false);
 		}
@@ -53,7 +53,7 @@ namespace YACM
 		public DialogSponsorshipTeam(Event E) {
 			InitializeComponent();
 			this.E = E;
-			this.S = new Sponsor();
+			this.S = new SponsorshipTeam();
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -63,11 +63,11 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveEvent();
+			SaveSponsorshipTeam();
 			if (canCommit) {
 
-				if (toUpdate) DBLayer.Events.Update(E);
-				else DBLayer.Events.Create(E);
+				if (toUpdate) DBLayer.SponsorshipTeams.Update(S);
+				else DBLayer.SponsorshipTeams.Create(S);
 				
 				//Return to main
 				this.Dispose();
@@ -82,7 +82,7 @@ namespace YACM
 		}
 
 		private void BttnDelete_Click(object sender, EventArgs e) {
-			DBLayer.Events.Delete(E);
+			DBLayer.SponsorshipTeams.Delete(S);
 			this.Dispose();
 		}
 
@@ -93,26 +93,17 @@ namespace YACM
 		#endregion
 		
 		#region Auxilar Methods
-		public void ShowEvent() {
-			/*txtEndDate.Value = E.EndDate;
-			txtID.Text = E.Number.ToString();
-			txtMonetaryValue.Text = "-1"; //TODO
-			txtVisibility.Checked = E.Visibility;
-			txtBeginDate.Value = E.BeginningDate;
-			txtSponsorID.Text = E.Name;
-			txtTeamName.Text = E.ManagerID.ToString();
-			*/
+		public void ShowSponsorshipTeam() {
+			txtSponsorID.Text = S.SponsorID.ToString();
+			txtMonetaryValue.Text = S.MonetaryValue.ToString();
+			txtTeamName.Text = S.TeamName;
 		}
 
-		public void SaveEvent() {
+		public void SaveSponsorshipTeam() {
 			try {
-				/*E.Number = Convert.ToInt32(txtID.Value);
-				E.EndDate = txtEndDate.Value;
-				E.Visibility = txtVisibility.Checked;
-				E.BeginningDate = txtBeginDate.Value;
-				E.Name = txtSponsorID.Text;
-				E.ManagerID = Convert.ToInt32(txtTeamName.Text);
-				*/
+				S.SponsorID = Convert.ToInt32(txtSponsorID.Text);
+				S.MonetaryValue = Convert.ToDouble(txtMonetaryValue.Text);
+				S.TeamName = txtTeamName.Text;
 				canCommit = true;
 			} catch (Exception) {
 				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

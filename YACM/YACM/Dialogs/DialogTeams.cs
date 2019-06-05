@@ -61,7 +61,7 @@ namespace YACM
 
 		#region Event Handlers
 		private void BttnOK_Click(object sender, EventArgs e) {
-			SaveParticipant();
+			SaveTeam();
 			if (canCommit) {
 
 				//if (toUpdate) DBLayer.Teams.Update(T);
@@ -96,7 +96,7 @@ namespace YACM
 			txtName.Text = T.Name;
 		}
 
-		public void SaveParticipant() {
+		public void SaveTeam() {
 			try {
 				T.Name = txtName.Text;
 				canCommit = true;
