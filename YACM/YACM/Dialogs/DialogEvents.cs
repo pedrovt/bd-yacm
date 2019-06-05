@@ -24,6 +24,7 @@ namespace YACM
 
 		#region Instance Fields
 		private readonly Event E;
+		private int managerID;
 		private bool toUpdate;
 		private bool canCommit;
 		#endregion
@@ -37,6 +38,7 @@ namespace YACM
 			InitializeComponent();
 
 			this.E = E;
+			managerID = E.ManagerID;
 			this.toUpdate = false;
 			
 			// Show Event Details
@@ -48,9 +50,11 @@ namespace YACM
 		/// <summary>
 		/// Constructor for a Dialog to create a new Event
 		/// </summary>
-		public DialogEvents() {
+		public DialogEvents(int managerID) {
 			InitializeComponent();
 			// Add an Event
+			this.E = new Event();
+			this.managerID = managerID;
 			ClearFields();
 			UnlockControls();
 			UpdateButtons(true);
@@ -97,7 +101,6 @@ namespace YACM
 			txtVisibility.Checked = E.Visibility;
 			txtBeginDate.Value = E.BeginningDate;
 			txtName.Text = E.Name;
-			txtManager.Text = E.ManagerID.ToString();
 		}
 
 		public void SaveEvent() {
@@ -107,34 +110,31 @@ namespace YACM
 				E.Visibility = txtVisibility.Checked;
 				E.BeginningDate = txtBeginDate.Value;
 				E.Name = txtName.Text;
-				E.ManagerID = Convert.ToInt32(txtManager.Text);
+				E.ManagerID = this.managerID;
 				canCommit = true;
-			} catch (Exception) {
-				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			} catch (Exception e) {
+				MessageBox.Show("Error while saving entry. Please check if you added all the required info in the right format " + e , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				canCommit = false;
 			}
 		}
 
 
 		public void LockControls() {
-			txtEndDate.Enabled = false;
 			txtID.Enabled = false;
-			//txtBudget.ReadOnly = true;
-			txtVisibility.Enabled = true;
+			txtName.Enabled = false;
+			txtName.ReadOnly = false;
 			txtBeginDate.Enabled = false;
-			txtName.ReadOnly = true;
-			txtManager.ReadOnly = true;
+			txtEndDate.Enabled = false;
+			txtVisibility.Enabled = false;
 		}
 
 		public void UnlockControls() {
-			txtEndDate.Enabled = true;
 			txtID.Enabled = false;
-			txtID.Minimum = 0;
-			//txtBudget.ReadOnly = false;
-			txtVisibility.Enabled = false;
-			txtBeginDate.Enabled = true;
+			txtName.Enabled = true;
 			txtName.ReadOnly = false;
-			txtManager.ReadOnly = false;
+			txtBeginDate.Enabled = true;
+			txtEndDate.Enabled = true;
+			txtVisibility.Enabled = true;
 		}
 
 		private void UpdateButtons(bool create) {

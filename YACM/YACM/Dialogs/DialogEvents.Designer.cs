@@ -31,12 +31,10 @@
 			this.panelInfo = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.Label11 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
 			this.Label1 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.Label3 = new System.Windows.Forms.Label();
 			this.Label2 = new System.Windows.Forms.Label();
-			this.txtManager = new System.Windows.Forms.TextBox();
 			this.txtID = new System.Windows.Forms.NumericUpDown();
 			this.txtVisibility = new System.Windows.Forms.CheckBox();
 			this.txtName = new System.Windows.Forms.TextBox();
@@ -100,12 +98,10 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.61933F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.38067F));
 			this.tableLayoutPanel2.Controls.Add(this.Label11, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 5);
 			this.tableLayoutPanel2.Controls.Add(this.Label1, 0, 1);
 			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 3);
 			this.tableLayoutPanel2.Controls.Add(this.Label3, 0, 4);
 			this.tableLayoutPanel2.Controls.Add(this.Label2, 0, 2);
-			this.tableLayoutPanel2.Controls.Add(this.txtManager, 1, 5);
 			this.tableLayoutPanel2.Controls.Add(this.txtID, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.txtVisibility, 1, 4);
 			this.tableLayoutPanel2.Controls.Add(this.txtName, 1, 1);
@@ -134,17 +130,6 @@
 			this.Label11.Size = new System.Drawing.Size(128, 22);
 			this.Label11.TabIndex = 208;
 			this.Label11.Text = "ID";
-			// 
-			// label4
-			// 
-			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.label4.Location = new System.Drawing.Point(3, 132);
-			this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(128, 22);
-			this.label4.TabIndex = 214;
-			this.label4.Text = "Manager";
 			// 
 			// Label1
 			// 
@@ -189,16 +174,6 @@
 			this.Label2.Size = new System.Drawing.Size(128, 22);
 			this.Label2.TabIndex = 197;
 			this.Label2.Text = "&Begin Date";
-			// 
-			// txtManager
-			// 
-			this.txtManager.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtManager.Location = new System.Drawing.Point(137, 130);
-			this.txtManager.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtManager.Name = "txtManager";
-			this.txtManager.ReadOnly = true;
-			this.txtManager.Size = new System.Drawing.Size(370, 22);
-			this.txtManager.TabIndex = 215;
 			// 
 			// txtID
 			// 
@@ -362,8 +337,6 @@
 		private System.Windows.Forms.Button bttnDelete;
 		private System.Windows.Forms.DateTimePicker txtBeginDate;
 		private System.Windows.Forms.DateTimePicker txtEndDate;
-		internal System.Windows.Forms.Label label4;
-		internal System.Windows.Forms.TextBox txtManager;
 		private System.Windows.Forms.CheckBox txtVisibility;
 		private System.Windows.Forms.NumericUpDown txtID;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

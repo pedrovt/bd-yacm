@@ -142,7 +142,7 @@ namespace YACM
 		// Add, Edit, Refresh Buttons
 		#region Add Buttons
 		private void AddEvent_Click(object sender, EventArgs e) {
-			DialogEvents dialog = new DialogEvents();
+			DialogEvents dialog = new DialogEvents(userID);
 			dialog.Show();
 		}
 

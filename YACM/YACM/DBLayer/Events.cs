@@ -15,10 +15,8 @@ namespace YACM.DBLayer
 		internal static void Create(Event E) {
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "INSERT YACM.Event (number, name, beginningDate, endDate, visibility, managerID) " + "VALUES (@number, @name, @beginningDate, @endDate, @visibility, @managerID) ";
+			cmd.CommandText = "INSERT YACM.Event (name, beginningDate, endDate, visibility, managerID) " + "VALUES (@name, @beginningDate, @endDate, @visibility, @managerID) ";
 			cmd.Parameters.Clear();
-
-			cmd.Parameters.AddWithValue("@number", E.Number);
 			cmd.Parameters.AddWithValue("@name", E.Name);
 			cmd.Parameters.AddWithValue("@beginningDate", E.BeginningDate);
 			cmd.Parameters.AddWithValue("@endDate", E.EndDate);
@@ -70,7 +68,7 @@ namespace YACM.DBLayer
 
 			SqlCommand cmd = new SqlCommand();
 
-			cmd.CommandText = "UPDATE YACM.Event " + "SET number = @number, " + "    name = @name, " + "    beginningDate = @beginningDate, " + "    endDate = @endDate, " + "    visibility = @visibility, " + "    managerID = @managerID " + "WHERE number = @number";
+			cmd.CommandText = "UPDATE YACM.Event SET name = @name, beginningDate = @beginningDate, endDate = @endDate, visibility = @visibility, managerID = @managerID WHERE number = @number";
 			cmd.Parameters.Clear();
 			cmd.Parameters.AddWithValue("@number", E.Number);
 			cmd.Parameters.AddWithValue("@name", E.Name);
