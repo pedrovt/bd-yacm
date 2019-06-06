@@ -43,6 +43,7 @@ namespace YACM
 			DBLayer.ReadTables.ReadUsers(usersList);
             DBLayer.ReadTables.ReadOtherEvents(userID, otherEventList);
 			DBLayer.ReadTables.ReadAllTeams(allTeamsList);
+			DBLayer.ReadTables.ReadParticipantsOnTeam(participantsOnTeamList, E);
 		}
 
 		#endregion
@@ -67,18 +68,18 @@ namespace YACM
 			// Read Event Details
 			eventManagement.Show();
 			EventManagement_SelectedIndexChanged(sender, e);		// Update
-			ReadAbout();
+			ReadHelp();
 		}
 
-		public void ReadAbout() {
+		public void ReadHelp() {
 			labelHelp.Text = "Welcome to " + E.Name + "!\nTo manage your event please select one of the tabs";
 		}
 
 		private void EventManagement_SelectedIndexChanged(object sender, EventArgs e) {
 			switch (eventManagement.SelectedIndex) {
-				case 0:                 // About
-					Console.WriteLine("Selected About");
-					ReadAbout();
+				case 0:                 // Help
+					Console.WriteLine("Selected Help");
+					ReadHelp();
 					break;
 				case 1:                 // Equipment
 					Console.WriteLine("Selected Equipment");
@@ -92,9 +93,9 @@ namespace YACM
 					Console.WriteLine("Selected Enrolled Participants");
 					DBLayer.ReadTables.ReadParticipantsEnrollment(participantsEnrollmentList, E);
 					break;
-				case 4:					// Participants on Team
-					Console.WriteLine("Selected On Team Participants");
-					DBLayer.ReadTables.ReadParticipantsOnTeam(participantsOnTeamList, E);
+				case 4:                 // Teams
+					Console.WriteLine("Selected Teams");
+					DBLayer.ReadTables.ReadTeams(teamsList, E);
 					break;
 				case 5:                 // Prizes
 					Console.WriteLine("Selected Prizes");
@@ -116,11 +117,7 @@ namespace YACM
 					Console.WriteLine("Selected Stage Participations");
 					DBLayer.ReadTables.ReadStagesParticipations(stagesParticipationsList, E);
 					break;
-				case 10:                 // Teams
-					Console.WriteLine("Selected Teams");
-					DBLayer.ReadTables.ReadTeams(teamsList, E);
-					break;
-				case 11:                 // Documents
+				case 10:                 // Documents
 					Console.WriteLine("Selected Documents");
 					DBLayer.ReadTables.ReadDocuments(documentsList, E);
 					break;

@@ -76,9 +76,8 @@ namespace YACM.DBLayer
 			participantsOnTeamList.Hide();
 
             // Given an event number, return id, email, name, team info, start date and end date
-            SqlCommand cmd = new SqlCommand("SELECT participantID, email, name, teamName, startDate, endDate FROM (SELECT id, email, name FROM YACM.[User] AS U LEFT OUTER JOIN (SELECT * FROM YACM.ParticipantEnrollment WHERE eventNumber=@eventNumber) AS P ON P.participantID = U.id WHERE participantID IS NOT NULL) AS U JOIN YACM.ParticipantOnTeam AS P ON U.id=P.participantID", Program.db.Open());
+            SqlCommand cmd = new SqlCommand("SELECT participantID, email, name, teamName, startDate, endDate FROM YACM.[User] AS U JOIN YACM.ParticipantOnTeam AS P ON U.id=P.participantID", Program.db.Open());
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@eventNumber", E.Number);
             Utils.ReadToListView(cmd, participantsOnTeamList);
             Program.db.Close();
 

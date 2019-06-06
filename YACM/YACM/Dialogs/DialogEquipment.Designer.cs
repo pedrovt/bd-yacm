@@ -34,9 +34,9 @@
 			this.Label1 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.Label2 = new System.Windows.Forms.Label();
-			this.txtCategory = new System.Windows.Forms.TextBox();
 			this.txtID = new System.Windows.Forms.NumericUpDown();
 			this.txtParticipant = new System.Windows.Forms.TextBox();
+			this.txtCategory = new System.Windows.Forms.TextBox();
 			this.txtDescription = new System.Windows.Forms.TextBox();
 			this.panelButtons = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -160,16 +160,6 @@
 			this.Label2.TabIndex = 197;
 			this.Label2.Text = "Category";
 			// 
-			// txtCategory
-			// 
-			this.txtCategory.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.txtCategory.Location = new System.Drawing.Point(137, 55);
-			this.txtCategory.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-			this.txtCategory.Name = "txtCategory";
-			this.txtCategory.ReadOnly = true;
-			this.txtCategory.Size = new System.Drawing.Size(370, 22);
-			this.txtCategory.TabIndex = 215;
-			// 
 			// txtID
 			// 
 			this.txtID.Location = new System.Drawing.Point(137, 3);
@@ -185,6 +175,16 @@
 			this.txtParticipant.ReadOnly = true;
 			this.txtParticipant.Size = new System.Drawing.Size(370, 22);
 			this.txtParticipant.TabIndex = 196;
+			// 
+			// txtCategory
+			// 
+			this.txtCategory.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.txtCategory.Location = new System.Drawing.Point(137, 55);
+			this.txtCategory.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+			this.txtCategory.Name = "txtCategory";
+			this.txtCategory.ReadOnly = true;
+			this.txtCategory.Size = new System.Drawing.Size(370, 22);
+			this.txtCategory.TabIndex = 215;
 			// 
 			// txtDescription
 			// 
@@ -282,8 +282,9 @@
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(685, 336);
 			this.Controls.Add(this.tableLayoutPanel);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "DialogEquipment";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;

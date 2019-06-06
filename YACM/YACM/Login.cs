@@ -24,11 +24,10 @@ namespace YACM
 			InitializeComponent();
 
 			// Default values
-			email.Text = "user@ua.pt";
-			password.Text = "user";
+			email.Text = "carlos.costa@ua.pt";
+			password.Text = "Porto4Ever";
 			userType.SelectedIndex = 0;
-			instance.SelectedIndex = 1;
-
+			instance.SelectedIndex = 0;
 		}
 
 		/// <summary>

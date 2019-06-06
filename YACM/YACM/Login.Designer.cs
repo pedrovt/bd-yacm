@@ -207,7 +207,7 @@
 			this.email.Location = new System.Drawing.Point(3, 33);
 			this.email.Name = "email";
 			this.email.Size = new System.Drawing.Size(422, 20);
-			this.email.TabIndex = 2;
+			this.email.TabIndex = 0;
 			// 
 			// password
 			// 
@@ -219,7 +219,7 @@
 			this.password.Name = "password";
 			this.password.PasswordChar = '*';
 			this.password.Size = new System.Drawing.Size(422, 20);
-			this.password.TabIndex = 4;
+			this.password.TabIndex = 1;
 			// 
 			// name
 			// 
@@ -231,7 +231,7 @@
 			this.name.Location = new System.Drawing.Point(3, 213);
 			this.name.Name = "name";
 			this.name.Size = new System.Drawing.Size(422, 20);
-			this.name.TabIndex = 10;
+			this.name.TabIndex = 3;
 			// 
 			// userType
 			// 
@@ -245,7 +245,7 @@
 			this.userType.Location = new System.Drawing.Point(3, 153);
 			this.userType.Name = "userType";
 			this.userType.Size = new System.Drawing.Size(422, 21);
-			this.userType.TabIndex = 7;
+			this.userType.TabIndex = 2;
 			// 
 			// instance
 			// 
@@ -260,7 +260,7 @@
 			this.instance.Location = new System.Drawing.Point(3, 273);
 			this.instance.Name = "instance";
 			this.instance.Size = new System.Drawing.Size(422, 21);
-			this.instance.TabIndex = 6;
+			this.instance.TabIndex = 4;
 			// 
 			// tableLayoutPanel3
 			// 
